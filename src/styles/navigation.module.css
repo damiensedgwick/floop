@@ -1,6 +1,10 @@
 .navigation {
     padding: 1rem;
     width: fit-content;
+    display: flex;
+    flex-direction: column;
+    justify-content: space-between;
+    align-items: center;
     box-shadow: rgba(9, 30, 66, 0.25) 0 4px 8px -2px, rgba(9, 30, 66, 0.08) 0 0 0 1px;
 }
 
@@ -8,6 +12,15 @@
     border-bottom: solid 2px var(--color-teal-500);
 }
 
-.navigationListItem {
-    margin: 1rem auto;
+.item {
+    margin: 1.5rem auto;
+    text-align: center;
+}
+
+.link {
+    font-size: 2rem;
+}
+
+.link:hover {
+    color: var(--color-teal-500);
 }
