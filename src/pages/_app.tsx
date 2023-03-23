@@ -1,7 +1,7 @@
 import type { AppProps } from "next/app";
 import { useRouter } from "next/router";
 import { AuthProvider } from "@/hooks/useAuth";
-import ProtectedRoute from "@/components/protected-route";
+import { ProtectedRoute } from "@/components/protected-route";
 import "@/styles/globals.css";
 
 const protectedRoutes = [

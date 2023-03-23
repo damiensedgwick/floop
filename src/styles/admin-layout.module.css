@@ -1,0 +1,11 @@
+.layout {
+    height: 100vh;
+    width: 100%;
+    display: flex;
+    flex-direction: row;
+}
+
+.page {
+    width: 100%;
+    padding: 1rem;
+}
