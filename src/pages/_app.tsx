@@ -4,14 +4,7 @@ import { AuthProvider } from "@/hooks/useAuth";
 import { ProtectedRoute } from "@/components/protected-route";
 import "@/styles/globals.css";
 
-const protectedRoutes = [
-  "/",
-  "/dashboard",
-  "/dashboard/feedback",
-  "/dashboard/issues",
-  "/dashboard/users",
-  "/profile",
-];
+const protectedRoutes = ["/", "/feedback", "/issues", "/users", "/profile"];
 
 export default function App({ Component, pageProps }: AppProps) {
   const router = useRouter();

@@ -1,5 +1,5 @@
 import Head from "next/head";
-import { GlobalLayout } from "@/components/layout";
+import { AdminLayout, GlobalLayout } from "@/components/layout";
 
 export default function Home() {
   return (
@@ -14,9 +14,9 @@ export default function Home() {
         <link rel="icon" href="/favicon.ico" />
       </Head>
 
-      <main>
-        <h1>Floop</h1>
-      </main>
+      <AdminLayout>
+        <h1>Dashboard</h1>
+      </AdminLayout>
     </GlobalLayout>
   );
 }
