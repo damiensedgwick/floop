@@ -1,7 +1,11 @@
 import Head from "next/head";
-import { GlobalLayout } from "@/components/layout";
+import type { NextPage } from "next";
+import { AdminLayout, GlobalLayout } from "@/components/layout";
+import { useAuth } from "@/hooks/useAuth";
 
-export default function Home() {
+const Users: NextPage = () => {
+  const { logout } = useAuth();
+
   return (
     <GlobalLayout>
       <Head>
@@ -14,9 +18,12 @@ export default function Home() {
         <link rel="icon" href="/favicon.ico" />
       </Head>
 
-      <main>
-        <h1>Floop</h1>
-      </main>
+      <AdminLayout>
+        <h1>Users</h1>
+        <button onClick={logout}>Logout</button>
+      </AdminLayout>
     </GlobalLayout>
   );
-}
+};
+
+export default Users;

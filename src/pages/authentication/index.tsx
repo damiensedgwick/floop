@@ -1,9 +1,10 @@
+import Head from "next/head";
 import type { NextPage } from "next";
-import { FormEvent, useState } from "react";
-import { Layout } from "@/components/layout";
+import { useState } from "react";
 import { useAuth } from "@/hooks/useAuth";
-import styles from "@/styles/Authentication.module.css";
 import { useRouter } from "next/router";
+import { GlobalLayout } from "@/components/layout";
+import styles from "@/styles/authentication.module.css";
 
 const Login: NextPage = () => {
   const router = useRouter();
@@ -11,7 +12,17 @@ const Login: NextPage = () => {
   const { register, login } = useAuth();
 
   return (
-    <Layout>
+    <GlobalLayout>
+      <Head>
+        <title>Floop | A feedback loop for your product</title>
+        <meta
+          name="description"
+          content="Floop enables your users to submit a rating and feedback, as well as issues for your product."
+        />
+        <meta name="viewport" content="width=device-width, initial-scale=1" />
+        <link rel="icon" href="/favicon.ico" />
+      </Head>
+
       <main className={styles.main}>
         <form
           className={styles.form}
@@ -78,7 +89,7 @@ const Login: NextPage = () => {
           </div>
         </form>
       </main>
-    </Layout>
+    </GlobalLayout>
   );
 };
 

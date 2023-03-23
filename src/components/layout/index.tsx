@@ -1,5 +1,4 @@
-import { ReactNode } from "react";
+import { GlobalLayout } from "./global";
+import { AdminLayout } from "./admin";
 
-export const Layout = ({ children }: { children: ReactNode }) => {
-  return <div>{children}</div>;
-};
+export { GlobalLayout, AdminLayout };
