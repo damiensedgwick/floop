@@ -1,11 +1,8 @@
 import Head from "next/head";
 import type { NextPage } from "next";
 import { AdminLayout, GlobalLayout } from "@/components/layout";
-import { useAuth } from "@/hooks/useAuth";
 
 const Users: NextPage = () => {
-  const { logout } = useAuth();
-
   return (
     <GlobalLayout>
       <Head>
@@ -20,7 +17,6 @@ const Users: NextPage = () => {
 
       <AdminLayout>
         <h1>Users</h1>
-        <button onClick={logout}>Logout</button>
       </AdminLayout>
     </GlobalLayout>
   );

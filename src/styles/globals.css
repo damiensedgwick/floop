@@ -48,8 +48,10 @@ html, body {
 }
 
 h1, h2, h3, h4, h5, h6 {
+    padding: 0 0 0.75rem 0;
     font-size: var(--font-size-header);
     font-weight: 600;
+    border-bottom: solid 2px var(--color-teal-500);
 }
 
 ul {
