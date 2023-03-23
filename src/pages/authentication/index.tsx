@@ -35,10 +35,10 @@ const Login: NextPage = () => {
             try {
               if (existingUser) {
                 await login(email, password);
-                await router.push("/dashboard");
+                await router.push("/");
               } else {
                 await register(email, password);
-                await router.push("/dashboard");
+                await router.push("/");
               }
             } catch (error) {
               console.error(error);

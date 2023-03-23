@@ -1,27 +1,38 @@
+.navigation {
+    padding: 1rem;
+    width: fit-content;
+    display: flex;
+    flex-direction: column;
+    justify-content: space-between;
+    align-items: center;
+    box-shadow: rgba(9, 30, 66, 0.25) 0 4px 8px -2px, rgba(9, 30, 66, 0.08) 0 0 0 1px;
+}
 
 .brand {
-    display: none;
+    display: block;
+    border-bottom: solid 2px var(--color-teal-500);
 }
 
 .list {
     width: 100%;
-    padding: 1rem 0;
+    padding: 0;
+    margin: 1rem 0 0 0;
     display: flex;
-    flex-direction: row;
+    flex-direction: column;
     justify-content: space-around;
     align-items: center;
-    box-shadow: rgba(0, 0, 0, 0.35) 0 5px 15px;
+    box-shadow: none;
 }
 
 .item {
-    margin: 0;
+    margin: 1rem auto;
     width: 100%;
     text-align: center;
-    border-right: solid 1px var(--color-neutral-500);
+    border-right: none;
 }
 
 .item:last-child {
-    margin: 0;
+    margin: 1rem auto;
     width: 100%;
     text-align: center;
     border-right: none;
@@ -30,85 +41,22 @@
 .link {
     width: 100%;
     height: 100%;
-    padding: 0.8rem;
-    font-size: 1.5rem;
+    padding: 0;
+    font-size: 2rem;
     display: block;
 }
 
 .link:last-child {
     width: 100%;
     height: 100%;
-    padding: 0.8rem;
-    font-size: 1.5rem;
+    padding: 0;
+    font-size: 2rem;
     display: block;
 }
 
 
 .logout {
-    display: none;
-}
-
-@media (min-width: 768px) {
-    .navigation {
-        padding: 1rem;
-        width: fit-content;
-        display: flex;
-        flex-direction: column;
-        justify-content: space-between;
-        align-items: center;
-        box-shadow: rgba(9, 30, 66, 0.25) 0 4px 8px -2px, rgba(9, 30, 66, 0.08) 0 0 0 1px;
-    }
-
-    .brand {
-        display: block;
-        border-bottom: solid 2px var(--color-teal-500);
-    }
-
-    .list {
-        width: 100%;
-        padding: 0;
-        margin: 1rem 0 0 0;
-        display: flex;
-        flex-direction: column;
-        justify-content: space-around;
-        align-items: center;
-        box-shadow: none;
-    }
-
-    .item {
-        margin: 1rem auto;
-        width: 100%;
-        text-align: center;
-        border-right: none;
-    }
-
-    .item:last-child {
-        margin: 1rem auto;
-        width: 100%;
-        text-align: center;
-        border-right: none;
-    }
-
-    .link {
-        width: 100%;
-        height: 100%;
-        padding: 0;
-        font-size: 2rem;
-        display: block;
-    }
-
-    .link:last-child {
-        width: 100%;
-        height: 100%;
-        padding: 0;
-        font-size: 2rem;
-        display: block;
-    }
-
-
-    .logout {
-        display: block;
-    }
+    display: block;
 }
 
 @media (hover: hover) {
