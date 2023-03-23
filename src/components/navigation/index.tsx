@@ -18,22 +18,22 @@ export const Navigation = () => {
 
         <ul className={styles.list}>
           <li className={styles.item}>
-            <Link className={styles.link} href="/dashboard">
+            <Link className={styles.link} href="/">
               <RiHome4Line />
             </Link>
           </li>
           <li className={styles.item}>
-            <Link className={styles.link} href="/dashboard/feedback">
+            <Link className={styles.link} href="/feedback">
               <RiStarLine />
             </Link>
           </li>
           <li className={styles.item}>
-            <Link className={styles.link} href="/dashboard/issues">
+            <Link className={styles.link} href="/issues">
               <RiErrorWarningLine />
             </Link>
           </li>
           <li className={styles.item}>
-            <Link className={styles.link} href="/dashboard/users">
+            <Link className={styles.link} href="/users">
               <RiTeamLine />
             </Link>
           </li>
