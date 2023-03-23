@@ -14,9 +14,9 @@ export default function Home() {
         <link rel="icon" href="/favicon.ico" />
       </Head>
 
-      <div>
+      <main>
         <h1>Floop</h1>
-      </div>
+      </main>
     </Layout>
   );
 }
