@@ -1,33 +1,33 @@
 {
   "project_info": {
-    "project_number": "363551420024",
-    "project_id": "floop-ad59e",
-    "storage_bucket": "floop-ad59e.appspot.com"
+    "project_number": "32076152277",
+    "project_id": "floop-dks",
+    "storage_bucket": "floop-dks.appspot.com"
   },
   "client": [
     {
       "client_info": {
-        "mobilesdk_app_id": "1:363551420024:android:ed28b597743fa8865d478d",
+        "mobilesdk_app_id": "1:32076152277:android:fad0208c55e9c831fcd15c",
         "android_client_info": {
           "package_name": "com.example.floop"
         }
       },
       "oauth_client": [
         {
-          "client_id": "363551420024-j2ekcc5uck021m6ubbt4tq1ddfpqsodo.apps.googleusercontent.com",
+          "client_id": "32076152277-nb87u0igqc4naie6fuvhcrv367gvceg4.apps.googleusercontent.com",
           "client_type": 3
         }
       ],
       "api_key": [
         {
-          "current_key": "AIzaSyD837rod4T7NwC0wag2HU8UnRci5OL1dJ0"
+          "current_key": "AIzaSyAiGosK8EMncNbdXP8C8Tzcif8pgng1EaA"
         }
       ],
       "services": {
         "appinvite_service": {
           "other_platform_oauth_client": [
             {
-              "client_id": "363551420024-j2ekcc5uck021m6ubbt4tq1ddfpqsodo.apps.googleusercontent.com",
+              "client_id": "32076152277-nb87u0igqc4naie6fuvhcrv367gvceg4.apps.googleusercontent.com",
               "client_type": 3
             }
           ]

@@ -3,21 +3,21 @@
 <plist version="1.0">
 <dict>
 	<key>CLIENT_ID</key>
-	<string>363551420024-g50o6qpv67pppaq1ftjue1gr7abfti69.apps.googleusercontent.com</string>
+	<string>32076152277-nlar64rb6augakrnvop5ojeci9jbvpvr.apps.googleusercontent.com</string>
 	<key>REVERSED_CLIENT_ID</key>
-	<string>com.googleusercontent.apps.363551420024-g50o6qpv67pppaq1ftjue1gr7abfti69</string>
+	<string>com.googleusercontent.apps.32076152277-nlar64rb6augakrnvop5ojeci9jbvpvr</string>
 	<key>API_KEY</key>
-	<string>AIzaSyAUFCgtYq18STrCryUScsnXYaDI_8bc4d4</string>
+	<string>AIzaSyAtZc516gFPYudfhsrjaV2MQlFFzhcZBE4</string>
 	<key>GCM_SENDER_ID</key>
-	<string>363551420024</string>
+	<string>32076152277</string>
 	<key>PLIST_VERSION</key>
 	<string>1</string>
 	<key>BUNDLE_ID</key>
 	<string>com.example.floop</string>
 	<key>PROJECT_ID</key>
-	<string>floop-ad59e</string>
+	<string>floop-dks</string>
 	<key>STORAGE_BUCKET</key>
-	<string>floop-ad59e.appspot.com</string>
+	<string>floop-dks.appspot.com</string>
 	<key>IS_ADS_ENABLED</key>
 	<false></false>
 	<key>IS_ANALYTICS_ENABLED</key>
@@ -29,6 +29,6 @@
 	<key>IS_SIGNIN_ENABLED</key>
 	<true></true>
 	<key>GOOGLE_APP_ID</key>
-	<string>1:363551420024:ios:41089ca1864077825d478d</string>
+	<string>1:32076152277:ios:db959008c60cbea6fcd15c</string>
 </dict>
 </plist>
