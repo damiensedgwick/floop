@@ -1,0 +1,39 @@
+{
+  "project_info": {
+    "project_number": "363551420024",
+    "project_id": "floop-ad59e",
+    "storage_bucket": "floop-ad59e.appspot.com"
+  },
+  "client": [
+    {
+      "client_info": {
+        "mobilesdk_app_id": "1:363551420024:android:ed28b597743fa8865d478d",
+        "android_client_info": {
+          "package_name": "com.example.floop"
+        }
+      },
+      "oauth_client": [
+        {
+          "client_id": "363551420024-j2ekcc5uck021m6ubbt4tq1ddfpqsodo.apps.googleusercontent.com",
+          "client_type": 3
+        }
+      ],
+      "api_key": [
+        {
+          "current_key": "AIzaSyD837rod4T7NwC0wag2HU8UnRci5OL1dJ0"
+        }
+      ],
+      "services": {
+        "appinvite_service": {
+          "other_platform_oauth_client": [
+            {
+              "client_id": "363551420024-j2ekcc5uck021m6ubbt4tq1ddfpqsodo.apps.googleusercontent.com",
+              "client_type": 3
+            }
+          ]
+        }
+      }
+    }
+  ],
+  "configuration_version": "1"
+}
