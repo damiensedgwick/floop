@@ -44,39 +44,39 @@ class DefaultFirebaseOptions {
   }
 
   static const FirebaseOptions web = FirebaseOptions(
-    apiKey: 'AIzaSyCvoVnPJQQGrkgDlhfifumjIBUsSaLEXWo',
-    appId: '1:363551420024:web:f153bf77f1ca538d5d478d',
-    messagingSenderId: '363551420024',
-    projectId: 'floop-ad59e',
-    authDomain: 'floop-ad59e.firebaseapp.com',
-    storageBucket: 'floop-ad59e.appspot.com',
+    apiKey: 'AIzaSyCsskbyrtr1Zdmhlgvd9sjkPxahHOipn34',
+    appId: '1:32076152277:web:c1b03584a2aecedafcd15c',
+    messagingSenderId: '32076152277',
+    projectId: 'floop-dks',
+    authDomain: 'floop-dks.firebaseapp.com',
+    storageBucket: 'floop-dks.appspot.com',
   );
 
   static const FirebaseOptions android = FirebaseOptions(
-    apiKey: 'AIzaSyD837rod4T7NwC0wag2HU8UnRci5OL1dJ0',
-    appId: '1:363551420024:android:ed28b597743fa8865d478d',
-    messagingSenderId: '363551420024',
-    projectId: 'floop-ad59e',
-    storageBucket: 'floop-ad59e.appspot.com',
+    apiKey: 'AIzaSyAiGosK8EMncNbdXP8C8Tzcif8pgng1EaA',
+    appId: '1:32076152277:android:fad0208c55e9c831fcd15c',
+    messagingSenderId: '32076152277',
+    projectId: 'floop-dks',
+    storageBucket: 'floop-dks.appspot.com',
   );
 
   static const FirebaseOptions ios = FirebaseOptions(
-    apiKey: 'AIzaSyAUFCgtYq18STrCryUScsnXYaDI_8bc4d4',
-    appId: '1:363551420024:ios:41089ca1864077825d478d',
-    messagingSenderId: '363551420024',
-    projectId: 'floop-ad59e',
-    storageBucket: 'floop-ad59e.appspot.com',
-    iosClientId: '363551420024-g50o6qpv67pppaq1ftjue1gr7abfti69.apps.googleusercontent.com',
+    apiKey: 'AIzaSyAtZc516gFPYudfhsrjaV2MQlFFzhcZBE4',
+    appId: '1:32076152277:ios:db959008c60cbea6fcd15c',
+    messagingSenderId: '32076152277',
+    projectId: 'floop-dks',
+    storageBucket: 'floop-dks.appspot.com',
+    iosClientId: '32076152277-nlar64rb6augakrnvop5ojeci9jbvpvr.apps.googleusercontent.com',
     iosBundleId: 'com.example.floop',
   );
 
   static const FirebaseOptions macos = FirebaseOptions(
-    apiKey: 'AIzaSyAUFCgtYq18STrCryUScsnXYaDI_8bc4d4',
-    appId: '1:363551420024:ios:41089ca1864077825d478d',
-    messagingSenderId: '363551420024',
-    projectId: 'floop-ad59e',
-    storageBucket: 'floop-ad59e.appspot.com',
-    iosClientId: '363551420024-g50o6qpv67pppaq1ftjue1gr7abfti69.apps.googleusercontent.com',
+    apiKey: 'AIzaSyAtZc516gFPYudfhsrjaV2MQlFFzhcZBE4',
+    appId: '1:32076152277:ios:db959008c60cbea6fcd15c',
+    messagingSenderId: '32076152277',
+    projectId: 'floop-dks',
+    storageBucket: 'floop-dks.appspot.com',
+    iosClientId: '32076152277-nlar64rb6augakrnvop5ojeci9jbvpvr.apps.googleusercontent.com',
     iosBundleId: 'com.example.floop',
   );
 }

@@ -2,7 +2,8 @@
 <project version="4">
   <component name="ProjectModuleManager">
     <modules>
-      <module fileurl="file://$PROJECT_DIR$/.idea/floop.iml" filepath="$PROJECT_DIR$/.idea/floop.iml" />
+      <module fileurl="file://$PROJECT_DIR$/floop.iml" filepath="$PROJECT_DIR$/floop.iml" />
+      <module fileurl="file://$PROJECT_DIR$/android/floop_android.iml" filepath="$PROJECT_DIR$/android/floop_android.iml" />
     </modules>
   </component>
 </project>
