@@ -8,7 +8,7 @@ class Home extends StatefulWidget {
 }
 
 class _HomeState extends State<Home> {
-  int _selectedIndex = 3;
+  int _selectedIndex = 2;
 
   static const TextStyle optionStyle =
       TextStyle(fontSize: 30, fontWeight: FontWeight.bold, color: Colors.teal);
@@ -45,43 +45,55 @@ class _HomeState extends State<Home> {
   @override
   Widget build(BuildContext context) {
     return Scaffold(
-        body: Center(
-          child: _widgetOptions.elementAt(_selectedIndex),
-        ),
-        bottomNavigationBar: BottomNavigationBar(
-          unselectedItemColor: Colors.grey,
-          selectedIconTheme: const IconThemeData(color: Colors.teal),
-          selectedItemColor: Colors.teal,
-          type: BottomNavigationBarType.shifting,
-          items: const <BottomNavigationBarItem>[
-            BottomNavigationBarItem(
-              icon: Icon(Icons.settings),
-              label: 'Settings',
-              backgroundColor: Color(0xFFF7F9FC),
-            ),
-            BottomNavigationBarItem(
-              icon: Icon(Icons.people),
-              label: 'Users',
-              backgroundColor: Color(0xFFF7F9FC),
-            ),
-            BottomNavigationBarItem(
-              icon: Icon(Icons.home),
-              label: 'Home',
-              backgroundColor: Color(0xFFF7F9FC),
-            ),
-            BottomNavigationBarItem(
-              icon: Icon(Icons.feedback),
-              label: 'Feedback',
-              backgroundColor: Color(0xFFF7F9FC),
-            ),
-            BottomNavigationBarItem(
-              icon: Icon(Icons.error),
-              label: 'Issues',
-              backgroundColor: Color(0xFFF7F9FC),
-            ),
-          ],
-          currentIndex: _selectedIndex,
-          onTap: _onItemTapped,
-        ));
+      body: Center(
+        child: _widgetOptions.elementAt(_selectedIndex),
+      ),
+      bottomNavigationBar: Container(
+          decoration: BoxDecoration(
+            boxShadow: [
+              BoxShadow(
+                color: Colors.grey.withOpacity(0.5),
+                spreadRadius: 2.5,
+                blurRadius: 5,
+                offset: const Offset(0, 3), // changes position of shadow
+              ),
+            ],
+          ),
+          child: BottomNavigationBar(
+            unselectedItemColor: Colors.grey,
+            selectedIconTheme: const IconThemeData(color: Colors.teal),
+            selectedItemColor: Colors.teal,
+            type: BottomNavigationBarType.shifting,
+            items: const <BottomNavigationBarItem>[
+              BottomNavigationBarItem(
+                icon: Icon(Icons.settings),
+                label: 'Settings',
+                backgroundColor: Color(0xFFF7F9FC),
+              ),
+              BottomNavigationBarItem(
+                icon: Icon(Icons.people),
+                label: 'Users',
+                backgroundColor: Color(0xFFF7F9FC),
+              ),
+              BottomNavigationBarItem(
+                icon: Icon(Icons.home),
+                label: 'Home',
+                backgroundColor: Color(0xFFF7F9FC),
+              ),
+              BottomNavigationBarItem(
+                icon: Icon(Icons.feedback),
+                label: 'Feedback',
+                backgroundColor: Color(0xFFF7F9FC),
+              ),
+              BottomNavigationBarItem(
+                icon: Icon(Icons.error),
+                label: 'Issues',
+                backgroundColor: Color(0xFFF7F9FC),
+              ),
+            ],
+            currentIndex: _selectedIndex,
+            onTap: _onItemTapped,
+          )),
+    );
   }
 }
