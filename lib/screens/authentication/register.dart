@@ -124,9 +124,7 @@ class _RegisterPageState extends State<RegisterPage> {
         );
 
         if (context.mounted) {
-          Navigator.of(context).push(MaterialPageRoute(
-            builder: (context) => const Home(),
-          ));
+          Navigator.of(context).pushNamedAndRemoveUntil("/dashboard", (route) => false);
         }
 
         return;

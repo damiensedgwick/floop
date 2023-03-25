@@ -120,9 +120,7 @@ class _LoginPageState extends State<LoginPage> {
         );
 
         if (context.mounted) {
-          Navigator.of(context).push(MaterialPageRoute(
-            builder: (context) => const Home(),
-          ));
+          Navigator.of(context).pushNamedAndRemoveUntil("/dashboard", (route) => false);
         }
 
         return;
