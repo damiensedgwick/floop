@@ -63,7 +63,7 @@ class _HomeState extends State<Home> {
             unselectedItemColor: Colors.grey,
             selectedIconTheme: const IconThemeData(color: Colors.teal),
             selectedItemColor: Colors.teal,
-            type: BottomNavigationBarType.shifting,
+            type: BottomNavigationBarType.fixed,
             items: const <BottomNavigationBarItem>[
               BottomNavigationBarItem(
                 icon: Icon(Icons.settings),
