@@ -8,22 +8,80 @@ class Home extends StatefulWidget {
 }
 
 class _HomeState extends State<Home> {
+  int _selectedIndex = 3;
+
+  static const TextStyle optionStyle =
+      TextStyle(fontSize: 30, fontWeight: FontWeight.bold, color: Colors.teal);
+
+  static const List<Widget> _widgetOptions = <Widget>[
+    Text(
+      'Index 0: Settings',
+      style: optionStyle,
+    ),
+    Text(
+      'Index 1: Users',
+      style: optionStyle,
+    ),
+    Text(
+      'Index 2: Home',
+      style: optionStyle,
+    ),
+    Text(
+      'Index 3: Feedback',
+      style: optionStyle,
+    ),
+    Text(
+      'Index 4: Issues',
+      style: optionStyle,
+    ),
+  ];
+
+  void _onItemTapped(int index) {
+    setState(() {
+      _selectedIndex = index;
+    });
+  }
+
   @override
   Widget build(BuildContext context) {
     return Scaffold(
-      appBar: AppBar(
-        title: const Text('Home'),
-      ),
-      body: Center(
-        child: Column(
-          mainAxisAlignment: MainAxisAlignment.center,
-          children: const <Widget>[
-            Text(
-              'You have signed in successfully.',
+        body: Center(
+          child: _widgetOptions.elementAt(_selectedIndex),
+        ),
+        bottomNavigationBar: BottomNavigationBar(
+          unselectedItemColor: Colors.grey,
+          selectedIconTheme: const IconThemeData(color: Colors.teal),
+          selectedItemColor: Colors.teal,
+          type: BottomNavigationBarType.shifting,
+          items: const <BottomNavigationBarItem>[
+            BottomNavigationBarItem(
+              icon: Icon(Icons.settings),
+              label: 'Settings',
+              backgroundColor: Color(0xFFF7F9FC),
+            ),
+            BottomNavigationBarItem(
+              icon: Icon(Icons.people),
+              label: 'Users',
+              backgroundColor: Color(0xFFF7F9FC),
+            ),
+            BottomNavigationBarItem(
+              icon: Icon(Icons.home),
+              label: 'Home',
+              backgroundColor: Color(0xFFF7F9FC),
+            ),
+            BottomNavigationBarItem(
+              icon: Icon(Icons.feedback),
+              label: 'Feedback',
+              backgroundColor: Color(0xFFF7F9FC),
+            ),
+            BottomNavigationBarItem(
+              icon: Icon(Icons.error),
+              label: 'Issues',
+              backgroundColor: Color(0xFFF7F9FC),
             ),
           ],
-        ),
-      ),
-    );
+          currentIndex: _selectedIndex,
+          onTap: _onItemTapped,
+        ));
   }
 }
