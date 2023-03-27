@@ -1,7 +1,9 @@
+import 'package:cloud_firestore/cloud_firestore.dart';
 import 'package:firebase_auth/firebase_auth.dart';
 import 'package:floop/src/features/authentication/presentation/widgets/authentication_type_button.dart';
 import 'package:floop/src/features/authentication/presentation/widgets/email_input.dart';
 import 'package:floop/src/features/authentication/presentation/widgets/floop_logo.dart';
+import 'package:floop/src/features/authentication/presentation/widgets/organisation_input.dart';
 import 'package:floop/src/features/authentication/presentation/widgets/password_input.dart';
 import 'package:floop/src/features/authentication/presentation/widgets/submit_button.dart';
 import 'package:flutter/material.dart';
@@ -16,6 +18,7 @@ class AuthenticationForm extends StatefulWidget {
 class _AuthenticationFormState extends State<AuthenticationForm> {
   String _email = '';
   String _password = '';
+  String _organisationName = '';
   String _error = '';
 
   bool _isRegistration = false;
@@ -33,6 +36,9 @@ class _AuthenticationFormState extends State<AuthenticationForm> {
 
     final passwordInput =
         PasswordInput(value: _password, onChanged: _onPasswordChanged);
+
+    final organisationName = OrganisationInput(
+        value: _organisationName, onChanged: _onOrganisationNameChanged);
 
     final submitButton = SubmitButton(
       onSubmit: _submit,
@@ -59,6 +65,8 @@ class _AuthenticationFormState extends State<AuthenticationForm> {
             sizedBox,
             passwordInput,
             sizedBox,
+            if (_isRegistration) organisationName,
+            sizedBox,
             submitButton,
             sizedBox,
             if (_error.isNotEmpty) errorText,
@@ -74,31 +82,37 @@ class _AuthenticationFormState extends State<AuthenticationForm> {
   Future<void> _submit() async {
     final form = _formKey.currentState;
 
-    setState(() {
-      _loading = true;
-      _error = '';
-    });
-
     try {
       if (form!.validate()) {
         form.save();
+
+        setState(() {
+          _loading = true;
+          _error = '';
+        });
 
         if (_isRegistration) {
           await FirebaseAuth.instance.createUserWithEmailAndPassword(
             email: _email,
             password: _password,
           );
+
+          await FirebaseFirestore.instance.collection('organisations').add({
+            'name': _organisationName,
+            // TODO: Mark this user as the organisation owner
+            'users': [FirebaseAuth.instance.currentUser!.uid],
+          });
         } else {
           await FirebaseAuth.instance.signInWithEmailAndPassword(
             email: _email,
             password: _password,
           );
         }
+      }
 
-        if (context.mounted) {
-          Navigator.of(context)
-              .pushNamedAndRemoveUntil("/dashboard", (route) => false);
-        }
+      if (context.mounted) {
+        Navigator.of(context)
+            .pushNamedAndRemoveUntil("/dashboard", (route) => false);
       }
     } catch (e) {
       setState(() {
@@ -117,6 +131,12 @@ class _AuthenticationFormState extends State<AuthenticationForm> {
   void _onPasswordChanged(String password) {
     setState(() {
       _password = password;
+    });
+  }
+
+  void _onOrganisationNameChanged(String organisationName) {
+    setState(() {
+      _organisationName = organisationName;
     });
   }
 
