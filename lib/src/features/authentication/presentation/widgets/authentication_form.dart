@@ -97,10 +97,14 @@ class _AuthenticationFormState extends State<AuthenticationForm> {
             password: _password,
           );
 
+          // TODO: FINISH OFF THIS PART!
           await FirebaseFirestore.instance.collection('organisations').add({
             'name': _organisationName,
-            // TODO: Mark this user as the organisation owner
-            'users': [FirebaseAuth.instance.currentUser!.uid],
+            'feedback': [],
+            'issues': [],
+            'users': [FirebaseAuth.instance.currentUser!.uid], // TODO: Make this user the organisation owner
+            'created_at': Timestamp.now(),
+            'updated_at': Timestamp.now(),
           });
         } else {
           await FirebaseAuth.instance.signInWithEmailAndPassword(
