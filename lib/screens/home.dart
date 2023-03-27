@@ -64,31 +64,27 @@ class _HomeState extends State<Home> {
             selectedIconTheme: const IconThemeData(color: Colors.teal),
             selectedItemColor: Colors.teal,
             type: BottomNavigationBarType.fixed,
+            backgroundColor: const Color(0xFFF7F9FC),
             items: const <BottomNavigationBarItem>[
               BottomNavigationBarItem(
                 icon: Icon(Icons.settings),
                 label: 'Settings',
-                backgroundColor: Color(0xFFF7F9FC),
               ),
               BottomNavigationBarItem(
                 icon: Icon(Icons.people),
                 label: 'Users',
-                backgroundColor: Color(0xFFF7F9FC),
               ),
               BottomNavigationBarItem(
                 icon: Icon(Icons.home),
                 label: 'Home',
-                backgroundColor: Color(0xFFF7F9FC),
               ),
               BottomNavigationBarItem(
                 icon: Icon(Icons.feedback),
                 label: 'Feedback',
-                backgroundColor: Color(0xFFF7F9FC),
               ),
               BottomNavigationBarItem(
                 icon: Icon(Icons.error),
                 label: 'Issues',
-                backgroundColor: Color(0xFFF7F9FC),
               ),
             ],
             currentIndex: _selectedIndex,

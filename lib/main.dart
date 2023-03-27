@@ -1,9 +1,8 @@
-import 'package:floop/screens/home.dart';
-import 'package:flutter/material.dart';
-import 'package:floop/firebase_options.dart';
 import 'package:firebase_core/firebase_core.dart';
-import 'package:floop/screens/authentication/register.dart';
-import 'package:floop/screens/authentication/sign-in.dart';
+import 'package:floop/firebase_options.dart';
+import 'package:floop/screens/home.dart';
+import 'package:floop/src/features/authentication/presentation/screens/authentication_screen.dart';
+import 'package:flutter/material.dart';
 
 Future<void> main() async {
   WidgetsFlutterBinding.ensureInitialized();
@@ -21,16 +20,13 @@ class MyApp extends StatelessWidget {
   @override
   Widget build(BuildContext context) {
     return MaterialApp(
-      title: 'Floop',
-      theme: ThemeData(
-        primarySwatch: Colors.teal,
-      ),
-      home: const LoginPage(),
-      routes: {
-        '/login': (context) => const LoginPage(),
-        '/register': (context) => const RegisterPage(),
-        '/dashboard': (context) => const Home(),
-      }
-    );
+        title: 'Floop',
+        theme: ThemeData(
+          primarySwatch: Colors.teal,
+        ),
+        home: const AuthenticationPage(),
+        routes: {
+          '/dashboard': (context) => const Home(),
+        });
   }
 }
