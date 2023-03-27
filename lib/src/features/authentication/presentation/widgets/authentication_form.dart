@@ -1,3 +1,5 @@
+import 'package:firebase_auth/firebase_auth.dart';
+import 'package:floop/src/features/authentication/presentation/widgets/authentication_type_button.dart';
 import 'package:floop/src/features/authentication/presentation/widgets/email_input.dart';
 import 'package:floop/src/features/authentication/presentation/widgets/floop_logo.dart';
 import 'package:floop/src/features/authentication/presentation/widgets/password_input.dart';
@@ -16,32 +18,53 @@ class _AuthenticationFormState extends State<AuthenticationForm> {
   String _password = '';
   String _error = '';
 
+  bool _isRegistration = false;
   bool _loading = false;
 
   final _formKey = GlobalKey<FormState>();
 
   @override
   Widget build(BuildContext context) {
+    const logo = FloopLogo();
+    const spacer = Spacer();
+    const sizedBox = SizedBox(height: 20);
+
+    final emailInput = EmailInput(value: _email, onChanged: _onEmailChanged);
+
+    final passwordInput =
+        PasswordInput(value: _password, onChanged: _onPasswordChanged);
+
+    final submitButton = SubmitButton(
+      onSubmit: _submit,
+      isLoading: _loading,
+      isRegistration: _isRegistration,
+    );
+
+    final authenticationTypeButton = AuthenticationTypeButton(
+        isRegistration: _isRegistration,
+        onPressed: _onAuthenticationTypeChanged);
+
+    final errorText = Text(_error, style: const TextStyle(color: Colors.red));
+
     return Form(
       key: _formKey,
       child: Padding(
         padding: const EdgeInsets.all(16.0),
         child: Column(
-          children: const <Widget>[
-            FloopLogo(),
-            Spacer(),
-            EmailInput(),
-            // TODO: Pass in value and onChanged
-            SizedBox(height: 20),
-            PasswordInput(),
-            // TODO: Pass in value and onChanged
-            SizedBox(height: 20),
-            SubmitButton(),
-            // TODO: Pass in submit function
-            SizedBox(height: 20),
-            // TODO: Add error message logic and code here
-            Spacer(),
-            // TODO: Added need an account? Sign up here || have an account? Sign in here
+          children: <Widget>[
+            spacer,
+            logo,
+            spacer,
+            emailInput,
+            sizedBox,
+            passwordInput,
+            sizedBox,
+            submitButton,
+            sizedBox,
+            if (_error.isNotEmpty) errorText,
+            spacer,
+            authenticationTypeButton,
+            sizedBox,
           ],
         ),
       ),
@@ -49,18 +72,57 @@ class _AuthenticationFormState extends State<AuthenticationForm> {
   }
 
   Future<void> _submit() async {
+    final form = _formKey.currentState;
+
     setState(() {
       _loading = true;
       _error = '';
     });
 
     try {
-      // TODO: Add authentication logic
+      if (form!.validate()) {
+        form.save();
+
+        if (_isRegistration) {
+          await FirebaseAuth.instance.createUserWithEmailAndPassword(
+            email: _email,
+            password: _password,
+          );
+        } else {
+          await FirebaseAuth.instance.signInWithEmailAndPassword(
+            email: _email,
+            password: _password,
+          );
+        }
+
+        if (context.mounted) {
+          Navigator.of(context)
+              .pushNamedAndRemoveUntil("/dashboard", (route) => false);
+        }
+      }
     } catch (e) {
       setState(() {
         _loading = false;
         _error = 'Authentication failed. Please try again.';
       });
     }
+  }
+
+  void _onEmailChanged(String email) {
+    setState(() {
+      _email = email;
+    });
+  }
+
+  void _onPasswordChanged(String password) {
+    setState(() {
+      _password = password;
+    });
+  }
+
+  void _onAuthenticationTypeChanged(bool isRegistration) {
+    setState(() {
+      _isRegistration = isRegistration;
+    });
   }
 }

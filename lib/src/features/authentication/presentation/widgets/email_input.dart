@@ -1,18 +1,17 @@
 import 'package:flutter/material.dart';
 
-class EmailInput extends StatefulWidget {
-  const EmailInput({Key? key}) : super(key: key);
+class EmailInput extends StatelessWidget {
+  final String value;
+  final void Function(String) onChanged;
 
-  @override
-  State<EmailInput> createState() => _EmailInputState();
-}
-
-class _EmailInputState extends State<EmailInput> {
-  late String _email;
+  const EmailInput({Key? key, required this.value, required this.onChanged})
+      : super(key: key);
 
   @override
   Widget build(BuildContext context) {
     return TextFormField(
+      initialValue: value,
+      onChanged: onChanged,
       validator: (value) {
         if (value == null || value.isEmpty) {
           return 'Please enter a valid email address';
@@ -26,7 +25,6 @@ class _EmailInputState extends State<EmailInput> {
 
         return null;
       },
-      onSaved: (value) => _email = value!,
       decoration: const InputDecoration(
         border: OutlineInputBorder(),
         labelText: 'Email',

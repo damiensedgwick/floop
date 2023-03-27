@@ -7,8 +7,8 @@ class FloopLogo extends StatelessWidget {
   Widget build(BuildContext context) {
     return const Image(
       image: AssetImage('images/floop-logo.png'),
-      height: 200,
-      width: 200,
+      height: 250,
+      width: 250,
     );
   }
 }
