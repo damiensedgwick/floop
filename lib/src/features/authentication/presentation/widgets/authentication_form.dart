@@ -106,18 +106,24 @@ class _AuthenticationFormState extends State<AuthenticationForm> {
             'created_at': Timestamp.now(),
             'updated_at': Timestamp.now(),
           });
+
+          if (context.mounted) {
+            Navigator.of(context)
+                .pushNamedAndRemoveUntil("/dashboard", (route) => false);
+          }
         } else {
           await FirebaseAuth.instance.signInWithEmailAndPassword(
             email: _email,
             password: _password,
           );
+
+          if (context.mounted) {
+            Navigator.of(context)
+                .pushNamedAndRemoveUntil("/dashboard", (route) => false);
+          }
         }
       }
 
-      if (context.mounted) {
-        Navigator.of(context)
-            .pushNamedAndRemoveUntil("/dashboard", (route) => false);
-      }
     } catch (e) {
       setState(() {
         _loading = false;
