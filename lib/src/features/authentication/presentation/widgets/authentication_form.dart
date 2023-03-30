@@ -109,7 +109,7 @@ class _AuthenticationFormState extends State<AuthenticationForm> {
 
           if (context.mounted) {
             Navigator.of(context)
-                .pushNamedAndRemoveUntil("/dashboard", (route) => false);
+                .pushNamedAndRemoveUntil("/", (route) => false);
           }
         } else {
           await FirebaseAuth.instance.signInWithEmailAndPassword(
@@ -119,7 +119,7 @@ class _AuthenticationFormState extends State<AuthenticationForm> {
 
           if (context.mounted) {
             Navigator.of(context)
-                .pushNamedAndRemoveUntil("/dashboard", (route) => false);
+                .pushNamedAndRemoveUntil("/", (route) => false);
           }
         }
       }
