@@ -1,5 +1,6 @@
 import 'package:firebase_core/firebase_core.dart';
 import 'package:floop/firebase_options.dart';
+import 'package:flutter_web_plugins/url_strategy.dart';
 import 'package:floop/screens/home.dart';
 import 'package:floop/src/features/authentication/presentation/screens/authentication_screen.dart';
 import 'package:flutter/material.dart';
@@ -11,6 +12,7 @@ Future<void> main() async {
     options: DefaultFirebaseOptions.currentPlatform,
   );
 
+  usePathUrlStrategy();
   runApp(const MyApp());
 }
 
@@ -20,13 +22,15 @@ class MyApp extends StatelessWidget {
   @override
   Widget build(BuildContext context) {
     return MaterialApp(
-        title: 'Floop',
-        theme: ThemeData(
-          primarySwatch: Colors.teal,
-        ),
-        home: const AuthenticationPage(),
-        routes: {
-          '/dashboard': (context) => const Home(),
-        });
+      title: 'Floop',
+      theme: ThemeData(
+        primarySwatch: Colors.teal,
+      ),
+      initialRoute: '/authentication',
+      routes: {
+        '/': (context) => const Home(),
+        '/authentication': (context) => const AuthenticationPage(),
+      },
+    );
   }
 }
