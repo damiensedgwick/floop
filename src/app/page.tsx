@@ -6,7 +6,7 @@ export default function Home() {
     <main className="flex min-h-screen flex-col items-center justify-center p-24">
       <Image src="/floop-logo.png" alt="floop logo" height={200} width={200} />
       <Link
-        className="mt-8 py-2 px-6 bg-teal-500 text-white ease-in-out duration-150 hover:scale-105"
+        className="mt-8 bg-teal-500 px-6 py-2 text-white duration-150 ease-in-out hover:scale-105"
         href="/register"
         title="registration link"
       >
