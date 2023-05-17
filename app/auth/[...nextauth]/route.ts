@@ -1,9 +1,16 @@
 import NextAuth from "next-auth";
 import { SupabaseAdapter } from "@next-auth/supabase-adapter";
 import jwt from "jsonwebtoken";
+import GoogleProvider from "next-auth/providers/google";
 
 const handler = NextAuth({
-  providers: [],
+  providers: [
+    GoogleProvider({
+      clientId: String(process.env.GOOGLE_CLIENT_ID),
+      clientSecret: String(process.env.GOOGLE_CLIENT_SECRET),
+      // allowDangerousEmailAccountLinking: true,
+    }),
+  ],
   adapter: SupabaseAdapter({
     url: String(process.env.NEXT_PUBLIC_SUPABASE_URL),
     secret: String(process.env.SUPABASE_SERVICE_ROLE_KEY),
