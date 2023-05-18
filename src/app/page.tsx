@@ -1,4 +1,5 @@
 import Image from "next/image";
+import TopSecret from "@/components/TopSecret";
 
 export default function Home() {
   return (
@@ -7,6 +8,8 @@ export default function Home() {
       <p className="text-center mt-6">
         <i>coming soon...</i>
       </p>
+
+      <TopSecret />
     </main>
   );
 }
