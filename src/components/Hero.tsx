@@ -5,6 +5,7 @@ import Image from "next/image";
 import Link from "next/link";
 import { Dialog } from "@headlessui/react";
 import { Bars3Icon, XMarkIcon } from "@heroicons/react/24/outline";
+import { useSession } from "next-auth/react";
 
 const navigation = [
   { name: "Product", href: "#" },
@@ -15,6 +16,9 @@ const navigation = [
 
 export default function Hero() {
   const [mobileMenuOpen, setMobileMenuOpen] = useState(false);
+  const session = useSession();
+
+  console.log(session);
 
   return (
     <div className="bg-white overflow-hidden h-screen">
@@ -25,7 +29,7 @@ export default function Hero() {
         >
           <div className="flex lg:flex-1">
             <Link href="/" className="-m-1.5 p-1.5">
-              <span className="sr-only">Your Company</span>
+              <span className="sr-only">Floop</span>
               <Image
                 src="/floop-logo.png"
                 alt="Floop logo"
@@ -56,12 +60,21 @@ export default function Hero() {
             ))}
           </div>
           <div className="hidden lg:flex lg:flex-1 lg:justify-end">
-            <Link
-              href="/api/auth/signin"
-              className="text-sm font-semibold leading-6 text-gray-900"
-            >
-              Log in <span aria-hidden="true">&rarr;</span>
-            </Link>
+            {session.status === "authenticated" ? (
+              <Link
+                href="/dashboard"
+                className="text-sm font-semibold leading-6 text-gray-900"
+              >
+                Dashboard <span aria-hidden="true">&rarr;</span>
+              </Link>
+            ) : (
+              <Link
+                href="/api/auth/signin"
+                className="text-sm font-semibold leading-6 text-gray-900"
+              >
+                Log in <span aria-hidden="true">&rarr;</span>
+              </Link>
+            )}
           </div>
         </nav>
         <Dialog
@@ -74,7 +87,7 @@ export default function Hero() {
           <Dialog.Panel className="fixed inset-y-0 right-0 z-50 w-full overflow-y-auto bg-white px-6 py-6 sm:max-w-sm sm:ring-1 sm:ring-gray-900/10">
             <div className="flex items-center justify-between">
               <Link href="/" className="-m-1.5 p-1.5">
-                <span className="sr-only">Your Company</span>
+                <span className="sr-only">Floop</span>
                 <Image
                   src="/floop-logo.png"
                   alt="Floop logo"
@@ -105,12 +118,21 @@ export default function Hero() {
                   ))}
                 </div>
                 <div className="py-6">
-                  <Link
-                    href="/api/auth/signin"
-                    className="-mx-3 block rounded-lg px-3 text-base font-semibold leading-7 text-gray-900 py-2.5 hover:bg-gray-50"
-                  >
-                    Log in
-                  </Link>
+                  {session.status === "authenticated" ? (
+                    <Link
+                      href="/dashboard"
+                      className="text-sm font-semibold leading-6 text-gray-900"
+                    >
+                      Dashboard <span aria-hidden="true">&rarr;</span>
+                    </Link>
+                  ) : (
+                    <Link
+                      href="/api/auth/signin"
+                      className="text-sm font-semibold leading-6 text-gray-900"
+                    >
+                      Log in <span aria-hidden="true">&rarr;</span>
+                    </Link>
+                  )}
                 </div>
               </div>
             </div>
