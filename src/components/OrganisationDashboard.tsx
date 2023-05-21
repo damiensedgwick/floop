@@ -36,7 +36,6 @@ export default function OrganisationDashboard({ user }: Props) {
           <>
             <div className="mx-auto max-w-3xl px-4 sm:px-6 lg:max-w-7xl lg:px-8">
               <div className="relative flex items-center justify-center py-5 lg:justify-between">
-                {/* Logo */}
                 <div className="absolute left-0 flex-shrink-0 lg:static">
                   <Link href="/" className="-m-1.5 p-1.5">
                     <span className="sr-only">Floop</span>
@@ -48,10 +47,14 @@ export default function OrganisationDashboard({ user }: Props) {
                     />
                   </Link>
                 </div>
-
-                {/* Right section on desktop */}
                 <div className="hidden lg:ml-4 lg:flex lg:items-center lg:pr-0.5">
-                  {/* Profile dropdown */}
+                  <button
+                    type="button"
+                    className="rounded-full bg-white p-1 text-gray-400 hover:text-gray-500 focus:outline-none focus:ring-2 focus:ring-indigo-500 focus:ring-offset-2"
+                  >
+                    <span className="sr-only">View notifications</span>
+                    <BellIcon className="h-6 w-6" aria-hidden="true" />
+                  </button>
                   <Menu as="div" className="relative ml-4 flex-shrink-0">
                     <div>
                       <Menu.Button className="flex rounded-full bg-white text-sm ring-2 ring-white ring-opacity-20 focus:outline-none focus:ring-opacity-100">
@@ -91,8 +94,6 @@ export default function OrganisationDashboard({ user }: Props) {
                     </Transition>
                   </Menu>
                 </div>
-
-                {/* Search */}
                 <div className="min-w-0 flex-1 pr-8 pl-14 lg:hidden">
                   <div className="mx-auto w-10/12 max-w-xs">
                     <label htmlFor="desktop-search" className="sr-only">
@@ -115,8 +116,6 @@ export default function OrganisationDashboard({ user }: Props) {
                     </div>
                   </div>
                 </div>
-
-                {/* Menu button */}
                 <div className="absolute right-0 flex-shrink-0 lg:hidden">
                   {/* Mobile menu button */}
                   <Popover.Button className="inline-flex items-center justify-center rounded-md bg-transparent p-2 text-teal-200 hover:bg-white hover:bg-opacity-10 hover:text-white focus:outline-none focus:ring-2 focus:ring-white">
@@ -173,7 +172,6 @@ export default function OrganisationDashboard({ user }: Props) {
                 </div>
               </div>
             </div>
-
             <Transition.Root as={Fragment}>
               <div className="lg:hidden">
                 <Transition.Child
@@ -187,7 +185,6 @@ export default function OrganisationDashboard({ user }: Props) {
                 >
                   <Popover.Overlay className="fixed inset-0 z-20 bg-black bg-opacity-25" />
                 </Transition.Child>
-
                 <Transition.Child
                   as={Fragment}
                   enter="duration-150 ease-out"
@@ -243,7 +240,6 @@ export default function OrganisationDashboard({ user }: Props) {
                           </Link>
                         </div>
                       </div>
-
                       <div className="pb-2 pt-4">
                         <div className="flex items-center px-5">
                           <div className="flex-shrink-0">
@@ -251,8 +247,8 @@ export default function OrganisationDashboard({ user }: Props) {
                               className="rounded-full"
                               src={user.image || ""}
                               alt=""
-                              width={14}
-                              height={14}
+                              width={48}
+                              height={48}
                             />
                           </div>
                           <div className="ml-3 min-w-0 flex-1">
@@ -271,7 +267,6 @@ export default function OrganisationDashboard({ user }: Props) {
                             <BellIcon className="h-6 w-6" aria-hidden="true" />
                           </button>
                         </div>
-
                         <div className="mt-3 space-y-1 px-2">
                           {userNavigation.map((item) => (
                             <a
@@ -296,32 +291,29 @@ export default function OrganisationDashboard({ user }: Props) {
       <main className="-mt-16 pb-8">
         <div className="mx-auto max-w-3xl px-4 sm:px-6 lg:max-w-7xl lg:px-8">
           <h1 className="sr-only">Page title</h1>
-          {/* Main 3 column grid */}
           <div className="grid grid-cols-1 items-start gap-4 lg:grid-cols-3 lg:gap-8">
-            {/* Left column */}
             <div className="grid grid-cols-1 gap-4">
               <section aria-labelledby="section-2-title">
                 <h2 className="sr-only" id="section-2-title">
-                  Section title
+                  Organisations latest submission
                 </h2>
                 <div className="overflow-hidden rounded-lg bg-white shadow-xl">
                   <div className="p-6">
-                    <p>Floop rating to go here as a score!</p>
+                    <p>Latest Rating / Issue / Suggestion based on page</p>
                   </div>
                 </div>
               </section>
             </div>
-
-            {/* Right column */}
             <div className="grid grid-cols-1 gap-4 lg:col-span-2">
               <section aria-labelledby="section-1-title">
                 <h2 className="sr-only" id="section-1-title">
-                  Section title
+                  All organisation submissions
                 </h2>
                 <div className="overflow-hidden rounded-lg bg-white shadow-xl">
                   <div className="p-6">
                     <p>
-                      Ratings / Issues / Suggestions to go here in a table(s)
+                      All Ratings / Issues / Suggestions in a table / something
+                      pretty
                     </p>
                   </div>
                 </div>
@@ -330,6 +322,7 @@ export default function OrganisationDashboard({ user }: Props) {
           </div>
         </div>
       </main>
+
       <footer>
         <div className="mx-auto max-w-3xl px-4 sm:px-6 lg:max-w-7xl lg:px-8">
           <div className="border-t border-gray-200 py-8 text-center text-sm text-gray-500 sm:text-left">
