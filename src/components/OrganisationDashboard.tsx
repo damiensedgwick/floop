@@ -51,25 +51,17 @@ export default function OrganisationDashboard({ user }: Props) {
 
                 {/* Right section on desktop */}
                 <div className="hidden lg:ml-4 lg:flex lg:items-center lg:pr-0.5">
-                  <button
-                    type="button"
-                    className="flex-shrink-0 rounded-full p-1 text-teal-200 hover:bg-white hover:bg-opacity-10 hover:text-white focus:outline-none focus:ring-2 focus:ring-white"
-                  >
-                    <span className="sr-only">View notifications</span>
-                    <BellIcon className="h-6 w-6" aria-hidden="true" />
-                  </button>
-
                   {/* Profile dropdown */}
                   <Menu as="div" className="relative ml-4 flex-shrink-0">
                     <div>
                       <Menu.Button className="flex rounded-full bg-white text-sm ring-2 ring-white ring-opacity-20 focus:outline-none focus:ring-opacity-100">
                         <span className="sr-only">Open user menu</span>
                         <Image
-                          className="h-8 w-8 rounded-full"
+                          className="rounded-full"
                           src={user.image || ""}
                           alt=""
-                          width={14}
-                          height={14}
+                          width={48}
+                          height={48}
                         />
                       </Menu.Button>
                     </div>
@@ -101,8 +93,8 @@ export default function OrganisationDashboard({ user }: Props) {
                 </div>
 
                 {/* Search */}
-                <div className="min-w-0 flex-1 px-12 lg:hidden">
-                  <div className="mx-auto w-full max-w-xs">
+                <div className="min-w-0 flex-1 pr-8 pl-14 lg:hidden">
+                  <div className="mx-auto w-10/12 max-w-xs">
                     <label htmlFor="desktop-search" className="sr-only">
                       Search
                     </label>
@@ -231,43 +223,32 @@ export default function OrganisationDashboard({ user }: Props) {
                           </div>
                         </div>
                         <div className="mt-3 space-y-1 px-2">
-                          <a
+                          <Link
                             href="#"
                             className="block rounded-md px-3 py-2 text-base font-medium text-gray-900 hover:bg-gray-100 hover:text-gray-800"
                           >
-                            Home
-                          </a>
-                          <a
+                            Ratings
+                          </Link>
+                          <Link
                             href="#"
                             className="block rounded-md px-3 py-2 text-base font-medium text-gray-900 hover:bg-gray-100 hover:text-gray-800"
                           >
-                            Profile
-                          </a>
-                          <a
+                            Issues
+                          </Link>
+                          <Link
                             href="#"
                             className="block rounded-md px-3 py-2 text-base font-medium text-gray-900 hover:bg-gray-100 hover:text-gray-800"
                           >
-                            Resources
-                          </a>
-                          <a
-                            href="#"
-                            className="block rounded-md px-3 py-2 text-base font-medium text-gray-900 hover:bg-gray-100 hover:text-gray-800"
-                          >
-                            Company Directory
-                          </a>
-                          <a
-                            href="#"
-                            className="block rounded-md px-3 py-2 text-base font-medium text-gray-900 hover:bg-gray-100 hover:text-gray-800"
-                          >
-                            Openings
-                          </a>
+                            Suggestions
+                          </Link>
                         </div>
                       </div>
+
                       <div className="pb-2 pt-4">
                         <div className="flex items-center px-5">
                           <div className="flex-shrink-0">
                             <Image
-                              className="h-10 w-10 rounded-full"
+                              className="rounded-full"
                               src={user.image || ""}
                               alt=""
                               width={14}
@@ -290,6 +271,7 @@ export default function OrganisationDashboard({ user }: Props) {
                             <BellIcon className="h-6 w-6" aria-hidden="true" />
                           </button>
                         </div>
+
                         <div className="mt-3 space-y-1 px-2">
                           {userNavigation.map((item) => (
                             <a
@@ -310,36 +292,37 @@ export default function OrganisationDashboard({ user }: Props) {
           </>
         )}
       </Popover>
-      <main className="-mt-24 pb-8">
+
+      <main className="-mt-16 pb-8">
         <div className="mx-auto max-w-3xl px-4 sm:px-6 lg:max-w-7xl lg:px-8">
           <h1 className="sr-only">Page title</h1>
           {/* Main 3 column grid */}
           <div className="grid grid-cols-1 items-start gap-4 lg:grid-cols-3 lg:gap-8">
             {/* Left column */}
-            <div className="grid grid-cols-1 gap-4 lg:col-span-2">
-              <section aria-labelledby="section-1-title">
-                <h2 className="sr-only" id="section-1-title">
+            <div className="grid grid-cols-1 gap-4">
+              <section aria-labelledby="section-2-title">
+                <h2 className="sr-only" id="section-2-title">
                   Section title
                 </h2>
-                <div className="overflow-hidden rounded-lg bg-white shadow">
+                <div className="overflow-hidden rounded-lg bg-white shadow-xl">
                   <div className="p-6">
-                    <p>
-                      Ratings / Issues / Suggestions to go here in a table(s)
-                    </p>
+                    <p>Floop rating to go here as a score!</p>
                   </div>
                 </div>
               </section>
             </div>
 
             {/* Right column */}
-            <div className="grid grid-cols-1 gap-4">
-              <section aria-labelledby="section-2-title">
-                <h2 className="sr-only" id="section-2-title">
+            <div className="grid grid-cols-1 gap-4 lg:col-span-2">
+              <section aria-labelledby="section-1-title">
+                <h2 className="sr-only" id="section-1-title">
                   Section title
                 </h2>
-                <div className="overflow-hidden rounded-lg bg-white shadow">
+                <div className="overflow-hidden rounded-lg bg-white shadow-xl">
                   <div className="p-6">
-                    <p>Floop rating to go here as a score!</p>
+                    <p>
+                      Ratings / Issues / Suggestions to go here in a table(s)
+                    </p>
                   </div>
                 </div>
               </section>
@@ -350,7 +333,7 @@ export default function OrganisationDashboard({ user }: Props) {
       <footer>
         <div className="mx-auto max-w-3xl px-4 sm:px-6 lg:max-w-7xl lg:px-8">
           <div className="border-t border-gray-200 py-8 text-center text-sm text-gray-500 sm:text-left">
-            <span className="block sm:inline">&copy; 2023 Floop,</span>
+            <span className="block sm:inline">&copy; 2023 Floop,&nbsp;</span>
             <span className="block sm:inline">All rights reserved.</span>
           </div>
         </div>
