@@ -12,6 +12,13 @@ const nextConfig = {
         port: "",
         pathname: "/a/**",
       },
+      // src="https://tailwindui.com/img/component-images/project-app-screenshot.png"
+      {
+        protocol: "https",
+        hostname: "tailwindui.com",
+        port: "",
+        pathname: "/img/**",
+      },
     ],
   },
 };
