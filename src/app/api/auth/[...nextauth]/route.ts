@@ -1,5 +1,4 @@
-import { NextAuthOptions } from "next-auth";
-import NextAuth from "next-auth/src";
+import NextAuth, { NextAuthOptions } from "next-auth";
 import GoogleProvider from "next-auth/providers/google";
 import { SupabaseAdapter } from "@next-auth/supabase-adapter";
 
@@ -11,8 +10,8 @@ export const authOptions: NextAuthOptions = {
     }),
   ],
   adapter: SupabaseAdapter({
-    url: "",
-    secret: "",
+    url: String(process.env.NEXT_PUBLIC_SUPABASE_URL),
+    secret: String(process.env.NEXT_PUBLIC_SUPABASE_SERVICE_ROLE_KEY),
   }),
   callbacks: {},
 };
