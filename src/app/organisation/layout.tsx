@@ -14,10 +14,11 @@ export default async function OrganisationLayout({ children }: LayoutProps) {
 
   const { user } = session;
 
-  console.log(session);
-
-  // grab the organisation based on user.id
-  const organisation = null;
+  const organisation = await prisma.organisation_users.findMany({
+    where: {
+      user_id: user.id,
+    },
+  });
 
   if (!organisation) {
     return (
