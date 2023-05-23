@@ -36,7 +36,7 @@ const tiers = [
 export default function Pricing() {
   return (
     <div className="isolate overflow-hidden bg-teal-900" id="pricing">
-      <div className="mx-auto max-w-7xl px-6 pb-96 pt-24 text-center sm:pt-32 lg:px-8">
+      <div className="mx-auto max-w-7xl px-6 pt-24 pb-96 text-center sm:pt-32 lg:px-8">
         <div className="mx-auto max-w-4xl">
           <h2 className="text-base font-semibold leading-7 text-teal-400">
             Pricing
@@ -102,7 +102,7 @@ export default function Pricing() {
                     </p>
                     <ul
                       role="list"
-                      className="mt-10 space-y-4 text-sm leading-6 text-gray-600"
+                      className="mt-10 text-sm leading-6 text-gray-600 space-y-4"
                     >
                       {tier.features.map((feature) => (
                         <li key={feature} className="flex gap-x-3">
@@ -118,7 +118,7 @@ export default function Pricing() {
                   <a
                     href={tier.href}
                     aria-describedby={tier.id}
-                    className="mt-8 block rounded-md bg-teal-600 px-3.5 py-2 text-center text-sm font-semibold leading-6 text-white shadow-sm hover:bg-teal-500 focus-visible:outline focus-visible:outline-2 focus-visible:outline-offset-2 focus-visible:outline-teal-600"
+                    className="mt-8 block rounded-md bg-teal-600 py-2 text-center text-sm font-semibold leading-6 text-white shadow-sm px-3.5 hover:bg-teal-500 focus-visible:outline focus-visible:outline-2 focus-visible:outline-offset-2 focus-visible:outline-teal-600"
                   >
                     Get started today
                   </a>

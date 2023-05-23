@@ -2,6 +2,6 @@ import {
   GenericButton,
   SignInButton,
   SignOutButton,
-} from "@/components/buttons/buttons";
+} from "@/components/shared/buttons.client";
 
 export { SignInButton, SignOutButton, GenericButton };
