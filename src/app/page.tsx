@@ -1,5 +1,5 @@
 import { getServerSession } from "next-auth";
-import { Features, Header, Hero, Product } from "@/components/website";
+import { Features, Header, Hero, Pricing, Product } from "@/components/website";
 import { authOptions } from "@/app/api/auth/[...nextauth]/route";
 
 export default async function Home() {
@@ -13,7 +13,7 @@ export default async function Home() {
         <Hero />
         <Product />
         <Features />
-        {/*<Pricing />*/}
+        <Pricing />
       </main>
 
       <footer>
