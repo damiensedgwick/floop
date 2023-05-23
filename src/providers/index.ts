@@ -1,3 +1,3 @@
-import AuthProvider from "@/providers/auth-provider";
+import AuthProvider from "@/providers/auth-provider.client";
 
 export { AuthProvider };
