@@ -31,21 +31,21 @@ export default function Header({ user }: Props) {
           </Link>
         </div>
         <div className="flex flex-1 justify-end">
-          {user ? (
-            <a
-              href="/organisation/dashboard"
-              className="text-sm font-semibold leading-6 text-gray-900"
-            >
-              Dashboard <span aria-hidden="true">&rarr;</span>
-            </a>
-          ) : (
-            <Link
-              href="/api/auth/signin"
-              className="text-sm font-semibold leading-6 text-gray-900"
-            >
-              Sign in <span aria-hidden="true">&rarr;</span>
-            </Link>
-          )}
+          {/*{user ? (*/}
+          {/*  <a*/}
+          {/*    href="/organisation/dashboard"*/}
+          {/*    className="text-sm font-semibold leading-6 text-gray-900"*/}
+          {/*  >*/}
+          {/*    Dashboard <span aria-hidden="true">&rarr;</span>*/}
+          {/*  </a>*/}
+          {/*) : (*/}
+          {/*  <Link*/}
+          {/*    href="/api/auth/signin"*/}
+          {/*    className="text-sm font-semibold leading-6 text-gray-900"*/}
+          {/*  >*/}
+          {/*    Sign in <span aria-hidden="true">&rarr;</span>*/}
+          {/*  </Link>*/}
+          {/*)}*/}
         </div>
       </nav>
     </header>
