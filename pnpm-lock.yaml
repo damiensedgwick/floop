@@ -12,7 +12,10 @@ dependencies:
     version: 4.14.1(prisma@4.14.1)
   '@supabase/supabase-js':
     specifier: ^2.22.0
-    version: 2.22.0
+    version: 2.22.0(encoding@0.1.13)
+  '@types/jsonwebtoken':
+    specifier: ^9.0.2
+    version: 9.0.2
   '@types/node':
     specifier: 20.2.3
     version: 20.2.3
@@ -25,12 +28,18 @@ dependencies:
   autoprefixer:
     specifier: 10.4.14
     version: 10.4.14(postcss@8.4.23)
+  encoding:
+    specifier: ^0.1.13
+    version: 0.1.13
   eslint:
     specifier: 8.41.0
     version: 8.41.0
   eslint-config-next:
     specifier: 13.4.3
     version: 13.4.3(eslint@8.41.0)(typescript@5.0.4)
+  jsonwebtoken:
+    specifier: ^9.0.0
+    version: 9.0.0
   next:
     specifier: 13.4.3
     version: 13.4.3(react-dom@18.2.0)(react@18.2.0)
@@ -182,7 +191,7 @@ packages:
       '@supabase/supabase-js': ^2.0.5
       next-auth: ^4.18.7
     dependencies:
-      '@supabase/supabase-js': 2.22.0
+      '@supabase/supabase-js': 2.22.0(encoding@0.1.13)
       next-auth: 4.22.1(next@13.4.3)(react-dom@18.2.0)(react@18.2.0)
     dev: false
 
@@ -340,26 +349,26 @@ packages:
     resolution: {integrity: sha512-IthPJsJR85GhOkp3Hvp8zFOPK5ynKn6STyHa/WZpioK7E1aYDiBzpqQPrngc14DszIUkIrdd3k9Iu0XSzlP/1w==}
     dev: false
 
-  /@supabase/functions-js@2.1.1:
+  /@supabase/functions-js@2.1.1(encoding@0.1.13):
     resolution: {integrity: sha512-bIR1Puae6W+1/MzPfYBWOG/SCWGo4B5CB7c0ZZksvliNEAzhxNBJ0UFKYINcGdGtxG8ZC+1xr3utWpNZNwnoRw==}
     dependencies:
-      cross-fetch: 3.1.6
+      cross-fetch: 3.1.6(encoding@0.1.13)
     transitivePeerDependencies:
       - encoding
     dev: false
 
-  /@supabase/gotrue-js@2.27.1:
+  /@supabase/gotrue-js@2.27.1(encoding@0.1.13):
     resolution: {integrity: sha512-rewbfKTC9DZNnPy4rRpr5ViBXre55wEXPWOueh/ZgwunR1TGmntRcraIM6SDKrP6iRD6ucx325a467uZ5U+KWg==}
     dependencies:
-      cross-fetch: 3.1.6
+      cross-fetch: 3.1.6(encoding@0.1.13)
     transitivePeerDependencies:
       - encoding
     dev: false
 
-  /@supabase/postgrest-js@1.6.1:
+  /@supabase/postgrest-js@1.6.1(encoding@0.1.13):
     resolution: {integrity: sha512-WDBUPOCOwcZonaCwEodwdA8hwWYOiXroDF9vWGxZxKAnuSVE2Ieci/kvhR4EsWvgGST2h90LRowgO+msXe8+fA==}
     dependencies:
-      cross-fetch: 3.1.6
+      cross-fetch: 3.1.6(encoding@0.1.13)
     transitivePeerDependencies:
       - encoding
     dev: false
@@ -374,23 +383,23 @@ packages:
       - supports-color
     dev: false
 
-  /@supabase/storage-js@2.5.1:
+  /@supabase/storage-js@2.5.1(encoding@0.1.13):
     resolution: {integrity: sha512-nkR0fQA9ScAtIKA3vNoPEqbZv1k5B5HVRYEvRWdlP6mUpFphM9TwPL2jZ/ztNGMTG5xT6SrHr+H7Ykz8qzbhjw==}
     dependencies:
-      cross-fetch: 3.1.6
+      cross-fetch: 3.1.6(encoding@0.1.13)
     transitivePeerDependencies:
       - encoding
     dev: false
 
-  /@supabase/supabase-js@2.22.0:
+  /@supabase/supabase-js@2.22.0(encoding@0.1.13):
     resolution: {integrity: sha512-omkgSWL1HwnpXZZy+yshFLx/qqxwk9kx9jbRM6IHNEylKrH/sz6JX7rGyIOmN9niDxMRjsCu1nwuBhD6IiF2xg==}
     dependencies:
-      '@supabase/functions-js': 2.1.1
-      '@supabase/gotrue-js': 2.27.1
-      '@supabase/postgrest-js': 1.6.1
+      '@supabase/functions-js': 2.1.1(encoding@0.1.13)
+      '@supabase/gotrue-js': 2.27.1(encoding@0.1.13)
+      '@supabase/postgrest-js': 1.6.1(encoding@0.1.13)
       '@supabase/realtime-js': 2.7.2
-      '@supabase/storage-js': 2.5.1
-      cross-fetch: 3.1.6
+      '@supabase/storage-js': 2.5.1(encoding@0.1.13)
+      cross-fetch: 3.1.6(encoding@0.1.13)
     transitivePeerDependencies:
       - encoding
       - supports-color
@@ -404,6 +413,12 @@ packages:
 
   /@types/json5@0.0.29:
     resolution: {integrity: sha512-dRLjCWHYg4oaA77cxO64oO+7JwCwnIzkZPdrrC71jQmQtlhM556pwKo5bUzqvZndkVbeFLIIi+9TC40JNF5hNQ==}
+    dev: false
+
+  /@types/jsonwebtoken@9.0.2:
+    resolution: {integrity: sha512-drE6uz7QBKq1fYqqoFKTDRdFCPHd5TCub75BM+D+cMx7NU9hUz7SESLfC2fSCXVFMO5Yj8sOWHuGqPgjc+fz0Q==}
+    dependencies:
+      '@types/node': 20.2.3
     dev: false
 
   /@types/node@20.2.3:
@@ -700,6 +715,10 @@ packages:
       update-browserslist-db: 1.0.11(browserslist@4.21.5)
     dev: false
 
+  /buffer-equal-constant-time@1.0.1:
+    resolution: {integrity: sha512-zRpUiDwd/xk6ADqPMATG8vc9VPrkck7T07OIx0gnjmJAnHnTVXNQG3vfvWNuiZIkwu9KrKdA1iJKfsfTVxE6NA==}
+    dev: false
+
   /bufferutil@4.0.7:
     resolution: {integrity: sha512-kukuqc39WOHtdxtw4UScxF/WVnMFVSQVKhtx3AjZJzhd0RGZZldcrfSEbVsWWe6KNH253574cq5F+wpv0G9pJw==}
     engines: {node: '>=6.14.2'}
@@ -795,10 +814,10 @@ packages:
     engines: {node: '>= 0.6'}
     dev: false
 
-  /cross-fetch@3.1.6:
+  /cross-fetch@3.1.6(encoding@0.1.13):
     resolution: {integrity: sha512-riRvo06crlE8HiqOwIpQhxwdOk4fOeR7FVM/wXoxchFEqMNUjvbs3bfo4OTgMEMHzppd4DxFBDbyySj8Cv781g==}
     dependencies:
-      node-fetch: 2.6.11
+      node-fetch: 2.6.11(encoding@0.1.13)
     transitivePeerDependencies:
       - encoding
     dev: false
@@ -954,12 +973,24 @@ packages:
       esutils: 2.0.3
     dev: false
 
+  /ecdsa-sig-formatter@1.0.11:
+    resolution: {integrity: sha512-nagl3RYrbNv6kQkeJIpt6NJZy8twLB/2vtz6yN9Z4vRKHN4/QZJIEbqohALSgwKdnksuY3k5Addp5lg8sVoVcQ==}
+    dependencies:
+      safe-buffer: 5.2.1
+    dev: false
+
   /electron-to-chromium@1.4.405:
     resolution: {integrity: sha512-JdDgnwU69FMZURoesf9gNOej2Cms1XJFfLk24y1IBtnAdhTcJY/mXnokmpmxHN59PcykBP4bgUU98vLY44Lhuw==}
     dev: false
 
   /emoji-regex@9.2.2:
     resolution: {integrity: sha512-L18DaJsXSUk2+42pv8mLs5jJT2hqFkFE4j21wOmgbUqsZ2hL72NsUU785g9RXgo3s0ZNgVl42TiHp3ZtOv/Vyg==}
+    dev: false
+
+  /encoding@0.1.13:
+    resolution: {integrity: sha512-ETBauow1T35Y/WZMkio9jiM0Z5xjHHmJ4XmjZOq1l/dXz3lr2sRn87nJy20RupqSh1F2m3HHPSp8ShIPQJrJ3A==}
+    dependencies:
+      iconv-lite: 0.6.3
     dev: false
 
   /enhanced-resolve@5.14.0:
@@ -1669,6 +1700,13 @@ packages:
     engines: {node: '>=14.18.0'}
     dev: false
 
+  /iconv-lite@0.6.3:
+    resolution: {integrity: sha512-4fCk79wshMdzMp2rH06qWrJE4iolqLhCUH+OiuIgU++RB0+94NlDL81atO7GX55uUKueo0txHNtvEyI6D7WdMw==}
+    engines: {node: '>=0.10.0'}
+    dependencies:
+      safer-buffer: 2.1.2
+    dev: false
+
   /ignore@5.2.4:
     resolution: {integrity: sha512-MAb38BcSbH0eHNBxn7ql2NH/kX33OkB3lZ1BNdh7ENeRChHTYsTvWrMubiIAMNS2llXEEgZ1MUOBtXChP3kaFQ==}
     engines: {node: '>= 4'}
@@ -1944,12 +1982,37 @@ packages:
       minimist: 1.2.8
     dev: false
 
+  /jsonwebtoken@9.0.0:
+    resolution: {integrity: sha512-tuGfYXxkQGDPnLJ7SibiQgVgeDgfbPq2k2ICcbgqW8WxWLBAxKQM/ZCu/IT8SOSwmaYl4dpTFCW5xZv7YbbWUw==}
+    engines: {node: '>=12', npm: '>=6'}
+    dependencies:
+      jws: 3.2.2
+      lodash: 4.17.21
+      ms: 2.1.3
+      semver: 7.5.1
+    dev: false
+
   /jsx-ast-utils@3.3.3:
     resolution: {integrity: sha512-fYQHZTZ8jSfmWZ0iyzfwiU4WDX4HpHbMCZ3gPlWYiCl3BoeOTsqKBqnTVfH2rYT7eP5c3sVbeSPHnnJOaTrWiw==}
     engines: {node: '>=4.0'}
     dependencies:
       array-includes: 3.1.6
       object.assign: 4.1.4
+    dev: false
+
+  /jwa@1.4.1:
+    resolution: {integrity: sha512-qiLX/xhEEFKUAJ6FiBMbes3w9ATzyk5W7Hvzpa/SLYdxNtng+gcurvrI7TbACjIXlsJyr05/S1oUhZrc63evQA==}
+    dependencies:
+      buffer-equal-constant-time: 1.0.1
+      ecdsa-sig-formatter: 1.0.11
+      safe-buffer: 5.2.1
+    dev: false
+
+  /jws@3.2.2:
+    resolution: {integrity: sha512-YHlZCB6lMTllWDtSPHz/ZXTsi8S00usEV6v1tjq8tOUZzw7DpSDWVXjXDre6ed1w/pd495ODpHZYSdkRTsa0HA==}
+    dependencies:
+      jwa: 1.4.1
+      safe-buffer: 5.2.1
     dev: false
 
   /language-subtag-registry@0.3.22:
@@ -1988,6 +2051,10 @@ packages:
 
   /lodash.merge@4.6.2:
     resolution: {integrity: sha512-0KpjqXRVvrYyCsX1swR/XTK0va6VQkQM6MNo7PqW77ByjAhoARA8EfrP1N4+KlKj8YS0ZUCtRT/YUuhyYDujIQ==}
+    dev: false
+
+  /lodash@4.17.21:
+    resolution: {integrity: sha512-v2kDEe57lecTulaDIuNTPy3Ry4gLGJ6Z1O3vE1krgXZNrsQ+LFTGHVxVjcXPs17LhbZVGedAJv8XZ1tvj5FvSg==}
     dev: false
 
   /loose-envify@1.4.0:
@@ -2145,7 +2212,7 @@ packages:
       - babel-plugin-macros
     dev: false
 
-  /node-fetch@2.6.11:
+  /node-fetch@2.6.11(encoding@0.1.13):
     resolution: {integrity: sha512-4I6pdBY1EthSqDmJkiNk3JIT8cswwR9nfeW/cPdUagJYEQG7R95WRH74wpz7ma8Gh/9dI9FP+OU+0E4FvtA55w==}
     engines: {node: 4.x || >=6.0.0}
     peerDependencies:
@@ -2154,6 +2221,7 @@ packages:
       encoding:
         optional: true
     dependencies:
+      encoding: 0.1.13
       whatwg-url: 5.0.0
     dev: false
 
@@ -2622,12 +2690,20 @@ packages:
       queue-microtask: 1.2.3
     dev: false
 
+  /safe-buffer@5.2.1:
+    resolution: {integrity: sha512-rp3So07KcdmmKbGvgaNxQSJr7bGVSVk5S9Eq1F+ppbRo70+YeaDxkw5Dd8NPN+GD6bjnYm2VuPuCXmpuYvmCXQ==}
+    dev: false
+
   /safe-regex-test@1.0.0:
     resolution: {integrity: sha512-JBUUzyOgEwXQY1NuPtvcj/qcBDbDmEvWufhlnXZIm75DEHp+afM1r1ujJpJsV/gSM4t59tpDyPi1sd6ZaPFfsA==}
     dependencies:
       call-bind: 1.0.2
       get-intrinsic: 1.2.1
       is-regex: 1.1.4
+    dev: false
+
+  /safer-buffer@2.1.2:
+    resolution: {integrity: sha512-YZo3K82SD7Riyi0E1EQPojLz7kpepnSQI9IyPbHHg1XXXevb5dJI7tpyN2ADxGcQbHG7vcyRHk0cbwqcQriUtg==}
     dev: false
 
   /scheduler@0.23.0:
