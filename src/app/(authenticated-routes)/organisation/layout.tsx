@@ -1,5 +1,6 @@
 import React, { ReactNode } from "react";
 import Image from "next/image";
+import Link from "next/link";
 import { getServerSession } from "next-auth";
 import { redirect } from "next/navigation";
 import { authOptions } from "@/app/api/auth/[...nextauth]/route";
@@ -78,7 +79,7 @@ export default async function OrganisationLayout({
         <div className="flex grow flex-col gap-y-5 overflow-y-auto border-r border-gray-200 bg-white px-6">
           <div className="flex h-16 my-4 shrink-0 items-center">
             <Image
-              className="mt-6"
+              className="mt-4"
               src="/floop-logo.png"
               alt="Your Company"
               width={72}
@@ -92,7 +93,7 @@ export default async function OrganisationLayout({
                 <ul role="list" className="-mx-2 space-y-1">
                   {navigation.map((item) => (
                     <li key={item.name}>
-                      <a
+                      <Link
                         href={item.href}
                         className={classNames(
                           item.current
@@ -111,7 +112,7 @@ export default async function OrganisationLayout({
                           aria-hidden="true"
                         />
                         {item.name}
-                      </a>
+                      </Link>
                     </li>
                   ))}
                 </ul>
@@ -123,7 +124,7 @@ export default async function OrganisationLayout({
                 <ul role="list" className="-mx-2 mt-2 space-y-1">
                   {organisation.map((item) => (
                     <li key={item.name}>
-                      <a
+                      <Link
                         href={item.href}
                         className={classNames(
                           item.current
@@ -143,13 +144,13 @@ export default async function OrganisationLayout({
                           {item.initial}
                         </span>
                         <span className="truncate">{item.name}</span>
-                      </a>
+                      </Link>
                     </li>
                   ))}
                 </ul>
               </li>
               <li className="-mx-6 mt-auto">
-                <a
+                <Link
                   href="#"
                   className="flex items-center gap-x-4 px-6 py-3 text-sm font-semibold leading-6 text-gray-900 hover:bg-gray-50"
                 >
@@ -162,7 +163,7 @@ export default async function OrganisationLayout({
                   />
                   <span className="sr-only">Your profile</span>
                   <span aria-hidden="true">Damien Sedgwick</span>
-                </a>
+                </Link>
               </li>
             </ul>
           </nav>
