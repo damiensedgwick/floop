@@ -1,9 +1,13 @@
 import { prisma } from "@/lib/prisma";
 
-export default async function Issues({ params }: { params: { id: string } }) {
+export default async function Issues({
+  params,
+}: {
+  params: { organisation_id: string };
+}) {
   const issues = await prisma.issues.findMany({
     where: {
-      organisation_id: params.id,
+      organisation_id: params.organisation_id,
     },
   });
 
