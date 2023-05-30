@@ -12,29 +12,32 @@ import {
 } from "@heroicons/react/24/outline";
 import classNames from "@/lib/classnames";
 import MobileMenu from "@/components/mobile-menu.client";
+import { prisma } from "@/lib/prisma";
+
+// cfa94faa-b73f-4683-8440-be083776a69a
 
 const navigation = [
   {
     name: "Dashboard",
-    href: "/organisation",
+    href: "/dashboard",
     icon: HomeIcon,
     current: true,
   },
   {
     name: "Ratings",
-    href: "/organisation/ratings",
+    href: "/ratings",
     icon: UsersIcon,
     current: false,
   },
   {
     name: "Issues",
-    href: "/organisation/issues",
+    href: "/issues",
     icon: FolderIcon,
     current: false,
   },
   {
     name: "Suggestions",
-    href: "/organisation/suggestions",
+    href: "/suggestions",
     icon: CalendarIcon,
     current: false,
   },
@@ -44,14 +47,14 @@ const organisation = [
   {
     id: 1,
     name: "Users",
-    href: "/organisation/users",
+    href: "/users",
     initial: "U",
     current: false,
   },
   {
     id: 2,
     name: "Settings",
-    href: "/organisation/settings",
+    href: "/settings",
     initial: "S",
     current: false,
   },
@@ -67,6 +70,12 @@ export default async function OrganisationLayout({
   if (!session) {
     redirect("/api/auth/signin");
   }
+
+  const user = await prisma.public_users.findFirst({
+    where: {
+      id: session?.user.id,
+    },
+  });
 
   return (
     <>
@@ -94,7 +103,9 @@ export default async function OrganisationLayout({
                   {navigation.map((item) => (
                     <li key={item.name}>
                       <Link
-                        href={item.href}
+                        href={
+                          `/organisation/${user?.organisation_id}` + item.href
+                        }
                         className={classNames(
                           item.current
                             ? "bg-gray-50 text-teal-600"
@@ -125,7 +136,9 @@ export default async function OrganisationLayout({
                   {organisation.map((item) => (
                     <li key={item.name}>
                       <Link
-                        href={item.href}
+                        href={
+                          `/organisation/${user?.organisation_id}` + item.href
+                        }
                         className={classNames(
                           item.current
                             ? "bg-gray-50 text-teal-600"

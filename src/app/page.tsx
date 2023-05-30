@@ -13,6 +13,7 @@ import {
   ClipboardDocumentCheckIcon,
   UsersIcon,
 } from "@heroicons/react/24/outline";
+import { prisma } from "@/lib/prisma";
 
 const product_information = [
   {
@@ -97,6 +98,12 @@ export default async function Home() {
 
   const user = session?.user;
 
+  const x = await prisma.public_users.findFirst({
+    where: {
+      id: user?.id,
+    },
+  });
+
   return (
     <>
       <header className="absolute inset-x-0 top-0 z-10">
@@ -118,21 +125,21 @@ export default async function Home() {
           </div>
           <div className="flex flex-1 justify-end">
             {/* TODO: Uncomment for launch */}
-            {/*{user ? (*/}
-            {/*  <Link*/}
-            {/*    href="/organisation/dashboard"*/}
-            {/*    className="text-sm font-semibold leading-6 text-gray-900"*/}
-            {/*  >*/}
-            {/*    Dashboard <span aria-hidden="true">&rarr;</span>*/}
-            {/*  </Link>*/}
-            {/*) : (*/}
-            {/*  <Link*/}
-            {/*    href="/api/auth/signin"*/}
-            {/*    className="text-sm font-semibold leading-6 text-gray-900"*/}
-            {/*  >*/}
-            {/*    Sign in <span aria-hidden="true">&rarr;</span>*/}
-            {/*  </Link>*/}
-            {/*)}*/}
+            {user ? (
+              <Link
+                href={`/organisation/${x?.organisation_id}/dashboard`}
+                className="text-sm font-semibold leading-6 text-gray-900"
+              >
+                Dashboard <span aria-hidden="true">&rarr;</span>
+              </Link>
+            ) : (
+              <Link
+                href="/api/auth/signin"
+                className="text-sm font-semibold leading-6 text-gray-900"
+              >
+                Sign in <span aria-hidden="true">&rarr;</span>
+              </Link>
+            )}
           </div>
         </nav>
       </header>
