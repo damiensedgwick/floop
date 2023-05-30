@@ -13,6 +13,7 @@ import {
   ClipboardDocumentCheckIcon,
   UsersIcon,
 } from "@heroicons/react/24/outline";
+import { prisma } from "@/lib/prisma";
 
 const product_information = [
   {
@@ -97,6 +98,12 @@ export default async function Home() {
 
   const user = session?.user;
 
+  const x = await prisma.public_users.findFirst({
+    where: {
+      id: user?.id,
+    },
+  });
+
   return (
     <>
       <header className="absolute inset-x-0 top-0 z-10">
@@ -120,7 +127,7 @@ export default async function Home() {
             {/* TODO: Uncomment for launch */}
             {/*{user ? (*/}
             {/*  <Link*/}
-            {/*    href="/organisation/dashboard"*/}
+            {/*    href={`/organisation/${x?.organisation_id}/dashboard`}*/}
             {/*    className="text-sm font-semibold leading-6 text-gray-900"*/}
             {/*  >*/}
             {/*    Dashboard <span aria-hidden="true">&rarr;</span>*/}
