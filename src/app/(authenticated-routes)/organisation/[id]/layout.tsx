@@ -13,33 +13,28 @@ import {
 import classNames from "@/lib/classnames";
 import MobileMenu from "@/components/mobile-menu.client";
 import { prisma } from "@/lib/prisma";
-
-// cfa94faa-b73f-4683-8440-be083776a69a
+import NavigationLink from "@/components/navigation-link";
 
 const navigation = [
   {
     name: "Dashboard",
     href: "/dashboard",
-    icon: HomeIcon,
-    current: true,
+    icon: <HomeIcon />,
   },
   {
     name: "Ratings",
     href: "/ratings",
-    icon: UsersIcon,
-    current: false,
+    icon: <UsersIcon />,
   },
   {
     name: "Issues",
     href: "/issues",
-    icon: FolderIcon,
-    current: false,
+    icon: <FolderIcon />,
   },
   {
     name: "Suggestions",
     href: "/suggestions",
-    icon: CalendarIcon,
-    current: false,
+    icon: <CalendarIcon />,
   },
 ];
 
@@ -49,14 +44,12 @@ const organisation = [
     name: "Users",
     href: "/users",
     initial: "U",
-    current: false,
   },
   {
     id: 2,
     name: "Settings",
     href: "/settings",
     initial: "S",
-    current: false,
   },
 ];
 
@@ -102,28 +95,7 @@ export default async function OrganisationLayout({
                 <ul role="list" className="-mx-2 space-y-1">
                   {navigation.map((item) => (
                     <li key={item.name}>
-                      <Link
-                        href={
-                          `/organisation/${user?.organisation_id}` + item.href
-                        }
-                        className={classNames(
-                          item.current
-                            ? "bg-gray-50 text-teal-600"
-                            : "text-gray-700 hover:text-teal-600 hover:bg-gray-50",
-                          "group flex gap-x-3 rounded-md p-2 text-sm leading-6 font-semibold"
-                        )}
-                      >
-                        <item.icon
-                          className={classNames(
-                            item.current
-                              ? "text-teal-600"
-                              : "text-gray-400 group-hover:text-teal-600",
-                            "h-6 w-6 shrink-0"
-                          )}
-                          aria-hidden="true"
-                        />
-                        {item.name}
-                      </Link>
+                      <NavigationLink user={user} item={item} />
                     </li>
                   ))}
                 </ul>
@@ -135,29 +107,7 @@ export default async function OrganisationLayout({
                 <ul role="list" className="-mx-2 mt-2 space-y-1">
                   {organisation.map((item) => (
                     <li key={item.name}>
-                      <Link
-                        href={
-                          `/organisation/${user?.organisation_id}` + item.href
-                        }
-                        className={classNames(
-                          item.current
-                            ? "bg-gray-50 text-teal-600"
-                            : "text-gray-700 hover:text-teal-600 hover:bg-gray-50",
-                          "group flex gap-x-3 rounded-md p-2 text-sm leading-6 font-semibold"
-                        )}
-                      >
-                        <span
-                          className={classNames(
-                            item.current
-                              ? "text-teal-600 border-teal-600"
-                              : "text-gray-400 border-gray-200 group-hover:border-teal-600 group-hover:text-teal-600",
-                            "flex h-6 w-6 shrink-0 items-center justify-center rounded-lg border text-[0.625rem] font-medium bg-white"
-                          )}
-                        >
-                          {item.initial}
-                        </span>
-                        <span className="truncate">{item.name}</span>
-                      </Link>
+                      <NavigationLink user={user} item={item} />
                     </li>
                   ))}
                 </ul>
