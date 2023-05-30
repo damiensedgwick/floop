@@ -3,6 +3,7 @@
 import { useState, Fragment } from "react";
 import { Dialog, Transition } from "@headlessui/react";
 import Image from "next/image";
+import Link from "next/link";
 import { Bars3Icon, XMarkIcon } from "@heroicons/react/24/outline";
 import NavigationLink from "@/components/navigation-link.client";
 
@@ -124,7 +125,7 @@ export default function MobileMenu({ user, navigation, organisation }: Props) {
         <div className="flex-1 text-sm font-semibold leading-6 text-gray-900">
           Dashboard
         </div>
-        <a href="#">
+        <Link href="/dashboard">
           <span className="sr-only">Your profile</span>
           <Image
             className="rounded-full bg-gray-50"
@@ -133,7 +134,7 @@ export default function MobileMenu({ user, navigation, organisation }: Props) {
             width={42}
             height={42}
           />
-        </a>
+        </Link>
       </div>
     </>
   );
