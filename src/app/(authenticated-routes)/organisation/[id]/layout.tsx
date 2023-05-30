@@ -10,10 +10,9 @@ import {
   HomeIcon,
   UsersIcon,
 } from "@heroicons/react/24/outline";
-import classNames from "@/lib/classnames";
 import MobileMenu from "@/components/mobile-menu.client";
 import { prisma } from "@/lib/prisma";
-import NavigationLink from "@/components/navigation-link";
+import NavigationLink from "@/components/navigation-link.client";
 
 const navigation = [
   {
@@ -40,13 +39,11 @@ const navigation = [
 
 const organisation = [
   {
-    id: 1,
     name: "Users",
     href: "/users",
     initial: "U",
   },
   {
-    id: 2,
     name: "Settings",
     href: "/settings",
     initial: "S",
@@ -119,8 +116,8 @@ export default async function OrganisationLayout({
                 >
                   <Image
                     className="rounded-full bg-gray-50"
-                    src=""
-                    alt=""
+                    src={user?.image || ""}
+                    alt="Profile picture"
                     width={42}
                     height={42}
                   />

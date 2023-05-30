@@ -7,7 +7,12 @@ import { usePathname } from "next/navigation";
 
 type Props = {
   user: any;
-  item: any;
+  item: {
+    name: string;
+    href: string;
+    initial?: string;
+    icon?: React.JSX.Element;
+  };
 };
 
 export default function NavigationLink({ user, item }: Props) {
