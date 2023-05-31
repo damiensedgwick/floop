@@ -60,7 +60,7 @@ export default async function Ratings({
                         {rating.message ?? "----"}
                       </td>
                       <td className="whitespace-nowrap px-3 py-4 text-sm text-gray-500">
-                        damienksedgwick@gmail.com
+                        {rating.user_email}
                       </td>
                     </tr>
                   ))}

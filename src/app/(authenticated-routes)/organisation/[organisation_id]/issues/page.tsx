@@ -60,7 +60,7 @@ export default async function Issues({
                         {issue.message}
                       </td>
                       <td className="whitespace-nowrap px-3 py-4 text-sm text-gray-500">
-                        damienksedgwick@gmail.com
+                        {issue.user_email}
                       </td>
                     </tr>
                   ))}
