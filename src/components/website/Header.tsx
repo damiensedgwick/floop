@@ -7,8 +7,6 @@ type Props = {
 };
 
 export default function Header({ user }: Props) {
-  console.log(user);
-
   return (
     <header className="absolute inset-x-0 top-0 z-10">
       <nav
@@ -27,22 +25,21 @@ export default function Header({ user }: Props) {
           </Link>
         </div>
         <div className="flex flex-1 justify-end">
-          {/* TODO: Uncomment for launch */}
-          {/*{public_user ? (*/}
-          {/*  <Link*/}
-          {/*    href={`/organisation/${public_user?.organisation_id}/dashboard`}*/}
-          {/*    className="text-sm font-semibold leading-6 text-gray-900"*/}
-          {/*  >*/}
-          {/*    Dashboard <span aria-hidden="true">&rarr;</span>*/}
-          {/*  </Link>*/}
-          {/*) : (*/}
-          {/*  <Link*/}
-          {/*    href="/api/auth/signin"*/}
-          {/*    className="text-sm font-semibold leading-6 text-gray-900"*/}
-          {/*  >*/}
-          {/*    Sign in <span aria-hidden="true">&rarr;</span>*/}
-          {/*  </Link>*/}
-          {/*)}*/}
+          {user ? (
+            <Link
+              href={`/organisation/${user?.organisation_id}/dashboard`}
+              className="text-sm font-semibold leading-6 text-gray-900"
+            >
+              Dashboard <span aria-hidden="true">&rarr;</span>
+            </Link>
+          ) : (
+            <Link
+              href="/api/auth/signin"
+              className="text-sm font-semibold leading-6 text-gray-900"
+            >
+              Sign in <span aria-hidden="true">&rarr;</span>
+            </Link>
+          )}
         </div>
       </nav>
     </header>
