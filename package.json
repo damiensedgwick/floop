@@ -6,7 +6,10 @@
     "dev": "next dev",
     "build": "pnpm exec prisma generate && next build",
     "start": "next start",
-    "lint": "next lint"
+    "lint": "next lint",
+    "prisma:pull": "pnpx prisma db pull",
+    "prisma:generate": "pnpx prisma generate",
+    "prisma:studio": "pnpx prisma studio --port 7777"
   },
   "dependencies": {
     "@headlessui/react": "^1.7.14",
