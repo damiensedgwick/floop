@@ -95,14 +95,17 @@ const product_pricing = [
 
 export default async function Home() {
   const session = await getServerSession(authOptions);
-
   const auth_user = session?.user;
 
-  const public_user = await prisma.public_users.findUnique({
-    where: {
-      id: auth_user?.id,
-    },
-  });
+  let public_user;
+
+  if (auth_user) {
+    public_user = await prisma.public_users.findUnique({
+      where: {
+        id: auth_user?.id,
+      },
+    });
+  }
 
   return (
     <>
