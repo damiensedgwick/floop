@@ -126,7 +126,7 @@ export default async function OrganisationLayout({
                     height={42}
                   />
                   <span className="sr-only">Your profile</span>
-                  <span aria-hidden="true">Damien Sedgwick</span>
+                  <span aria-hidden="true">{user?.name}</span>
                 </Link>
               </li>
             </ul>
