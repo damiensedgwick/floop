@@ -10,9 +10,9 @@ import {
   HomeIcon,
   StarIcon,
 } from "@heroicons/react/24/outline";
-import MobileMenu from "@/components/dashboard/mobile-menu.client";
+import MobileMenu from "@/components/dashboard/MobileMenu.client";
 import { prisma } from "@/lib/prisma";
-import NavigationLink from "@/components/dashboard/navigation-link.client";
+import NavigationLink from "@/components/dashboard/NavigationLink.client";
 
 const navigation = [
   {
