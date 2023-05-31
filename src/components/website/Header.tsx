@@ -1,13 +1,10 @@
 import Link from "next/link";
 import Image from "next/image";
-import { Prisma } from "@prisma/client";
+import { PublicUser } from "@/types";
 
 type Props = {
-  user: any;
+  user: PublicUser;
 };
-
-// TODO: Make this type from prisma schema
-// type User =
 
 export default function Header({ user }: Props) {
   console.log(user);

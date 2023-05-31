@@ -7,12 +7,13 @@ import ProductPricing from "@/components/website/ProductPricing";
 import Hero from "@/components/website/Hero";
 import Header from "@/components/website/Header";
 import Footer from "@/components/website/Footer";
+import { PublicUser } from "@/types";
 
 export default async function Home() {
   const session = await getServerSession(authOptions);
   const auth_user = session?.user;
 
-  let public_user;
+  let public_user: PublicUser = null;
 
   if (auth_user) {
     public_user = await prisma.public_users.findUnique({
