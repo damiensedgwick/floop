@@ -5,10 +5,10 @@ import { getServerSession } from "next-auth";
 import { redirect } from "next/navigation";
 import { authOptions } from "@/app/api/auth/[...nextauth]/route";
 import {
-  CalendarIcon,
-  FolderIcon,
+  ChatBubbleLeftIcon,
+  ExclamationTriangleIcon,
   HomeIcon,
-  UsersIcon,
+  StarIcon,
 } from "@heroicons/react/24/outline";
 import MobileMenu from "@/components/mobile-menu.client";
 import { prisma } from "@/lib/prisma";
@@ -23,17 +23,17 @@ const navigation = [
   {
     name: "Ratings",
     href: "/ratings",
-    icon: <UsersIcon />,
+    icon: <StarIcon />,
   },
   {
     name: "Issues",
     href: "/issues",
-    icon: <FolderIcon />,
+    icon: <ExclamationTriangleIcon />,
   },
   {
     name: "Suggestions",
     href: "/suggestions",
-    icon: <CalendarIcon />,
+    icon: <ChatBubbleLeftIcon />,
   },
 ];
 
@@ -68,7 +68,7 @@ export default async function OrganisationLayout({
   });
 
   return (
-    <>
+    <div className="bg-white h-full">
       {/* Dynamic sidebar for mobile*/}
       <MobileMenu
         user={user}
@@ -137,6 +137,6 @@ export default async function OrganisationLayout({
       <main className="py-10 lg:pl-72">
         <div className="px-4 sm:px-6 lg:px-8">{children}</div>
       </main>
-    </>
+    </div>
   );
 }

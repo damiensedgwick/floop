@@ -96,11 +96,11 @@ const product_pricing = [
 export default async function Home() {
   const session = await getServerSession(authOptions);
 
-  const user = session?.user;
+  const auth_user = session?.user;
 
-  const x = await prisma.public_users.findFirst({
+  const public_user = await prisma.public_users.findUnique({
     where: {
-      id: user?.id,
+      id: auth_user?.id,
     },
   });
 
@@ -125,9 +125,9 @@ export default async function Home() {
           </div>
           <div className="flex flex-1 justify-end">
             {/* TODO: Uncomment for launch */}
-            {user ? (
+            {public_user ? (
               <Link
-                href={`/organisation/${x?.organisation_id}/dashboard`}
+                href={`/organisation/${public_user?.organisation_id}/dashboard`}
                 className="text-sm font-semibold leading-6 text-gray-900"
               >
                 Dashboard <span aria-hidden="true">&rarr;</span>
