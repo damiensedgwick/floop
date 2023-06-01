@@ -1,6 +1,24 @@
 import Image from "next/image";
+import CreateOrganisationForm from "@/components/organisation/CreateOrganisationForm.client";
+import { getServerSession } from "next-auth";
+import { authOptions } from "@/app/api/auth/[...nextauth]/route";
+import { prisma } from "@/lib/prisma";
+import { PublicUser } from "@/types";
 
-export default function CreateOrganisation() {
+export default async function CreateOrganisation() {
+  const session = await getServerSession(authOptions);
+  const auth_user = session?.user;
+
+  let public_user: PublicUser = null;
+
+  if (auth_user) {
+    public_user = await prisma.public_users.findUnique({
+      where: {
+        id: auth_user?.id,
+      },
+    });
+  }
+
   return (
     <div className="flex min-h-full flex-1 flex-col justify-center px-6 py-12 lg:px-8">
       <div className="sm:mx-auto sm:w-full sm:max-w-sm">
@@ -17,34 +35,7 @@ export default function CreateOrganisation() {
       </div>
 
       <div className="mt-10 sm:mx-auto sm:w-full sm:max-w-sm">
-        <form className="space-y-6" action="#" method="POST">
-          <div>
-            <label
-              htmlFor="email"
-              className="block text-sm font-medium leading-6 text-gray-900"
-            >
-              Organisation name
-            </label>
-            <div className="mt-2">
-              <input
-                className="block w-full rounded-md border-0 py-1.5 text-gray-900 shadow-sm ring-1 ring-inset ring-gray-300 placeholder:text-gray-400 focus:ring-2 focus:ring-inset focus:ring-teal-600 sm:text-sm sm:leading-6"
-                id="organisationName"
-                name="organisationName"
-                type="text"
-                required
-              />
-            </div>
-          </div>
-
-          <div>
-            <button
-              type="submit"
-              className="flex w-full justify-center rounded-md bg-teal-600 px-3 py-1.5 text-sm font-semibold leading-6 text-white shadow-sm hover:bg-teal-500 focus-visible:outline focus-visible:outline-2 focus-visible:outline-offset-2 focus-visible:outline-teal-600"
-            >
-              Submit
-            </button>
-          </div>
-        </form>
+        <CreateOrganisationForm user={public_user} />
 
         <p className="mt-10 text-center text-sm text-gray-500">
           If you are already a member of an organisation, for access, please
