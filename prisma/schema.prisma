@@ -121,6 +121,8 @@ model public_users {
   emailVerified                                      DateTime?       @db.Timestamptz(6)
   created_at                                         DateTime        @default(dbgenerated("(now() AT TIME ZONE 'utc'::text)")) @db.Timestamptz(6)
   organisation_id                                    String?         @db.Uuid
+  title                                              String?
+  role                                               String?
   organisations_organisations_owner_idTousers        organisations[] @relation("organisations_owner_idTousers")
   users                                              next_auth_users @relation(fields: [id], references: [id], onDelete: Cascade, onUpdate: NoAction)
   organisations_users_organisation_idToorganisations organisations?  @relation("users_organisation_idToorganisations", fields: [organisation_id], references: [id], onUpdate: NoAction)

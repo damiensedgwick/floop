@@ -30,10 +30,12 @@ export default async function Users({
                   {user.name}
                 </h3>
                 <span className="inline-flex flex-shrink-0 items-center rounded-full bg-green-50 px-1.5 py-0.5 text-xs font-medium text-green-700 ring-1 ring-inset ring-green-600/20">
-                  user role
+                  {user.role}
                 </span>
               </div>
-              <p className="mt-1 truncate text-sm text-gray-500">user title</p>
+              <p className="mt-1 truncate text-sm text-gray-500">
+                {user.title}
+              </p>
             </div>
             <Image
               className="flex-shrink-0 rounded-full bg-gray-300"
