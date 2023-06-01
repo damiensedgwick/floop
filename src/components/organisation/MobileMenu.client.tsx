@@ -5,7 +5,7 @@ import { Dialog, Transition } from "@headlessui/react";
 import Image from "next/image";
 import Link from "next/link";
 import { Bars3Icon, XMarkIcon } from "@heroicons/react/24/outline";
-import NavigationLink from "@/components/dashboard/NavigationLink.client";
+import NavigationLink from "@/components/organisation/NavigationLink.client";
 
 type Props = {
   user: any;

@@ -2,7 +2,7 @@
 
 import classNames from "@/lib/classnames";
 import Link from "next/link";
-import React from "react";
+import React, { SetStateAction } from "react";
 import { usePathname } from "next/navigation";
 
 type Props = {
