@@ -25,23 +25,23 @@ export default function Header({ user }: Props) {
             />
           </Link>
         </div>
-        <div className="flex flex-1 justify-end">
-          {/*{user ? (*/}
-          {/*  <Link*/}
-          {/*    href={`/organisation/${user?.organisation_id}/dashboard`}*/}
-          {/*    className="text-sm font-semibold leading-6 text-gray-900"*/}
-          {/*  >*/}
-          {/*    Dashboard <span aria-hidden="true">&rarr;</span>*/}
-          {/*  </Link>*/}
-          {/*) : (*/}
-          {/*  <Link*/}
-          {/*    href="/api/auth/signin"*/}
-          {/*    className="text-sm font-semibold leading-6 text-gray-900"*/}
-          {/*  >*/}
-          {/*    Sign in <span aria-hidden="true">&rarr;</span>*/}
-          {/*  </Link>*/}
-          {/*)}*/}
-        </div>
+        {/*<div className="flex flex-1 justify-end">*/}
+        {/*  {user ? (*/}
+        {/*    <Link*/}
+        {/*      href={`/organisation/${user?.organisation_id}/dashboard`}*/}
+        {/*      className="text-sm font-semibold leading-6 text-gray-900"*/}
+        {/*    >*/}
+        {/*      Dashboard <span aria-hidden="true">&rarr;</span>*/}
+        {/*    </Link>*/}
+        {/*  ) : (*/}
+        {/*    <Link*/}
+        {/*      href="/api/auth/signin"*/}
+        {/*      className="text-sm font-semibold leading-6 text-gray-900"*/}
+        {/*    >*/}
+        {/*      Sign in <span aria-hidden="true">&rarr;</span>*/}
+        {/*    </Link>*/}
+        {/*  )}*/}
+        {/*</div>*/}
       </nav>
     </header>
   );
