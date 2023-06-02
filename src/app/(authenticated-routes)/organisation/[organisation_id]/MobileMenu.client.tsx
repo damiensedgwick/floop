@@ -86,7 +86,10 @@ export default function MobileMenu({ user, navigation, organisation }: Props) {
                       <li>
                         <ul role="list" className="-mx-2 space-y-1">
                           {navigation.map((item) => (
-                            <li key={item.name}>
+                            <li
+                              key={item.name}
+                              onClick={() => setSidebarOpen(false)}
+                            >
                               <NavigationLink user={user} item={item} />
                             </li>
                           ))}
@@ -98,7 +101,10 @@ export default function MobileMenu({ user, navigation, organisation }: Props) {
                         </div>
                         <ul role="list" className="-mx-2 mt-2 space-y-1">
                           {organisation.map((item) => (
-                            <li key={item.name}>
+                            <li
+                              key={item.name}
+                              onClick={() => setSidebarOpen(false)}
+                            >
                               <NavigationLink user={user} item={item} />
                             </li>
                           ))}
