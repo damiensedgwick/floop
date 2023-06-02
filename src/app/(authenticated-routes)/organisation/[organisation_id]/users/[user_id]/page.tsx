@@ -1,7 +1,16 @@
-export default function MyProfile() {
-  return (
-    <div>
-      <h1>My Profile</h1>
-    </div>
-  );
+import { getServerSession } from "next-auth";
+import { authOptions } from "@/app/api/auth/[...nextauth]/route";
+import { redirect } from "next/navigation";
+import UserProfileForm from "@/app/(authenticated-routes)/organisation/[organisation_id]/users/[user_id]/UserProfileForm";
+
+export default async function MyProfile() {
+  const session = await getServerSession(authOptions);
+
+  const user = session?.user;
+
+  if (!user) {
+    redirect("/api/auth/signin");
+  }
+
+  return <UserProfileForm name={user.name} image={user.image} />;
 }
