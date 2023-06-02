@@ -7,6 +7,7 @@
     "build": "pnpm exec prisma generate && next build",
     "start": "next start",
     "lint": "next lint",
+    "prettier": "pnpx prettier --write \"./src/**/*.{js,jsx,ts,tsx,json}\"",
     "prisma:pull": "pnpx prisma db pull",
     "prisma:generate": "pnpx prisma generate",
     "prisma:studio": "pnpx prisma studio --port 7777"
