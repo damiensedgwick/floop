@@ -16,7 +16,7 @@ export default function Header({ user }: Props) {
         aria-label="Global"
       >
         <div className="flex lg:flex-1">
-          <Link href="/" className="-m-1.5 p-1.5">
+          <Link href="/public" className="-m-1.5 p-1.5">
             <span className="sr-only">Floop</span>
             <Image
               src="/floop-logo.png"

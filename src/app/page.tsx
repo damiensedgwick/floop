@@ -1,12 +1,12 @@
 import { getServerSession } from "next-auth";
 import { authOptions } from "@/app/api/auth/[...nextauth]/route";
 import { prisma } from "@/lib/prisma";
-import ProductInformation from "@/components/website/ProductInformation";
-import ProductFeatures from "@/components/website/ProductFeatures";
-import ProductPricing from "@/components/website/ProductPricing";
-import Hero from "@/components/website/Hero";
-import Header from "@/components/website/Header";
-import Footer from "@/components/website/Footer";
+import ProductInformation from "@/app/ProductInformation";
+import ProductFeatures from "@/app/ProductFeatures";
+import ProductPricing from "@/app/ProductPricing";
+import Hero from "@/app/Hero";
+import Header from "@/app/Header";
+import Footer from "@/app/Footer";
 import { PublicUser } from "@/types";
 
 export default async function Home() {
@@ -16,7 +16,7 @@ export default async function Home() {
   let public_user: PublicUser = null;
 
   if (auth_user) {
-    public_user = await prisma.public_users.findUnique({
+    public_user = await prisma.public_users.findFirst({
       where: {
         id: auth_user?.id,
       },
