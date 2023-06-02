@@ -6,16 +6,38 @@ import { NextResponse } from "next/server";
 export async function POST(request: Request) {
   const session = await getServerSession(authOptions);
 
+  if (!session) {
+    return NextResponse.json(
+      {
+        message: "Unauthorised",
+      },
+      {
+        status: 403,
+      }
+    );
+  }
+
+  const { user } = session;
+
+  if (!user) {
+    return NextResponse.json(
+      {
+        message: "Unauthorised",
+      },
+      {
+        status: 403,
+      }
+    );
+  }
+
   const { name } = await request.json();
 
   const record = await prisma.organisations.create({
     data: {
       name: name,
-      owner_id: session?.user.id,
+      owner_id: user.id,
     },
   });
-
-  console.log(record);
 
   return NextResponse.json(record);
 }
