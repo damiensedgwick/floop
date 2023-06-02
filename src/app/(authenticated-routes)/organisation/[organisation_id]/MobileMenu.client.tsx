@@ -75,7 +75,7 @@ export default function MobileMenu({ user, navigation, organisation }: Props) {
                   <div className="flex h-16 shrink-0 items-center">
                     <Image
                       className="mt-6"
-                      src="/floop-logo.png"
+                      src="/assets/floop-logo.png"
                       alt="Floop"
                       width={48}
                       height={48}

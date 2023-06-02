@@ -43,7 +43,8 @@ function Banner() {
   return (
     <div className="bg-teal-600 px-6 py-2.5 sm:before:flex-1 sm:px-3.5">
       <p className="text-center text-sm leading-6 text-white">
-        Floop is under active development and will be available soon!
+        Floop is under active development and whilst you are free to look
+        around, things may not be working as you might expect!
       </p>
     </div>
   );

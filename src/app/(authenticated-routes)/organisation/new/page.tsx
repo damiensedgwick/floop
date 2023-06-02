@@ -27,7 +27,7 @@ export default async function CreateOrganisation() {
       <div className="sm:mx-auto sm:w-full sm:max-w-sm">
         <Image
           className="mx-auto"
-          src="/floop-logo.png"
+          src="/assets/floop-logo.png"
           alt="Floop"
           width={128}
           height={128}

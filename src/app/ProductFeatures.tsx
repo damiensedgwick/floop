@@ -3,6 +3,7 @@ import {
   ClipboardDocumentCheckIcon,
   UsersIcon,
 } from "@heroicons/react/24/outline";
+import Link from "next/link";
 
 const product_features = [
   {
@@ -61,14 +62,6 @@ export default function ProductFeatures() {
                 </dt>
                 <dd className="mt-1 flex flex-auto flex-col text-base leading-7 text-gray-600">
                   <p className="flex-auto">{pf.description}</p>
-                  <p className="mt-6">
-                    <a
-                      href={pf.href}
-                      className="text-sm font-semibold leading-6 text-teal-600"
-                    >
-                      Learn more <span aria-hidden="true">→</span>
-                    </a>
-                  </p>
                 </dd>
               </div>
             ))}
