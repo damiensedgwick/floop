@@ -1,10 +1,11 @@
 import { CheckIcon } from "@heroicons/react/20/solid";
+import Link from "next/link";
 
 const product_pricing = [
   {
     name: "Hobby",
     id: "tier-hobby",
-    href: "#",
+    href: "/api/auth/signin",
     priceMonthly: "£0",
     description:
       "Get started on your feedback journey with our Basic Plan. Designed for individuals and hobby projects.",
@@ -19,7 +20,8 @@ const product_pricing = [
   {
     name: "Team",
     id: "tier-team",
-    href: "#",
+    // TODO: This would go throgh a subscription route?
+    href: "/api/auth/signin",
     priceMonthly: "£19.99",
     description:
       "Elevate your feedback collection capabilities with our Professional Plan. Perfect for growing businesses and teams.",
@@ -115,13 +117,13 @@ export default function ProductPricing() {
                       ))}
                     </ul>
                   </div>
-                  <a
+                  <Link
                     href={pp.href}
                     aria-describedby={pp.id}
                     className="mt-8 block rounded-md bg-teal-600 py-2 text-center text-sm font-semibold leading-6 text-white shadow-sm px-3.5 hover:bg-teal-500 focus-visible:outline focus-visible:outline-2 focus-visible:outline-offset-2 focus-visible:outline-teal-600"
                   >
                     Get started today
-                  </a>
+                  </Link>
                 </div>
               ))}
             </div>

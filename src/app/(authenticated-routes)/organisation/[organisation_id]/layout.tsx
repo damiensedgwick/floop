@@ -83,7 +83,7 @@ export default async function OrganisationLayout({
           <div className="flex h-16 my-4 shrink-0 items-center">
             <Image
               className="mt-4"
-              src="/floop-logo.png"
+              src="/assets/floop-logo.png"
               alt="Your Company"
               width={72}
               height={72}
