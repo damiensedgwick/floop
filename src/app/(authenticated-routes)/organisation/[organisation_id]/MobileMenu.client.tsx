@@ -56,7 +56,7 @@ export default function MobileMenu({ user, navigation, organisation }: Props) {
                   leaveFrom="opacity-100"
                   leaveTo="opacity-0"
                 >
-                  <div className="absolute left-full top-0 flex w-16 justify-center pt-5">
+                  <div className="absolute top-0 left-full flex w-16 justify-center pt-5">
                     <button
                       type="button"
                       className="-m-2.5 p-2.5"
@@ -122,7 +122,7 @@ export default function MobileMenu({ user, navigation, organisation }: Props) {
       <div className="sticky top-0 z-40 flex items-center gap-x-6 bg-white px-4 py-4 shadow-sm sm:px-6 lg:hidden">
         <button
           type="button"
-          className="-m-2.5 p-2.5 text-gray-700 lg:hidden"
+          className="text-gray-700 -m-2.5 p-2.5 lg:hidden"
           onClick={() => setSidebarOpen(true)}
         >
           <span className="sr-only">Open sidebar</span>

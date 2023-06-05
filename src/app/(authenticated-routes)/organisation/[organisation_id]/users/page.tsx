@@ -1,6 +1,6 @@
 import { prisma } from "@/lib/prisma";
 
-import { EnvelopeIcon, PhoneIcon } from "@heroicons/react/20/solid";
+import { EnvelopeIcon } from "@heroicons/react/20/solid";
 import Image from "next/image";
 import { getServerSession } from "next-auth";
 import { authOptions } from "@/app/api/auth/[...nextauth]/route";
@@ -28,15 +28,15 @@ export default async function Users({
         .map((user) => (
           <li
             key={user.email}
-            className="col-span-1 divide-y divide-gray-200 rounded-lg bg-white shadow"
+            className="col-span-1 rounded-lg bg-white shadow divide-y divide-gray-200"
           >
-            <div className="flex w-full items-center justify-between space-x-6 p-6">
+            <div className="flex w-full items-center justify-between p-6 space-x-6">
               <div className="flex-1 truncate">
                 <div className="flex items-center space-x-3">
                   <h3 className="truncate text-sm font-medium text-gray-900">
                     {user.name}
                   </h3>
-                  <span className="inline-flex flex-shrink-0 items-center rounded-full bg-green-50 px-1.5 py-0.5 text-xs font-medium text-green-700 ring-1 ring-inset ring-green-600/20">
+                  <span className="inline-flex flex-shrink-0 items-center rounded-full bg-green-50 text-xs font-medium text-green-700 ring-1 ring-inset ring-green-600/20 px-1.5 py-0.5">
                     {user.role ?? ""}
                   </span>
                 </div>
