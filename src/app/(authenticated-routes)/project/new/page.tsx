@@ -1,5 +1,5 @@
 import Image from "next/image";
-import CreateprojectForm from "@/app/(authenticated-routes)/project/new/CreateprojectForm.client";
+import CreateProjectForm from "@/app/(authenticated-routes)/project/new/CreateProjectForm.client";
 import { getServerSession } from "next-auth";
 import { authOptions } from "@/app/api/auth/[...nextauth]/route";
 import { PublicUser } from "@/types";
@@ -39,7 +39,7 @@ export default async function Createproject() {
       </div>
 
       <div className="mt-10 sm:mx-auto sm:w-full sm:max-w-sm">
-        <CreateprojectForm />
+        <CreateProjectForm />
 
         <p className="mt-10 text-center text-sm text-gray-500">
           If you are already a member of an project, for access, please speak to
