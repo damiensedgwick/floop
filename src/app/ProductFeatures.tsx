@@ -3,7 +3,6 @@ import {
   ClipboardDocumentCheckIcon,
   UsersIcon,
 } from "@heroicons/react/24/outline";
-import Link from "next/link";
 
 const product_features = [
   {
@@ -43,8 +42,7 @@ export default function ProductFeatures() {
           <p className="mt-6 text-lg leading-8 text-gray-600">
             Keeping track of customer feedback can be challenging due to its
             volume and varying formats. Our service streamlines the process,
-            providing a centralised platform for efficient organisation and
-            analysis.
+            providing a centralised platform for efficient project and analysis.
           </p>
         </div>
         <div className="mx-auto mt-16 max-w-2xl sm:mt-20 lg:mt-24 lg:max-w-none">

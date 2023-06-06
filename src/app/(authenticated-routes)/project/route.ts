@@ -32,7 +32,7 @@ export async function POST(request: Request) {
 
   const { name } = await request.json();
 
-  const record = await prisma.organisations.create({
+  const record = await prisma.projects.create({
     data: {
       name: name,
       owner_id: user.id,

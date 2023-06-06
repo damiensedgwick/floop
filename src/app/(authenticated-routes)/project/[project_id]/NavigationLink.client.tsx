@@ -2,7 +2,7 @@
 
 import classNames from "@/lib/classnames";
 import Link from "next/link";
-import React, { SetStateAction } from "react";
+import React from "react";
 import { usePathname } from "next/navigation";
 
 type Props = {
@@ -20,7 +20,7 @@ export default function NavigationLink({ user, item }: Props) {
 
   return (
     <Link
-      href={`/organisation/${user?.organisation_id}` + item.href}
+      href={`/project/${user?.project_id}` + item.href}
       className={classNames(
         pathname.endsWith(item.href)
           ? "bg-gray-50 text-teal-600"

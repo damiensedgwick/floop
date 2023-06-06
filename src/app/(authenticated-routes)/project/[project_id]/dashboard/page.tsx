@@ -3,7 +3,7 @@ import { prisma } from "@/lib/prisma";
 export default async function Dashboard({
   params,
 }: {
-  params: { organisation_id: string };
+  params: { project_id: string };
 }) {
   const thirtyDaysAgo = new Date();
   thirtyDaysAgo.setDate(thirtyDaysAgo.getDate() - 30);
@@ -12,7 +12,7 @@ export default async function Dashboard({
     where: {
       AND: [
         {
-          organisation_id: params.organisation_id,
+          project_id: params.project_id,
         },
         {
           created_at: {
@@ -27,7 +27,7 @@ export default async function Dashboard({
     where: {
       AND: [
         {
-          organisation_id: params.organisation_id,
+          project_id: params.project_id,
         },
         {
           created_at: {
@@ -42,7 +42,7 @@ export default async function Dashboard({
     where: {
       AND: [
         {
-          organisation_id: params.organisation_id,
+          project_id: params.project_id,
         },
         {
           created_at: {

@@ -1,13 +1,13 @@
 import { prisma } from "@/lib/prisma";
 
-export default async function Issues({
+export default async function Suggestions({
   params,
 }: {
-  params: { organisation_id: string };
+  params: { project_id: string };
 }) {
-  const issues = await prisma.issues.findMany({
+  const suggestions = await prisma.suggestions.findMany({
     where: {
-      organisation_id: params.organisation_id,
+      project_id: params.project_id,
     },
   });
 
@@ -16,10 +16,10 @@ export default async function Issues({
       <div className="sm:flex sm:items-center">
         <div className="sm:flex-auto">
           <h1 className="text-base font-semibold leading-6 text-gray-900">
-            Issues
+            Suggestions
           </h1>
           <p className="mt-2 text-sm text-gray-700">
-            A list of all issues submitted by your users
+            A list of all suggestions submitted by your users
           </p>
         </div>
       </div>
@@ -51,16 +51,16 @@ export default async function Issues({
                   </tr>
                 </thead>
                 <tbody className="bg-white divide-y divide-gray-200">
-                  {issues.map((issue) => (
-                    <tr key={issue.id}>
+                  {suggestions.map((suggestion) => (
+                    <tr key={suggestion.id}>
                       <td className="whitespace-nowrap py-4 pr-3 pl-4 text-sm font-medium text-gray-900 sm:pl-6">
-                        {issue.title}
+                        {suggestion.title}
                       </td>
                       <td className="whitespace-nowrap px-3 py-4 text-sm text-gray-500">
-                        {issue.message}
+                        {suggestion.message}
                       </td>
                       <td className="whitespace-nowrap px-3 py-4 text-sm text-gray-500">
-                        {issue.user_email}
+                        {suggestion.user_email}
                       </td>
                     </tr>
                   ))}

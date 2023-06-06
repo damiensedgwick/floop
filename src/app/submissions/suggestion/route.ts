@@ -17,18 +17,18 @@ export async function POST(request: Request) {
   }
 
   const decodedCredentials = atob(bearer);
-  const [organisation_id, submission_secret] = decodedCredentials.split(":");
+  const [project_id, submission_secret] = decodedCredentials.split(":");
 
   const { title, message, user_email } = await request.json();
 
-  const organisation = await prisma.organisations.findFirst({
+  const project = await prisma.projects.findFirst({
     where: {
-      id: organisation_id,
+      id: project_id,
       submission_secret: submission_secret,
     },
   });
 
-  if (!organisation) {
+  if (!project) {
     return NextResponse.json(
       {
         message: "Unauthorised",
@@ -41,7 +41,7 @@ export async function POST(request: Request) {
 
   const record = await prisma.suggestions.create({
     data: {
-      organisation_id: organisation_id,
+      project_id: project_id,
       title: title,
       message: message ?? "---",
       user_email: user_email,

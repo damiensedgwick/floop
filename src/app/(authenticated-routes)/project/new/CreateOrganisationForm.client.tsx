@@ -3,7 +3,7 @@
 import { FormEvent } from "react";
 import { useRouter } from "next/navigation";
 
-export default function CreateOrganisationForm() {
+export default function CreateprojectForm() {
   const router = useRouter();
 
   const handleSubmit = async (e: FormEvent<HTMLFormElement>) => {
@@ -15,7 +15,7 @@ export default function CreateOrganisationForm() {
       name: formData.get("name"), // comes from the form
     };
 
-    const response = await fetch("/organisation", {
+    const response = await fetch("/project", {
       method: "POST",
       body: JSON.stringify(body),
       headers: {
@@ -24,14 +24,14 @@ export default function CreateOrganisationForm() {
     });
 
     if (!response.ok) {
-      console.log("There was an error creating your organisation");
+      console.log("There was an error creating your project");
       router.push("/");
     }
 
     const result = await response.json();
     const { id } = result;
 
-    router.push(`/organisation/${id}/dashboard`, {
+    router.push(`/project/${id}/dashboard`, {
       forceOptimisticNavigation: true,
     });
   };
@@ -43,7 +43,7 @@ export default function CreateOrganisationForm() {
           htmlFor="name"
           className="block text-sm font-medium leading-6 text-gray-900"
         >
-          Organisation name
+          project name
         </label>
         <div className="mt-2">
           <input

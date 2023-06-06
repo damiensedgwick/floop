@@ -10,9 +10,9 @@ import {
   HomeIcon,
   StarIcon,
 } from "@heroicons/react/24/outline";
-import MobileMenu from "@/app/(authenticated-routes)/organisation/[organisation_id]/MobileMenu.client";
+import MobileMenu from "@/app/(authenticated-routes)/project/[project_id]/MobileMenu.client";
 import { prisma } from "@/lib/prisma";
-import NavigationLink from "@/app/(authenticated-routes)/organisation/[organisation_id]/NavigationLink.client";
+import NavigationLink from "@/app/(authenticated-routes)/project/[project_id]/NavigationLink.client";
 
 const navigation = [
   {
@@ -37,7 +37,7 @@ const navigation = [
   },
 ];
 
-const organisation = [
+const project = [
   {
     name: "Users",
     href: "/users",
@@ -50,7 +50,7 @@ const organisation = [
   },
 ];
 
-export default async function OrganisationLayout({
+export default async function projectLayout({
   children,
 }: {
   children: ReactNode;
@@ -70,11 +70,7 @@ export default async function OrganisationLayout({
   return (
     <div className="h-full bg-white">
       {/* Dynamic sidebar for mobile*/}
-      <MobileMenu
-        user={user}
-        navigation={navigation}
-        organisation={organisation}
-      />
+      <MobileMenu user={user} navigation={navigation} project={project} />
 
       {/* Static sidebar for desktop */}
       <div className="hidden lg:fixed lg:inset-y-0 lg:z-50 lg:flex lg:w-72 lg:flex-col">
@@ -103,10 +99,10 @@ export default async function OrganisationLayout({
               </li>
               <li>
                 <div className="text-xs font-semibold leading-6 text-gray-400">
-                  Your organisation
+                  Your project
                 </div>
                 <ul role="list" className="-mx-2 mt-2 space-y-1">
-                  {organisation.map((item) => (
+                  {project.map((item) => (
                     <li key={item.name}>
                       <NavigationLink user={user} item={item} />
                     </li>
@@ -115,7 +111,7 @@ export default async function OrganisationLayout({
               </li>
               <li className="-mx-6 mt-auto">
                 <Link
-                  href={`/organisation/${user?.organisation_id}/users/${user?.id}`}
+                  href={`/project/${user?.project_id}/users/${user?.id}`}
                   className="flex items-center gap-x-4 px-6 py-3 text-sm font-semibold leading-6 text-gray-900 hover:bg-gray-50"
                 >
                   <Image
