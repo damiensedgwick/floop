@@ -39,9 +39,9 @@ const navigation = [
 
 const project = [
   {
-    name: "Users",
-    href: "/users",
-    initial: "U",
+    name: "Team",
+    href: "/team",
+    initial: "T",
   },
   {
     name: "Settings",

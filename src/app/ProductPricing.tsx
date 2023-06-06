@@ -26,7 +26,7 @@ const product_pricing = [
     description:
       "Elevate your feedback collection capabilities with our Professional Plan. Perfect for growing businesses and teams.",
     features: [
-      "Unlimited users",
+      "Unlimited team",
       "Unlimited submissions",
       "Ratings",
       "Issues",
