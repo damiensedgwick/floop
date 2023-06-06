@@ -22,11 +22,11 @@ const product_pricing = [
     id: "tier-team",
     // TODO: This would go throgh a subscription route?
     href: "/api/auth/signin",
-    priceMonthly: "£19.99",
+    priceMonthly: "£45",
     description:
       "Elevate your feedback collection capabilities with our Professional Plan. Perfect for growing businesses and teams.",
     features: [
-      "Unlimited team",
+      "Unlimited users",
       "Unlimited submissions",
       "Ratings",
       "Issues",
@@ -54,6 +54,9 @@ export default function ProductPricing() {
             Whether you&apos;re looking to trial our product or dive into
             extensive user data collection, our pricing options cater to your
             needs, empowering you to gather valuable insights and drive success.
+          </p>
+          <p className="mx-auto max-w-2xl text-lg leading-8 text-white mt-4">
+            (Pricing is very much beta at this time and subject to change)
           </p>
           <svg
             viewBox="0 0 1208 1024"
