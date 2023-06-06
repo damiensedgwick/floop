@@ -31,7 +31,7 @@ export default function UserProfileForm({ name, image }: Props) {
             Profile
           </h2>
           <p className="mt-1 text-sm leading-6 text-gray-600">
-            This information will be displayed within your organisation.
+            This information will be displayed within your project.
           </p>
 
           <div className="mt-10 grid grid-cols-1 gap-x-6 gap-y-8 sm:grid-cols-6">

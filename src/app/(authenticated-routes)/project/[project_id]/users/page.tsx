@@ -8,13 +8,13 @@ import { authOptions } from "@/app/api/auth/[...nextauth]/route";
 export default async function Users({
   params,
 }: {
-  params: { organisation_id: string };
+  params: { project_id: string };
 }) {
   const session = await getServerSession(authOptions);
 
   const users = await prisma.public_users.findMany({
     where: {
-      organisation_id: params.organisation_id,
+      project_id: params.project_id,
     },
   });
 

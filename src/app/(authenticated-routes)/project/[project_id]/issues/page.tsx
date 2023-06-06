@@ -1,13 +1,13 @@
 import { prisma } from "@/lib/prisma";
 
-export default async function Ratings({
+export default async function Issues({
   params,
 }: {
-  params: { organisation_id: string };
+  params: { project_id: string };
 }) {
-  const ratings = await prisma.ratings.findMany({
+  const issues = await prisma.issues.findMany({
     where: {
-      organisation_id: params.organisation_id,
+      project_id: params.project_id,
     },
   });
 
@@ -16,10 +16,10 @@ export default async function Ratings({
       <div className="sm:flex sm:items-center">
         <div className="sm:flex-auto">
           <h1 className="text-base font-semibold leading-6 text-gray-900">
-            Ratings
+            Issues
           </h1>
           <p className="mt-2 text-sm text-gray-700">
-            A list of all ratings submitted by your users
+            A list of all issues submitted by your users
           </p>
         </div>
       </div>
@@ -34,7 +34,7 @@ export default async function Ratings({
                       scope="col"
                       className="pr-3 pl-4 text-left text-sm font-semibold text-gray-900 py-3.5 sm:pl-6"
                     >
-                      Rating
+                      Title
                     </th>
                     <th
                       scope="col"
@@ -51,16 +51,16 @@ export default async function Ratings({
                   </tr>
                 </thead>
                 <tbody className="bg-white divide-y divide-gray-200">
-                  {ratings.map((rating) => (
-                    <tr key={rating.id}>
+                  {issues.map((issue) => (
+                    <tr key={issue.id}>
                       <td className="whitespace-nowrap py-4 pr-3 pl-4 text-sm font-medium text-gray-900 sm:pl-6">
-                        {rating.rating.toString()}
+                        {issue.title}
                       </td>
                       <td className="whitespace-nowrap px-3 py-4 text-sm text-gray-500">
-                        {rating.message ?? "----"}
+                        {issue.message}
                       </td>
                       <td className="whitespace-nowrap px-3 py-4 text-sm text-gray-500">
-                        {rating.user_email}
+                        {issue.user_email}
                       </td>
                     </tr>
                   ))}

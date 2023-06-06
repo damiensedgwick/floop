@@ -5,15 +5,15 @@ import { Dialog, Transition } from "@headlessui/react";
 import Image from "next/image";
 import Link from "next/link";
 import { Bars3Icon, XMarkIcon } from "@heroicons/react/24/outline";
-import NavigationLink from "@/app/(authenticated-routes)/organisation/[organisation_id]/NavigationLink.client";
+import NavigationLink from "@/app/(authenticated-routes)/project/[project_id]/NavigationLink.client";
 
 type Props = {
   user: any;
   navigation: { name: string; href: string; icon: React.JSX.Element }[];
-  organisation: { name: string; href: string; initial: string }[];
+  project: { name: string; href: string; initial: string }[];
 };
 
-export default function MobileMenu({ user, navigation, organisation }: Props) {
+export default function MobileMenu({ user, navigation, project }: Props) {
   const [sidebarOpen, setSidebarOpen] = useState(false);
 
   return (
@@ -97,10 +97,10 @@ export default function MobileMenu({ user, navigation, organisation }: Props) {
                       </li>
                       <li>
                         <div className="text-xs font-semibold leading-6 text-gray-400">
-                          Your organisation
+                          Your project
                         </div>
                         <ul role="list" className="-mx-2 mt-2 space-y-1">
-                          {organisation.map((item) => (
+                          {project.map((item) => (
                             <li
                               key={item.name}
                               onClick={() => setSidebarOpen(false)}

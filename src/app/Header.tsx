@@ -25,21 +25,21 @@ export default function Header({ user }: Props) {
           </Link>
         </div>
         <div className="flex flex-1 justify-end">
-          {user && user?.organisation_id && (
+          {user && user?.project_id && (
             <Link
-              href={`/organisation/${user?.organisation_id}/dashboard`}
+              href={`/project/${user?.project_id}/dashboard`}
               className="text-sm font-semibold leading-6 text-gray-900"
             >
               Dashboard&nbsp;<span aria-hidden="true">&rarr;</span>
             </Link>
           )}
 
-          {user && !user?.organisation_id && (
+          {user && !user?.project_id && (
             <Link
-              href="/organisation/new"
+              href="/project/new"
               className="text-sm font-semibold leading-6 text-gray-900"
             >
-              Create organisation&nbsp;<span aria-hidden="true">&rarr;</span>
+              Create project&nbsp;<span aria-hidden="true">&rarr;</span>
             </Link>
           )}
 

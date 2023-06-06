@@ -1,13 +1,13 @@
 import { prisma } from "@/lib/prisma";
 
-export default async function Suggestions({
+export default async function Ratings({
   params,
 }: {
-  params: { organisation_id: string };
+  params: { project_id: string };
 }) {
-  const suggestions = await prisma.suggestions.findMany({
+  const ratings = await prisma.ratings.findMany({
     where: {
-      organisation_id: params.organisation_id,
+      project_id: params.project_id,
     },
   });
 
@@ -16,10 +16,10 @@ export default async function Suggestions({
       <div className="sm:flex sm:items-center">
         <div className="sm:flex-auto">
           <h1 className="text-base font-semibold leading-6 text-gray-900">
-            Suggestions
+            Ratings
           </h1>
           <p className="mt-2 text-sm text-gray-700">
-            A list of all suggestions submitted by your users
+            A list of all ratings submitted by your users
           </p>
         </div>
       </div>
@@ -34,7 +34,7 @@ export default async function Suggestions({
                       scope="col"
                       className="pr-3 pl-4 text-left text-sm font-semibold text-gray-900 py-3.5 sm:pl-6"
                     >
-                      Title
+                      Rating
                     </th>
                     <th
                       scope="col"
@@ -51,16 +51,16 @@ export default async function Suggestions({
                   </tr>
                 </thead>
                 <tbody className="bg-white divide-y divide-gray-200">
-                  {suggestions.map((suggestion) => (
-                    <tr key={suggestion.id}>
+                  {ratings.map((rating) => (
+                    <tr key={rating.id}>
                       <td className="whitespace-nowrap py-4 pr-3 pl-4 text-sm font-medium text-gray-900 sm:pl-6">
-                        {suggestion.title}
+                        {rating.rating.toString()}
                       </td>
                       <td className="whitespace-nowrap px-3 py-4 text-sm text-gray-500">
-                        {suggestion.message}
+                        {rating.message ?? "----"}
                       </td>
                       <td className="whitespace-nowrap px-3 py-4 text-sm text-gray-500">
-                        {suggestion.user_email}
+                        {rating.user_email}
                       </td>
                     </tr>
                   ))}
