@@ -4,6 +4,7 @@ import { getServerSession } from "next-auth";
 import { authOptions } from "@/app/api/auth/[...nextauth]/route";
 import { PublicUser } from "@/types";
 import { redirect } from "next/navigation";
+import { prisma } from "@/lib/prisma";
 
 export default async function CreateOrganisation() {
   const session = await getServerSession(authOptions);
