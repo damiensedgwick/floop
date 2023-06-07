@@ -114,12 +114,14 @@ model public_users {
 }
 
 model projects {
-  id                String       @id(map: "projeects_pkey") @default(dbgenerated("gen_random_uuid()")) @db.Uuid
-  created_at        DateTime     @default(now()) @db.Timestamptz(6)
-  name              String       @unique(map: "projeects_name_key")
-  owner_id          String       @db.Uuid
-  submission_secret String       @unique(map: "projeects_submission_secret_key") @default(dbgenerated("gen_random_uuid()")) @db.Uuid
-  users             public_users @relation(fields: [owner_id], references: [id], onDelete: NoAction, onUpdate: NoAction)
+  id                  String       @id(map: "projeects_pkey") @default(dbgenerated("gen_random_uuid()")) @db.Uuid
+  created_at          DateTime     @default(now()) @db.Timestamptz(6)
+  name                String       @unique(map: "projeects_name_key")
+  owner_id            String       @db.Uuid
+  submission_secret   String       @unique(map: "projeects_submission_secret_key") @default(dbgenerated("gen_random_uuid()")) @db.Uuid
+  subscription_type   String       @default("'hobby'::text")
+  subscription_expiry DateTime?    @db.Timestamptz(6)
+  users               public_users @relation(fields: [owner_id], references: [id], onDelete: NoAction, onUpdate: NoAction)
 
   @@schema("public")
 }
