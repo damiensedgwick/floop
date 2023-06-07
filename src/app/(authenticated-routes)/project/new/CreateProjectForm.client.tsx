@@ -11,29 +11,41 @@ export default function CreateprojectForm() {
 
     const formData = new FormData(e.currentTarget);
 
-    const body = {
-      name: formData.get("name"), // comes from the form
-    };
+    const name = formData.get("name") as string;
 
-    const response = await fetch("/project", {
-      method: "POST",
-      body: JSON.stringify(body),
-      headers: {
-        "Content-Type": "application/json",
-      },
-    });
-
-    if (!response.ok) {
-      console.log("There was an error creating your project");
-      router.push("/");
+    if (!name) {
+      console.log("Name is required");
+      return;
     }
 
-    const result = await response.json();
-    const { id } = result;
+    const body = {
+      name: name,
+    };
 
-    router.push(`/project/${id}/dashboard`, {
-      forceOptimisticNavigation: true,
-    });
+    try {
+      const response = await fetch("/project", {
+        method: "POST",
+        body: JSON.stringify(body),
+        headers: {
+          "Content-Type": "application/json",
+        },
+      });
+
+      if (!response.ok) {
+        const errorData = await response.json();
+        console.log("Error creating project:", errorData.message);
+        return;
+      }
+
+      const result = await response.json();
+      const { id } = result;
+
+      router.push(`/project/${id}/dashboard`, {
+        forceOptimisticNavigation: true,
+      });
+    } catch (error) {
+      console.error("Error creating project:", error);
+    }
   };
 
   return (
