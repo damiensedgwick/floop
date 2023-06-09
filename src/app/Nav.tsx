@@ -9,7 +9,7 @@ export default function Nav() {
         aria-label="Global"
       >
         <div className="flex lg:flex-1">
-          <Link href="/public" className="-m-1.5 p-1.5">
+          <Link href="/" className="-m-1.5 p-1.5">
             <span className="sr-only">Floop</span>
             <Image
               src="/assets/floop-logo.png"
@@ -21,7 +21,7 @@ export default function Nav() {
         </div>
         <div className="flex flex-1 justify-end">
           <Link
-            href="#"
+            href="/project/dashboard"
             className="text-sm font-semibold leading-6 text-gray-900"
           >
             Dashboard&nbsp;<span aria-hidden="true">&rarr;</span>

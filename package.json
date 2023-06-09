@@ -4,7 +4,7 @@
   "private": true,
   "scripts": {
     "dev": "next dev",
-    "build": "pnpm exec prisma generate && next build",
+    "build": "next build",
     "start": "next start",
     "lint": "next lint",
     "prettier": "pnpx prettier --write \"./src/**/*.{js,jsx,ts,tsx,json}\""
