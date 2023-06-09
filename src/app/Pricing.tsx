@@ -7,7 +7,7 @@ const tiers = [
     id: "tier-hobby",
     href: "#",
     featured: false,
-    description: "The essentials to provide your best work for clients.",
+    description: "The essentials for gathering feedback for hobby projects.",
     price: "£0",
     mainFeatures: [
       "1 User",
@@ -22,11 +22,13 @@ const tiers = [
     id: "tier-team",
     href: "#",
     featured: true,
-    description: "Perfect for growing businesses and teams.",
-    price: "£25",
+    description:
+      "Perfect for growing businesses and teams looking to gain feedback from their users.",
+    price: "£50",
     mainFeatures: [
       "10 Users",
       "Up to 250 submissions",
+      "48-hour support response time",
       "Ratings",
       "Issues",
       "Suggestions",
@@ -37,11 +39,13 @@ const tiers = [
     id: "tier-business",
     href: "#",
     featured: false,
-    description: "Convenient features to take your business to the next level.",
+    description:
+      "Ideal for large businesses and teams who want to make the most out of their user feedback.",
     price: "£99",
     mainFeatures: [
       "Unlimited users",
       "Unlimited submissions",
+      "24-hour support response time",
       "Ratings",
       "Issues",
       "Suggestions",
@@ -52,16 +56,21 @@ const tiers = [
 export default function Example() {
   return (
     <div className="isolate overflow-hidden">
-      <div className="flow-root bg-gray-900 pb-16 pt-24 sm:pt-32 lg:pb-0">
-        <div className="mx-auto max-w-7xl px-6 lg:px-8">
+      <div className="flow-root bg-gray-900 pt-24 pb-16 sm:pt-32 lg:pb-0">
+        <div className="mx-auto max-w-7xl px-6 text-center lg:px-8">
           <div className="relative z-10">
-            <h2 className="mx-auto max-w-4xl text-center text-5xl font-bold tracking-tight text-white">
-              Simple pricing, no commitment
+            <h2 className="text-base font-semibold leading-7 text-teal-400">
+              Pricing
             </h2>
+            <p className="mt-2 text-4xl font-bold tracking-tight text-white sm:text-5xl">
+              The right price for you,
+              <br className="hidden sm:inline lg:hidden" />
+              &nbsp;and your needs
+            </p>
             <p className="mx-auto mt-4 max-w-2xl text-center text-lg leading-8 text-white/60">
-              Lorem ipsum dolor sit, amet consectetur adipisicing elit. Velit
-              numquam eligendi quos odit doloribus molestiae voluptatum quos
-              odit doloribus.
+              Whether you&apos;re looking to trial our product or dive deeper
+              into your user feedback, our pricing options cater to your needs,
+              empowering you to gather valuable insights and drive success.
             </p>
           </div>
           <div className="relative mx-auto mt-10 grid max-w-md grid-cols-1 gap-y-8 lg:mx-0 lg:-mb-14 lg:max-w-none lg:grid-cols-3">
@@ -85,7 +94,7 @@ export default function Example() {
               </defs>
             </svg>
             <div
-              className="hidden lg:absolute lg:inset-x-px lg:bottom-0 lg:top-4 lg:block lg:rounded-t-2xl lg:bg-gray-800/80 lg:ring-1 lg:ring-white/10"
+              className="hidden lg:absolute lg:inset-x-px lg:top-4 lg:bottom-0 lg:block lg:rounded-t-2xl lg:bg-gray-800/80 lg:ring-1 lg:ring-white/10"
               aria-hidden="true"
             />
             {tiers.map((tier) => (
@@ -108,6 +117,14 @@ export default function Example() {
                   >
                     {tier.name}
                   </h3>
+                  <p
+                    className={classNames(
+                      tier.featured ? "text-gray-600" : "text-gray-300",
+                      "my-2 text-sm leading-6"
+                    )}
+                  >
+                    {tier.description}
+                  </p>
                   <div className="flex flex-col gap-6 sm:flex-row sm:items-end sm:justify-between lg:flex-col lg:items-stretch">
                     <div className="mt-2 flex items-center gap-x-1">
                       <p
@@ -124,7 +141,7 @@ export default function Example() {
                             tier.featured ? "text-gray-900" : "text-white"
                           }
                         >
-                          GBP
+                          {tier.price !== "£0" && <span>/month</span>}
                         </p>
                       </div>
                     </div>
