@@ -27,7 +27,7 @@ export default function Nav() {
             </li>
             <li>
               <Link
-                href="/(protected-routes)/project/dashboard"
+                href="/project/dashboard"
                 className="text-sm font-semibold leading-6 text-gray-900"
               >
                 Dashboard&nbsp;<span aria-hidden="true">&rarr;</span>

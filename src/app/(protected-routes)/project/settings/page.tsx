@@ -1,4 +1,20 @@
-export default function Page() {
+import { auth } from "@clerk/nextjs";
+import supabase from "@/lib/supabase";
+import { getProject } from "@/app/(protected-routes)/project/dashboard/page";
+import { redirect } from "next/navigation";
+
+export default async function Page() {
+  const { userId, getToken } = auth();
+
+  const supabaseAccessToken = await getToken({ template: "supabase" });
+  const sb = await supabase(supabaseAccessToken);
+
+  const project = await getProject(sb, userId);
+
+  if (!project) {
+    redirect("/project/new");
+  }
+
   return (
     <div className="px-4 sm:px-6 lg:px-8 pt-2">
       <div className="px-4 sm:px-0">
@@ -16,21 +32,13 @@ export default function Page() {
               Name
             </dt>
             <dd className="mt-1 text-sm leading-6 text-gray-700 sm:col-span-2 sm:mt-0">
-              {/*{project?.name}*/}
+              {project.name}
             </dd>
           </div>
           <div className="px-4 py-6 sm:grid sm:grid-cols-3 sm:gap-4 sm:px-0">
             <dt className="text-sm font-medium leading-6 text-gray-900">ID</dt>
             <dd className="mt-1 text-sm leading-6 text-gray-700 sm:col-span-2 sm:mt-0">
-              {/*{project?.id}*/}
-            </dd>
-          </div>
-          <div className="px-4 py-6 sm:grid sm:grid-cols-3 sm:gap-4 sm:px-0">
-            <dt className="text-sm font-medium leading-6 text-gray-900">
-              API Bearer token
-            </dt>
-            <dd className="mt-1 text-sm leading-6 text-gray-700 sm:col-span-2 sm:mt-0">
-              {/*{token}*/}
+              {project.id}
             </dd>
           </div>
           <div className="px-4 py-6 sm:grid sm:grid-cols-3 sm:gap-4 sm:px-0">
@@ -38,7 +46,7 @@ export default function Page() {
               Subscription type
             </dt>
             <dd className="mt-1 text-sm leading-6 text-gray-700 sm:col-span-2 sm:mt-0 capitalize">
-              {/*{project?.subscription_type}*/}
+              {project.subscription_type}
             </dd>
           </div>
           <div className="px-4 py-6 sm:grid sm:grid-cols-3 sm:gap-4 sm:px-0">
@@ -46,7 +54,9 @@ export default function Page() {
               Subscription expiry
             </dt>
             <dd className="mt-1 text-sm leading-6 text-gray-700 sm:col-span-2 sm:mt-0">
-              {/*{String(project?.subscription_expiry)}*/}
+              {project.subscription_expiry
+                ? String(project.subscription_expiry)
+                : "---"}
             </dd>
           </div>
           <div className="px-4 py-6 sm:grid sm:grid-cols-3 sm:gap-4 sm:px-0">
@@ -54,7 +64,7 @@ export default function Page() {
               Owner ID
             </dt>
             <dd className="mt-1 text-sm leading-6 text-gray-700 sm:col-span-2 sm:mt-0">
-              {/*{project?.owner_id}*/}
+              {project.owner_id}
             </dd>
           </div>
         </dl>
