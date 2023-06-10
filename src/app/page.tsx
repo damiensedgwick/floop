@@ -1,51 +1,25 @@
-import { getServerSession } from "next-auth";
-import { authOptions } from "@/app/api/auth/[...nextauth]/route";
-import { prisma } from "@/lib/prisma";
-import ProductInformation from "@/app/ProductInformation";
-import ProductFeatures from "@/app/ProductFeatures";
-import ProductPricing from "@/app/ProductPricing";
+import Pricing from "@/app/Pricing";
+import Features from "@/app/Features";
+import Overview from "@/app/Overview";
 import Hero from "@/app/Hero";
-import Header from "@/app/Header";
+import Nav from "@/app/Nav";
 import Footer from "@/app/Footer";
-import { PublicUser } from "@/types";
 
 export default async function Home() {
-  const session = await getServerSession(authOptions);
-  const auth_user = session?.user;
-
-  let public_user: PublicUser = null;
-
-  if (auth_user) {
-    public_user = await prisma.public_users.findFirst({
-      where: {
-        id: auth_user?.id,
-      },
-    });
-  }
-
   return (
     <>
-      {/* TODO: Delete this after launch */}
-      <Banner />
-      <Header user={public_user} />
-      <main>
+      <header>
+        <Nav />
         <Hero />
-        <ProductInformation />
-        <ProductFeatures />
-        <ProductPricing />
+      </header>
+      <main>
+        <Overview />
+        <Features />
+        <Pricing />
       </main>
-      <Footer />
+      <footer>
+        <Footer />
+      </footer>
     </>
-  );
-}
-
-function Banner() {
-  return (
-    <div className="bg-teal-600 px-6 py-2.5 sm:before:flex-1 sm:px-3.5">
-      <p className="text-center text-sm leading-6 text-white">
-        Floop is under active development and whilst you are free to look
-        around, things may not be working as you might expect!
-      </p>
-    </div>
   );
 }
