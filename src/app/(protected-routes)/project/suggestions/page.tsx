@@ -1,4 +1,25 @@
-export default function Page() {
+import { auth } from "@clerk/nextjs";
+import supabase from "@/lib/supabase";
+import {
+  getProject,
+  getSuggestions,
+} from "@/app/(protected-routes)/project/dashboard/page";
+import { redirect } from "next/navigation";
+
+export default async function Page() {
+  const { userId, getToken } = auth();
+
+  const supabaseAccessToken = await getToken({ template: "supabase" });
+  const sb = await supabase(supabaseAccessToken);
+
+  const project = await getProject(sb, userId);
+
+  if (!project) {
+    redirect("/project/new");
+  }
+
+  const suggestions = await getSuggestions(sb, project.id);
+
   return (
     <div className="px-4 sm:px-6 lg:px-8">
       <div className="sm:flex sm:items-center">
@@ -39,19 +60,19 @@ export default function Page() {
                   </tr>
                 </thead>
                 <tbody className="bg-white divide-y divide-gray-200">
-                  {/*{suggestions.map((suggestion) => (*/}
-                  {/*  <tr key={suggestion.id}>*/}
-                  {/*    <td className="whitespace-nowrap py-4 pr-3 pl-4 text-sm font-medium text-gray-900 sm:pl-6">*/}
-                  {/*      {suggestion.title}*/}
-                  {/*    </td>*/}
-                  {/*    <td className="whitespace-nowrap px-3 py-4 text-sm text-gray-500 text-ellipsis overflow-hidden max-w-sm">*/}
-                  {/*      {suggestion.message}*/}
-                  {/*    </td>*/}
-                  {/*    <td className="whitespace-nowrap px-3 py-4 text-sm text-gray-500">*/}
-                  {/*      {suggestion.user_email}*/}
-                  {/*    </td>*/}
-                  {/*  </tr>*/}
-                  {/*))}*/}
+                  {suggestions.map((suggestion) => (
+                    <tr key={suggestion.id}>
+                      <td className="whitespace-nowrap py-4 pr-3 pl-4 text-sm font-medium text-gray-900 sm:pl-6">
+                        {suggestion.title}
+                      </td>
+                      <td className="whitespace-nowrap px-3 py-4 text-sm text-gray-500 text-ellipsis overflow-hidden max-w-sm">
+                        {suggestion.message}
+                      </td>
+                      <td className="whitespace-nowrap px-3 py-4 text-sm text-gray-500">
+                        {suggestion.user_email}
+                      </td>
+                    </tr>
+                  ))}
                 </tbody>
               </table>
             </div>
