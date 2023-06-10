@@ -1,5 +1,6 @@
 import Link from "next/link";
 import Image from "next/image";
+import { UserButton } from "@clerk/nextjs";
 
 export default function Nav() {
   return (
@@ -20,12 +21,19 @@ export default function Nav() {
           </Link>
         </div>
         <div className="flex flex-1 justify-end">
-          <Link
-            href="/project/dashboard"
-            className="text-sm font-semibold leading-6 text-gray-900"
-          >
-            Dashboard&nbsp;<span aria-hidden="true">&rarr;</span>
-          </Link>
+          <ul className="flex items-center space-x-4">
+            <li>
+              <UserButton />
+            </li>
+            <li>
+              <Link
+                href="/(protected-routes)/project/dashboard"
+                className="text-sm font-semibold leading-6 text-gray-900"
+              >
+                Dashboard&nbsp;<span aria-hidden="true">&rarr;</span>
+              </Link>
+            </li>
+          </ul>
         </div>
       </nav>
     </header>

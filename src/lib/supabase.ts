@@ -1,7 +1,11 @@
 import { createClient } from "@supabase/supabase-js";
 
-// Create a single supabase client for interacting with your database
-const supabase = createClient(
-  String(process.env.NEXT_PUBLIC_SUPABASE_URL),
-  "public-anon-key"
-);
+export default async function supabase(supabaseAccessToken: string | null) {
+  const sb = createClient(
+    String(process.env.NEXT_PUBLIC_SUPABASE_URL),
+    String(process.env.NEXT_PUBLIC_SUPABASE_KEY),
+    { global: { headers: { Authorization: `Bearer ${supabaseAccessToken}` } } }
+  );
+
+  return sb;
+}
