@@ -1,5 +1,6 @@
 import Link from "next/link";
 import { clerkClient, currentUser } from "@clerk/nextjs";
+import CancelInvite from "@/app/(protected-routes)/project/team/CancelInvite";
 
 export default async function Page() {
   const user = await currentUser();
@@ -8,14 +9,10 @@ export default async function Page() {
     organizationId: user?.publicMetadata.organisation_id as string,
   });
 
-  console.log(team);
-
   const invitations =
     await clerkClient.organizations.getPendingOrganizationInvitationList({
       organizationId: user?.publicMetadata.organisation_id as string,
     });
-
-  console.log(invitations);
 
   return (
     <div className="px-4 pt-2 sm:px-6 lg:px-8">
@@ -63,17 +60,23 @@ export default async function Page() {
               <div className="flex w-full items-center justify-between p-6 space-x-6">
                 <div className="flex-1 truncate">
                   <div className="flex items-center justify-between">
-                    <div>
-                      <h3 className="truncate text-sm font-medium text-gray-900">
+                    <div className="space-y-1">
+                      <span className="inline-flex flex-shrink-0 rounded-full text-xs font-medium text-green-700">
+                        Invitation pending
+                      </span>
+                      <h3 className="text-sm font-medium text-gray-900">
                         {invite.emailAddress}
                       </h3>
-                      <p className="mt-2 text-sm text-gray-700">
+                      <p className="text-xs text-gray-700">
                         {invite.role === "basic_member" ? "Member" : "Admin"}
                       </p>
                     </div>
-                    <span className="inline-flex flex-shrink-0 items-center rounded-full bg-green-50 text-xs font-medium text-green-700 ring-1 ring-inset ring-green-600/20 px-1.5 py-0.5">
-                      Invitation pending
-                    </span>
+
+                    <CancelInvite
+                      invitationId={invite.id}
+                      organisationId={invite.organizationId}
+                      requestingUserId={user?.id as string}
+                    />
                   </div>
                 </div>
               </div>
