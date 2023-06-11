@@ -1,4 +1,4 @@
-import { auth } from "@clerk/nextjs";
+import { auth, clerkClient } from "@clerk/nextjs";
 import supabase from "@/lib/supabase";
 import { redirect } from "next/navigation";
 
@@ -18,16 +18,13 @@ export async function submitForm(formData: FormData) {
   }
 
   try {
-    const supabaseAccessToken = await getToken({ template: "supabase" });
-    const sb = await supabase(supabaseAccessToken);
-
-    await sb.from("project").insert({
+    await clerkClient.organizations.createOrganization({
       name: name,
-      owner_id: userId,
+      createdBy: userId,
     });
   } catch (error) {
-    throw new Error(`Error creating project: ${error}`);
+    throw new Error(`Error creating organisation: ${error}`);
   }
 
-  redirect("/project/dashboard");
+  redirect("/project/team");
 }

@@ -10,6 +10,7 @@
     "prettier": "pnpx prettier --write \"./src/**/*.{js,jsx,ts,tsx,json}\""
   },
   "dependencies": {
+    "@clerk/backend": "^0.22.0",
     "@clerk/nextjs": "^4.19.1",
     "@headlessui/react": "^1.7.14",
     "@heroicons/react": "^2.0.18",

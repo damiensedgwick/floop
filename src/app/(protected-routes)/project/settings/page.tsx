@@ -16,7 +16,7 @@ export default async function Page() {
   }
 
   return (
-    <div className="px-4 sm:px-6 lg:px-8 pt-2">
+    <div className="px-4 pt-2 sm:px-6 lg:px-8">
       <div className="px-4 sm:px-0">
         <h3 className="text-base font-semibold leading-7 text-gray-900">
           Project settings
@@ -45,7 +45,7 @@ export default async function Page() {
             <dt className="text-sm font-medium leading-6 text-gray-900">
               Subscription type
             </dt>
-            <dd className="mt-1 text-sm leading-6 text-gray-700 sm:col-span-2 sm:mt-0 capitalize">
+            <dd className="mt-1 text-sm capitalize leading-6 text-gray-700 sm:col-span-2 sm:mt-0">
               {project.subscription_type}
             </dd>
           </div>

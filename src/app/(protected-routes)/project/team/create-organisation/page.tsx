@@ -1,31 +1,7 @@
 import Image from "next/image";
-import { submitForm } from "@/app/(protected-routes)/project/new/actions";
-import { auth } from "@clerk/nextjs";
-import supabase from "@/lib/supabase";
-import { redirect } from "next/navigation";
+import { submitForm } from "@/app/(protected-routes)/project/team/create-organisation/actions";
 
 export default async function Page() {
-  const { userId, getToken } = auth();
-
-  const supabaseAccessToken = await getToken({ template: "supabase" });
-  const sb = await supabase(supabaseAccessToken);
-
-  const { data, error } = await sb
-    .from("project")
-    .select()
-    .eq("owner_id", userId)
-    .maybeSingle();
-
-  if (error) {
-    return <p>Error fetching your project</p>;
-  }
-
-  const project = data;
-
-  if (project) {
-    redirect("/project/dashboard");
-  }
-
   return (
     <div className="flex min-h-full flex-1 flex-col justify-center px-6 py-12 lg:px-8">
       <div className="sm:mx-auto sm:w-full sm:max-w-sm">
@@ -37,7 +13,7 @@ export default async function Page() {
           height={128}
         />
         <h2 className="mt-10 text-center text-2xl font-bold leading-9 tracking-tight text-gray-900">
-          Create your project
+          Create your organisation
         </h2>
       </div>
 
@@ -48,7 +24,7 @@ export default async function Page() {
               htmlFor="name"
               className="block text-sm font-medium leading-6 text-gray-900"
             >
-              project name
+              organisation name
             </label>
             <div className="mt-2">
               <input
@@ -72,8 +48,8 @@ export default async function Page() {
         </form>
 
         <p className="mt-10 text-center text-sm text-gray-500">
-          If you are already a member of an project, for access, please speak to
-          your project administrator.
+          If you are already a member of an organisation, for access, please
+          speak to your organisation administrator.
         </p>
       </div>
     </div>

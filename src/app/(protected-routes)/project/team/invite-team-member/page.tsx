@@ -1,43 +1,11 @@
-import Image from "next/image";
-import { submitForm } from "@/app/(protected-routes)/project/new/actions";
-import { auth } from "@clerk/nextjs";
-import supabase from "@/lib/supabase";
-import { redirect } from "next/navigation";
+import { submitForm } from "@/app/(protected-routes)/project/team/invite-team-member/actions";
 
 export default async function Page() {
-  const { userId, getToken } = auth();
-
-  const supabaseAccessToken = await getToken({ template: "supabase" });
-  const sb = await supabase(supabaseAccessToken);
-
-  const { data, error } = await sb
-    .from("project")
-    .select()
-    .eq("owner_id", userId)
-    .maybeSingle();
-
-  if (error) {
-    return <p>Error fetching your project</p>;
-  }
-
-  const project = data;
-
-  if (project) {
-    redirect("/project/dashboard");
-  }
-
   return (
     <div className="flex min-h-full flex-1 flex-col justify-center px-6 py-12 lg:px-8">
       <div className="sm:mx-auto sm:w-full sm:max-w-sm">
-        <Image
-          className="mx-auto"
-          src="/assets/floop-logo.png"
-          alt="Floop"
-          width={128}
-          height={128}
-        />
         <h2 className="mt-10 text-center text-2xl font-bold leading-9 tracking-tight text-gray-900">
-          Create your project
+          Invite your team member
         </h2>
       </div>
 
@@ -45,20 +13,37 @@ export default async function Page() {
         <form className="space-y-6" action={submitForm}>
           <div>
             <label
-              htmlFor="name"
+              htmlFor="email"
               className="block text-sm font-medium leading-6 text-gray-900"
             >
-              project name
+              Email
             </label>
             <div className="mt-2">
               <input
                 className="block w-full rounded-md border-0 placeholder:text-gray-400 text-gray-900 shadow-sm ring-1 ring-inset ring-gray-300 py-1.5 focus:ring-2 focus:ring-inset focus:ring-teal-600 sm:text-sm sm:leading-6"
-                id="name"
-                name="name"
+                id="email"
+                name="email"
                 type="text"
                 required
               />
             </div>
+          </div>
+          <div>
+            <label
+              htmlFor="role"
+              className="block text-sm font-medium leading-6 text-gray-900"
+            >
+              Role
+            </label>
+            <select
+              id="role"
+              name="role"
+              className="mt-2 block w-full rounded-md border-0 pr-10 pl-3 text-gray-900 ring-1 ring-inset ring-gray-300 py-1.5 focus:ring-2 focus:ring-teal-600 sm:text-sm sm:leading-6"
+              defaultValue="basic_member"
+            >
+              <option value="basic_member">Member</option>
+              <option value="admin">Admin</option>
+            </select>
           </div>
 
           <div>
@@ -70,11 +55,6 @@ export default async function Page() {
             </button>
           </div>
         </form>
-
-        <p className="mt-10 text-center text-sm text-gray-500">
-          If you are already a member of an project, for access, please speak to
-          your project administrator.
-        </p>
       </div>
     </div>
   );
