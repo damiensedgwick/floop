@@ -118,7 +118,17 @@ export default async function Page() {
 
   return (
     <div className="px-4 sm:px-6 lg:px-8">
-      <h3 className="text-base font-semibold leading-6 text-gray-900">
+      <div className="sm:flex sm:items-center">
+        <div className="sm:flex-auto">
+          <h1 className="text-base font-semibold leading-6 text-gray-900">
+            Dashboard
+          </h1>
+          <p className="mt-2 text-sm text-gray-700">
+            The most recent activities for your project
+          </p>
+        </div>
+      </div>
+      <h3 className="text-base font-semibold leading-6 text-gray-900 mt-6">
         In the last 30 days
       </h3>
       <dl className="mt-5 grid grid-cols-1 gap-5 sm:grid-cols-4">
