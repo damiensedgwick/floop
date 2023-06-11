@@ -8,13 +8,13 @@ export async function submitForm(formData: FormData) {
   const { userId, getToken } = auth();
 
   if (!userId) {
-    throw new Error("You must be signed in to create a project.");
+    throw new Error("You must be signed in to create a project");
   }
 
   const name = formData.get("name") as string;
 
   if (!name) {
-    throw new Error("You must provide a name to create a project.");
+    throw new Error("You must provide a name to create a project");
   }
 
   try {
@@ -26,7 +26,7 @@ export async function submitForm(formData: FormData) {
       owner_id: userId,
     });
   } catch (error) {
-    throw new Error(`Error creating project: ${error}`);
+    throw new Error("Error creating project");
   }
 
   redirect("/project/dashboard");

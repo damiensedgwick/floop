@@ -31,7 +31,7 @@ export default function NavigationLink({ name, href, initial, icon }: Props) {
             pathname.endsWith(href)
               ? "text-teal-600"
               : "text-gray-400 group-hover:text-teal-600",
-            "flex h-6 w-6 shrink-0 items-center justify-center rounded-lg text-[0.625rem] font-medium bg-white"
+            "flex h-6 w-6 shrink-0 items-center justify-center rounded-lg text-[0.625rem] font-medium"
           )}
         >
           {icon}
