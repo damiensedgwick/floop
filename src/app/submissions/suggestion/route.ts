@@ -31,7 +31,7 @@ export async function POST(request: Request): Promise<NextResponse> {
   }
 
   return NextResponse.json(
-    { message: "Rating successfully submitted" },
+    { message: "Suggestion successfully submitted" },
     { status: 201 }
   );
 }
