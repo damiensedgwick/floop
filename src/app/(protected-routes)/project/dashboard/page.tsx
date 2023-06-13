@@ -191,52 +191,54 @@ export default async function Page() {
         </h3>
         <div className="flow-root">
           <ul role="list" className="-mb-8">
-            {timeline.map((event, i) => {
-              console.log(event);
+            {timeline
+              .sort((a, b) => new Date(b.created_at) - new Date(a.created_at))
+              .map((event, i) => {
+                console.log(event);
 
-              return (
-                <li key={event.id}>
-                  <div className="relative pb-8">
-                    {i !== timeline.length - 1 ? (
-                      <span
-                        className="absolute top-4 left-4 -ml-px h-full bg-gray-200 w-0.5"
-                        aria-hidden="true"
-                      />
-                    ) : null}
-                    <div className="relative flex space-x-3">
-                      <div>
+                return (
+                  <li key={event.id}>
+                    <div className="relative pb-8">
+                      {i !== timeline.length - 1 ? (
                         <span
-                          className={classNames(
-                            event.iconBackground,
-                            "h-8 w-8 rounded-full flex items-center justify-center ring-8 ring-white"
-                          )}
-                        >
-                          <event.icon
-                            className="h-5 w-5 text-white"
-                            aria-hidden="true"
-                          />
-                        </span>
-                      </div>
-                      <div className="flex min-w-0 flex-1 justify-between space-x-4 pt-1.5">
+                          className="absolute top-4 left-4 -ml-px h-full bg-gray-200 w-0.5"
+                          aria-hidden="true"
+                        />
+                      ) : null}
+                      <div className="relative flex space-x-3">
                         <div>
-                          <p className="text-sm text-gray-500">
-                            A new {event.type} has been submitted:&nbsp;
-                            <span className="font-medium text-gray-900">
-                              {event.rating ? event.rating : event.title}
-                            </span>
-                          </p>
+                          <span
+                            className={classNames(
+                              event.iconBackground,
+                              "h-8 w-8 rounded-full flex items-center justify-center ring-8 ring-white"
+                            )}
+                          >
+                            <event.icon
+                              className="h-5 w-5 text-white"
+                              aria-hidden="true"
+                            />
+                          </span>
                         </div>
-                        <div className="whitespace-nowrap text-right text-sm text-gray-500">
-                          <time dateTime={event.created_at}>
-                            {new Date(event.created_at).toDateString()}
-                          </time>
+                        <div className="flex min-w-0 flex-1 justify-between space-x-4 pt-1.5">
+                          <div>
+                            <p className="text-sm text-gray-500">
+                              A new {event.type} has been submitted:&nbsp;
+                              <span className="font-medium text-gray-900">
+                                {event.rating ? event.rating : event.title}
+                              </span>
+                            </p>
+                          </div>
+                          <div className="whitespace-nowrap text-right text-sm text-gray-500">
+                            <time dateTime={event.created_at}>
+                              {new Date(event.created_at).toDateString()}
+                            </time>
+                          </div>
                         </div>
                       </div>
                     </div>
-                  </div>
-                </li>
-              );
-            })}
+                  </li>
+                );
+              })}
           </ul>
         </div>
       </div>
