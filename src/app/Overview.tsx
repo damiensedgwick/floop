@@ -1,28 +1,28 @@
-import {
-  ClipboardDocumentIcon,
-  HandThumbDownIcon,
-  HandThumbUpIcon,
-} from "@heroicons/react/20/solid";
 import Image from "next/image";
+import {
+  ExclamationTriangleIcon,
+  LightBulbIcon,
+  StarIcon,
+} from "@heroicons/react/24/outline";
 
 const product_information = [
   {
     name: "Ratings.",
     description:
       "Customer ratings can be used to identify areas where businesses can improve, and they can also be used to build trust and loyalty with customers.",
-    icon: HandThumbUpIcon,
+    icon: StarIcon,
   },
   {
     name: "Issues.",
     description:
       "Customer feedback can help you identify and solve problems quickly. This can help to prevent customer dissatisfaction and improve your overall customer experience.",
-    icon: HandThumbDownIcon,
+    icon: ExclamationTriangleIcon,
   },
   {
     name: "Suggestions.",
     description:
       "When customers feel like their suggestions are being listened to, they are more likely to be satisfied with your products and services.",
-    icon: ClipboardDocumentIcon,
+    icon: LightBulbIcon,
   },
 ];
 
@@ -52,7 +52,7 @@ export default function Overview() {
                   <div key={pi.name} className="relative pl-9">
                     <dt className="inline font-semibold text-gray-900">
                       <pi.icon
-                        className="absolute top-1 left-1 h-5 w-5 text-teal-600"
+                        className="absolute top-1 left-1 h-6 w-6 text-teal-600"
                         aria-hidden="true"
                       />
                       {pi.name}

@@ -10,7 +10,7 @@ export default function Nav() {
         aria-label="Global"
       >
         <div className="flex lg:flex-1">
-          <Link href="/" className="-m-1.5 p-1.5 flex items-center">
+          <Link href="/" className="flex items-center -m-1.5 p-1.5">
             <span className="sr-only">Floop</span>
             <Image
               src="/assets/floop-logo.png"

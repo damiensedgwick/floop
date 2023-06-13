@@ -1,6 +1,6 @@
 import { auth } from "@clerk/nextjs";
 import supabase from "@/lib/supabase";
-import { getProject } from "@/app/(protected-routes)/project/dashboard/page";
+import { getProject } from "@/app/(protected-routes)/project/dashboard/actions";
 import { redirect } from "next/navigation";
 
 export default async function Page() {

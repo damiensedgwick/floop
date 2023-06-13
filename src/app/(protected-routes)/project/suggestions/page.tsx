@@ -3,7 +3,7 @@ import supabase from "@/lib/supabase";
 import {
   getProject,
   getSuggestions,
-} from "@/app/(protected-routes)/project/dashboard/page";
+} from "@/app/(protected-routes)/project/dashboard/actions";
 import { redirect } from "next/navigation";
 
 export default async function Page() {
