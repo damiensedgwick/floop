@@ -145,18 +145,18 @@ export default function Example() {
                         </p>
                       </div>
                     </div>
-                    <a
-                      href={tier.href}
+                    <button
                       aria-describedby={tier.id}
                       className={classNames(
                         tier.featured
-                          ? "bg-teal-600 shadow-sm hover:bg-teal-500 focus-visible:outline-teal-600"
-                          : "bg-white/10 hover:bg-white/20 focus-visible:outline-white",
-                        "rounded-md py-2 px-3 text-center text-sm font-semibold leading-6 text-white focus-visible:outline focus-visible:outline-2 focus-visible:outline-offset-2"
+                          ? "bg-teal-600 shadow-sm focus-visible:outline-teal-600"
+                          : "bg-white/10 focus-visible:outline-white",
+                        "rounded-md py-2 px-3 text-center text-sm font-semibold leading-6 text-white focus-visible:outline focus-visible:outline-2 focus-visible:outline-offset-2 cursor-not-allowed"
                       )}
+                      disabled
                     >
                       Buy this plan
-                    </a>
+                    </button>
                   </div>
                   <div className="mt-8 flow-root sm:mt-10">
                     <ul

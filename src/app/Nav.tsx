@@ -10,7 +10,7 @@ export default function Nav() {
         aria-label="Global"
       >
         <div className="flex lg:flex-1">
-          <Link href="/" className="-m-1.5 p-1.5">
+          <Link href="/" className="-m-1.5 p-1.5 flex items-center">
             <span className="sr-only">Floop</span>
             <Image
               src="/assets/floop-logo.png"
@@ -18,6 +18,7 @@ export default function Nav() {
               width={72}
               height={72}
             />
+            <span className="ml-2">(Beta)</span>
           </Link>
         </div>
         <div className="flex flex-1 justify-end">
