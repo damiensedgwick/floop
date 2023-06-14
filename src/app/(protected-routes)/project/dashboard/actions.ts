@@ -1,10 +1,10 @@
-import { Database } from "@/types/supabase";
-import { SupabaseClient } from "@supabase/supabase-js";
+import { auth } from "@clerk/nextjs";
+import { client } from "@/lib/supabase";
 
-export async function getProject(
-  sb: SupabaseClient<Database>,
-  userId: string | null
-) {
+export async function getProject() {
+  const { userId } = auth();
+  const sb = await client();
+
   const { data, error } = await sb
     .from("project")
     .select()
@@ -18,10 +18,9 @@ export async function getProject(
   return data;
 }
 
-export async function getRatings(
-  sb: SupabaseClient<Database>,
-  projectId: string
-) {
+export async function getRatings(projectId: string) {
+  const sb = await client();
+
   const { data, error } = await sb
     .from("rating")
     .select()
@@ -34,10 +33,9 @@ export async function getRatings(
   return data;
 }
 
-export async function getIssues(
-  sb: SupabaseClient<Database>,
-  projectId: string
-) {
+export async function getIssues(projectId: string) {
+  const sb = await client();
+
   const { data, error } = await sb
     .from("issue")
     .select()
@@ -50,10 +48,9 @@ export async function getIssues(
   return data;
 }
 
-export async function getSuggestions(
-  sb: SupabaseClient<Database>,
-  projectId: string
-) {
+export async function getSuggestions(projectId: string) {
+  const sb = await client();
+
   const { data, error } = await sb
     .from("suggestion")
     .select()

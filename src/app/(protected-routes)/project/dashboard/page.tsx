@@ -1,8 +1,5 @@
-import { auth } from "@clerk/nextjs";
-import supabase from "@/lib/supabase";
 import { redirect } from "next/navigation";
 import classNames from "@/lib/classnames";
-
 import {
   getIssues,
   getProject,
@@ -16,39 +13,23 @@ import {
   StarIcon,
 } from "@heroicons/react/24/outline";
 import { format } from "date-fns";
+import {
+  getScoreBackgroundColor,
+  getScoreTextColor,
+} from "@/app/(protected-routes)/project/dashboard/helpers";
 
 export default async function Page() {
-  const { userId, getToken } = auth();
-
-  const supabaseAccessToken = await getToken({ template: "supabase" });
-  const sb = await supabase(supabaseAccessToken);
-
-  const project = await getProject(sb, userId);
+  const project = await getProject();
 
   if (!project) {
     redirect("/project/new");
   }
 
-  function getScoreBackgroundColor(score: number): string {
-    switch (score) {
-      case 1:
-        return "bg-red-400";
-      case 2:
-        return "bg-orange-400";
-      case 3:
-        return "bg-amber-400";
-      case 4:
-        return "bg-lime-400";
-      case 5:
-        return "bg-green-400";
-      default:
-        return "bg-black";
-    }
-  }
-
-  const ratings = await getRatings(sb, project.id);
-  const issues = await getIssues(sb, project.id);
-  const suggestions = await getSuggestions(sb, project.id);
+  const [ratings, issues, suggestions] = await Promise.all([
+    getRatings(project.id),
+    getIssues(project.id),
+    getSuggestions(project.id),
+  ]);
 
   const ratingsWithType = ratings.map((item) => ({
     ...item,
@@ -86,27 +67,10 @@ export default async function Page() {
   const average30DayScore =
     ratings.length > 0
       ? Math.round(
-        ratings.reduce((score, { rating }) => score + Number(rating), 0) /
-        ratings.length
-      )
+          ratings.reduce((score, { rating }) => score + Number(rating), 0) /
+            ratings.length
+        )
       : 0;
-
-  function getScoreTextColor(score: number): string {
-    switch (score) {
-      case 1:
-        return "text-red-400";
-      case 2:
-        return "text-orange-400";
-      case 3:
-        return "text-amber-400";
-      case 4:
-        return "text-lime-400";
-      case 5:
-        return "text-green-400";
-      default:
-        return "text-black";
-    }
-  }
 
   return (
     <div className="px-4 sm:px-6 lg:px-8">
@@ -199,7 +163,10 @@ export default async function Page() {
                           </p>
                           <div className="whitespace-nowrap text-right text-sm text-gray-500">
                             <time dateTime={event.created_at ?? ""}>
-                              {format(new Date(event.created_at ?? ""), "dd MMM yy")}
+                              {format(
+                                new Date(event.created_at ?? ""),
+                                "dd MMM yy"
+                              )}
                             </time>
                           </div>
                         </div>
