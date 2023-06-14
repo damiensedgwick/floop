@@ -1,7 +1,8 @@
+import { Database } from "@/types/supabase";
 import { SupabaseClient } from "@supabase/supabase-js";
 
 export async function getProject(
-  sb: SupabaseClient<any, "public", any>,
+  sb: SupabaseClient<Database>,
   userId: string | null
 ) {
   const { data, error } = await sb
@@ -18,7 +19,7 @@ export async function getProject(
 }
 
 export async function getRatings(
-  sb: SupabaseClient<any, "public", any>,
+  sb: SupabaseClient<Database>,
   projectId: string
 ) {
   const { data, error } = await sb
@@ -34,7 +35,7 @@ export async function getRatings(
 }
 
 export async function getIssues(
-  sb: SupabaseClient<any, "public", any>,
+  sb: SupabaseClient<Database>,
   projectId: string
 ) {
   const { data, error } = await sb
@@ -50,7 +51,7 @@ export async function getIssues(
 }
 
 export async function getSuggestions(
-  sb: SupabaseClient<any, "public", any>,
+  sb: SupabaseClient<Database>,
   projectId: string
 ) {
   const { data, error } = await sb

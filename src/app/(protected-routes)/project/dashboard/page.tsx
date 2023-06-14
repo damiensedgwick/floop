@@ -1,4 +1,3 @@
-// @ts-nocheck
 import { auth } from "@clerk/nextjs";
 import supabase from "@/lib/supabase";
 import { redirect } from "next/navigation";
@@ -16,6 +15,7 @@ import {
   LightBulbIcon,
   StarIcon,
 } from "@heroicons/react/24/outline";
+import { format } from "date-fns";
 
 export default async function Page() {
   const { userId, getToken } = auth();
@@ -28,10 +28,6 @@ export default async function Page() {
   if (!project) {
     redirect("/project/new");
   }
-
-  const ratings = await getRatings(sb, project.id);
-  const issues = await getIssues(sb, project.id);
-  const suggestions = await getSuggestions(sb, project.id);
 
   function getScoreBackgroundColor(score: number): string {
     switch (score) {
@@ -50,60 +46,32 @@ export default async function Page() {
     }
   }
 
-  interface CommonItem {
-    id: string;
-    created_at: string;
-    type: string;
-    icon: any;
-    iconBackground: string;
-  }
+  const ratings = await getRatings(sb, project.id);
+  const issues = await getIssues(sb, project.id);
+  const suggestions = await getSuggestions(sb, project.id);
 
-  interface RatingItem extends CommonItem {
-    rating: number;
-    message: string;
-  }
-
-  interface IssueItem extends CommonItem {
-    title: string;
-    message: string;
-  }
-
-  interface SuggestionItem extends CommonItem {
-    title: string;
-    message: string;
-  }
-
-  const ratingsWithType: RatingItem[] = ratings.map((item) => ({
-    id: item.id,
-    rating: item.rating,
-    message: item.message,
-    created_at: item.created_at,
-    type: "rating",
-    icon: StarIcon,
+  const ratingsWithType = ratings.map((item) => ({
+    ...item,
+    type: "rating" as const,
+    icon: <StarIcon />,
     iconBackground: getScoreBackgroundColor(item.rating),
   }));
 
-  const issuesWithType: IssueItem[] = issues.map((item) => ({
-    id: item.id,
-    title: item.title,
-    message: item.message,
-    created_at: item.created_at,
-    type: "issue",
-    icon: ExclamationTriangleIcon,
+  const issuesWithType = issues.map((item) => ({
+    ...item,
+    type: "issue" as const,
+    icon: <ExclamationTriangleIcon />,
     iconBackground: "bg-red-400",
   }));
 
-  const suggestionsWithType: SuggestionItem[] = suggestions.map((item) => ({
-    id: item.id,
-    title: item.title,
-    message: item.message,
-    type: "suggestion",
-    created_at: item.created_at,
-    icon: LightBulbIcon,
+  const suggestionsWithType = suggestions.map((item) => ({
+    ...item,
+    type: "suggestion" as const,
+    icon: <LightBulbIcon />,
     iconBackground: "bg-amber-400",
   }));
 
-  const timeline: CommonItem[] = [
+  const timeline = [
     ...ratingsWithType,
     ...issuesWithType,
     ...suggestionsWithType,
@@ -118,9 +86,9 @@ export default async function Page() {
   const average30DayScore =
     ratings.length > 0
       ? Math.round(
-          ratings.reduce((score, { rating }) => score + Number(rating), 0) /
-            ratings.length
-        )
+        ratings.reduce((score, { rating }) => score + Number(rating), 0) /
+        ratings.length
+      )
       : 0;
 
   function getScoreTextColor(score: number): string {
@@ -192,10 +160,12 @@ export default async function Page() {
         <div className="flow-root">
           <ul role="list" className="-mb-8">
             {timeline
-              .sort((a, b) => new Date(b.created_at) - new Date(a.created_at))
+              .sort(
+                (a, b) =>
+                  new Date(b.created_at ?? "").valueOf() -
+                  new Date(a.created_at ?? "").valueOf()
+              )
               .map((event, i) => {
-                console.log(event);
-
                 return (
                   <li key={event.id}>
                     <div className="relative pb-8">
@@ -213,24 +183,23 @@ export default async function Page() {
                               "h-8 w-8 rounded-full flex items-center justify-center ring-8 ring-white"
                             )}
                           >
-                            <event.icon
-                              className="h-5 w-5 text-white"
-                              aria-hidden="true"
-                            />
+                            <span className="h-5 w-5 text-white">
+                              {event.icon}
+                            </span>
                           </span>
                         </div>
                         <div className="flex min-w-0 flex-1 justify-between space-x-4 pt-1.5">
-                          <div>
-                            <p className="text-sm text-gray-500">
-                              New {event.type}:&nbsp;
-                              <span className="font-medium text-gray-900">
-                                {event.rating ? event.rating : event.title}
-                              </span>
-                            </p>
-                          </div>
+                          <p className="text-sm text-gray-500">
+                            New {event.type}:&nbsp;
+                            <span className="font-medium text-gray-900">
+                              {event.type === "rating"
+                                ? event.rating
+                                : event.title}
+                            </span>
+                          </p>
                           <div className="whitespace-nowrap text-right text-sm text-gray-500">
-                            <time dateTime={event.created_at}>
-                              {new Date(event.created_at).toDateString()}
+                            <time dateTime={event.created_at ?? ""}>
+                              {format(new Date(event.created_at ?? ""), "dd MMM yy")}
                             </time>
                           </div>
                         </div>
@@ -238,7 +207,8 @@ export default async function Page() {
                     </div>
                   </li>
                 );
-              })}
+              })
+              .slice(0, 10)}
           </ul>
         </div>
       </div>
