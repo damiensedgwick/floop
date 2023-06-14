@@ -2,6 +2,8 @@ import { auth } from "@clerk/nextjs";
 import { client } from "@/lib/supabase";
 
 export async function getProject() {
+  "use server";
+
   const { userId } = auth();
   const sb = await client();
 
@@ -19,6 +21,8 @@ export async function getProject() {
 }
 
 export async function getRatings(projectId: string) {
+  "use server";
+
   const sb = await client();
 
   const { data, error } = await sb
@@ -34,6 +38,8 @@ export async function getRatings(projectId: string) {
 }
 
 export async function getIssues(projectId: string) {
+  "use server";
+
   const sb = await client();
 
   const { data, error } = await sb
@@ -49,6 +55,8 @@ export async function getIssues(projectId: string) {
 }
 
 export async function getSuggestions(projectId: string) {
+  "use server";
+
   const sb = await client();
 
   const { data, error } = await sb
