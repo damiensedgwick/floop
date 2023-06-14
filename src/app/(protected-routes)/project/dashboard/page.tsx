@@ -222,7 +222,7 @@ export default async function Page() {
                         <div className="flex min-w-0 flex-1 justify-between space-x-4 pt-1.5">
                           <div>
                             <p className="text-sm text-gray-500">
-                              A new {event.type}:&nbsp;
+                              New {event.type}:&nbsp;
                               <span className="font-medium text-gray-900">
                                 {event.rating ? event.rating : event.title}
                               </span>
