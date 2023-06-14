@@ -1,5 +1,3 @@
-import { auth } from "@clerk/nextjs";
-import supabase from "@/lib/supabase";
 import { redirect } from "next/navigation";
 import {
   getIssues,
@@ -7,18 +5,13 @@ import {
 } from "@/app/(protected-routes)/project/dashboard/actions";
 
 export default async function Page() {
-  const { userId, getToken } = auth();
-
-  const supabaseAccessToken = await getToken({ template: "supabase" });
-  const sb = await supabase(supabaseAccessToken);
-
-  const project = await getProject(sb, userId);
+  const project = await getProject();
 
   if (!project) {
     redirect("/project/new");
   }
 
-  const issues = await getIssues(sb, project.id);
+  const issues = await getIssues(project.id);
 
   return (
     <div className="px-4 sm:px-6 lg:px-8">
