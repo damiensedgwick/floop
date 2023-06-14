@@ -71,7 +71,7 @@ export default function Overview() {
               />
               <div className="mx-auto max-w-2xl sm:mx-0 sm:max-w-none">
                 <Image
-                  src="/assets/product-preview.png"
+                  src="/assets/overview.png"
                   alt="Product screenshot"
                   width={2432}
                   height={1442}
