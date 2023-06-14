@@ -1,5 +1,6 @@
 import { NextResponse } from "next/server";
 import { createClient } from "@supabase/supabase-js";
+import { Database } from "@/types/supabase";
 
 export async function POST(request: Request): Promise<NextResponse> {
   const { project_id, rating, message, user_email } = await request.json();
@@ -9,7 +10,7 @@ export async function POST(request: Request): Promise<NextResponse> {
     return NextResponse.json({ message: "Bad request" }, { status: 400 });
   }
 
-  const sb = createClient(
+  const sb = createClient<Database>(
     String(process.env.NEXT_PUBLIC_SUPABASE_URL),
     String(process.env.NEXT_PUBLIC_SUPABASE_KEY)
   );
@@ -17,7 +18,7 @@ export async function POST(request: Request): Promise<NextResponse> {
   const { error } = await sb.from("rating").insert({
     project_id: project_id,
     rating: rating,
-    message: message,
+    message: message.length ? message : "---",
     user_email: user_email,
   });
 
