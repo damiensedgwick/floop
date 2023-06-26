@@ -116,15 +116,12 @@ export default async function ProjectLayout({
       </div>
 
       <main className="py-10 lg:pl-72">
-<<<<<<< Updated upstream
-=======
         {project.name === "Floop" ? (
           <div className="hidden lg:block lg:pr-12">
             <WidgetWrapper />
           </div>
         ) : null}
 
->>>>>>> Stashed changes
         <div className="px-4 sm:px-6 lg:px-8">{children}</div>
       </main>
     </div>
