@@ -9,6 +9,7 @@ import {
 import { currentUser, UserButton } from "@clerk/nextjs";
 import NavigationLink from "@/app/(protected-routes)/project/NavigationLink.client";
 import MobileMenu from "@/app/(protected-routes)/project/MobileMenu.client";
+import WidgetWrapper from "@/app/(protected-routes)/project/WidgetWrapper";
 
 const navigation = [
   {
