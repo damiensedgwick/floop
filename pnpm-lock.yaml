@@ -11,12 +11,9 @@ dependencies:
   '@clerk/nextjs':
     specifier: ^4.19.1
     version: 4.19.1(next@13.4.3)(react-dom@18.2.0)(react@18.2.0)
-<<<<<<< Updated upstream
-=======
   '@feedback-loop/react':
     specifier: ^0.0.18
     version: 0.0.18(react-dom@18.2.0)(react@18.2.0)
->>>>>>> Stashed changes
   '@headlessui/react':
     specifier: ^1.7.14
     version: 1.7.14(react-dom@18.2.0)(react@18.2.0)
@@ -222,8 +219,6 @@ packages:
     engines: {node: ^12.22.0 || ^14.17.0 || >=16.0.0}
     dev: false
 
-<<<<<<< Updated upstream
-=======
   /@feedback-loop/react@0.0.18(react-dom@18.2.0)(react@18.2.0):
     resolution: {integrity: sha512-U7XX65BrqNMHnAzaxo8ukjlDcb7nvmhbwiCVUx+yjB1lfOmJrzOx19D2xCpNFsapeOlk0HfZWFhpwvGWw8EJxA==}
     peerDependencies:
@@ -235,7 +230,6 @@ packages:
       react-dom: 18.2.0(react@18.2.0)
     dev: false
 
->>>>>>> Stashed changes
   /@headlessui/react@1.7.14(react-dom@18.2.0)(react@18.2.0):
     resolution: {integrity: sha512-znzdq9PG8rkwcu9oQ2FwIy0ZFtP9Z7ycS+BAqJ3R5EIqC/0bJGvhT7193rFf+45i9nnPsYvCQVW4V/bB9Xc+gA==}
     engines: {node: '>=10'}

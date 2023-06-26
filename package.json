@@ -12,10 +12,7 @@
   "dependencies": {
     "@clerk/backend": "^0.22.0",
     "@clerk/nextjs": "^4.19.1",
-<<<<<<< Updated upstream
-=======
     "@feedback-loop/react": "^0.0.18",
->>>>>>> Stashed changes
     "@headlessui/react": "^1.7.14",
     "@heroicons/react": "^2.0.18",
     "@supabase/supabase-js": "^2.22.0",
