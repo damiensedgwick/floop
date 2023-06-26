@@ -10,6 +10,8 @@ import { currentUser, UserButton } from "@clerk/nextjs";
 import NavigationLink from "@/app/(protected-routes)/project/NavigationLink.client";
 import MobileMenu from "@/app/(protected-routes)/project/MobileMenu.client";
 import WidgetWrapper from "@/app/(protected-routes)/project/WidgetWrapper";
+import { getProject } from "@/app/(protected-routes)/project/dashboard/actions";
+import { redirect } from "next/navigation";
 
 const navigation = [
   {
@@ -34,7 +36,7 @@ const navigation = [
   },
 ];
 
-const project = [
+const project_links = [
   {
     name: "Team",
     href: "/team",
@@ -52,12 +54,18 @@ export default async function ProjectLayout({
 }: {
   children: ReactNode;
 }) {
+  const project = await getProject();
+
+  if (!project) {
+    redirect("/project/new");
+  }
+
   const user = await currentUser();
 
   return (
     <div className="h-full bg-white">
       {/* Dynamic sidebar for mobile*/}
-      <MobileMenu navigation={navigation} project={project} />
+      <MobileMenu navigation={navigation} project={project_links} />
 
       {/* Static sidebar for desktop */}
       <div className="hidden lg:fixed lg:inset-y-0 lg:z-50 lg:flex lg:w-72 lg:flex-col">
@@ -93,7 +101,7 @@ export default async function ProjectLayout({
                   Your project
                 </div>
                 <ul role="list" className="-mx-2 mt-2 space-y-1">
-                  {project.map((item) => (
+                  {project_links.map((item) => (
                     <li key={item.name}>
                       <NavigationLink
                         name={item.name}
