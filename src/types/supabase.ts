@@ -3,7 +3,7 @@ export type Json =
   | number
   | boolean
   | null
-  | { [key: string]: Json }
+  | { [key: string]: Json | undefined }
   | Json[]
 
 export interface Database {
@@ -72,6 +72,28 @@ export interface Database {
           subscription_type?: string
         }
         Relationships: []
+      }
+      project_users: {
+        Row: {
+          project_id: string
+          user_id: string
+        }
+        Insert: {
+          project_id: string
+          user_id?: string
+        }
+        Update: {
+          project_id?: string
+          user_id?: string
+        }
+        Relationships: [
+          {
+            foreignKeyName: "project_users_project_id_fkey"
+            columns: ["project_id"]
+            referencedRelation: "project"
+            referencedColumns: ["id"]
+          }
+        ]
       }
       rating: {
         Row: {
