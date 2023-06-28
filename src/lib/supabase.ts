@@ -1,18 +1,16 @@
 import { Database } from "@/types/supabase";
-import { createClient } from "@supabase/supabase-js";
+import { createClient, SupabaseClient } from "@supabase/supabase-js";
 import { auth } from "@clerk/nextjs";
 
-export default async function supabase(supabaseAccessToken: string | null) {
+export default function supabase(
+  supabaseAccessToken: string | null
+): SupabaseClient<Database> {
   return createClient<Database>(
     String(process.env.NEXT_PUBLIC_SUPABASE_URL),
     String(process.env.NEXT_PUBLIC_SUPABASE_KEY),
-    { global: { headers: { Authorization: `Bearer ${supabaseAccessToken}` } } }
+    {
+      global: { headers: { Authorization: `Bearer ${supabaseAccessToken}` } },
+      auth: { persistSession: false },
+    }
   );
-}
-
-export async function client() {
-  const { getToken } = auth();
-  const supabaseAccessToken = await getToken({ template: "supabase" });
-
-  return supabase(supabaseAccessToken);
 }

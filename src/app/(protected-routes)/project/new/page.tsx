@@ -1,31 +1,7 @@
 import Image from "next/image";
 import { submitForm } from "@/app/(protected-routes)/project/new/actions";
-import { auth } from "@clerk/nextjs";
-import supabase from "@/lib/supabase";
-import { redirect } from "next/navigation";
 
 export default async function Page() {
-  const { userId, getToken } = auth();
-
-  const supabaseAccessToken = await getToken({ template: "supabase" });
-  const sb = await supabase(supabaseAccessToken);
-
-  const { data, error } = await sb
-    .from("project")
-    .select()
-    .eq("owner_id", userId)
-    .maybeSingle();
-
-  if (error) {
-    return <p>Error fetching your project</p>;
-  }
-
-  const project = data;
-
-  if (project) {
-    redirect("/project/dashboard");
-  }
-
   return (
     <div className="flex min-h-full flex-1 flex-col justify-center px-6 py-12 lg:px-8">
       <div className="sm:mx-auto sm:w-full sm:max-w-sm">
