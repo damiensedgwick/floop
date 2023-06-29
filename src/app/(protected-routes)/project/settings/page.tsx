@@ -1,5 +1,6 @@
 import { getProject } from "@/app/(protected-routes)/project/dashboard/actions";
 import { redirect } from "next/navigation";
+import { clerkClient } from "@clerk/nextjs";
 
 export default async function Page() {
   const project = await getProject();
@@ -7,6 +8,9 @@ export default async function Page() {
   if (!project) {
     redirect("/project/new");
   }
+
+  const owner = await clerkClient.users.getUser(project.owner_id);
+  const ownerName = owner.firstName + " " + owner.lastName;
 
   return (
     <div className="px-4 pt-2 sm:px-6 lg:px-8">
@@ -54,10 +58,10 @@ export default async function Page() {
           </div>
           <div className="px-4 py-6 sm:grid sm:grid-cols-3 sm:gap-4 sm:px-0">
             <dt className="text-sm font-medium leading-6 text-gray-900">
-              Owner ID
+              Owner name
             </dt>
             <dd className="mt-1 text-sm leading-6 text-gray-700 sm:col-span-2 sm:mt-0">
-              {project.owner_id}
+              {ownerName}
             </dd>
           </div>
         </dl>

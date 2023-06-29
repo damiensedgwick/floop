@@ -1,7 +1,15 @@
 import Image from "next/image";
 import { submitForm } from "@/app/(protected-routes)/project/new/actions";
+import { getProject } from "@/app/(protected-routes)/project/dashboard/actions";
+import { redirect } from "next/navigation";
 
 export default async function Page() {
+  const project = await getProject();
+
+  if (project) {
+    redirect("/project/dashboard");
+  }
+
   return (
     <div className="flex min-h-full flex-1 flex-col justify-center px-6 py-12 lg:px-8">
       <div className="sm:mx-auto sm:w-full sm:max-w-sm">
