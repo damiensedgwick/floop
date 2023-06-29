@@ -9,7 +9,6 @@ import {
 import { currentUser, UserButton } from "@clerk/nextjs";
 import NavigationLink from "@/app/(protected-routes)/project/NavigationLink.client";
 import MobileMenu from "@/app/(protected-routes)/project/MobileMenu.client";
-import WidgetWrapper from "@/app/(protected-routes)/project/WidgetWrapper";
 
 const navigation = [
   {
@@ -53,8 +52,6 @@ export default async function ProjectLayout({
   children: ReactNode;
 }) {
   const user = await currentUser();
-
-  const floop = process.env.PLATFORM_NAME;
 
   return (
     <div className="h-full bg-white">
@@ -119,11 +116,11 @@ export default async function ProjectLayout({
       </div>
 
       <main className="py-10 lg:pl-72">
-        {floop ? (
-          <div className="hidden lg:block lg:pr-12">
-            <WidgetWrapper />
-          </div>
-        ) : null}
+        {/*{floop ? (*/}
+        {/*  <div className="hidden lg:block lg:pr-12">*/}
+        {/*    <WidgetWrapper />*/}
+        {/*  </div>*/}
+        {/*) : null}*/}
 
         <div className="px-4 sm:px-6 lg:px-8">{children}</div>
       </main>
