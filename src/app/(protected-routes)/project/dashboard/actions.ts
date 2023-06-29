@@ -8,19 +8,39 @@ export async function getProject() {
   const token = await getToken({ template: "supabase" });
   const client = await supabase(token);
 
-  const { data, error } = await client
-    .from("project")
+  const projectUser = await client
+    .from("project_users")
     .select()
-    .eq("owner_id", userId)
-    .maybeSingle();
+    .eq("user_id", userId)
+    .single();
 
-  if (error) {
-    console.log(error);
+  const { data: projectUserData, error: projectUserError } = projectUser;
 
-    throw new Error("Error getting project for the dashboard");
+  if (projectUserError) {
+    // throw new Error(
+    //   `Error getting project from project_users: ${projectUserError.message}`
+    // );
+
+    return;
   }
 
-  return data;
+  const project = await client
+    .from("project")
+    .select()
+    .eq("id", projectUserData.project_id)
+    .single();
+
+  const { data: projectData, error: projectError } = project;
+
+  if (projectError) {
+    // throw new Error(
+    //   `Error getting project from project: ${projectError.message}`
+    // );
+
+    return;
+  }
+
+  return projectData;
 }
 
 export async function getRatings(projectId: string) {

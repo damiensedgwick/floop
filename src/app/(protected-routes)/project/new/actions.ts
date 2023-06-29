@@ -21,10 +21,20 @@ export async function submitForm(formData: FormData) {
     const supabaseAccessToken = await getToken({ template: "supabase" });
     const sb = await supabase(supabaseAccessToken);
 
-    await sb.from("project").insert({
-      name: name,
-      owner_id: userId,
-    });
+    const { data } = await sb
+      .from("project")
+      .insert({
+        name: name,
+        owner_id: userId,
+      })
+      .select();
+
+    if (data) {
+      await sb.from("project_users").insert({
+        project_id: data[0].id,
+        user_id: userId,
+      });
+    }
   } catch (error) {
     throw new Error("Error creating project");
   }
