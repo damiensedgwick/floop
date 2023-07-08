@@ -3,6 +3,10 @@ import { createClient } from "@supabase/supabase-js";
 import { Database } from "@/types/supabase";
 
 export async function POST(request: Request): Promise<NextResponse> {
+  let response = NextResponse.next();
+
+  response.headers.set("Access-Control-Allow-Origin", "*")
+
   const { project_id, rating, message, user_email } = await request.json();
 
   // message is the only value allowed to be null here.
