@@ -2,10 +2,19 @@ import { NextResponse } from "next/server";
 import { createClient } from "@supabase/supabase-js";
 import { Database } from "@/types/supabase";
 
-export async function POST(request: Request): Promise<NextResponse> {
-  let response = NextResponse.next();
+export async function POST(request: Request): Promise<NextResponse | Response> {
+  // Add the necessary CORS headers to allow requests from any website
+  const headers = {
+    "Access-Control-Allow-Origin": "*",
+    "Access-Control-Allow-Methods": "POST, OPTIONS",
+    "Access-Control-Allow-Headers": "Content-Type",
+    "Access-Control-Max-Age": "86400", // 24 hours
+  };
 
-  response.headers.set("Access-Control-Allow-Origin", "*")
+  if (request.method === "OPTIONS") {
+    // Handle preflight OPTIONS request
+    return new Response(null, { headers });
+  }
 
   const { project_id, rating, message, user_email } = await request.json();
 
@@ -35,8 +44,14 @@ export async function POST(request: Request): Promise<NextResponse> {
     );
   }
 
-  return NextResponse.json(
-    { message: "Rating successfully submitted" },
-    { status: 201 }
+  return new Response(
+    JSON.stringify({ message: "Rating successfully submitted" }),
+    {
+      headers: {
+        ...headers,
+        "Content-Type": "application/json",
+      },
+      status: 201,
+    }
   );
 }
