@@ -1,4 +1,4 @@
-lockfileVersion: '6.1'
+lockfileVersion: '6.0'
 
 settings:
   autoInstallPeers: true
@@ -12,8 +12,8 @@ dependencies:
     specifier: ^4.21.12
     version: 4.21.12(next@13.4.3)(react-dom@18.2.0)(react@18.2.0)
   '@feedback-loop/react':
-    specifier: ^0.0.18
-    version: 0.0.18(react-dom@18.2.0)(react@18.2.0)
+    specifier: ^0.0.21
+    version: 0.0.21(react-dom@18.2.0)(react@18.2.0)
   '@headlessui/react':
     specifier: ^1.7.15
     version: 1.7.15(react-dom@18.2.0)(react@18.2.0)
@@ -221,8 +221,8 @@ packages:
     engines: {node: ^12.22.0 || ^14.17.0 || >=16.0.0}
     dev: false
 
-  /@feedback-loop/react@0.0.18(react-dom@18.2.0)(react@18.2.0):
-    resolution: {integrity: sha512-U7XX65BrqNMHnAzaxo8ukjlDcb7nvmhbwiCVUx+yjB1lfOmJrzOx19D2xCpNFsapeOlk0HfZWFhpwvGWw8EJxA==}
+  /@feedback-loop/react@0.0.21(react-dom@18.2.0)(react@18.2.0):
+    resolution: {integrity: sha512-AlBIjYqw911WliLw5YtL5ejH6/YQGOlqzRkNf/+zigbIDmZt5uLsaetllJB47tdhUXcaJqRJ44ZAIiIZIs40+A==}
     peerDependencies:
       react: ^18.2.0
       react-dom: ^18.2.0

@@ -9,6 +9,7 @@ import {
 import { currentUser, UserButton } from "@clerk/nextjs";
 import NavigationLink from "@/app/(protected-routes)/project/NavigationLink.client";
 import MobileMenu from "@/app/(protected-routes)/project/MobileMenu.client";
+import WidgetWrapper from "@/app/(protected-routes)/project/WidgetWrapper";
 
 const navigation = [
   {
@@ -61,8 +62,8 @@ export default async function ProjectLayout({
       {/* Static sidebar for desktop */}
       <div className="hidden lg:fixed lg:inset-y-0 lg:z-50 lg:flex lg:w-72 lg:flex-col">
         {/* Sidebar component, swap this element with another sidebar if you like */}
-        <div className="flex grow flex-col gap-y-5 overflow-y-auto border-r border-gray-200 bg-white px-6">
-          <div className="my-4 flex h-16 shrink-0 items-center">
+        <div className="flex flex-col px-6 overflow-y-auto bg-white border-r border-gray-200 grow gap-y-5">
+          <div className="flex items-center h-16 my-4 shrink-0">
             <Image
               className="mt-4"
               src="/assets/floop-logo.png"
@@ -72,8 +73,8 @@ export default async function ProjectLayout({
               priority
             />
           </div>
-          <nav className="flex flex-1 flex-col">
-            <ul role="list" className="flex flex-1 flex-col gap-y-7">
+          <nav className="flex flex-col flex-1">
+            <ul role="list" className="flex flex-col flex-1 gap-y-7">
               <li>
                 <ul role="list" className="-mx-2 space-y-1">
                   {navigation.map((item) => (
@@ -91,7 +92,7 @@ export default async function ProjectLayout({
                 <div className="text-xs font-semibold leading-6 text-gray-400">
                   Your project
                 </div>
-                <ul role="list" className="-mx-2 mt-2 space-y-1">
+                <ul role="list" className="mt-2 -mx-2 space-y-1">
                   {project_links.map((item) => (
                     <li key={item.name}>
                       <NavigationLink
@@ -103,7 +104,7 @@ export default async function ProjectLayout({
                   ))}
                 </ul>
               </li>
-              <li className="-mx-6 mt-auto flex items-center gap-x-4 px-6 py-3 text-sm font-semibold leading-6 text-gray-900 hover:bg-gray-50">
+              <li className="flex items-center px-6 py-3 mt-auto -mx-6 text-sm font-semibold leading-6 text-gray-900 gap-x-4 hover:bg-gray-50">
                 <UserButton />
                 <span className="sr-only">Your profile</span>
                 <span aria-hidden="true">
@@ -116,11 +117,11 @@ export default async function ProjectLayout({
       </div>
 
       <main className="py-10 lg:pl-72">
-        {/*{floop ? (*/}
-        {/*  <div className="hidden lg:block lg:pr-12">*/}
-        {/*    <WidgetWrapper />*/}
-        {/*  </div>*/}
-        {/*) : null}*/}
+        {user?.publicMetadata.is_project_floop ? (
+          <div className="hidden lg:block lg:pr-12">
+            <WidgetWrapper userEmail={user?.emailAddresses[0].emailAddress} />
+          </div>
+        ) : null}
 
         <div className="px-4 sm:px-6 lg:px-8">{children}</div>
       </main>

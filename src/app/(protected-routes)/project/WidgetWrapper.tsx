@@ -2,10 +2,17 @@
 
 import { FloopWidget } from "@feedback-loop/react";
 
-export default function WidgetWrapper() {
+type Props = {
+  userEmail: string | undefined;
+};
+
+export default function WidgetWrapper({ userEmail }: Props) {
   return (
-    <FloopWidget projectId="my-project-id">
-      <button className="absolute right-12 opacity-50">Give feedback</button>
+    <FloopWidget
+      projectId="fee40691-332e-4614-8d98-8009683c3187"
+      userEmail={userEmail || ""}
+    >
+      <button className="absolute opacity-50 right-12">Give feedback</button>
     </FloopWidget>
   );
 }

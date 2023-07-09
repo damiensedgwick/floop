@@ -12,7 +12,7 @@
   "dependencies": {
     "@clerk/backend": "^0.22.0",
     "@clerk/nextjs": "^4.21.12",
-    "@feedback-loop/react": "^0.0.18",
+    "@feedback-loop/react": "^0.0.21",
     "@headlessui/react": "^1.7.15",
     "@heroicons/react": "^2.0.18",
     "@supabase/supabase-js": "^2.26.0",
