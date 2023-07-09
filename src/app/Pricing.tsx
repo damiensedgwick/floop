@@ -24,7 +24,7 @@ const tiers = [
     featured: true,
     description:
       "Perfect for growing businesses and teams looking to gain feedback from their users.",
-    price: "£50",
+    price: "£19.99",
     mainFeatures: [
       "10 Users",
       "Up to 250 submissions",
@@ -41,7 +41,7 @@ const tiers = [
     featured: false,
     description:
       "Ideal for large businesses and teams who want to make the most out of their user feedback.",
-    price: "£99",
+    price: "£49.99",
     mainFeatures: [
       "Unlimited users",
       "Unlimited submissions",
@@ -55,25 +55,26 @@ const tiers = [
 
 export default function Example() {
   return (
-    <div className="isolate overflow-hidden">
-      <div className="flow-root bg-gray-900 pt-24 pb-16 sm:pt-32 lg:pb-0">
-        <div className="mx-auto max-w-7xl px-6 text-center lg:px-8">
+    <div className="overflow-hidden isolate">
+      <div className="flow-root pt-24 pb-16 bg-gray-900 sm:pt-32 lg:pb-0">
+        <div className="px-6 mx-auto text-center max-w-7xl lg:px-8">
           <div className="relative z-10">
             <h2 className="text-base font-semibold leading-7 text-teal-400">
-              Pricing
+              Budget friendly excellence
             </h2>
             <p className="mt-2 text-4xl font-bold tracking-tight text-white sm:text-5xl">
-              The right price for you,
+              Pricing made simple,
               <br className="hidden sm:inline lg:hidden" />
-              &nbsp;and your needs
+              &nbsp;Choose your plan
             </p>
-            <p className="mx-auto mt-4 max-w-2xl text-center text-lg leading-8 text-white/60">
-              Whether you&apos;re looking to trial our product or dive deeper
-              into your user feedback, our pricing options cater to your needs,
-              empowering you to gather valuable insights and drive success.
+            <p className="max-w-2xl mx-auto mt-4 text-lg leading-8 text-center text-white/60">
+              Unlock valuable insights and drive success. No credit card
+              required to get started. Whether you&apos;re looking to explore a
+              trial or you are wanting to dive deeper into user feedback, we can
+              help you get there.
             </p>
           </div>
-          <div className="relative mx-auto mt-10 grid max-w-md grid-cols-1 gap-y-8 lg:mx-0 lg:-mb-14 lg:max-w-none lg:grid-cols-3">
+          <div className="relative grid max-w-md grid-cols-1 mx-auto mt-10 gap-y-8 lg:mx-0 lg:-mb-14 lg:max-w-none lg:grid-cols-3">
             <svg
               viewBox="0 0 1208 1024"
               aria-hidden="true"
@@ -126,7 +127,7 @@ export default function Example() {
                     {tier.description}
                   </p>
                   <div className="flex flex-col gap-6 sm:flex-row sm:items-end sm:justify-between lg:flex-col lg:items-stretch">
-                    <div className="mt-2 flex items-center gap-x-1">
+                    <div className="flex items-center mt-2 gap-x-1">
                       <p
                         className={classNames(
                           tier.featured ? "text-gray-900" : "text-white",
@@ -158,7 +159,7 @@ export default function Example() {
                       Buy this plan
                     </button>
                   </div>
-                  <div className="mt-8 flow-root sm:mt-10">
+                  <div className="flow-root mt-8 sm:mt-10">
                     <ul
                       role="list"
                       className={classNames(
@@ -169,7 +170,7 @@ export default function Example() {
                       )}
                     >
                       {tier.mainFeatures.map((mainFeature) => (
-                        <li key={mainFeature} className="flex gap-x-3 py-2">
+                        <li key={mainFeature} className="flex py-2 gap-x-3">
                           <CheckIcon
                             className={classNames(
                               tier.featured ? "text-teal-600" : "text-gray-500",
@@ -189,7 +190,7 @@ export default function Example() {
         </div>
       </div>
       <div className="relative bg-white lg:pt-14">
-        <div className="mx-auto max-w-7xl px-6 py-12 lg:px-8" />
+        <div className="px-6 py-12 mx-auto max-w-7xl lg:px-8" />
       </div>
     </div>
   );

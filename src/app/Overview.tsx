@@ -9,19 +9,19 @@ const product_information = [
   {
     name: "Ratings.",
     description:
-      "Customer ratings can be used to identify areas where businesses can improve, and they can also be used to build trust and loyalty with customers.",
+      "Pinpoint improvement areas and foster trust and loyalty with your customers.",
     icon: StarIcon,
   },
   {
     name: "Issues.",
     description:
-      "Customer feedback can help you identify and solve problems quickly. This can help to prevent customer dissatisfaction and improve your overall customer experience.",
+      "Enable swift problem resolution, preventing dissatisfaction and enhancing customer experience.",
     icon: ExclamationTriangleIcon,
   },
   {
     name: "Suggestions.",
     description:
-      "When customers feel like their suggestions are being listened to, they are more likely to be satisfied with your products and services.",
+      "Help customers feel heard, satisfaction with your products and services increases.",
     icon: LightBulbIcon,
   },
 ];
@@ -29,30 +29,30 @@ const product_information = [
 export default function Overview() {
   return (
     <div
-      className="overflow-hidden bg-white py-24 sm:py-32 lg:py-48"
+      className="py-24 overflow-hidden bg-white sm:py-32 lg:py-48"
       id="product"
     >
       <div className="mx-auto max-w-7xl md:px-6 lg:px-8">
         <div className="grid grid-cols-1 gap-x-8 gap-y-16 sm:gap-y-20 lg:grid-cols-2 lg:items-start">
           <div className="px-6 lg:px-0 lg:pt-4 lg:pr-4">
-            <div className="mx-auto max-w-2xl lg:mx-0 lg:max-w-lg">
+            <div className="max-w-2xl mx-auto lg:mx-0 lg:max-w-lg">
               <h2 className="text-base font-semibold leading-7 text-teal-600">
-                Get better faster
+                Make smarter decisions
               </h2>
               <p className="mt-2 text-3xl font-bold tracking-tight text-gray-900 sm:text-4xl">
-                Identify areas for improvement
+                Let your customers identify areas for improvement
               </p>
               <p className="mt-6 text-lg leading-8 text-gray-600">
-                Customer feedback can help you to identify areas where your
-                products or services can be improved. This information can help
-                you to make changes that will make your customers happier.
+                Floop helps you identify areas for improvement by leveraging
+                customer feedback, enabling you to make changes that enhance
+                customer satisfaction.
               </p>
-              <dl className="mt-10 max-w-xl text-base leading-7 text-gray-600 space-y-8 lg:max-w-none">
+              <dl className="max-w-xl mt-10 space-y-8 text-base leading-7 text-gray-600 lg:max-w-none">
                 {product_information.map((pi) => (
                   <div key={pi.name} className="relative pl-9">
                     <dt className="inline font-semibold text-gray-900">
                       <pi.icon
-                        className="absolute top-1 left-1 h-6 w-6 text-teal-600"
+                        className="absolute w-6 h-6 text-teal-600 top-1 left-1"
                         aria-hidden="true"
                       />
                       {pi.name}
@@ -64,12 +64,12 @@ export default function Overview() {
             </div>
           </div>
           <div className="sm:px-6 lg:px-0">
-            <div className="relative isolate overflow-hidden bg-teal-500 px-6 pt-8 sm:mx-auto sm:max-w-2xl sm:rounded-3xl sm:pt-16 sm:pr-0 sm:pl-16 lg:mx-0 lg:max-w-none">
+            <div className="relative px-6 pt-8 overflow-hidden bg-teal-500 isolate sm:mx-auto sm:max-w-2xl sm:rounded-3xl sm:pt-16 sm:pr-0 sm:pl-16 lg:mx-0 lg:max-w-none">
               <div
                 className="absolute -inset-y-px -left-3 -z-10 w-full origin-bottom-left bg-teal-100 opacity-20 ring-1 ring-inset ring-white skew-x-[-30deg]"
                 aria-hidden="true"
               />
-              <div className="mx-auto max-w-2xl sm:mx-0 sm:max-w-none">
+              <div className="max-w-2xl mx-auto sm:mx-0 sm:max-w-none">
                 <Image
                   src="/assets/overview.png"
                   alt="Product screenshot"
@@ -79,7 +79,7 @@ export default function Overview() {
                 />
               </div>
               <div
-                className="pointer-events-none absolute inset-0 ring-1 ring-inset ring-black/10 sm:rounded-3xl"
+                className="absolute inset-0 pointer-events-none ring-1 ring-inset ring-black/10 sm:rounded-3xl"
                 aria-hidden="true"
               />
             </div>

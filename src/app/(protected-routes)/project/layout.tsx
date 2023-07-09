@@ -118,7 +118,7 @@ export default async function ProjectLayout({
 
       <main className="py-10 lg:pl-72">
         {user?.publicMetadata.is_project_floop ? (
-          <div className="hidden lg:block lg:pr-12">
+          <div className="hidden ml-auto lg:block lg:pr-12 lg:w-96">
             <WidgetWrapper userEmail={user?.emailAddresses[0].emailAddress} />
           </div>
         ) : null}

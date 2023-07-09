@@ -1,64 +1,65 @@
 import {
-  ArrowTrendingUpIcon,
-  ClipboardDocumentCheckIcon,
+  BellAlertIcon,
+  PresentationChartLineIcon,
   UsersIcon,
 } from "@heroicons/react/24/outline";
 
 const product_features = [
   {
-    name: "Feedback analysis",
+    name: "Activity feed",
     description:
-      "Feedback analysis is invaluable, offering crucial insights that drive informed decision-making, improve products/services, and enhance overall customer satisfaction.",
+      "Unlock insights. Drive informed decisions, enhance satisfaction, and improve products with invaluable feedback.",
     href: "#",
-    icon: ArrowTrendingUpIcon,
+    icon: BellAlertIcon,
   },
   {
-    name: "Manage team members",
+    name: "Boost collaboration",
     description:
-      "Effective team member management ensures streamlined collaboration, boosts productivity, fosters engagement, and achieves project goals with greater efficiency and success.",
+      "Streamline collaboration. Boost productivity, engagement, and project success with effective team management.",
     href: "#",
     icon: UsersIcon,
   },
   {
-    name: "Actionable data",
+    name: "Monitor trends",
     description:
-      "Actionable data empowers informed decision-making, enabling businesses to identify trends, uncover opportunities, address challenges, and drive meaningful improvements across their operations.",
+      "Actionable data empowers trend-driven decision-making, driving meaningful improvements across operations.",
     href: "#",
-    icon: ClipboardDocumentCheckIcon,
+    icon: PresentationChartLineIcon,
   },
 ];
 
 export default function Features() {
   return (
-    <div className="bg-white py-24 sm:py-32 lg:py-48">
-      <div className="mx-auto max-w-7xl px-6 lg:px-8">
-        <div className="mx-auto max-w-2xl lg:mx-0">
+    <div className="py-24 bg-white sm:py-32 lg:py-48">
+      <div className="px-6 mx-auto max-w-7xl lg:px-8">
+        <div className="max-w-2xl mx-auto lg:mx-0">
           <h2 className="text-base font-semibold leading-7 text-teal-600">
-            Floop for teams
+            Feedback made simple
           </h2>
           <p className="mt-2 text-3xl font-bold tracking-tight text-gray-900 sm:text-4xl">
-            Stay on top of customer feedback
+            Focus on building your service and let us collect your feedback
           </p>
           <p className="mt-6 text-lg leading-8 text-gray-600">
-            Keeping track of customer feedback can be challenging due to its
-            volume and varying formats. Our service streamlines the process,
-            providing a centralised platform for efficient project and analysis.
+            Our service eliminates the stress of building and managing your own
+            feedback system. With a centralised platform, we handle the volume
+            and varying formats of customer feedback, boosting project
+            management and analysis.
           </p>
         </div>
-        <div className="mx-auto mt-16 max-w-2xl sm:mt-20 lg:mt-24 lg:max-w-none">
+        <div className="max-w-2xl mx-auto mt-16 sm:mt-20 lg:mt-24 lg:max-w-none">
           <dl className="grid max-w-xl grid-cols-1 gap-x-8 gap-y-16 lg:max-w-none lg:grid-cols-3">
             {product_features.map((pf) => (
               <div key={pf.name} className="flex flex-col">
                 <dt className="text-base font-semibold leading-7 text-gray-900">
-                  <div className="mb-6 flex h-10 w-10 items-center justify-center rounded-lg bg-teal-600">
+                  <div className="flex items-center justify-center w-10 h-10 mb-6 bg-teal-600 rounded-lg">
                     <pf.icon
-                      className="h-6 w-6 text-white"
+                      className="w-6 h-6 text-white"
                       aria-hidden="true"
                     />
                   </div>
                   {pf.name}
                 </dt>
-                <dd className="mt-1 flex flex-auto flex-col text-base leading-7 text-gray-600">
+                <dd className="flex flex-col flex-auto mt-1 text-base leading-7 text-gray-600">
                   <p className="flex-auto">{pf.description}</p>
                 </dd>
               </div>
