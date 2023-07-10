@@ -1,6 +1,5 @@
 import { Database } from "@/types/supabase";
 import { createClient, SupabaseClient } from "@supabase/supabase-js";
-import { auth } from "@clerk/nextjs";
 
 export default function supabase(
   supabaseAccessToken: string | null

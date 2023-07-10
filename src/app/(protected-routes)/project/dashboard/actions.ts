@@ -1,4 +1,4 @@
-import { auth } from "@clerk/nextjs";
+import { auth } from "@clerk/nextjs/server";
 import supabase from "@/lib/supabase";
 
 export async function getProject() {
