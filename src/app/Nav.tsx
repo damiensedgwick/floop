@@ -21,19 +21,19 @@ export default function Nav() {
             <span className="ml-2">(Beta)</span>
           </Link>
         </div>
-        <div className="flex flex-1 justify-end">
+        <div className="flex justify-end flex-1">
           <ul className="flex items-center space-x-4">
             <li>
               <UserButton />
             </li>
-            <li>
+            {/* <li>
               <Link
                 href="/project/dashboard"
                 className="text-sm font-semibold leading-6 text-gray-900"
               >
                 Dashboard&nbsp;<span aria-hidden="true">&rarr;</span>
               </Link>
-            </li>
+            </li> */}
           </ul>
         </div>
       </nav>
