@@ -2,11 +2,9 @@ import { auth } from "@clerk/nextjs";
 import supabase from "@/lib/supabase";
 
 export async function getProject() {
-  "use server";
-
   const { userId, getToken } = auth();
   const token = await getToken({ template: "supabase" });
-  const client = await supabase(token);
+  const client = supabase(token);
 
   const projectUser = await client
     .from("project_users")
@@ -17,11 +15,9 @@ export async function getProject() {
   const { data: projectUserData, error: projectUserError } = projectUser;
 
   if (projectUserError) {
-    // throw new Error(
-    //   `Error getting project from project_users: ${projectUserError.message}`
-    // );
+    console.log(projectUserError);
 
-    return;
+    throw new Error("Error fetching projectUserData");
   }
 
   const project = await client
@@ -33,22 +29,18 @@ export async function getProject() {
   const { data: projectData, error: projectError } = project;
 
   if (projectError) {
-    // throw new Error(
-    //   `Error getting project from project: ${projectError.message}`
-    // );
+    console.log(projectError);
 
-    return;
+    throw new Error("Error fetching projectData");
   }
 
   return projectData;
 }
 
 export async function getRatings(projectId: string) {
-  "use server";
-
   const { getToken } = auth();
   const token = await getToken({ template: "supabase" });
-  const client = await supabase(token);
+  const client = supabase(token);
 
   const { data, error } = await client
     .from("rating")
@@ -65,11 +57,9 @@ export async function getRatings(projectId: string) {
 }
 
 export async function getIssues(projectId: string) {
-  "use server";
-
   const { getToken } = auth();
   const token = await getToken({ template: "supabase" });
-  const client = await supabase(token);
+  const client = supabase(token);
 
   const { data, error } = await client
     .from("issue")
@@ -86,11 +76,9 @@ export async function getIssues(projectId: string) {
 }
 
 export async function getSuggestions(projectId: string) {
-  "use server";
-
   const { getToken } = auth();
   const token = await getToken({ template: "supabase" });
-  const client = await supabase(token);
+  const client = supabase(token);
 
   const { data, error } = await client
     .from("suggestion")
