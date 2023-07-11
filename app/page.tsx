@@ -1,5 +1,8 @@
 import { cookies } from "next/headers";
 import { createServerComponentClient } from "@supabase/auth-helpers-nextjs";
+import Hero from "@/components/Hero";
+import Features from "@/components/Features";
+import Pricing from "@/components/Pricing";
 
 export default async function Page() {
   const supabase = createServerComponentClient({ cookies });
@@ -10,7 +13,9 @@ export default async function Page() {
 
   return (
     <div>
-      <h1>Hello, World!</h1>
+      <Hero />
+      <Features />
+      <Pricing />
     </div>
   );
 }
