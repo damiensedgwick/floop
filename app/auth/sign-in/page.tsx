@@ -40,7 +40,7 @@ export default function Page() {
       <div className="sm:mx-auto sm:w-full sm:max-w-sm">
         <Image
           className="mx-auto"
-          src="/assets/floop-logo.png"
+          src="/floop-logo.png"
           width={88}
           height={88}
           alt="Floop logo"

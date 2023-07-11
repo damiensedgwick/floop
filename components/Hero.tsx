@@ -39,7 +39,7 @@ export default async function Hero() {
       <div className="px-6 pt-10 pb-24 mx-auto max-w-7xl sm:pb-32 lg:flex lg:px-8 lg:py-40">
         <div className="max-w-2xl mx-auto lg:mx-0 lg:max-w-xl lg:flex-shrink-0 lg:pt-8">
           <Image
-            src="/assets/floop-logo.png"
+            src="/floop-logo.png"
             width={88}
             height={88}
             alt="Your Company"
@@ -75,7 +75,7 @@ export default async function Hero() {
             </Link>
             {user ? (
               <Link
-                href="/auth/sign-in"
+                href="/project/dashboard"
                 className="text-sm font-semibold leading-6 text-gray-900"
               >
                 Floop dashboard <span aria-hidden="true">→</span>
