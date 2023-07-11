@@ -15,14 +15,14 @@ const tiers = [
       "Ratings",
       "Issues",
       "Suggestions",
-      "48-hour support response time",
+      "72-hour support response time",
     ],
   },
   {
     name: "Growth",
     id: "tier-growth",
     href: "#",
-    priceMonthly: "£29.99",
+    priceMonthly: "£25",
     description:
       "Perfect for growing teams and business looking to get more value from their feedback.",
     features: [
@@ -31,7 +31,7 @@ const tiers = [
       "Ratings",
       "Issues",
       "Suggestions",
-      "24-hour support response time",
+      "12-hour support response time",
     ],
   },
 ];

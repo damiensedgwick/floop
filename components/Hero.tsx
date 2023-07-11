@@ -1,8 +1,16 @@
 import Image from "next/image";
 import Link from "next/link";
+import { createServerComponentClient } from "@supabase/auth-helpers-nextjs";
+import { cookies } from "next/headers";
 import { ChevronRightIcon } from "@heroicons/react/20/solid";
 
-export default function Hero() {
+export default async function Hero() {
+  const supabase = createServerComponentClient({ cookies });
+
+  const {
+    data: { user },
+  } = await supabase.auth.getUser();
+
   return (
     <div className="relative overflow-hidden bg-white isolate">
       <svg
@@ -30,12 +38,12 @@ export default function Hero() {
       </svg>
       <div className="px-6 pt-10 pb-24 mx-auto max-w-7xl sm:pb-32 lg:flex lg:px-8 lg:py-40">
         <div className="max-w-2xl mx-auto lg:mx-0 lg:max-w-xl lg:flex-shrink-0 lg:pt-8">
-          {/* <Image
+          <Image
             src="/assets/floop-logo.png"
-            width={80}
-            height={80}
+            width={88}
+            height={88}
             alt="Your Company"
-          /> */}
+          />
           <div className="mt-24 sm:mt-32 lg:mt-16">
             <Link href="#" className="inline-flex space-x-6">
               <span className="px-3 py-1 text-sm font-semibold leading-6 text-teal-600 rounded-full bg-teal-600/10 ring-1 ring-inset ring-teal-600/10">
@@ -65,12 +73,21 @@ export default function Hero() {
             >
               Get started for free
             </Link>
-            <Link
-              href="#"
-              className="text-sm font-semibold leading-6 text-gray-900"
-            >
-              Sign in <span aria-hidden="true">→</span>
-            </Link>
+            {user ? (
+              <Link
+                href="/auth/sign-in"
+                className="text-sm font-semibold leading-6 text-gray-900"
+              >
+                Floop dashboard <span aria-hidden="true">→</span>
+              </Link>
+            ) : (
+              <Link
+                href="/auth/sign-in"
+                className="text-sm font-semibold leading-6 text-gray-900"
+              >
+                Sign in <span aria-hidden="true">→</span>
+              </Link>
+            )}
           </div>
         </div>
         <div className="flex max-w-2xl mx-auto mt-16 sm:mt-24 lg:ml-10 lg:mr-0 lg:mt-0 lg:max-w-none lg:flex-none xl:ml-32">
