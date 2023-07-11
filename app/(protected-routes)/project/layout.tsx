@@ -11,6 +11,8 @@ import NavigationLink from "@/app/(protected-routes)/project/NavigationLink.clie
 import MobileMenu from "@/app/(protected-routes)/project/MobileMenu.client";
 import { createServerComponentClient } from "@supabase/auth-helpers-nextjs";
 import { cookies } from "next/headers";
+import LogoutButton from "@/components/LogoutButton.client";
+import { redirect } from "next/navigation";
 // import WidgetWrapper from "@/app/(protected-routes)/project/WidgetWrapper";
 
 const navigation = [
@@ -59,6 +61,12 @@ export default async function ProjectLayout({
   const {
     data: { user },
   } = await supabase.auth.getUser();
+
+  if (!user) {
+    // These routes can only be accessed by authenticated users.
+    // Unauthenticated users will be redirected to the `/login` route.
+    redirect("/auth/sign-in");
+  }
 
   return (
     <div className="h-full bg-white">
@@ -110,12 +118,9 @@ export default async function ProjectLayout({
                   ))}
                 </ul>
               </li>
-              <li className="flex items-center px-6 py-3 mt-auto -mx-6 text-sm font-semibold leading-6 text-gray-900 gap-x-4 hover:bg-gray-50">
-                {/* <UserButton /> */}
-                <span className="sr-only">Your profile</span>
-                <span aria-hidden="true">
-                  {/* {user?.firstName} {user?.lastName} */}
-                </span>
+              <li className="flex items-center justify-between px-6 py-3 mt-auto -mx-6 text-sm font-semibold leading-6 text-gray-900 gap-x-4 hover:bg-gray-50">
+                <NavigationLink name="Profile" href="/profile" initial="P" />
+                <LogoutButton />
               </li>
             </ul>
           </nav>

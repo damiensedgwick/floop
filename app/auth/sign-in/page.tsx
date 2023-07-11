@@ -22,6 +22,7 @@ export default function Page() {
         emailRedirectTo: `${location.origin}/auth/callback`,
       },
     });
+
     setView("check-email");
   };
 
@@ -31,7 +32,8 @@ export default function Page() {
       email,
       password,
     });
-    router.push("/");
+
+    router.push("/project/dashboard");
     router.refresh();
   };
 
@@ -90,12 +92,15 @@ export default function Page() {
               </label>
               <div className="mt-2">
                 <input
+                  className="block w-full rounded-md border-0 py-1.5 text-gray-900 shadow-sm ring-1 ring-inset ring-gray-300 placeholder:text-gray-400 focus:ring-2 focus:ring-inset focus:ring-teal-600 sm:text-sm sm:leading-6"
                   id="email"
                   name="email"
                   type="email"
                   autoComplete="email"
+                  onChange={(e) => setEmail(e.target.value)}
+                  value={email}
+                  placeholder="you@example.com"
                   required
-                  className="block w-full rounded-md border-0 py-1.5 text-gray-900 shadow-sm ring-1 ring-inset ring-gray-300 placeholder:text-gray-400 focus:ring-2 focus:ring-inset focus:ring-teal-600 sm:text-sm sm:leading-6"
                 />
               </div>
             </div>
@@ -124,6 +129,8 @@ export default function Page() {
                   type="password"
                   autoComplete="current-password"
                   className="block w-full rounded-md border-0 py-1.5 text-gray-900 shadow-sm ring-1 ring-inset ring-gray-300 placeholder:text-gray-400 focus:ring-2 focus:ring-inset focus:ring-teal-600 sm:text-sm sm:leading-6"
+                  onChange={(e) => setPassword(e.target.value)}
+                  value={password}
                   placeholder="••••••••"
                   required
                 />
@@ -172,77 +179,6 @@ export default function Page() {
           </form>
         )}
       </div>
-
-      {/* <div className="mt-10 sm:mx-auto sm:w-full sm:max-w-sm">
-        <form className="space-y-6" action="#" method="POST">
-          <div>
-            <label
-              htmlFor="email"
-              className="block text-sm font-medium leading-6 text-gray-900"
-            >
-              Email address
-            </label>
-            <div className="mt-2">
-              <input
-                id="email"
-                name="email"
-                type="email"
-                autoComplete="email"
-                required
-                className="block w-full rounded-md border-0 py-1.5 text-gray-900 shadow-sm ring-1 ring-inset ring-gray-300 placeholder:text-gray-400 focus:ring-2 focus:ring-inset focus:ring-teal-600 sm:text-sm sm:leading-6"
-              />
-            </div>
-          </div>
-
-          <div>
-            <div className="flex items-center justify-between">
-              <label
-                htmlFor="password"
-                className="block text-sm font-medium leading-6 text-gray-900"
-              >
-                Password
-              </label>
-              <div className="text-sm">
-                <a
-                  href="#"
-                  className="font-semibold text-teal-600 hover:text-teal-500"
-                >
-                  Forgot password?
-                </a>
-              </div>
-            </div>
-            <div className="mt-2">
-              <input
-                id="password"
-                name="password"
-                type="password"
-                autoComplete="current-password"
-                required
-                className="block w-full rounded-md border-0 py-1.5 text-gray-900 shadow-sm ring-1 ring-inset ring-gray-300 placeholder:text-gray-400 focus:ring-2 focus:ring-inset focus:ring-teal-600 sm:text-sm sm:leading-6"
-              />
-            </div>
-          </div>
-
-          <div>
-            <button
-              type="submit"
-              className="flex w-full justify-center rounded-md bg-teal-600 px-3 py-1.5 text-sm font-semibold leading-6 text-white shadow-sm hover:bg-teal-500 focus-visible:outline focus-visible:outline-2 focus-visible:outline-offset-2 focus-visible:outline-teal-600"
-            >
-              Sign in
-            </button>
-          </div>
-        </form>
-
-        <p className="mt-10 text-sm text-center text-gray-500">
-          Not a member?{" "}
-          <Link
-            href="/auth/sign-up"
-            className="font-semibold leading-6 text-teal-600 hover:text-teal-500"
-          >
-            Sign up for free
-          </Link>
-        </p>
-      </div> */}
     </div>
   );
 }
