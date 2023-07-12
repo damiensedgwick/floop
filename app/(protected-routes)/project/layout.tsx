@@ -6,14 +6,12 @@ import {
   HomeIcon,
   StarIcon,
 } from "@heroicons/react/24/outline";
-// import { currentUser, UserButton } from "@clerk/nextjs";
 import NavigationLink from "@/app/(protected-routes)/project/NavigationLink.client";
 import MobileMenu from "@/app/(protected-routes)/project/MobileMenu.client";
 import { createServerComponentClient } from "@supabase/auth-helpers-nextjs";
 import { cookies } from "next/headers";
-import LogoutButton from "@/components/LogoutButton.client";
 import { redirect } from "next/navigation";
-// import WidgetWrapper from "@/app/(protected-routes)/project/WidgetWrapper";
+import { Database } from "@/types/supabase";
 
 const navigation = [
   {
@@ -40,14 +38,14 @@ const navigation = [
 
 const project_links = [
   {
-    name: "Team",
-    href: "/team",
-    initial: "T",
-  },
-  {
     name: "Settings",
     href: "/settings",
     initial: "S",
+  },
+  {
+    name: "Team",
+    href: "/team",
+    initial: "T",
   },
 ];
 
@@ -56,15 +54,13 @@ export default async function ProjectLayout({
 }: {
   children: ReactNode;
 }) {
-  const supabase = createServerComponentClient({ cookies });
+  const supabase = createServerComponentClient<Database>({ cookies });
 
   const {
     data: { user },
   } = await supabase.auth.getUser();
 
   if (!user) {
-    // These routes can only be accessed by authenticated users.
-    // Unauthenticated users will be redirected to the `/login` route.
     redirect("/auth/sign-in");
   }
 
@@ -103,9 +99,20 @@ export default async function ProjectLayout({
                 </ul>
               </li>
               <li>
-                <div className="text-xs font-semibold leading-6 text-gray-400">
-                  Your project
+                <div className="relative mb-2">
+                  <div
+                    className="absolute inset-0 flex items-center"
+                    aria-hidden="true"
+                  >
+                    <div className="w-full border-t border-gray-300" />
+                  </div>
+                  <div className="relative flex justify-center">
+                    <span className="px-2 text-sm text-gray-500 bg-white">
+                      Project
+                    </span>
+                  </div>
                 </div>
+
                 <ul role="list" className="mt-2 -mx-2 space-y-1">
                   {project_links.map((item) => (
                     <li key={item.name}>
@@ -120,7 +127,6 @@ export default async function ProjectLayout({
               </li>
               <li className="flex items-center justify-between px-6 py-3 mt-auto -mx-6 text-sm font-semibold leading-6 text-gray-900 gap-x-4 hover:bg-gray-50">
                 <NavigationLink name="Profile" href="/profile" initial="P" />
-                <LogoutButton />
               </li>
             </ul>
           </nav>
@@ -128,12 +134,6 @@ export default async function ProjectLayout({
       </div>
 
       <main className="py-10 lg:pl-72">
-        {/* {user?.publicMetadata.is_project_floop ? (
-          <div className="hidden ml-auto lg:block lg:pr-12 lg:w-96">
-            <WidgetWrapper userEmail={user?.emailAddresses[0].emailAddress} />
-          </div>
-        ) : null} */}
-
         <div className="px-4 sm:px-6 lg:px-8">{children}</div>
       </main>
     </div>
