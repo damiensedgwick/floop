@@ -3,7 +3,8 @@
   "scripts": {
     "dev": "next dev",
     "build": "next build",
-    "start": "next start"
+    "start": "next start",
+    "prettier": "pnpx prettier --write \"./app/**/*.{js,jsx,ts,tsx,json}\""
   },
   "dependencies": {
     "@headlessui/react": "^1.7.15",
