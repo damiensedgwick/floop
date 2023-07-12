@@ -42,15 +42,15 @@ export default async function Hero() {
             src="/floop-logo.png"
             width={88}
             height={88}
-            alt="Your Company"
+            alt="Floop logo"
           />
           <div className="mt-24 sm:mt-32 lg:mt-16">
             <Link href="#" className="inline-flex space-x-6">
-              <span className="px-3 py-1 text-sm font-semibold leading-6 text-teal-600 rounded-full bg-teal-600/10 ring-1 ring-inset ring-teal-600/10">
+              <span className="px-1.5 py-1 sm:px-3 text-sm font-semibold leading-6 text-teal-600 rounded-full bg-teal-600/10 ring-1 ring-inset ring-teal-600/10">
                 Coming soon
               </span>
               <span className="inline-flex items-center space-x-2 text-sm font-medium leading-6 text-gray-600">
-                <span>We're under construction 🛠️</span>
+                <span>under construction 🛠️</span>
                 <ChevronRightIcon
                   className="w-5 h-5 text-gray-400"
                   aria-hidden="true"
