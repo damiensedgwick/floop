@@ -4,7 +4,8 @@
     "dev": "next dev",
     "build": "next build",
     "start": "next start",
-    "prettier": "pnpx prettier --write \"./app/**/*.{js,jsx,ts,tsx,json}\""
+    "prettier": "pnpm dlx prettier --write \"./app/**/*.{js,jsx,ts,tsx,json}\"",
+    "supabase:typegen": "pnpm dlx supabase gen types typescript --project-id riohtqkdcjxbaovyilmf --schema public > types/supabase.ts"
   },
   "dependencies": {
     "@headlessui/react": "^1.7.15",
