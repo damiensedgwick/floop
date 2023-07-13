@@ -69,6 +69,37 @@ export interface Database {
         }
         Relationships: []
       }
+      project_user: {
+        Row: {
+          created_at: string | null
+          project_id: string
+          user_id: string
+        }
+        Insert: {
+          created_at?: string | null
+          project_id: string
+          user_id: string
+        }
+        Update: {
+          created_at?: string | null
+          project_id?: string
+          user_id?: string
+        }
+        Relationships: [
+          {
+            foreignKeyName: "project_user_project_id_fkey"
+            columns: ["project_id"]
+            referencedRelation: "project"
+            referencedColumns: ["id"]
+          },
+          {
+            foreignKeyName: "project_user_user_id_fkey"
+            columns: ["user_id"]
+            referencedRelation: "user"
+            referencedColumns: ["id"]
+          }
+        ]
+      }
       rating: {
         Row: {
           created_at: string | null
@@ -120,21 +151,6 @@ export interface Database {
           project_id?: string
           title?: string
           user_email?: string
-        }
-        Relationships: []
-      }
-      test: {
-        Row: {
-          created_at: string | null
-          id: number
-        }
-        Insert: {
-          created_at?: string | null
-          id?: number
-        }
-        Update: {
-          created_at?: string | null
-          id?: number
         }
         Relationships: []
       }
