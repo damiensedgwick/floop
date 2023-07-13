@@ -5,6 +5,7 @@
     "build": "next build",
     "start": "next start",
     "prettier": "pnpm dlx prettier --write \"./app/**/*.{js,jsx,ts,tsx,json}\"",
+    "supabase:start": "pnpm dlx supabase start",
     "supabase:typegen": "pnpm dlx supabase gen types typescript --project-id riohtqkdcjxbaovyilmf --schema public > types/supabase.ts"
   },
   "dependencies": {
