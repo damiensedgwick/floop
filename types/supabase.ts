@@ -69,31 +69,6 @@ export interface Database {
         }
         Relationships: []
       }
-      project_users: {
-        Row: {
-          created_at: string | null
-          project_id: string
-          user_id: string
-        }
-        Insert: {
-          created_at?: string | null
-          project_id: string
-          user_id: string
-        }
-        Update: {
-          created_at?: string | null
-          project_id?: string
-          user_id?: string
-        }
-        Relationships: [
-          {
-            foreignKeyName: "project_users_project_id_fkey"
-            columns: ["project_id"]
-            referencedRelation: "project"
-            referencedColumns: ["id"]
-          }
-        ]
-      }
       rating: {
         Row: {
           created_at: string | null
@@ -148,33 +123,84 @@ export interface Database {
         }
         Relationships: []
       }
-      user: {
+      test: {
         Row: {
           created_at: string | null
-          email: string
-          first_name: string | null
-          id: string
-          last_name: string | null
-          phone: string
-          updated_at: string | null
+          id: number
         }
         Insert: {
           created_at?: string | null
-          email?: string
-          first_name?: string | null
-          id: string
-          last_name?: string | null
-          phone?: string
-          updated_at?: string | null
+          id?: number
         }
         Update: {
           created_at?: string | null
+          id?: number
+        }
+        Relationships: []
+      }
+      user: {
+        Row: {
+          confirmation_sent_at: string | null
+          confirmed_at: string | null
+          created_at: string
+          current_sign_in_at: string | null
+          current_sign_in_ip: unknown | null
+          email: string
+          email_change: string | null
+          email_change_token: string | null
+          first_name: string | null
+          id: string
+          last_name: string | null
+          last_sign_in_at: string | null
+          last_sign_in_ip: unknown | null
+          password: string
+          phone: string | null
+          recovery_sent_at: string | null
+          remember_me_token: string | null
+          sign_in_count: number | null
+          updated_at: string
+        }
+        Insert: {
+          confirmation_sent_at?: string | null
+          confirmed_at?: string | null
+          created_at: string
+          current_sign_in_at?: string | null
+          current_sign_in_ip?: unknown | null
+          email: string
+          email_change?: string | null
+          email_change_token?: string | null
+          first_name?: string | null
+          id: string
+          last_name?: string | null
+          last_sign_in_at?: string | null
+          last_sign_in_ip?: unknown | null
+          password: string
+          phone?: string | null
+          recovery_sent_at?: string | null
+          remember_me_token?: string | null
+          sign_in_count?: number | null
+          updated_at: string
+        }
+        Update: {
+          confirmation_sent_at?: string | null
+          confirmed_at?: string | null
+          created_at?: string
+          current_sign_in_at?: string | null
+          current_sign_in_ip?: unknown | null
           email?: string
+          email_change?: string | null
+          email_change_token?: string | null
           first_name?: string | null
           id?: string
           last_name?: string | null
-          phone?: string
-          updated_at?: string | null
+          last_sign_in_at?: string | null
+          last_sign_in_ip?: unknown | null
+          password?: string
+          phone?: string | null
+          recovery_sent_at?: string | null
+          remember_me_token?: string | null
+          sign_in_count?: number | null
+          updated_at?: string
         }
         Relationships: [
           {
