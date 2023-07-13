@@ -9,223 +9,95 @@ export type Json =
 export interface Database {
   public: {
     Tables: {
-      issue: {
+      issues: {
         Row: {
           created_at: string | null
           id: string
-          message: string | null
-          project_id: string
-          title: string
-          user_email: string
-        }
-        Insert: {
-          created_at?: string | null
-          id?: string
-          message?: string | null
-          project_id: string
-          title: string
-          user_email: string
-        }
-        Update: {
-          created_at?: string | null
-          id?: string
-          message?: string | null
-          project_id?: string
-          title?: string
-          user_email?: string
-        }
-        Relationships: []
-      }
-      project: {
-        Row: {
-          created_at: string
-          id: string
-          name: string
-          owner_id: string
-          submission_count: number
-          subscription_expiry: string | null
-          subscription_type: string
           updated_at: string | null
         }
         Insert: {
-          created_at?: string
+          created_at?: string | null
           id?: string
-          name: string
-          owner_id: string
-          submission_count?: number
-          subscription_expiry?: string | null
-          subscription_type?: string
           updated_at?: string | null
         }
         Update: {
-          created_at?: string
+          created_at?: string | null
           id?: string
-          name?: string
-          owner_id?: string
-          submission_count?: number
-          subscription_expiry?: string | null
-          subscription_type?: string
           updated_at?: string | null
         }
         Relationships: []
       }
-      project_user: {
-        Row: {
-          created_at: string | null
-          project_id: string
-          user_id: string
-        }
-        Insert: {
-          created_at?: string | null
-          project_id: string
-          user_id: string
-        }
-        Update: {
-          created_at?: string | null
-          project_id?: string
-          user_id?: string
-        }
-        Relationships: [
-          {
-            foreignKeyName: "project_user_project_id_fkey"
-            columns: ["project_id"]
-            referencedRelation: "project"
-            referencedColumns: ["id"]
-          },
-          {
-            foreignKeyName: "project_user_user_id_fkey"
-            columns: ["user_id"]
-            referencedRelation: "user"
-            referencedColumns: ["id"]
-          }
-        ]
-      }
-      rating: {
+      projects: {
         Row: {
           created_at: string | null
           id: string
-          message: string | null
-          project_id: string
-          rating: number
-          user_email: string
+          updated_at: string | null
         }
         Insert: {
           created_at?: string | null
           id?: string
-          message?: string | null
-          project_id: string
-          rating: number
-          user_email: string
+          updated_at?: string | null
         }
         Update: {
           created_at?: string | null
           id?: string
-          message?: string | null
-          project_id?: string
-          rating?: number
-          user_email?: string
+          updated_at?: string | null
         }
         Relationships: []
       }
-      suggestion: {
+      ratings: {
         Row: {
           created_at: string | null
           id: string
-          message: string | null
-          project_id: string
-          title: string
-          user_email: string
+          updated_at: string | null
         }
         Insert: {
           created_at?: string | null
           id?: string
-          message?: string | null
-          project_id: string
-          title: string
-          user_email: string
+          updated_at?: string | null
         }
         Update: {
           created_at?: string | null
           id?: string
-          message?: string | null
-          project_id?: string
-          title?: string
-          user_email?: string
+          updated_at?: string | null
         }
         Relationships: []
       }
-      user: {
+      suggestions: {
         Row: {
-          confirmation_sent_at: string | null
-          confirmed_at: string | null
-          created_at: string
-          current_sign_in_at: string | null
-          current_sign_in_ip: unknown | null
-          email: string
-          email_change: string | null
-          email_change_token: string | null
-          first_name: string | null
+          created_at: string | null
           id: string
-          last_name: string | null
-          last_sign_in_at: string | null
-          last_sign_in_ip: unknown | null
-          password: string
-          phone: string | null
-          recovery_sent_at: string | null
-          remember_me_token: string | null
-          sign_in_count: number | null
-          updated_at: string
+          updated_at: string | null
         }
         Insert: {
-          confirmation_sent_at?: string | null
-          confirmed_at?: string | null
-          created_at: string
-          current_sign_in_at?: string | null
-          current_sign_in_ip?: unknown | null
-          email: string
-          email_change?: string | null
-          email_change_token?: string | null
-          first_name?: string | null
-          id: string
-          last_name?: string | null
-          last_sign_in_at?: string | null
-          last_sign_in_ip?: unknown | null
-          password: string
-          phone?: string | null
-          recovery_sent_at?: string | null
-          remember_me_token?: string | null
-          sign_in_count?: number | null
-          updated_at: string
+          created_at?: string | null
+          id?: string
+          updated_at?: string | null
         }
         Update: {
-          confirmation_sent_at?: string | null
-          confirmed_at?: string | null
-          created_at?: string
-          current_sign_in_at?: string | null
-          current_sign_in_ip?: unknown | null
-          email?: string
-          email_change?: string | null
-          email_change_token?: string | null
-          first_name?: string | null
+          created_at?: string | null
           id?: string
-          last_name?: string | null
-          last_sign_in_at?: string | null
-          last_sign_in_ip?: unknown | null
-          password?: string
-          phone?: string | null
-          recovery_sent_at?: string | null
-          remember_me_token?: string | null
-          sign_in_count?: number | null
-          updated_at?: string
+          updated_at?: string | null
         }
-        Relationships: [
-          {
-            foreignKeyName: "user_id_fkey"
-            columns: ["id"]
-            referencedRelation: "users"
-            referencedColumns: ["id"]
-          }
-        ]
+        Relationships: []
+      }
+      users: {
+        Row: {
+          created_at: string | null
+          id: string
+          updated_at: string | null
+        }
+        Insert: {
+          created_at?: string | null
+          id?: string
+          updated_at?: string | null
+        }
+        Update: {
+          created_at?: string | null
+          id?: string
+          updated_at?: string | null
+        }
+        Relationships: []
       }
     }
     Views: {
