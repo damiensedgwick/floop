@@ -8,10 +8,6 @@ import {
 } from "@heroicons/react/24/outline";
 import NavigationLink from "@/app/(protected-routes)/project/NavigationLink.client";
 import MobileMenu from "@/app/(protected-routes)/project/MobileMenu.client";
-import { createServerComponentClient } from "@supabase/auth-helpers-nextjs";
-import { cookies } from "next/headers";
-import { redirect } from "next/navigation";
-import { Database } from "@/types/supabase";
 
 const navigation = [
   {
@@ -54,16 +50,6 @@ export default async function ProjectLayout({
 }: {
   children: ReactNode;
 }) {
-  const supabase = createServerComponentClient<Database>({ cookies });
-
-  const {
-    data: { user },
-  } = await supabase.auth.getUser();
-
-  if (!user) {
-    redirect("/auth/sign-in");
-  }
-
   return (
     <div className="h-full bg-white">
       {/* Dynamic sidebar for mobile*/}

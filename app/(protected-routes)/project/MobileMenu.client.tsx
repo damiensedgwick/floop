@@ -5,7 +5,6 @@ import Image from "next/image";
 import { Dialog, Transition } from "@headlessui/react";
 import { Bars3Icon, XMarkIcon } from "@heroicons/react/24/outline";
 import NavigationLink from "@/app/(protected-routes)/project/NavigationLink.client";
-// import { UserButton } from "@clerk/nextjs";
 
 type Props = {
   navigation: { name: string; href: string; icon: React.JSX.Element }[];
@@ -139,7 +138,7 @@ export default function MobileMenu({ navigation, project }: Props) {
           Dashboard
         </div>
         <span className="sr-only">Your profile</span>
-        {/* <UserButton /> */}
+        <NavigationLink name="Profile" href="/profile" initial="P" />
       </div>
     </>
   );
