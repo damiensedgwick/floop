@@ -14,16 +14,6 @@ export default async function Page() {
     redirect("/auth/sign-in");
   }
 
-  const { error } = await supabase
-    .from("project_users")
-    .select()
-    .eq("user_id", user.id)
-    .single();
-
-  if (error) {
-    redirect("/project/new");
-  }
-
   return (
     <div className="px-4 pt-2 sm:px-6 lg:px-8">
       <div className="sm:flex sm:items-center">
