@@ -12,7 +12,7 @@ export default async function Hero() {
   } = await supabase.auth.getUser();
 
   return (
-    <div className="relative overflow-hidden bg-white isolate">
+    <div className="relative isolate overflow-hidden bg-white">
       <svg
         className="absolute inset-0 -z-10 h-full w-full stroke-gray-200 [mask-image:radial-gradient(100%_100%_at_top_right,white,transparent)]"
         aria-hidden="true"
@@ -36,8 +36,8 @@ export default async function Hero() {
           fill="url(#0787a7c5-978c-4f66-83c7-11c213f99cb7)"
         />
       </svg>
-      <div className="px-6 pt-10 pb-24 mx-auto max-w-7xl sm:pb-32 lg:flex lg:px-8 lg:py-40">
-        <div className="max-w-2xl mx-auto lg:mx-0 lg:max-w-xl lg:flex-shrink-0 lg:pt-8">
+      <div className="mx-auto max-w-7xl px-6 pt-10 pb-24 sm:pb-32 lg:flex lg:px-8 lg:py-40">
+        <div className="mx-auto max-w-2xl lg:mx-0 lg:max-w-xl lg:flex-shrink-0 lg:pt-8">
           <Image
             src="/floop-logo.png"
             width={88}
@@ -46,13 +46,13 @@ export default async function Hero() {
           />
           <div className="mt-24 sm:mt-32 lg:mt-16">
             <Link href="#" className="inline-flex space-x-6">
-              <span className="px-1.5 py-1 sm:px-3 text-sm font-semibold leading-6 text-teal-600 rounded-full bg-teal-600/10 ring-1 ring-inset ring-teal-600/10">
+              <span className="rounded-full bg-teal-600/10 py-1 text-sm font-semibold leading-6 text-teal-600 ring-1 ring-inset ring-teal-600/10 px-1.5 sm:px-3">
                 Coming soon
               </span>
-              <span className="inline-flex items-center space-x-2 text-sm font-medium leading-6 text-gray-600">
+              <span className="inline-flex items-center text-sm font-medium leading-6 text-gray-600 space-x-2">
                 <span>under construction 🛠️</span>
                 <ChevronRightIcon
-                  className="w-5 h-5 text-gray-400"
+                  className="h-5 w-5 text-gray-400"
                   aria-hidden="true"
                 />
               </span>
@@ -66,10 +66,10 @@ export default async function Hero() {
             feedback and make data-driven decisions, avoiding reliance on
             intuition or guesswork.
           </p>
-          <div className="flex items-center mt-10 gap-x-6">
+          <div className="mt-10 flex items-center gap-x-6">
             <Link
               href="#"
-              className="rounded-md bg-teal-600 px-3.5 py-2.5 text-sm font-semibold text-white shadow-sm hover:bg-teal-500 focus-visible:outline focus-visible:outline-2 focus-visible:outline-offset-2 focus-visible:outline-teal-600"
+              className="rounded-md bg-teal-600 text-sm font-semibold text-white shadow-sm px-3.5 py-2.5 hover:bg-teal-500 focus-visible:outline focus-visible:outline-2 focus-visible:outline-offset-2 focus-visible:outline-teal-600"
             >
               Get started for free
             </Link>
@@ -90,15 +90,15 @@ export default async function Hero() {
             )}
           </div>
         </div>
-        <div className="flex max-w-2xl mx-auto mt-16 sm:mt-24 lg:ml-10 lg:mr-0 lg:mt-0 lg:max-w-none lg:flex-none xl:ml-32">
-          <div className="flex-none max-w-3xl sm:max-w-5xl lg:max-w-none">
-            <div className="p-2 -m-2 rounded-xl bg-gray-900/5 ring-1 ring-inset ring-gray-900/10 lg:-m-4 lg:rounded-2xl lg:p-4">
+        <div className="mx-auto mt-16 flex max-w-2xl sm:mt-24 lg:mt-0 lg:mr-0 lg:ml-10 lg:max-w-none lg:flex-none xl:ml-32">
+          <div className="max-w-3xl flex-none sm:max-w-5xl lg:max-w-none">
+            <div className="-m-2 rounded-xl bg-gray-900/5 p-2 ring-1 ring-inset ring-gray-900/10 lg:-m-4 lg:rounded-2xl lg:p-4">
               <Image
                 src="https://tailwindui.com/img/component-images/project-app-screenshot.png"
                 alt="App screenshot"
                 width={2432}
                 height={1442}
-                className="w-[76rem] rounded-md shadow-2xl ring-1 ring-gray-900/10"
+                className="rounded-md shadow-2xl ring-1 ring-gray-900/10 w-[76rem]"
               />
             </div>
           </div>

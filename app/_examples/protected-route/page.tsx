@@ -29,14 +29,14 @@ export default async function ProtectedRoute() {
   };
 
   return (
-    <div className="flex-1 flex flex-col max-w-3xl mt-24">
-      <h1 className="text-2xl mb-2 flex justify-between">
+    <div className="mt-24 flex max-w-3xl flex-1 flex-col">
+      <h1 className="mb-2 flex justify-between text-2xl">
         <span className="sr-only">Supabase and Next.js Starter Template</span>
       </h1>
 
       <div className="flex border-b py-3 text-sm text-neutral-100">
-        <div className="flex items-center justify-between w-full">
-          <code className="bg-neutral-700 px-3 py-1 rounded-lg text-sm">
+        <div className="flex w-full items-center justify-between">
+          <code className="rounded-lg bg-neutral-700 px-3 py-1 text-sm">
             Protected page
           </code>
           <span className="flex gap-4">
@@ -48,7 +48,7 @@ export default async function ProtectedRoute() {
         </div>
       </div>
 
-      <div className="flex gap-8 justify-center mt-12">
+      <div className="mt-12 flex justify-center gap-8">
         <Image
           src="/supabase.svg"
           alt="Supabase Logo"
@@ -56,7 +56,7 @@ export default async function ProtectedRoute() {
           height={45}
           priority
         />
-        <div className="border-l rotate-45 h-10"></div>
+        <div className="h-10 rotate-45 border-l"></div>
         <Image
           src="/next.svg"
           alt="Vercel Logo"
@@ -66,13 +66,13 @@ export default async function ProtectedRoute() {
         />
       </div>
 
-      <p className="text-3xl mx-auto max-w-2xl text-center mt-8 text-white">
+      <p className="mx-auto mt-8 max-w-2xl text-center text-3xl text-white">
         The fastest way to get started building apps with{" "}
         <strong>Supabase</strong> and <strong>Next.js</strong>
       </p>
 
-      <div className="flex justify-center mt-12">
-        <span className="bg-neutral-100 py-3 px-6 rounded-lg font-mono text-sm text-neutral-900">
+      <div className="mt-12 flex justify-center">
+        <span className="rounded-lg bg-neutral-100 px-6 py-3 font-mono text-sm text-neutral-900">
           Get started by editing <strong>app/page.tsx</strong>
         </span>
       </div>

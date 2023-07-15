@@ -1,8 +1,8 @@
 export default function GettingStarted() {
   return (
-    <div className="py-24 bg-white sm:py-32">
-      <div className="px-6 mx-auto max-w-7xl lg:px-8">
-        <div className="max-w-2xl mx-auto lg:mx-0">
+    <div className="bg-white py-24 sm:py-32">
+      <div className="mx-auto max-w-7xl px-6 lg:px-8">
+        <div className="mx-auto max-w-2xl lg:mx-0">
           <p className="text-base font-semibold leading-7 text-teal-600">
             Getting you started
           </p>
@@ -15,11 +15,11 @@ export default function GettingStarted() {
             use a bespoke form and sending the data to our endpoints.
           </p>
         </div>
-        <div className="flex items-center mt-10 gap-x-6">
+        <div className="mt-10 flex items-center gap-x-6">
           <a
             href="https://www.github.com/damiensedgwick/floop-react"
             target="_blank"
-            className="rounded-md bg-teal-600 px-3.5 py-2.5 text-sm font-semibold text-white shadow-sm hover:bg-teal-500 focus-visible:outline focus-visible:outline-2 focus-visible:outline-offset-2 focus-visible:outline-teal-600"
+            className="rounded-md bg-teal-600 text-sm font-semibold text-white shadow-sm px-3.5 py-2.5 hover:bg-teal-500 focus-visible:outline focus-visible:outline-2 focus-visible:outline-offset-2 focus-visible:outline-teal-600"
           >
             Meet the widget
           </a>
