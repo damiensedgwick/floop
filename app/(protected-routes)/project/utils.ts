@@ -5,7 +5,6 @@ import { Database } from "@/types/supabase";
 import { User } from "@supabase/supabase-js";
 import { adverbs } from "@/lib/adverbs";
 import { nouns } from "@/lib/nouns";
-import { revalidatePath } from "next/cache";
 
 export async function getPublicUser() {
   try {
@@ -37,8 +36,7 @@ export async function getProject(user: User) {
       .single();
 
     if (!data) {
-      await createNewProject(user);
-      // revalidatePath("project/dashboard");
+      return await createNewProject(user);
     }
 
     return data;
@@ -63,14 +61,17 @@ export async function createNewProject(user: User) {
       })
       .select();
 
-    if (data) {
-      await supabase
-        .from("users")
-        .update({ project_id: data[0].id })
-        .eq("id", user.id);
+    if (!data) {
+      console.log("No data returned from creating a new project.");
+      redirect("/auth/sign-in");
     }
 
-    return data;
+    await supabase
+      .from("users")
+      .update({ project_id: data[0].id })
+      .eq("id", user.id);
+
+    return data[0];
   } catch (error) {
     console.error(error);
     redirect("/auth/sign-in");
