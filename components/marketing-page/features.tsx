@@ -45,27 +45,27 @@ const features = [
 
 export default function Features() {
   return (
-    <div className="bg-white py-24 sm:py-32 lg:py-44">
+    <div className="py-24 sm:py-32 lg:py-44">
       <div className="mx-auto max-w-7xl px-6 lg:px-8">
         <div className="mx-auto grid max-w-2xl grid-cols-1 gap-x-8 gap-y-16 sm:gap-y-20 lg:mx-0 lg:max-w-none lg:grid-cols-3">
           <div>
             <h2 className="text-base font-semibold leading-7 text-teal-600">
               Feedback made simple
             </h2>
-            <p className="mt-2 text-3xl font-bold tracking-tight text-gray-900 sm:text-4xl">
+            <p className="mt-2 text-3xl font-bold tracking-tight sm:text-4xl">
               Focus on building your service and let us collect your feedback
             </p>
-            <p className="mt-6 text-base leading-7 text-gray-600">
+            <p className="mt-6 text-base leading-7">
               Floop eliminates the stress of building and managing your own
               feedback system. With a centralised platform, we handle the volume
               and varying formats of customer feedback, boosting project
               management and analysis.
             </p>
           </div>
-          <dl className="col-span-2 grid grid-cols-1 gap-x-8 gap-y-10 text-base leading-7 text-gray-600 sm:grid-cols-2 lg:gap-y-16">
+          <dl className="col-span-2 grid grid-cols-1 gap-x-8 gap-y-10 text-base leading-7 sm:grid-cols-2 lg:gap-y-16">
             {features.map((feature) => (
               <div key={feature.name} className="relative pl-9">
-                <dt className="font-semibold text-gray-900">
+                <dt className="font-semibold">
                   <CheckIcon
                     className="absolute top-1 left-0 h-5 w-5 text-teal-500"
                     aria-hidden="true"

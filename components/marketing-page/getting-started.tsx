@@ -1,15 +1,15 @@
 export default function GettingStarted() {
   return (
-    <div className="bg-white py-24 sm:py-32">
+    <div className="py-24 sm:py-32">
       <div className="mx-auto max-w-7xl px-6 lg:px-8">
         <div className="mx-auto max-w-2xl lg:mx-0">
           <p className="text-base font-semibold leading-7 text-teal-600">
             Getting you started
           </p>
-          <h2 className="mt-2 text-4xl font-bold tracking-tight text-gray-900 sm:text-6xl">
+          <h2 className="mt-2 text-4xl font-bold tracking-tight sm:text-6xl">
             It could not be easier to get started
           </h2>
-          <p className="mt-6 text-lg leading-8 text-gray-600">
+          <p className="mt-6 text-lg leading-8">
             Floop offers a convenient plug and play widget that allows you to
             effortlessly collect data, while also providing the flexibility to
             use a bespoke form and sending the data to our endpoints.
@@ -23,7 +23,7 @@ export default function GettingStarted() {
           >
             Meet the widget
           </a>
-          <a href="#" className="text-sm font-semibold leading-6 text-gray-900">
+          <a href="#" className="text-sm font-semibold leading-6">
             Fly solo <span aria-hidden="true">→</span>
           </a>
         </div>

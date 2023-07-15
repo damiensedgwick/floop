@@ -4,7 +4,8 @@ import { Fragment, useState } from "react";
 import Image from "next/image";
 import { Dialog, Transition } from "@headlessui/react";
 import { Bars3Icon, XMarkIcon } from "@heroicons/react/24/outline";
-import NavigationLink from "@/app/(protected-routes)/project/NavigationLink.client";
+import NavigationLink from "@/app/(protected-routes)/project/navigation-link.client";
+import LogoutButton from "@/components/logout-button.client";
 
 type Props = {
   navigation: { name: string; href: string; icon: React.JSX.Element }[];
@@ -68,7 +69,7 @@ export default function MobileMenu({ navigation }: Props) {
                   </div>
                 </Transition.Child>
                 {/* Sidebar component, swap this element with another sidebar if you like */}
-                <div className="flex grow flex-col gap-y-5 overflow-y-auto bg-white px-6 pb-2">
+                <div className="flex grow flex-col gap-y-5 overflow-y-auto px-6 pb-2">
                   <div className="flex h-16 shrink-0 items-center">
                     <Image
                       className="mt-6"
@@ -105,20 +106,18 @@ export default function MobileMenu({ navigation }: Props) {
         </Dialog>
       </Transition.Root>
 
-      <div className="sticky top-0 z-40 flex items-center gap-x-6 bg-white px-4 py-4 shadow-sm sm:px-6 lg:hidden">
+      <div className="sticky top-0 z-40 flex items-center gap-x-6 px-4 py-4 shadow-sm sm:px-6 lg:hidden">
         <button
           type="button"
-          className="text-gray-700 -m-2.5 p-2.5 lg:hidden"
+          className="-m-2.5 p-2.5 lg:hidden"
           onClick={() => setSidebarOpen(true)}
         >
           <span className="sr-only">Open sidebar</span>
           <Bars3Icon className="h-6 w-6" aria-hidden="true" />
         </button>
-        <div className="flex-1 text-sm font-semibold leading-6 text-gray-900">
-          Dashboard
-        </div>
-        <span className="sr-only">Your profile</span>
-        <NavigationLink name="Profile" href="/profile" initial="P" />
+        <div className="flex-1 text-sm font-semibold leading-6">Dashboard</div>
+        <span className="sr-only">Logout</span>
+        <LogoutButton />
       </div>
     </>
   );

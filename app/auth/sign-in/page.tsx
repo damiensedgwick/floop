@@ -5,6 +5,8 @@ import Image from "next/image";
 import { useRouter } from "next/navigation";
 import { createClientComponentClient } from "@supabase/auth-helpers-nextjs";
 import Link from "next/link";
+import { Button } from "@/components/ui/button";
+import { Input } from "@/components/ui/input";
 
 export default function Page() {
   const [email, setEmail] = useState("");
@@ -47,7 +49,7 @@ export default function Page() {
           height={88}
           alt="Floop logo"
         />
-        <h2 className="mt-10 text-center text-2xl font-bold leading-9 tracking-tight text-gray-900">
+        <h2 className="mt-10 text-center text-2xl font-bold leading-9 tracking-tight">
           Sign in to your account
         </h2>
       </div>
@@ -86,13 +88,12 @@ export default function Page() {
             <div>
               <label
                 htmlFor="email"
-                className="block text-sm font-medium leading-6 text-gray-900"
+                className="block text-sm font-medium leading-6"
               >
                 Email address
               </label>
               <div className="mt-2">
-                <input
-                  className="block w-full rounded-md border-0 placeholder:text-gray-400 text-gray-900 shadow-sm ring-1 ring-inset ring-gray-300 py-1.5 focus:ring-2 focus:ring-inset focus:ring-teal-600 sm:text-sm sm:leading-6"
+                <Input
                   id="email"
                   name="email"
                   type="email"
@@ -109,7 +110,7 @@ export default function Page() {
               <div className="flex items-center justify-between">
                 <label
                   htmlFor="password"
-                  className="block text-sm font-medium leading-6 text-gray-900"
+                  className="block text-sm font-medium leading-6"
                 >
                   Password
                 </label>
@@ -123,12 +124,11 @@ export default function Page() {
                 </div>
               </div>
               <div className="mt-2">
-                <input
+                <Input
                   id="password"
                   name="password"
                   type="password"
                   autoComplete="current-password"
-                  className="block w-full rounded-md border-0 placeholder:text-gray-400 text-gray-900 shadow-sm ring-1 ring-inset ring-gray-300 py-1.5 focus:ring-2 focus:ring-inset focus:ring-teal-600 sm:text-sm sm:leading-6"
                   onChange={(e) => setPassword(e.target.value)}
                   value={password}
                   placeholder="••••••••"
@@ -139,40 +139,38 @@ export default function Page() {
 
             {view === "sign-in" && (
               <>
-                <button
-                  type="submit"
-                  className="flex w-full justify-center rounded-md bg-teal-600 px-3 text-sm font-semibold leading-6 text-white shadow-sm py-1.5 hover:bg-teal-500 focus-visible:outline focus-visible:outline-2 focus-visible:outline-offset-2 focus-visible:outline-teal-600"
-                >
+                <Button variant="themed" type="submit">
                   Sign In
-                </button>
+                </Button>
                 <p className="text-center text-sm">
                   Don't have an account?
-                  <button
-                    className="ml-1 underline"
+                  <Button
+                    size="sm"
+                    variant="link"
+                    className="underline"
                     onClick={() => setView("sign-up")}
                   >
                     Sign Up Now
-                  </button>
+                  </Button>
                 </p>
               </>
             )}
 
             {view === "sign-up" && (
               <>
-                <button
-                  type="submit"
-                  className="flex w-full justify-center rounded-md bg-teal-600 px-3 text-sm font-semibold leading-6 text-white shadow-sm py-1.5 hover:bg-teal-500 focus-visible:outline focus-visible:outline-2 focus-visible:outline-offset-2 focus-visible:outline-teal-600"
-                >
+                <Button variant="themed" type="submit">
                   Sign Up
-                </button>
+                </Button>
                 <p className="text-center text-sm">
                   Already have an account?
-                  <button
-                    className="ml-1 underline"
+                  <Button
+                    size="sm"
+                    variant="link"
+                    className="underline"
                     onClick={() => setView("sign-in")}
                   >
                     Sign In Now
-                  </button>
+                  </Button>
                 </p>
               </>
             )}

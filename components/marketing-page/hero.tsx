@@ -2,7 +2,7 @@ import Image from "next/image";
 import Link from "next/link";
 import { createServerComponentClient } from "@supabase/auth-helpers-nextjs";
 import { cookies } from "next/headers";
-import { ChevronRightIcon } from "@heroicons/react/20/solid";
+import { ThemeToggle } from "@/components/theme-toggle";
 
 export default async function Hero() {
   const supabase = createServerComponentClient({ cookies });
@@ -12,7 +12,7 @@ export default async function Hero() {
   } = await supabase.auth.getUser();
 
   return (
-    <div className="relative isolate overflow-hidden bg-white">
+    <div className="relative isolate overflow-hidden">
       <svg
         className="absolute inset-0 -z-10 h-full w-full stroke-gray-200 [mask-image:radial-gradient(100%_100%_at_top_right,white,transparent)]"
         aria-hidden="true"
@@ -38,30 +38,32 @@ export default async function Hero() {
       </svg>
       <div className="mx-auto max-w-7xl px-6 pt-10 pb-24 sm:pb-32 lg:flex lg:px-8 lg:py-40">
         <div className="mx-auto max-w-2xl lg:mx-0 lg:max-w-xl lg:flex-shrink-0 lg:pt-8">
-          <Image
-            src="/floop-logo.png"
-            width={88}
-            height={88}
-            alt="Floop logo"
-          />
+          <div className="flex items-center justify-between">
+            <Image
+              src="/floop-logo.png"
+              width={88}
+              height={88}
+              alt="Floop logo"
+            />
+            <div>
+              {/* TODO: Add avatar here when the user is signed in*/}
+              <ThemeToggle />
+            </div>
+          </div>
           <div className="mt-24 sm:mt-32 lg:mt-16">
             <Link href="#" className="inline-flex space-x-6">
               <span className="rounded-full bg-teal-600/10 py-1 text-sm font-semibold leading-6 text-teal-600 ring-1 ring-inset ring-teal-600/10 px-1.5 sm:px-3">
                 Coming soon
               </span>
-              <span className="inline-flex items-center text-sm font-medium leading-6 text-gray-600 space-x-2">
-                <span>under construction 🛠️</span>
-                <ChevronRightIcon
-                  className="h-5 w-5 text-gray-400"
-                  aria-hidden="true"
-                />
+              <span className="inline-flex items-center text-sm font-medium leading-6">
+                <span>under construction &nbsp; 🛠️</span>
               </span>
             </Link>
           </div>
-          <h1 className="mt-10 text-4xl font-bold tracking-tight text-gray-900 sm:text-6xl">
+          <h1 className="mt-10 text-4xl font-bold tracking-tight sm:text-6xl">
             Floop is the feedback loop for your platform
           </h1>
-          <p className="mt-6 text-lg leading-8 text-gray-600">
+          <p className="mt-6 text-lg leading-8">
             Floop helps software and platform providers capture customer
             feedback and make data-driven decisions, avoiding reliance on
             intuition or guesswork.
@@ -76,14 +78,14 @@ export default async function Hero() {
             {user ? (
               <Link
                 href="/project/dashboard"
-                className="text-sm font-semibold leading-6 text-gray-900"
+                className="text-sm font-semibold leading-6"
               >
                 Floop dashboard <span aria-hidden="true">→</span>
               </Link>
             ) : (
               <Link
                 href="/auth/sign-in"
-                className="text-sm font-semibold leading-6 text-gray-900"
+                className="text-sm font-semibold leading-6"
               >
                 Sign in <span aria-hidden="true">→</span>
               </Link>
