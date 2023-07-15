@@ -3,6 +3,7 @@ import Image from "next/image";
 import {
   ChatBubbleLeftIcon,
   Cog8ToothIcon,
+  DocumentCheckIcon,
   ExclamationTriangleIcon,
   HomeIcon,
   StarIcon,
@@ -34,6 +35,11 @@ const navigation = [
     icon: <ChatBubbleLeftIcon width={24} height={24} />,
   },
   {
+    name: "Reports",
+    href: "/reports",
+    icon: <DocumentCheckIcon width={24} height={24} />,
+  },
+  {
     name: "Team",
     href: "/team",
     icon: <UsersIcon width={24} height={24} />,
@@ -58,8 +64,8 @@ export default async function ProjectLayout({
       {/* Static sidebar for desktop */}
       <div className="hidden lg:fixed lg:inset-y-0 lg:z-50 lg:flex lg:w-72 lg:flex-col">
         {/* Sidebar component, swap this element with another sidebar if you like */}
-        <div className="flex flex-col px-6 overflow-y-auto bg-white border-r border-gray-200 grow gap-y-5">
-          <div className="flex items-center h-16 my-4 shrink-0">
+        <div className="flex grow flex-col gap-y-5 overflow-y-auto border-r border-gray-200 bg-white px-6">
+          <div className="my-4 flex h-16 shrink-0 items-center">
             <Image
               className="mt-4"
               src="/floop-logo.png"
@@ -69,10 +75,10 @@ export default async function ProjectLayout({
               priority
             />
           </div>
-          <nav className="flex flex-col flex-1">
-            <ul role="list" className="flex flex-col flex-1 gap-y-7">
+          <nav className="flex flex-1 flex-col">
+            <ul role="list" className="flex flex-1 flex-col gap-y-7">
               <li>
-                <div className="text-xs font-semibold leading-6 text-gray-400 mb-2">
+                <div className="mb-2 text-xs font-semibold leading-6 text-gray-400">
                   Navigation
                 </div>
 
@@ -88,7 +94,7 @@ export default async function ProjectLayout({
                   ))}
                 </ul>
               </li>
-              <li className="flex items-center justify-between px-6 py-3 mt-auto -mx-6 text-sm font-semibold leading-6 text-gray-900 gap-x-4">
+              <li className="-mx-6 mt-auto flex items-center justify-between gap-x-4 px-6 py-3 text-sm font-semibold leading-6 text-gray-900">
                 <NavigationLink
                   name="Profile"
                   href="/profile"

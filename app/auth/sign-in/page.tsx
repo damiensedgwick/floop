@@ -38,7 +38,7 @@ export default function Page() {
   };
 
   return (
-    <div className="flex flex-col justify-center flex-1 min-h-full px-6 py-12 lg:px-8">
+    <div className="flex min-h-full flex-1 flex-col justify-center px-6 py-12 lg:px-8">
       <div className="sm:mx-auto sm:w-full sm:max-w-sm">
         <Image
           className="mx-auto"
@@ -47,7 +47,7 @@ export default function Page() {
           height={88}
           alt="Floop logo"
         />
-        <h2 className="mt-10 text-2xl font-bold leading-9 tracking-tight text-center text-gray-900">
+        <h2 className="mt-10 text-center text-2xl font-bold leading-9 tracking-tight text-gray-900">
           Sign in to your account
         </h2>
       </div>
@@ -55,7 +55,7 @@ export default function Page() {
       <div className="mt-10 sm:mx-auto sm:w-full sm:max-w-sm">
         <Link
           href="/"
-          className="absolute flex items-center px-4 py-2 text-sm no-underline rounded-md left-8 top-8 text-foreground bg-btn-background hover:bg-btn-background-hover group"
+          className="absolute top-8 left-8 flex items-center rounded-md px-4 py-2 text-sm no-underline text-foreground bg-btn-background group hover:bg-btn-background-hover"
         >
           <svg
             xmlns="http://www.w3.org/2000/svg"
@@ -67,7 +67,7 @@ export default function Page() {
             strokeWidth="2"
             strokeLinecap="round"
             strokeLinejoin="round"
-            className="w-4 h-4 mr-2 transition-transform group-hover:-translate-x-1"
+            className="mr-2 h-4 w-4 transition-transform group-hover:-translate-x-1"
           >
             <polyline points="15 18 9 12 15 6" />
           </svg>{" "}
@@ -80,7 +80,7 @@ export default function Page() {
           </p>
         ) : (
           <form
-            className="flex flex-col justify-center flex-1 w-full gap-2 space-y-6 text-foreground"
+            className="flex w-full flex-1 flex-col justify-center gap-2 space-y-6 text-foreground"
             onSubmit={view === "sign-in" ? handleSignIn : handleSignUp}
           >
             <div>
@@ -92,7 +92,7 @@ export default function Page() {
               </label>
               <div className="mt-2">
                 <input
-                  className="block w-full rounded-md border-0 py-1.5 text-gray-900 shadow-sm ring-1 ring-inset ring-gray-300 placeholder:text-gray-400 focus:ring-2 focus:ring-inset focus:ring-teal-600 sm:text-sm sm:leading-6"
+                  className="block w-full rounded-md border-0 placeholder:text-gray-400 text-gray-900 shadow-sm ring-1 ring-inset ring-gray-300 py-1.5 focus:ring-2 focus:ring-inset focus:ring-teal-600 sm:text-sm sm:leading-6"
                   id="email"
                   name="email"
                   type="email"
@@ -128,7 +128,7 @@ export default function Page() {
                   name="password"
                   type="password"
                   autoComplete="current-password"
-                  className="block w-full rounded-md border-0 py-1.5 text-gray-900 shadow-sm ring-1 ring-inset ring-gray-300 placeholder:text-gray-400 focus:ring-2 focus:ring-inset focus:ring-teal-600 sm:text-sm sm:leading-6"
+                  className="block w-full rounded-md border-0 placeholder:text-gray-400 text-gray-900 shadow-sm ring-1 ring-inset ring-gray-300 py-1.5 focus:ring-2 focus:ring-inset focus:ring-teal-600 sm:text-sm sm:leading-6"
                   onChange={(e) => setPassword(e.target.value)}
                   value={password}
                   placeholder="••••••••"
@@ -141,11 +141,11 @@ export default function Page() {
               <>
                 <button
                   type="submit"
-                  className="flex w-full justify-center rounded-md bg-teal-600 px-3 py-1.5 text-sm font-semibold leading-6 text-white shadow-sm hover:bg-teal-500 focus-visible:outline focus-visible:outline-2 focus-visible:outline-offset-2 focus-visible:outline-teal-600"
+                  className="flex w-full justify-center rounded-md bg-teal-600 px-3 text-sm font-semibold leading-6 text-white shadow-sm py-1.5 hover:bg-teal-500 focus-visible:outline focus-visible:outline-2 focus-visible:outline-offset-2 focus-visible:outline-teal-600"
                 >
                   Sign In
                 </button>
-                <p className="text-sm text-center">
+                <p className="text-center text-sm">
                   Don't have an account?
                   <button
                     className="ml-1 underline"
@@ -161,11 +161,11 @@ export default function Page() {
               <>
                 <button
                   type="submit"
-                  className="flex w-full justify-center rounded-md bg-teal-600 px-3 py-1.5 text-sm font-semibold leading-6 text-white shadow-sm hover:bg-teal-500 focus-visible:outline focus-visible:outline-2 focus-visible:outline-offset-2 focus-visible:outline-teal-600"
+                  className="flex w-full justify-center rounded-md bg-teal-600 px-3 text-sm font-semibold leading-6 text-white shadow-sm py-1.5 hover:bg-teal-500 focus-visible:outline focus-visible:outline-2 focus-visible:outline-offset-2 focus-visible:outline-teal-600"
                 >
                   Sign Up
                 </button>
-                <p className="text-sm text-center">
+                <p className="text-center text-sm">
                   Already have an account?
                   <button
                     className="ml-1 underline"
