@@ -7,7 +7,7 @@
     "prettier": "pnpm dlx prettier --write \"./app/**/*.{js,jsx,ts,tsx,json}\"",
     "supabase:start": "pnpm dlx supabase start",
     "supabase:stop": "pnpm dlx supabase stop",
-    "update-types": "pnpm dlx supabase gen types typescript --project-id \"$PROJECT_REF\" > types/supabase.ts"
+    "update-types": "npx supabase gen types typescript --project-id \"$PROJECT_REF\" > types/supabase.ts"
   },
   "dependencies": {
     "@headlessui/react": "^1.7.15",
