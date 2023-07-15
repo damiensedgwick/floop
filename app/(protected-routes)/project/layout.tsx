@@ -7,6 +7,7 @@ import {
   HomeIcon,
   StarIcon,
   UserCircleIcon,
+  UsersIcon,
 } from "@heroicons/react/24/outline";
 import NavigationLink from "@/app/(protected-routes)/project/NavigationLink.client";
 import MobileMenu from "@/app/(protected-routes)/project/MobileMenu.client";
@@ -33,17 +34,14 @@ const navigation = [
     icon: <ChatBubbleLeftIcon width={24} height={24} />,
   },
   {
+    name: "Team",
+    href: "/team",
+    icon: <UsersIcon width={24} height={24} />,
+  },
+  {
     name: "Settings",
     href: "/settings",
     icon: <Cog8ToothIcon width={24} height={24} />,
-  },
-];
-
-const project_links = [
-  {
-    name: "Team",
-    href: "/team",
-    initial: "T",
   },
 ];
 
@@ -55,7 +53,7 @@ export default async function ProjectLayout({
   return (
     <div className="h-full bg-white">
       {/* Dynamic sidebar for mobile*/}
-      <MobileMenu navigation={navigation} project={project_links} />
+      <MobileMenu navigation={navigation} />
 
       {/* Static sidebar for desktop */}
       <div className="hidden lg:fixed lg:inset-y-0 lg:z-50 lg:flex lg:w-72 lg:flex-col">
@@ -74,18 +72,8 @@ export default async function ProjectLayout({
           <nav className="flex flex-col flex-1">
             <ul role="list" className="flex flex-col flex-1 gap-y-7">
               <li>
-                <div className="relative mb-3">
-                  <div
-                    className="absolute inset-0 flex items-center"
-                    aria-hidden="true"
-                  >
-                    <div className="w-full border-t border-gray-300" />
-                  </div>
-                  <div className="relative flex justify-center">
-                    <span className="px-2 text-sm text-gray-500 bg-white">
-                      Navigation
-                    </span>
-                  </div>
+                <div className="text-xs font-semibold leading-6 text-gray-400 mb-2">
+                  Navigation
                 </div>
 
                 <ul role="list" className="-mx-2 space-y-1">
@@ -95,33 +83,6 @@ export default async function ProjectLayout({
                         name={item.name}
                         href={item.href}
                         icon={item.icon}
-                      />
-                    </li>
-                  ))}
-                </ul>
-              </li>
-              <li>
-                <div className="relative mb-3">
-                  <div
-                    className="absolute inset-0 flex items-center"
-                    aria-hidden="true"
-                  >
-                    <div className="w-full border-t border-gray-300" />
-                  </div>
-                  <div className="relative flex justify-center">
-                    <span className="px-2 text-sm text-gray-500 bg-white">
-                      Project
-                    </span>
-                  </div>
-                </div>
-
-                <ul role="list" className="mt-2 -mx-2 space-y-1">
-                  {project_links.map((item) => (
-                    <li key={item.name}>
-                      <NavigationLink
-                        name={item.name}
-                        href={item.href}
-                        initial={item.initial}
                       />
                     </li>
                   ))}
