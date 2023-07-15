@@ -7,7 +7,6 @@ import {
   StarIcon,
 } from "@heroicons/react/24/outline";
 import NavigationLink from "@/app/(protected-routes)/project/NavigationLink.client";
-import MobileMenu from "@/app/(protected-routes)/project/MobileMenu.client";
 
 const navigation = [
   {
@@ -53,7 +52,7 @@ export default async function ProjectLayout({
   return (
     <div className="h-full bg-white">
       {/* Dynamic sidebar for mobile*/}
-      <MobileMenu navigation={navigation} project={project_links} />
+      {/*<MobileMenu navigation={navigation} project={project_links} />*/}
 
       {/* Static sidebar for desktop */}
       <div className="hidden lg:fixed lg:inset-y-0 lg:z-50 lg:flex lg:w-72 lg:flex-col">
