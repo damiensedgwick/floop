@@ -20,11 +20,6 @@ jobs:
         with:
           node-version: 16
 
-      - name: install pnpm
-        run: npm install -g pnpm
-
-      - run: pnpm run update-types
-
       - name: check for file changes
         id: git_status
         run: |
