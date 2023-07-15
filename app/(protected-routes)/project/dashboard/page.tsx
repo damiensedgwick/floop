@@ -41,9 +41,7 @@ export default async function Page() {
             </div>
           ) : null}
 
-          <h1 className="text-base font-semibold leading-6 text-gray-900">
-            Dashboard
-          </h1>
+          <h1 className="text-base font-semibold leading-6">Dashboard</h1>
         </div>
       </div>
     </div>

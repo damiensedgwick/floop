@@ -10,8 +10,9 @@ import {
   UserCircleIcon,
   UsersIcon,
 } from "@heroicons/react/24/outline";
-import NavigationLink from "@/app/(protected-routes)/project/NavigationLink.client";
-import MobileMenu from "@/app/(protected-routes)/project/MobileMenu.client";
+import NavigationLink from "@/app/(protected-routes)/project/navigation-link.client";
+import MobileMenu from "@/app/(protected-routes)/project/mobile-menu.client";
+import LogoutButton from "@/components/logout-button.client";
 
 const navigation = [
   {
@@ -49,6 +50,11 @@ const navigation = [
     href: "/settings",
     icon: <Cog8ToothIcon width={24} height={24} />,
   },
+  {
+    name: "Profile",
+    href: "/profile",
+    icon: <UserCircleIcon width={24} height={24} />,
+  },
 ];
 
 export default async function ProjectLayout({
@@ -57,14 +63,14 @@ export default async function ProjectLayout({
   children: ReactNode;
 }) {
   return (
-    <div className="h-full bg-white">
+    <div className="h-full">
       {/* Dynamic sidebar for mobile*/}
       <MobileMenu navigation={navigation} />
 
       {/* Static sidebar for desktop */}
       <div className="hidden lg:fixed lg:inset-y-0 lg:z-50 lg:flex lg:w-72 lg:flex-col">
         {/* Sidebar component, swap this element with another sidebar if you like */}
-        <div className="flex grow flex-col gap-y-5 overflow-y-auto border-r border-gray-200 bg-white px-6">
+        <div className="flex grow flex-col gap-y-5 overflow-y-auto border-r border-gray-200 px-6">
           <div className="my-4 flex h-16 shrink-0 items-center">
             <Image
               className="mt-4"
@@ -94,12 +100,8 @@ export default async function ProjectLayout({
                   ))}
                 </ul>
               </li>
-              <li className="-mx-6 mt-auto flex items-center justify-between gap-x-4 px-6 py-3 text-sm font-semibold leading-6 text-gray-900">
-                <NavigationLink
-                  name="Profile"
-                  href="/profile"
-                  icon={<UserCircleIcon width={24} height={24} />}
-                />
+              <li className="-mx-6 mt-auto flex items-center justify-between gap-x-4 px-6 py-3 text-sm font-semibold leading-6">
+                <LogoutButton />
               </li>
             </ul>
           </nav>
