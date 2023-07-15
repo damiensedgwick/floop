@@ -1,6 +1,6 @@
 "use client";
 
-import { useState, Fragment } from "react";
+import { Fragment, useState } from "react";
 import Image from "next/image";
 import { Dialog, Transition } from "@headlessui/react";
 import { Bars3Icon, XMarkIcon } from "@heroicons/react/24/outline";
@@ -8,10 +8,9 @@ import NavigationLink from "@/app/(protected-routes)/project/NavigationLink.clie
 
 type Props = {
   navigation: { name: string; href: string; icon: React.JSX.Element }[];
-  project: { name: string; href: string; initial: string }[];
 };
 
-export default function MobileMenu({ navigation, project }: Props) {
+export default function MobileMenu({ navigation }: Props) {
   const [sidebarOpen, setSidebarOpen] = useState(false);
 
   return (
@@ -92,25 +91,6 @@ export default function MobileMenu({ navigation, project }: Props) {
                                 href={item.href}
                                 name={item.name}
                                 icon={item.icon}
-                              />
-                            </li>
-                          ))}
-                        </ul>
-                      </li>
-                      <li>
-                        <div className="text-xs font-semibold leading-6 text-gray-400">
-                          Your project
-                        </div>
-                        <ul role="list" className="mt-2 -mx-2 space-y-1">
-                          {project.map((item) => (
-                            <li
-                              key={item.name}
-                              onClick={() => setSidebarOpen(false)}
-                            >
-                              <NavigationLink
-                                href={item.href}
-                                name={item.name}
-                                initial={item.initial}
                               />
                             </li>
                           ))}
