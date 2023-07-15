@@ -2,9 +2,11 @@ import { ReactNode } from "react";
 import Image from "next/image";
 import {
   ChatBubbleLeftIcon,
+  Cog8ToothIcon,
   ExclamationTriangleIcon,
   HomeIcon,
   StarIcon,
+  UserCircleIcon,
 } from "@heroicons/react/24/outline";
 import NavigationLink from "@/app/(protected-routes)/project/NavigationLink.client";
 import MobileMenu from "@/app/(protected-routes)/project/MobileMenu.client";
@@ -13,31 +15,31 @@ const navigation = [
   {
     name: "Dashboard",
     href: "/dashboard",
-    icon: <HomeIcon />,
+    icon: <HomeIcon width={24} height={24} />,
   },
   {
     name: "Ratings",
     href: "/ratings",
-    icon: <StarIcon />,
+    icon: <StarIcon width={24} height={24} />,
   },
   {
     name: "Issues",
     href: "/issues",
-    icon: <ExclamationTriangleIcon />,
+    icon: <ExclamationTriangleIcon width={24} height={24} />,
   },
   {
     name: "Suggestions",
     href: "/suggestions",
-    icon: <ChatBubbleLeftIcon />,
+    icon: <ChatBubbleLeftIcon width={24} height={24} />,
+  },
+  {
+    name: "Settings",
+    href: "/settings",
+    icon: <Cog8ToothIcon width={24} height={24} />,
   },
 ];
 
 const project_links = [
-  {
-    name: "Settings",
-    href: "/settings",
-    initial: "S",
-  },
   {
     name: "Team",
     href: "/team",
@@ -72,6 +74,20 @@ export default async function ProjectLayout({
           <nav className="flex flex-col flex-1">
             <ul role="list" className="flex flex-col flex-1 gap-y-7">
               <li>
+                <div className="relative mb-3">
+                  <div
+                    className="absolute inset-0 flex items-center"
+                    aria-hidden="true"
+                  >
+                    <div className="w-full border-t border-gray-300" />
+                  </div>
+                  <div className="relative flex justify-center">
+                    <span className="px-2 text-sm text-gray-500 bg-white">
+                      Navigation
+                    </span>
+                  </div>
+                </div>
+
                 <ul role="list" className="-mx-2 space-y-1">
                   {navigation.map((item) => (
                     <li key={item.name}>
@@ -85,7 +101,7 @@ export default async function ProjectLayout({
                 </ul>
               </li>
               <li>
-                <div className="relative mb-2">
+                <div className="relative mb-3">
                   <div
                     className="absolute inset-0 flex items-center"
                     aria-hidden="true"
@@ -111,8 +127,12 @@ export default async function ProjectLayout({
                   ))}
                 </ul>
               </li>
-              <li className="flex items-center justify-between px-6 py-3 mt-auto -mx-6 text-sm font-semibold leading-6 text-gray-900 gap-x-4 hover:bg-gray-50">
-                <NavigationLink name="Profile" href="/profile" initial="P" />
+              <li className="flex items-center justify-between px-6 py-3 mt-auto -mx-6 text-sm font-semibold leading-6 text-gray-900 gap-x-4">
+                <NavigationLink
+                  name="Profile"
+                  href="/profile"
+                  icon={<UserCircleIcon width={24} height={24} />}
+                />
               </li>
             </ul>
           </nav>

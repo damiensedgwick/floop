@@ -20,17 +20,17 @@ export default function NavigationLink({ name, href, initial, icon }: Props) {
       href={`/project` + href}
       className={classNames(
         pathname.endsWith(href)
-          ? "bg-gray-50 text-teal-600"
-          : "text-gray-700 hover:text-teal-600 hover:bg-gray-50",
-        "group flex gap-x-3 rounded-md p-2 text-sm leading-6 font-semibold",
+          ? "bg-gray-100 text-teal-500"
+          : "text-gray-700 hover:text-teal-500 hover:bg-gray-100",
+        "group flex items-center gap-x-3 rounded-md p-2 text-sm leading-6 font-semibold lg:w-full",
       )}
     >
       {icon ? (
         <span
           className={classNames(
             pathname.endsWith(href)
-              ? "text-teal-600"
-              : "text-gray-400 group-hover:text-teal-600",
+              ? "text-teal-500"
+              : "text-gray-400 group-hover:text-teal-500",
             "flex h-6 w-6 shrink-0 items-center justify-center rounded-lg text-[0.625rem] font-medium",
           )}
         >
@@ -40,8 +40,8 @@ export default function NavigationLink({ name, href, initial, icon }: Props) {
         <span
           className={classNames(
             pathname.endsWith(href)
-              ? "text-teal-600 border-teal-600"
-              : "text-gray-400 border-gray-200 group-hover:border-teal-600 group-hover:text-teal-600",
+              ? "text-teal-500 border-teal-500"
+              : "text-gray-400 border-gray-200 group-hover:border-teal-500 group-hover:text-teal-500",
             "flex h-6 w-6 shrink-0 items-center justify-center rounded-lg border text-[0.625rem] font-medium bg-white",
           )}
         >
