@@ -43,7 +43,7 @@ export default function MobileMenu({ navigation }: Props) {
               leaveFrom="translate-x-0"
               leaveTo="-translate-x-full"
             >
-              <Dialog.Panel className="relative flex flex-1 w-full max-w-xs mr-16">
+              <Dialog.Panel className="relative mr-16 flex w-full max-w-xs flex-1">
                 <Transition.Child
                   as={Fragment}
                   enter="ease-in-out duration-300"
@@ -53,7 +53,7 @@ export default function MobileMenu({ navigation }: Props) {
                   leaveFrom="opacity-100"
                   leaveTo="opacity-0"
                 >
-                  <div className="absolute top-0 flex justify-center w-16 pt-5 left-full">
+                  <div className="absolute top-0 left-full flex w-16 justify-center pt-5">
                     <button
                       type="button"
                       className="-m-2.5 p-2.5"
@@ -61,15 +61,15 @@ export default function MobileMenu({ navigation }: Props) {
                     >
                       <span className="sr-only">Close sidebar</span>
                       <XMarkIcon
-                        className="w-6 h-6 text-white"
+                        className="h-6 w-6 text-white"
                         aria-hidden="true"
                       />
                     </button>
                   </div>
                 </Transition.Child>
                 {/* Sidebar component, swap this element with another sidebar if you like */}
-                <div className="flex flex-col px-6 pb-2 overflow-y-auto bg-white grow gap-y-5">
-                  <div className="flex items-center h-16 shrink-0">
+                <div className="flex grow flex-col gap-y-5 overflow-y-auto bg-white px-6 pb-2">
+                  <div className="flex h-16 shrink-0 items-center">
                     <Image
                       className="mt-6"
                       src="/floop-logo.png"
@@ -78,8 +78,8 @@ export default function MobileMenu({ navigation }: Props) {
                       height={48}
                     />
                   </div>
-                  <nav className="flex flex-col flex-1">
-                    <ul role="list" className="flex flex-col flex-1 gap-y-7">
+                  <nav className="flex flex-1 flex-col">
+                    <ul role="list" className="flex flex-1 flex-col gap-y-7">
                       <li>
                         <ul role="list" className="-mx-2 space-y-1">
                           {navigation.map((item) => (
@@ -105,14 +105,14 @@ export default function MobileMenu({ navigation }: Props) {
         </Dialog>
       </Transition.Root>
 
-      <div className="sticky top-0 z-40 flex items-center px-4 py-4 bg-white shadow-sm gap-x-6 sm:px-6 lg:hidden">
+      <div className="sticky top-0 z-40 flex items-center gap-x-6 bg-white px-4 py-4 shadow-sm sm:px-6 lg:hidden">
         <button
           type="button"
           className="text-gray-700 -m-2.5 p-2.5 lg:hidden"
           onClick={() => setSidebarOpen(true)}
         >
           <span className="sr-only">Open sidebar</span>
-          <Bars3Icon className="w-6 h-6" aria-hidden="true" />
+          <Bars3Icon className="h-6 w-6" aria-hidden="true" />
         </button>
         <div className="flex-1 text-sm font-semibold leading-6 text-gray-900">
           Dashboard

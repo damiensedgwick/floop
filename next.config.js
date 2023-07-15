@@ -6,13 +6,13 @@ const nextConfig = {
   images: {
     remotePatterns: [
       {
-        protocol: 'https',
-        hostname: 'tailwindui.com',
-        port: '',
-        pathname: '/img/component-images/**',
+        protocol: "https",
+        hostname: "tailwindui.com",
+        port: "",
+        pathname: "/img/component-images/**",
       },
     ],
   },
-}
+};
 
-module.exports = nextConfig
+module.exports = nextConfig;

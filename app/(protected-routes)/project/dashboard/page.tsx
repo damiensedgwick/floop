@@ -16,7 +16,7 @@ export default async function Page() {
       <div className="sm:flex sm:items-center">
         <div className="sm:flex-auto">
           {project.total_submissions === 0 ? (
-            <div className="border-l-4 border-yellow-400 bg-yellow-50 p-4 mb-4">
+            <div className="mb-4 border-l-4 border-yellow-400 bg-yellow-50 p-4">
               <div className="flex">
                 <div className="flex-shrink-0">
                   <ExclamationTriangleIcon
@@ -24,7 +24,7 @@ export default async function Page() {
                     aria-hidden="true"
                   />
                 </div>
-                <div className="ml-3 flex-1 md:flex md:justify-between md:items-center">
+                <div className="ml-3 flex-1 md:flex md:items-center md:justify-between">
                   <p className="text-sm text-yellow-700">
                     You have 0 submissions.
                   </p>
