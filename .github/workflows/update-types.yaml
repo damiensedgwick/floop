@@ -2,7 +2,7 @@ name: Update database types
 
 on:
   schedule:
-    - cron: "0 0 */2 * *" # every 2 days at midnight
+    - cron: "0 0 */1 * *" # every day at midnight
 
 jobs:
   update:
@@ -15,14 +15,21 @@ jobs:
         with:
           persist-credentials: false
           fetch-depth: 0
+
       - uses: actions/setup-node@v2.1.5
         with:
           node-version: 16
-      - run: npm run update-types
+
+      - name: install pnpm
+        run: npm install -g pnpm
+
+      - run: pnpm run update-types
+
       - name: check for file changes
         id: git_status
         run: |
           echo "::set-output name=status::$(git status -s)"
+
       - name: Commit files
         if: ${{contains(steps.git_status.outputs.status, ' ')}}
         run: |
@@ -30,6 +37,7 @@ jobs:
           git config --local user.email "41898282+github-actions[bot]@users.noreply.github.com"
           git config --local user.name "github-actions[bot]"
           git commit -m "Update database types" -a
+
       - name: Push changes
         if: ${{contains(steps.git_status.outputs.status, ' ')}}
         uses: ad-m/github-push-action@master
