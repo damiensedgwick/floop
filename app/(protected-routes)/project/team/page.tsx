@@ -1,18 +1,13 @@
-import { cookies } from "next/headers";
-import { redirect } from "next/navigation";
-import { createServerComponentClient } from "@supabase/auth-helpers-nextjs";
-import { Database } from "@/types/supabase";
+import {
+  getProject,
+  getPublicUser,
+} from "@/app/(protected-routes)/project/utils";
 
 export default async function Page() {
-  const supabase = createServerComponentClient<Database>({ cookies });
+  const user = await getPublicUser();
+  const project = await getProject(user);
 
-  const {
-    data: { user },
-  } = await supabase.auth.getUser();
-
-  if (!user) {
-    redirect("/auth/sign-in");
-  }
+  console.log("project", project);
 
   return (
     <div className="px-4 pt-2 sm:px-6 lg:px-8">
@@ -21,9 +16,6 @@ export default async function Page() {
           <h1 className="text-base font-semibold leading-6 text-gray-900">
             Team
           </h1>
-          {/* <p className="mt-2 text-sm text-gray-700">
-            A list of all your team mates
-          </p> */}
         </div>
       </div>
     </div>
