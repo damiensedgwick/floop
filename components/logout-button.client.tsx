@@ -3,6 +3,7 @@
 import { useRouter } from "next/navigation";
 import { createClientComponentClient } from "@supabase/auth-helpers-nextjs";
 import { ArrowLeftOnRectangleIcon } from "@heroicons/react/24/outline";
+import { Button } from "@/components/ui/button";
 
 export default function LogoutButton() {
   const router = useRouter();
@@ -16,8 +17,9 @@ export default function LogoutButton() {
   };
 
   return (
-    <button onClick={signOut}>
-      <ArrowLeftOnRectangleIcon width={24} height={24} />
-    </button>
+    <Button className="w-1/3 lg:w-full" variant="outline" onClick={signOut}>
+      <ArrowLeftOnRectangleIcon className="mr-1" width={24} height={24} />
+      Logout
+    </Button>
   );
 }

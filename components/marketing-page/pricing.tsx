@@ -38,7 +38,7 @@ const tiers = [
 
 export default function Pricing() {
   return (
-    <div className="isolate overflow-hidden bg-gray-900">
+    <div className="isolate overflow-hidden bg-zinc-950">
       <div className="mx-auto max-w-7xl px-6 pt-24 pb-96 text-center sm:pt-32 lg:px-8">
         <div className="mx-auto max-w-4xl">
           <h2 className="text-base font-semibold leading-7 text-teal-400">
@@ -74,14 +74,14 @@ export default function Pricing() {
           </svg>
         </div>
       </div>
-      <div className="flow-root bg-white pb-24 sm:pb-32">
+      <div className="flow-root pb-24 sm:pb-32">
         <div className="-mt-80">
           <div className="mx-auto max-w-7xl px-6 lg:px-8">
             <div className="mx-auto grid max-w-md grid-cols-1 gap-8 lg:max-w-4xl lg:grid-cols-2">
               {tiers.map((tier) => (
                 <div
                   key={tier.id}
-                  className="flex flex-col justify-between rounded-3xl bg-white p-8 shadow-xl ring-1 ring-gray-900/10 sm:p-10"
+                  className="flex flex-col justify-between rounded-3xl p-8 shadow-xl ring-1 ring-gray-900/10 sm:p-10"
                 >
                   <div>
                     <h3
@@ -91,19 +91,19 @@ export default function Pricing() {
                       {tier.name}
                     </h3>
                     <div className="mt-4 flex items-baseline gap-x-2">
-                      <span className="text-5xl font-bold tracking-tight text-gray-900">
+                      <span className="text-5xl font-bold tracking-tight">
                         {tier.priceMonthly}
                       </span>
-                      <span className="text-base font-semibold leading-7 text-gray-600">
+                      <span className="text-base font-semibold leading-7">
                         /month
                       </span>
                     </div>
-                    <p className="mt-6 text-base leading-7 text-gray-600">
+                    <p className="mt-6 text-base leading-7">
                       {tier.description}
                     </p>
                     <ul
                       role="list"
-                      className="mt-10 text-sm leading-6 text-gray-600 space-y-4"
+                      className="mt-10 text-sm leading-6 space-y-4"
                     >
                       {tier.features.map((feature) => (
                         <li key={feature} className="flex gap-x-3">
@@ -130,14 +130,14 @@ export default function Pricing() {
                   <h3 className="text-lg font-semibold leading-8 tracking-tight text-teal-600">
                     Discounted
                   </h3>
-                  <p className="mt-1 text-base leading-7 text-gray-600">
+                  <p className="mt-1 text-base leading-7">
                     Love Floop or love a saving? Get 2 months for free when you
                     purchase an annual subscription.
                   </p>
                 </div>
                 <Link
                   href="#"
-                  className="rounded-md py-2 text-sm font-semibold leading-6 text-teal-600 ring-1 ring-inset ring-teal-200 px-3.5 hover:ring-teal-300 focus-visible:outline focus-visible:outline-2 focus-visible:outline-offset-2 focus-visible:outline-teal-600"
+                  className="rounded-md py-2 text-sm font-semibold leading-6 text-teal-600 ring-1 ring-inset ring-teal-600 px-3.5 hover:ring-teal-300 focus-visible:outline focus-visible:outline-2 focus-visible:outline-offset-2 focus-visible:outline-teal-600"
                 >
                   Buy annual subscription <span aria-hidden="true">&rarr;</span>
                 </Link>

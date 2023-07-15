@@ -1,4 +1,5 @@
 import "./globals.css";
+import { ThemeProvider } from "@/components/theme-provider";
 
 export const metadata = {
   title: "Floop | A feedback loop for your product",
@@ -12,9 +13,11 @@ export default function RootLayout({
   children: React.ReactNode;
 }) {
   return (
-    <html lang="en" className="h-full bg-white">
+    <html lang="en" className="h-full" suppressHydrationWarning>
       <body className="h-full">
-        <main className="h-full">{children}</main>
+        <ThemeProvider attribute="class" defaultTheme="system" enableSystem>
+          <main className="h-full">{children}</main>
+        </ThemeProvider>
       </body>
     </html>
   );
