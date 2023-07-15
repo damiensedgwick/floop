@@ -81,7 +81,7 @@ export default function Pricing() {
               {tiers.map((tier) => (
                 <div
                   key={tier.id}
-                  className="flex flex-col justify-between rounded-3xl p-8 shadow-xl ring-1 ring-gray-900/10 sm:p-10"
+                  className="flex flex-col justify-between rounded-3xl p-8 shadow-xl ring-1 ring-gray-900/10 sm:p-10 bg-white text-zinc-950"
                 >
                   <div>
                     <h3
@@ -125,7 +125,7 @@ export default function Pricing() {
                   </Link>
                 </div>
               ))}
-              <div className="flex flex-col items-start gap-x-8 gap-y-6 rounded-3xl p-8 ring-1 ring-gray-900/10 sm:gap-y-10 sm:p-10 lg:col-span-2 lg:flex-row lg:items-center">
+              <div className="flex flex-col items-start gap-x-8 gap-y-6 rounded-3xl p-8 ring-1 ring-gray-900/10 sm:gap-y-10 sm:p-10 lg:col-span-2 lg:flex-row lg:items-center bg-white text-zinc-950">
                 <div className="lg:min-w-0 lg:flex-1">
                   <h3 className="text-lg font-semibold leading-8 tracking-tight text-teal-600">
                     Discounted
@@ -137,7 +137,7 @@ export default function Pricing() {
                 </div>
                 <Link
                   href="#"
-                  className="rounded-md py-2 text-sm font-semibold leading-6 text-teal-600 ring-1 ring-inset ring-teal-600 px-3.5 hover:ring-teal-300 focus-visible:outline focus-visible:outline-2 focus-visible:outline-offset-2 focus-visible:outline-teal-600"
+                  className="rounded-md py-2 text-sm font-semibold leading-6 text-teal-600 ring-1 ring-inset ring-teal-600 px-3.5 hover:ring-teal-500 focus-visible:outline focus-visible:outline-2 focus-visible:outline-offset-2 focus-visible:outline-teal-500"
                 >
                   Buy annual subscription <span aria-hidden="true">&rarr;</span>
                 </Link>
