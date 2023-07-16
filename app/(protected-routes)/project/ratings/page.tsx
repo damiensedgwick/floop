@@ -11,23 +11,10 @@ export default async function Page() {
   const project = await getProject(user);
   const supabase = createServerComponentClient<Database>({ cookies });
 
-  const { data: ratings, error } = await supabase
+  const { data: ratings } = await supabase
     .from("ratings")
     .select("*")
     .eq("project_id", project.id);
-
-  if (error) {
-    console.error(error);
-    return <div>Error loading ratings</div>;
-  }
-
-  if (!ratings) {
-    return <div>Loading ratings...</div>;
-  }
-
-  if (ratings.length === 0) {
-    return <div>No ratings yet</div>;
-  }
 
   console.log(ratings);
 
