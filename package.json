@@ -17,6 +17,7 @@
     "@radix-ui/react-slot": "^1.0.2",
     "@supabase/auth-helpers-nextjs": "latest",
     "@supabase/supabase-js": "latest",
+    "@tanstack/react-table": "^8.9.3",
     "autoprefixer": "10.4.14",
     "class-variance-authority": "^0.6.1",
     "clsx": "^1.2.1",
