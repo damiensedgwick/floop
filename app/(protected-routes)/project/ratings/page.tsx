@@ -18,7 +18,7 @@ export default async function Page() {
     .select("*")
     .eq("project_id", project.id);
 
-  if (!ratings) {
+  if (!ratings?.length) {
     return (
       <div className="px-4 pt-2 sm:px-6 lg:px-8 flex flex-col items-center justify-center h-full">
         <h1 className="text-base font-semibold leading-6">
