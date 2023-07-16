@@ -17,7 +17,15 @@ export default async function Page() {
     .select("*")
     .eq("project_id", project.id);
 
-  console.log(issues);
+  if (!issues) {
+    return (
+      <div className="px-4 pt-2 sm:px-6 lg:px-8 flex flex-col items-center justify-center h-full">
+        <h1 className="text-base font-semibold leading-6">
+          <i>&ldquo;Home is where the graphics card is&ldquo;</i>
+        </h1>
+      </div>
+    );
+  }
 
   return (
     <div className="px-4 pt-2 sm:px-6 lg:px-8">

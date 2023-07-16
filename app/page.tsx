@@ -1,11 +1,11 @@
 import { cookies } from "next/headers";
 import { createServerComponentClient } from "@supabase/auth-helpers-nextjs";
-import Hero from "@/components/marketing-page/hero";
-import Features from "@/components/marketing-page/features";
-import Pricing from "@/components/marketing-page/pricing";
-import Footer from "@/components/marketing-page/footer";
-import GettingStarted from "@/components/marketing-page/getting-started";
-import FAQ from "@/components/marketing-page/faq";
+import Hero from "@/app/hero";
+import Features from "@/app/features";
+import Pricing from "@/app/pricing";
+import Footer from "@/app/footer";
+import GettingStarted from "@/app/getting-started";
+import FAQ from "@/app/faq";
 
 export default async function Page() {
   const supabase = createServerComponentClient({ cookies });
