@@ -56,10 +56,26 @@ export const columns: ColumnDef<
           variant="ghost"
           onClick={() => column.toggleSorting(column.getIsSorted() === "asc")}
         >
-          Created At
+          Created
           <ArrowsUpDownIcon width={12} height={12} className="ml-2 h-4 w-4" />
         </Button>
       );
+    },
+    cell: ({ row }) => {
+      const rating = row.original;
+      const createdAt = rating.created_at;
+
+      if (!createdAt) {
+        return <span>---</span>;
+      }
+
+      const formattedDate = new Date(createdAt).toLocaleDateString("en-GB", {
+        day: "numeric",
+        month: "short",
+        year: "numeric",
+      });
+
+      return <span>{formattedDate}</span>;
     },
   },
   {

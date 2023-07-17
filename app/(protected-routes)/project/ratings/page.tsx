@@ -28,11 +28,13 @@ export default async function Page() {
     );
   }
 
+  const doubleRatings = [...ratings, ...ratings, ...ratings, ...ratings];
+
   return (
     <div className="px-4 pt-2 sm:px-6 lg:px-8">
       <div className="sm:flex sm:items-center">
         <div className="sm:flex-auto space-y-6">
-          <DataTable columns={columns} data={ratings} />
+          <DataTable columns={columns} data={doubleRatings} />
         </div>
       </div>
     </div>

@@ -31,7 +31,7 @@ export default function MobileMenu({ navigation }: Props) {
             leaveFrom="opacity-100"
             leaveTo="opacity-0"
           >
-            <div className="fixed inset-0 bg-gray-900/80" />
+            <div className="fixed inset-0 bg-gray-950/80" />
           </Transition.Child>
 
           <div className="fixed inset-0 flex">
@@ -44,7 +44,7 @@ export default function MobileMenu({ navigation }: Props) {
               leaveFrom="translate-x-0"
               leaveTo="-translate-x-full"
             >
-              <Dialog.Panel className="relative mr-16 flex w-full max-w-xs flex-1">
+              <Dialog.Panel className="relative mr-16 flex w-full max-w-xs flex-1 bg-background">
                 <Transition.Child
                   as={Fragment}
                   enter="ease-in-out duration-300"
