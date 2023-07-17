@@ -4,12 +4,12 @@ import React from "react";
 import {
   ColumnDef,
   ColumnFiltersState,
-  SortingState,
   flexRender,
   getCoreRowModel,
   getFilteredRowModel,
   getPaginationRowModel,
   getSortedRowModel,
+  SortingState,
   useReactTable,
 } from "@tanstack/react-table";
 
@@ -51,11 +51,16 @@ export function DataTable<TData, TValue>({
       sorting,
       columnFilters,
     },
+    initialState: {
+      pagination: {
+        pageSize: 8,
+      },
+    },
   });
 
   return (
     <div>
-      <div className="flex items-center justify-between py-4">
+      <div className="flex flex-col justify-between py-4 space-y-6">
         <h1 className="text-base font-semibold leading-6">Ratings</h1>
         <Input
           placeholder="Filter ratings..."
