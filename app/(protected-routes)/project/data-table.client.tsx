@@ -64,11 +64,11 @@ export function DataTable<TData, TValue>({
 
   return (
     <div>
-      <div className="flex flex-col justify-between py-4 space-y-6">
+      <div className="flex flex-col lg:flex-row justify-between py-4 space-y-6 lg:space-y-0 lg:items-center">
         <h1 className="text-base font-semibold leading-6">{pageTitle}</h1>
         {filterColumn ? (
           <Input
-            placeholder={`Search ${filterColumn}...`}
+            placeholder="Search title"
             value={
               (table.getColumn(filterColumn)?.getFilterValue() as string) ?? ""
             }
