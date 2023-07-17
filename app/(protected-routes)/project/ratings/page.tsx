@@ -5,7 +5,7 @@ import {
   getPublicUser,
 } from "@/app/(protected-routes)/project/utils";
 import { Database } from "@/types/supabase";
-import { DataTable } from "@/app/(protected-routes)/project/ratings/data-table";
+import { DataTable } from "@/app/(protected-routes)/project/data-table.client";
 import { columns } from "@/app/(protected-routes)/project/ratings/columns.client";
 
 export default async function Page() {
@@ -32,7 +32,7 @@ export default async function Page() {
     <div className="px-4 pt-2 sm:px-6 lg:px-8">
       <div className="sm:flex sm:items-center">
         <div className="sm:flex-auto space-y-6">
-          <DataTable columns={columns} data={ratings} />
+          <DataTable columns={columns} data={ratings} pageTitle="Ratings" />
         </div>
       </div>
     </div>
