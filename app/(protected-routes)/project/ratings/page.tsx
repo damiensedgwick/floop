@@ -31,7 +31,7 @@ export default async function Page() {
   return (
     <div className="px-4 pt-2 sm:px-6 lg:px-8">
       <div className="sm:flex sm:items-center">
-        <div className="sm:flex-auto space-y-6">
+        <div className="sm:flex-auto mt-2">
           <DataTable columns={columns} data={ratings} pageTitle="Ratings" />
         </div>
       </div>
