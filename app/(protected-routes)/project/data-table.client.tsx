@@ -27,11 +27,15 @@ import { Button } from "@/components/ui/button";
 interface DataTableProps<TData, TValue> {
   columns: ColumnDef<TData, TValue>[];
   data: TData[];
+  pageTitle: string;
+  filterColumn?: string;
 }
 
 export function DataTable<TData, TValue>({
   columns,
   data,
+  pageTitle,
+  filterColumn,
 }: DataTableProps<TData, TValue>) {
   const [sorting, setSorting] = React.useState<SortingState>([]);
   const [columnFilters, setColumnFilters] = React.useState<ColumnFiltersState>(
@@ -61,15 +65,19 @@ export function DataTable<TData, TValue>({
   return (
     <div>
       <div className="flex flex-col justify-between py-4 space-y-6">
-        <h1 className="text-base font-semibold leading-6">Ratings</h1>
-        <Input
-          placeholder="Filter ratings..."
-          value={(table.getColumn("details")?.getFilterValue() as string) ?? ""}
-          onChange={(event) =>
-            table.getColumn("details")?.setFilterValue(event.target.value)
-          }
-          className="max-w-sm"
-        />
+        <h1 className="text-base font-semibold leading-6">{pageTitle}</h1>
+        {filterColumn ? (
+          <Input
+            placeholder={`Search ${filterColumn}...`}
+            value={
+              (table.getColumn(filterColumn)?.getFilterValue() as string) ?? ""
+            }
+            onChange={(event) =>
+              table.getColumn(filterColumn)?.setFilterValue(event.target.value)
+            }
+            className="max-w-sm"
+          />
+        ) : null}
       </div>
       <div className="rounded-md border">
         <Table>
