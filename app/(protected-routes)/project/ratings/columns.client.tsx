@@ -47,6 +47,10 @@ export const columns: ColumnDef<
     },
   },
   {
+    accessorKey: "details",
+    header: "Details",
+  },
+  {
     accessorKey: "created_at",
     header: ({ column }) => {
       return (
@@ -68,6 +72,7 @@ export const columns: ColumnDef<
   },
   {
     id: "actions",
+    header: "Actions",
     cell: ({ row }) => {
       const rating = row.original;
 
