@@ -7,6 +7,7 @@ import {
   flexRender,
   getCoreRowModel,
   getFilteredRowModel,
+  VisibilityState,
   getPaginationRowModel,
   getSortedRowModel,
   SortingState,
@@ -22,6 +23,12 @@ import {
   TableRow,
 } from "@/components/ui/table";
 import { Input } from "@/components/ui/input";
+import {
+  DropdownMenu,
+  DropdownMenuCheckboxItem,
+  DropdownMenuContent,
+  DropdownMenuTrigger,
+} from "@/components/ui/dropdown-menu";
 import { Button } from "@/components/ui/button";
 
 interface DataTableProps<TData, TValue> {
@@ -38,9 +45,18 @@ export function DataTable<TData, TValue>({
   filterColumn,
 }: DataTableProps<TData, TValue>) {
   const [sorting, setSorting] = React.useState<SortingState>([]);
+
   const [columnFilters, setColumnFilters] = React.useState<ColumnFiltersState>(
     [],
   );
+
+  const [columnVisibility, setColumnVisibility] =
+    React.useState<VisibilityState>({
+      score: true,
+      details: true,
+      created_at: true,
+      user_email: false,
+    });
 
   const table = useReactTable({
     data,
@@ -51,9 +67,11 @@ export function DataTable<TData, TValue>({
     getSortedRowModel: getSortedRowModel(),
     onColumnFiltersChange: setColumnFilters,
     getFilteredRowModel: getFilteredRowModel(),
+    onColumnVisibilityChange: setColumnVisibility,
     state: {
       sorting,
       columnFilters,
+      columnVisibility,
     },
     initialState: {
       pagination: {
@@ -64,20 +82,53 @@ export function DataTable<TData, TValue>({
 
   return (
     <div>
-      <div className="flex flex-col lg:flex-row justify-between py-4 space-y-6 lg:space-y-0 lg:items-center">
+      <div className="flex flex-col justify-between py-4 space-y-6">
         <h1 className="text-base font-semibold leading-6">{pageTitle}</h1>
-        {filterColumn ? (
-          <Input
-            placeholder="Search title"
-            value={
-              (table.getColumn(filterColumn)?.getFilterValue() as string) ?? ""
-            }
-            onChange={(event) =>
-              table.getColumn(filterColumn)?.setFilterValue(event.target.value)
-            }
-            className="max-w-sm"
-          />
-        ) : null}
+        <div className="flex items-center justify-between">
+          {filterColumn ? (
+            <Input
+              placeholder={
+                pageTitle === "Ratings" ? "Filter details" : "Filter title"
+              }
+              value={
+                (table.getColumn(filterColumn)?.getFilterValue() as string) ??
+                ""
+              }
+              onChange={(event) =>
+                table
+                  .getColumn(filterColumn)
+                  ?.setFilterValue(event.target.value)
+              }
+              className="max-w-sm"
+            />
+          ) : null}
+          <DropdownMenu>
+            <DropdownMenuTrigger asChild>
+              <Button variant="outline" className="ml-auto">
+                Columns
+              </Button>
+            </DropdownMenuTrigger>
+            <DropdownMenuContent align="end">
+              {table
+                .getAllColumns()
+                .filter((column) => column.getCanHide())
+                .map((column) => {
+                  return (
+                    <DropdownMenuCheckboxItem
+                      key={column.id}
+                      className="capitalize"
+                      checked={column.getIsVisible()}
+                      onCheckedChange={(value) =>
+                        column.toggleVisibility(!!value)
+                      }
+                    >
+                      {column.id}
+                    </DropdownMenuCheckboxItem>
+                  );
+                })}
+            </DropdownMenuContent>
+          </DropdownMenu>
+        </div>
       </div>
       <div className="rounded-md border">
         <Table>
