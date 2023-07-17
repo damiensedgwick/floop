@@ -17,34 +17,11 @@ import {
 } from "@/components/ui/dropdown-menu";
 
 export const columns: ColumnDef<
-  Database["public"]["Tables"]["ratings"]["Row"]
+  Database["public"]["Tables"]["suggestions"]["Row"]
 >[] = [
   {
-    accessorKey: "score",
-    header: ({ column }) => {
-      return (
-        <Button
-          variant="ghost"
-          size="sm"
-          className="-ml-3"
-          onClick={() => column.toggleSorting(column.getIsSorted() === "asc")}
-        >
-          Score
-          <ArrowsUpDownIcon width={12} height={12} className="ml-2 h-4 w-4" />
-        </Button>
-      );
-    },
-    cell: ({ row }) => {
-      const rating = row.original;
-
-      return (
-        <div className="space-x-1.5 text-sm font-medium">
-          <span>{rating.score}</span>
-          <span>/</span>
-          <span>10</span>
-        </div>
-      );
-    },
+    accessorKey: "title",
+    header: "Title",
   },
   {
     accessorKey: "created_at",
