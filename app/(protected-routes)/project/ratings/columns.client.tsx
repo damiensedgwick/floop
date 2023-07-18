@@ -49,6 +49,15 @@ export const columns: ColumnDef<
   {
     accessorKey: "details",
     header: "Details",
+    cell: ({ row }) => {
+      const rating = row.original;
+
+      return (
+        <div className="text-sm font-medium space-x-1.5">
+          <span>{rating.details || "----"}</span>
+        </div>
+      );
+    },
   },
   {
     accessorKey: "created_at",
