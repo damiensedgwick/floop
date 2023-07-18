@@ -83,7 +83,7 @@ export function DataTable<TData, TValue>({
   return (
     <div>
       <div className="flex flex-col justify-between py-4 space-y-6">
-        <div className="flex items-center lg:justify-between flex-col lg:flex-row space-y-3 lg:space-y-0">
+        <div className="flex flex-col items-center space-y-3 lg:space-y-0 lg:flex-row lg:justify-between">
           {filterColumn ? (
             <Input
               placeholder={
@@ -105,7 +105,7 @@ export function DataTable<TData, TValue>({
             <DropdownMenuTrigger asChild>
               <Button
                 variant="outline"
-                className="lg:ml-auto shadow w-full lg:max-w-[129px]"
+                className="w-full shadow lg:max-w-[129px] lg:ml-auto"
               >
                 Columns
               </Button>

@@ -26,48 +26,48 @@ export default async function Page() {
         <div className="space-y-6 sm:flex-auto">
           <h1 className="text-xl font-semibold leading-6">Settings</h1>
           <Separator />
-          <div className="overflow-hidden bg-secondary-accent shadow sm:rounded-lg border">
+          <div className="overflow-hidden border shadow bg-secondary-accent sm:rounded-lg">
             <div className="border-gray-100">
               <dl className="divide-y">
                 <div className="px-4 py-6 sm:grid sm:grid-cols-3 sm:gap-4 sm:px-6">
-                  <dt className="text-sm font-medium ">Name</dt>
-                  <dd className="mt-1 text-sm leading-6  sm:col-span-2 sm:mt-0">
+                  <dt className="text-sm font-medium">Name</dt>
+                  <dd className="mt-1 text-sm leading-6 sm:col-span-2 sm:mt-0">
                     {project.name}
                   </dd>
                 </div>
                 <div className="px-4 py-6 sm:grid sm:grid-cols-3 sm:gap-4 sm:px-6">
-                  <dt className="text-sm font-medium ">Owner</dt>
-                  <dd className="mt-1 text-sm leading-6  sm:col-span-2 sm:mt-0">
+                  <dt className="text-sm font-medium">Owner</dt>
+                  <dd className="mt-1 text-sm leading-6 sm:col-span-2 sm:mt-0">
                     {owner?.first_name + " " + owner?.last_name}
                   </dd>
                 </div>
                 <div className="px-4 py-6 sm:grid sm:grid-cols-3 sm:gap-4 sm:px-6">
-                  <dt className="text-sm font-medium ">Subscription Type</dt>
-                  <dd className="mt-1 text-sm leading-6  sm:col-span-2 sm:mt-0">
+                  <dt className="text-sm font-medium">Subscription Type</dt>
+                  <dd className="mt-1 text-sm leading-6 sm:col-span-2 sm:mt-0">
                     {project.subscription_type}
                   </dd>
                 </div>
                 <div className="px-4 py-6 sm:grid sm:grid-cols-3 sm:gap-4 sm:px-6">
-                  <dt className="text-sm font-medium ">Subscription Expiry</dt>
-                  <dd className="mt-1 text-sm leading-6  sm:col-span-2 sm:mt-0">
+                  <dt className="text-sm font-medium">Subscription Expiry</dt>
+                  <dd className="mt-1 text-sm leading-6 sm:col-span-2 sm:mt-0">
                     {project.subscription_expiry || "N/A"}
                   </dd>
                 </div>
                 <div className="px-4 py-6 sm:grid sm:grid-cols-3 sm:gap-4 sm:px-6">
-                  <dt className="text-sm font-medium ">Submission Count</dt>
-                  <dd className="mt-1 text-sm leading-6  sm:col-span-2 sm:mt-0">
+                  <dt className="text-sm font-medium">Submission Count</dt>
+                  <dd className="mt-1 text-sm leading-6 sm:col-span-2 sm:mt-0">
                     {project.total_submissions}
                   </dd>
                 </div>
                 <div className="px-4 py-6 sm:grid sm:grid-cols-3 sm:gap-4 sm:px-6">
-                  <dt className="text-sm font-medium ">Team Size</dt>
-                  <dd className="mt-1 text-sm leading-6  sm:col-span-2 sm:mt-0">
+                  <dt className="text-sm font-medium">Team Size</dt>
+                  <dd className="mt-1 text-sm leading-6 sm:col-span-2 sm:mt-0">
                     {users?.length}
                   </dd>
                 </div>{" "}
                 <div className="px-4 py-6 sm:grid sm:grid-cols-3 sm:gap-4 sm:px-6">
-                  <dt className="text-sm font-medium ">Created Date</dt>
-                  <dd className="mt-1 text-sm leading-6  sm:col-span-2 sm:mt-0">
+                  <dt className="text-sm font-medium">Created Date</dt>
+                  <dd className="mt-1 text-sm leading-6 sm:col-span-2 sm:mt-0">
                     {project.created_at}
                   </dd>
                 </div>
