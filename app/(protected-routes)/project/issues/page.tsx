@@ -1,10 +1,8 @@
-import { cookies } from "next/headers";
-import { createServerComponentClient } from "@supabase/auth-helpers-nextjs";
 import {
+  getIssues,
   getProject,
   getPublicUser,
 } from "@/app/(protected-routes)/project/utils";
-import { Database } from "@/types/supabase";
 import { DataTable } from "@/app/(protected-routes)/project/data-table.client";
 import { columns } from "@/app/(protected-routes)/project/issues/columns.client";
 import React from "react";
@@ -13,13 +11,7 @@ import { Separator } from "@/components/ui/separator";
 export default async function Page() {
   const user = await getPublicUser();
   const project = await getProject(user);
-
-  const supabase = createServerComponentClient<Database>({ cookies });
-
-  const { data: issues } = await supabase
-    .from("issues")
-    .select("*")
-    .eq("project_id", project.id);
+  const issues = await getIssues(project.id);
 
   if (!issues?.length) {
     return (
