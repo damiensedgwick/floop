@@ -1,10 +1,6 @@
 import {
-  getIssues,
   getProject,
   getPublicUser,
-  getRatings,
-  getSuggestions,
-  getThisMonthsRatings,
 } from "@/app/(protected-routes)/project/utils";
 import { ExclamationTriangleIcon } from "@heroicons/react/24/outline";
 import Link from "next/link";
@@ -19,17 +15,25 @@ import {
 import { Overview } from "@/app/(protected-routes)/project/dashboard/overview";
 import { RecentActivity } from "@/app/(protected-routes)/project/dashboard/recent-activity";
 import { cn } from "@/lib/utils";
-import { getScoreTextColor } from "@/app/(protected-routes)/project/dashboard/utils";
+import {
+  createActivityTimeline,
+  createChartData,
+  getScoreTextColor,
+  getThisMonthsRatings,
+} from "@/app/(protected-routes)/project/dashboard/utils";
+import { getRatings } from "@/app/(protected-routes)/project/ratings/ratings";
+import { getIssues } from "@/app/(protected-routes)/project/issues/issues";
+import { getSuggestions } from "@/app/(protected-routes)/project/suggestions/suggestions";
 
 export default async function Page() {
   const user = await getPublicUser();
   const project = await getProject(user);
-  const thisMonthsRatings = await getThisMonthsRatings(project);
 
-  const [ratings, issues, suggestions] = await Promise.all([
+  const [ratings, issues, suggestions, thisMonthsRatings] = await Promise.all([
     getRatings(project.id),
     getIssues(project.id),
     getSuggestions(project.id),
+    createChartData(project),
   ]);
 
   let average = 0;
@@ -42,7 +46,7 @@ export default async function Page() {
     <div className="px-4 pt-2 sm:px-6 lg:px-8">
       <div className="sm:flex sm:items-center">
         <div className="space-y-6 sm:flex-auto">
-          <h1 className="text-base font-semibold leading-6">Dashboard</h1>
+          <h1 className="text-xl font-semibold leading-6">Dashboard</h1>
           <Separator />
 
           {project.total_submissions === 0 ? (
@@ -71,80 +75,102 @@ export default async function Page() {
             </div>
           ) : null}
 
-          <div className="grid gap-4 grid-cols-2 lg:grid-cols-4">
-            <Card className="shadow">
-              <CardHeader className="flex flex-row items-center justify-between space-y-0 pb-2">
-                <CardTitle className="text-sm font-medium">
-                  Average Rating
-                </CardTitle>
-              </CardHeader>
-              <CardContent>
-                <div
-                  className={cn(
-                    "text-2xl font-bold",
-                    getScoreTextColor(Number(average.toFixed())),
-                  )}
-                >
-                  {average.toFixed()} / 10
-                </div>
-              </CardContent>
-            </Card>
-            <Card className="shadow">
-              <CardHeader className="flex flex-row items-center justify-between space-y-0 pb-2">
-                <CardTitle className="text-sm font-medium">Ratings</CardTitle>
-              </CardHeader>
-              <CardContent>
-                <div className="text-2xl font-bold">{ratings?.length || 0}</div>
-              </CardContent>
-            </Card>
-            <Card className="shadow">
-              <CardHeader className="flex flex-row items-center justify-between space-y-0 pb-2">
-                <CardTitle className="text-sm font-medium">Issues</CardTitle>
-              </CardHeader>
-              <CardContent>
-                <div className="text-2xl font-bold">{issues?.length || 0}</div>
-              </CardContent>
-            </Card>
-            <Card className="shadow">
-              <CardHeader className="flex flex-row items-center justify-between space-y-0 pb-2">
-                <CardTitle className="text-sm font-medium">
-                  Suggestions
-                </CardTitle>
-              </CardHeader>
-              <CardContent>
-                <div className="text-2xl font-bold">
-                  {suggestions?.length || 0}
-                </div>
-              </CardContent>
-            </Card>
+          <div className="space-y-4">
+            <h2 className="text-lg leading-6 font-medium text-gray-900">
+              All Time Stats
+            </h2>
+            <div className="grid gap-4 grid-cols-2 lg:grid-cols-4">
+              <Card className="shadow">
+                <CardHeader className="flex flex-row items-center justify-between space-y-0 pb-2">
+                  <CardTitle className="text-sm font-medium">
+                    Average Rating
+                  </CardTitle>
+                </CardHeader>
+                <CardContent>
+                  <div
+                    className={cn(
+                      "text-2xl font-bold",
+                      getScoreTextColor(Number(average.toFixed())),
+                    )}
+                  >
+                    {average.toFixed()} / 10
+                  </div>
+                </CardContent>
+              </Card>
+              <Card className="shadow">
+                <CardHeader className="flex flex-row items-center justify-between space-y-0 pb-2">
+                  <CardTitle className="text-sm font-medium">
+                    Total Ratings
+                  </CardTitle>
+                </CardHeader>
+                <CardContent>
+                  <div className="text-2xl font-bold">
+                    {ratings?.length || 0}
+                  </div>
+                </CardContent>
+              </Card>
+              <Card className="shadow">
+                <CardHeader className="flex flex-row items-center justify-between space-y-0 pb-2">
+                  <CardTitle className="text-sm font-medium">
+                    Total Issues
+                  </CardTitle>
+                </CardHeader>
+                <CardContent>
+                  <div className="text-2xl font-bold">
+                    {issues?.length || 0}
+                  </div>
+                </CardContent>
+              </Card>
+              <Card className="shadow">
+                <CardHeader className="flex flex-row items-center justify-between space-y-0 pb-2">
+                  <CardTitle className="text-sm font-medium">
+                    Total Suggestions
+                  </CardTitle>
+                </CardHeader>
+                <CardContent>
+                  <div className="text-2xl font-bold">
+                    {suggestions?.length || 0}
+                  </div>
+                </CardContent>
+              </Card>
+            </div>
           </div>
 
-          <div className="grid gap-4 grid-cols-1 lg:grid-cols-7">
-            <Card className="col-span-1 lg:col-span-4 shadow">
-              <CardHeader>
-                <CardTitle>Floop Rating</CardTitle>
-                <CardDescription>
-                  Your average daily ratings for{" "}
-                  {new Date().toLocaleString("default", {
-                    month: "long",
-                  })}
-                </CardDescription>
-              </CardHeader>
-              <CardContent className="pl-2">
-                <Overview ratings={thisMonthsRatings} />
-              </CardContent>
-            </Card>
-            <Card className="col-span-1 lg:col-span-3 shadow">
-              <CardHeader>
-                <CardTitle>Recent Activity</CardTitle>
-                <CardDescription>
-                  You received 1 submission this month.
-                </CardDescription>
-              </CardHeader>
-              <CardContent>
-                <RecentActivity />
-              </CardContent>
-            </Card>
+          <div className="space-y-4">
+            <h2 className="text-lg leading-6 font-medium text-gray-900">
+              Monthly Overview
+            </h2>
+            <div className="grid gap-4 grid-cols-1 lg:grid-cols-7">
+              <Card className="col-span-1 lg:col-span-4 shadow">
+                <CardHeader>
+                  <CardTitle>Ratings</CardTitle>
+                  <CardDescription>
+                    How your ratings look for{" "}
+                    {new Date().toLocaleString("default", {
+                      month: "long",
+                    })}
+                  </CardDescription>
+                </CardHeader>
+                <CardContent className="pl-2">
+                  <Overview ratings={thisMonthsRatings} />
+                </CardContent>
+              </Card>
+              <Card className="col-span-1 lg:col-span-3 shadow">
+                <CardHeader>
+                  <CardTitle>Recent Activity</CardTitle>
+                  <CardDescription>
+                    What your users have been saying
+                  </CardDescription>
+                </CardHeader>
+                <CardContent>
+                  <RecentActivity
+                    ratings={ratings || []}
+                    issues={issues || []}
+                    suggestions={suggestions || []}
+                  />
+                </CardContent>
+              </Card>
+            </div>
           </div>
         </div>
       </div>

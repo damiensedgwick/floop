@@ -1,67 +1,74 @@
-import { Avatar, AvatarFallback, AvatarImage } from "@/components/ui/avatar";
+import { format, parseISO } from "date-fns";
+import { createActivityTimeline } from "@/app/(protected-routes)/project/dashboard/utils";
+import { Database } from "@/types/supabase";
+import {
+  ExclamationTriangleIcon,
+  LightBulbIcon,
+  StarIcon,
+} from "@heroicons/react/24/outline";
 
-export function RecentActivity() {
+type Props = {
+  ratings: Database["public"]["Tables"]["ratings"]["Row"][];
+  issues: Database["public"]["Tables"]["issues"]["Row"][];
+  suggestions: Database["public"]["Tables"]["suggestions"]["Row"][];
+};
+
+export function RecentActivity({ ratings, issues, suggestions }: Props) {
+  const timeline = createActivityTimeline(
+    ratings || [],
+    issues || [],
+    suggestions || [],
+  );
+
   return (
-    <div className="space-y-8">
-      <div className="flex items-center">
-        <Avatar className="h-9 w-9">
-          <AvatarImage src="/avatars/01.png" alt="Avatar" />
-          <AvatarFallback>OM</AvatarFallback>
-        </Avatar>
-        <div className="ml-4 space-y-1">
-          <p className="text-sm font-medium leading-none">Olivia Martin</p>
-          <p className="text-sm text-muted-foreground">
-            olivia.martin@email.com
-          </p>
+    <div className="space-y-6">
+      {timeline.slice(0, 6).map((entry: any, index: number) => (
+        <div className="flex items-center" key={index}>
+          {entry.type === "rating" && (
+            <>
+              <StarIcon width={28} height={28} className="text-teal-500" />
+              <p className="ml-3 text-sm font-medium leading-none">
+                {entry.score}
+              </p>
+              <div className="ml-auto font-medium hidden sm:block">
+                {format(parseISO(entry.created_at), "d MMMM")}
+              </div>
+            </>
+          )}
+
+          {entry.type === "issue" && (
+            <>
+              <ExclamationTriangleIcon
+                width={28}
+                height={28}
+                className="text-red-500"
+              />
+              <p className="ml-3 text-sm font-medium leading-none">
+                {entry.title}
+              </p>
+              <div className="ml-auto font-medium hidden sm:block">
+                {format(parseISO(entry.created_at), "d MMMM")}
+              </div>
+            </>
+          )}
+
+          {entry.type === "suggestion" && (
+            <>
+              <LightBulbIcon
+                width={28}
+                height={28}
+                className="text-amber-500"
+              />
+              <p className="ml-3 text-sm font-medium leading-none">
+                {entry.title}
+              </p>
+              <div className="ml-auto font-medium hidden sm:block">
+                {format(parseISO(entry.created_at), "d MMMM")}
+              </div>
+            </>
+          )}
         </div>
-        <div className="ml-auto font-medium">+$1,999.00</div>
-      </div>
-      <div className="flex items-center">
-        <Avatar className="flex h-9 w-9 items-center justify-center space-y-0 border">
-          <AvatarImage src="/avatars/02.png" alt="Avatar" />
-          <AvatarFallback>JL</AvatarFallback>
-        </Avatar>
-        <div className="ml-4 space-y-1">
-          <p className="text-sm font-medium leading-none">Jackson Lee</p>
-          <p className="text-sm text-muted-foreground">jackson.lee@email.com</p>
-        </div>
-        <div className="ml-auto font-medium">+$39.00</div>
-      </div>
-      <div className="flex items-center">
-        <Avatar className="h-9 w-9">
-          <AvatarImage src="/avatars/03.png" alt="Avatar" />
-          <AvatarFallback>IN</AvatarFallback>
-        </Avatar>
-        <div className="ml-4 space-y-1">
-          <p className="text-sm font-medium leading-none">Isabella Nguyen</p>
-          <p className="text-sm text-muted-foreground">
-            isabella.nguyen@email.com
-          </p>
-        </div>
-        <div className="ml-auto font-medium">+$299.00</div>
-      </div>
-      <div className="flex items-center">
-        <Avatar className="h-9 w-9">
-          <AvatarImage src="/avatars/04.png" alt="Avatar" />
-          <AvatarFallback>WK</AvatarFallback>
-        </Avatar>
-        <div className="ml-4 space-y-1">
-          <p className="text-sm font-medium leading-none">William Kim</p>
-          <p className="text-sm text-muted-foreground">will@email.com</p>
-        </div>
-        <div className="ml-auto font-medium">+$99.00</div>
-      </div>
-      <div className="flex items-center">
-        <Avatar className="h-9 w-9">
-          <AvatarImage src="/avatars/05.png" alt="Avatar" />
-          <AvatarFallback>SD</AvatarFallback>
-        </Avatar>
-        <div className="ml-4 space-y-1">
-          <p className="text-sm font-medium leading-none">Sofia Davis</p>
-          <p className="text-sm text-muted-foreground">sofia.davis@email.com</p>
-        </div>
-        <div className="ml-auto font-medium">+$39.00</div>
-      </div>
+      ))}
     </div>
   );
 }
