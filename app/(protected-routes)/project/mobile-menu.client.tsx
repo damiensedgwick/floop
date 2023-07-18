@@ -106,16 +106,15 @@ export default function MobileMenu({ navigation }: Props) {
         </Dialog>
       </Transition.Root>
 
-      <div className="sticky top-0 z-40 flex items-center gap-x-6 px-4 py-4 shadow-sm sm:px-6 lg:hidden">
+      <div className="sticky top-0 z-40 flex items-center justify-between gap-x-6 px-4 py-4 shadow-sm sm:px-6 lg:hidden bg-background">
         <button
           type="button"
           className="-m-2.5 p-2.5 lg:hidden"
           onClick={() => setSidebarOpen(true)}
         >
           <span className="sr-only">Open sidebar</span>
-          <Bars3Icon className="h-6 w-6" aria-hidden="true" />
+          <Bars3Icon width={32} height={32} aria-hidden="true" />
         </button>
-        <div className="flex-1 text-sm font-semibold leading-6">Dashboard</div>
         <span className="sr-only">Logout</span>
         <LogoutButton />
       </div>
