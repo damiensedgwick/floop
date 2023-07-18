@@ -2,7 +2,6 @@ import { cookies } from "next/headers";
 import { redirect } from "next/navigation";
 import { createServerComponentClient } from "@supabase/auth-helpers-nextjs";
 import { Database } from "@/types/supabase";
-import { User } from "@supabase/supabase-js";
 import { adverbs } from "@/lib/adverbs";
 import { nouns } from "@/lib/nouns";
 
@@ -35,7 +34,9 @@ export async function getPublicUser() {
   }
 }
 
-export async function getProject(user: User) {
+export async function getProject(
+  user: Database["public"]["Tables"]["users"]["Row"],
+) {
   try {
     const supabase = createServerComponentClient<Database>({ cookies });
 
@@ -56,7 +57,9 @@ export async function getProject(user: User) {
   }
 }
 
-export async function createNewProject(user: User) {
+export async function createNewProject(
+  user: Database["public"]["Tables"]["users"]["Row"],
+) {
   try {
     const supabase = createServerComponentClient<Database>({ cookies });
 
