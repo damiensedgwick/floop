@@ -23,7 +23,7 @@ export default async function Page() {
 
   if (!issues?.length) {
     return (
-      <div className="px-4 pt-2 sm:px-6 lg:px-8 flex flex-col items-center justify-center h-full">
+      <div className="flex h-full flex-col items-center justify-center px-4 pt-2 sm:px-6 lg:px-8">
         <h1 className="text-base font-semibold leading-6">
           <i>&ldquo;Home is where the graphics card is&ldquo;</i>
         </h1>
@@ -34,7 +34,7 @@ export default async function Page() {
   return (
     <div className="px-4 pt-2 sm:px-6 lg:px-8">
       <div className="sm:flex sm:items-center">
-        <div className="sm:flex-auto space-y-3.5">
+        <div className="space-y-3.5 sm:flex-auto">
           <h1 className="text-base font-semibold leading-6">Issues</h1>
           <Separator />
           <DataTable

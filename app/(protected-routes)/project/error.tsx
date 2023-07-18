@@ -15,9 +15,9 @@ export default function Error({
   }, [error]);
 
   return (
-    <div className="mx-auto max-w-7xl px-4 sm:px-6 lg:px-8 h-full">
-      <div className="mx-auto max-w-3xl h-full">
-        <div className="flex flex-col items-center justify-center h-full space-y-4">
+    <div className="mx-auto h-full max-w-7xl px-4 sm:px-6 lg:px-8">
+      <div className="mx-auto h-full max-w-3xl">
+        <div className="flex h-full flex-col items-center justify-center space-y-4">
           <h1 className="text-base font-semibold leading-6">
             Oops, something went wrong!
           </h1>

@@ -38,7 +38,7 @@ export const columns: ColumnDef<
       const rating = row.original;
 
       return (
-        <div className="space-x-1.5 text-sm font-medium">
+        <div className="text-sm font-medium space-x-1.5">
           <span>{rating.score}</span>
           <span>/</span>
           <span>10</span>

@@ -108,8 +108,8 @@ export default async function ProjectLayout({
         </div>
       </div>
 
-      <div className="py-6 lg:pl-72 h-full">
-        <div className="px-4 sm:px-6 lg:px-8 h-full">{children}</div>
+      <div className="h-full py-6 lg:pl-72">
+        <div className="h-full px-4 sm:px-6 lg:px-8">{children}</div>
       </div>
     </div>
   );
