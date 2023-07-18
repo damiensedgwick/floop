@@ -18,7 +18,17 @@ export async function getPublicUser() {
       redirect("/auth/sign-in");
     }
 
-    return user;
+    const { data: publicUser } = await supabase
+      .from("users")
+      .select()
+      .eq("id", user.id)
+      .single();
+
+    if (!publicUser) {
+      redirect("/auth/sign-in");
+    }
+
+    return publicUser;
   } catch (error) {
     console.error(error);
     redirect("/auth/sign-in");
