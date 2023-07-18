@@ -81,7 +81,7 @@ export default function Pricing() {
               {tiers.map((tier) => (
                 <div
                   key={tier.id}
-                  className="flex flex-col justify-between rounded-3xl p-8 shadow-xl ring-1 ring-gray-900/10 sm:p-10 bg-white text-zinc-950"
+                  className="flex flex-col justify-between rounded-3xl bg-white p-8 shadow-xl ring-1 ring-gray-900/10 text-zinc-950 sm:p-10"
                 >
                   <div>
                     <h3
@@ -125,7 +125,7 @@ export default function Pricing() {
                   </Link>
                 </div>
               ))}
-              <div className="flex flex-col items-start gap-x-8 gap-y-6 rounded-3xl p-8 ring-1 ring-gray-900/10 sm:gap-y-10 sm:p-10 lg:col-span-2 lg:flex-row lg:items-center bg-white text-zinc-950">
+              <div className="flex flex-col items-start gap-x-8 gap-y-6 rounded-3xl bg-white p-8 ring-1 ring-gray-900/10 text-zinc-950 sm:gap-y-10 sm:p-10 lg:col-span-2 lg:flex-row lg:items-center">
                 <div className="lg:min-w-0 lg:flex-1">
                   <h3 className="text-lg font-semibold leading-8 tracking-tight text-teal-600">
                     Discounted
