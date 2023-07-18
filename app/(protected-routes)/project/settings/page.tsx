@@ -24,7 +24,7 @@ export default async function Page() {
     <div className="px-4 pt-2 sm:px-6 lg:px-8">
       <div className="sm:flex sm:items-center">
         <div className="space-y-6 sm:flex-auto">
-          <h1 className="text-base font-semibold leading-6">Settings</h1>
+          <h1 className="text-xl font-semibold leading-6">Settings</h1>
           <Separator />
           <div className="overflow-hidden bg-secondary-accent shadow sm:rounded-lg border">
             <div className="border-gray-100">
