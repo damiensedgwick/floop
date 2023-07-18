@@ -96,6 +96,6 @@ export function getScoreTextColor(score: number): string {
     case 10:
       return "text-green-500";
     default:
-      return "text-black";
+      return "text-primary";
   }
 }

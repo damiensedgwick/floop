@@ -76,9 +76,7 @@ export default async function Page() {
           ) : null}
 
           <div className="space-y-4">
-            <h2 className="text-lg font-medium leading-6 text-gray-900">
-              All Time Stats
-            </h2>
+            <h2 className="text-lg font-medium leading-6">All Time Stats</h2>
             <div className="grid grid-cols-2 gap-4 lg:grid-cols-4">
               <Card className="shadow">
                 <CardHeader className="flex flex-row items-center justify-between pb-2 space-y-0">
@@ -93,7 +91,7 @@ export default async function Page() {
                       getScoreTextColor(Number(average.toFixed())),
                     )}
                   >
-                    {average.toFixed()} / 10
+                    {average.toFixed() || 0} / 10
                   </div>
                 </CardContent>
               </Card>
@@ -137,9 +135,7 @@ export default async function Page() {
           </div>
 
           <div className="space-y-4">
-            <h2 className="text-lg font-medium leading-6 text-gray-900">
-              Monthly Overview
-            </h2>
+            <h2 className="text-lg font-medium leading-6">Monthly Overview</h2>
             <div className="grid grid-cols-1 gap-4 lg:grid-cols-7">
               <Card className="col-span-1 shadow lg:col-span-4">
                 <CardHeader>
