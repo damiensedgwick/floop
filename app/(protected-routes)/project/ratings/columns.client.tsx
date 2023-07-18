@@ -87,15 +87,24 @@ export const columns: ColumnDef<
           <DropdownMenuContent align="end">
             <DropdownMenuLabel>Actions</DropdownMenuLabel>
             <DropdownMenuItem
+              className="cursor-pointer"
               onClick={() => navigator.clipboard.writeText(rating.id)}
             >
               Copy ID
             </DropdownMenuItem>
             <DropdownMenuSeparator />
-            <DropdownMenuItem>Add label</DropdownMenuItem>
-            <DropdownMenuItem>Follow up</DropdownMenuItem>
-            <DropdownMenuItem>Forward on</DropdownMenuItem>
-            <DropdownMenuItem>View details</DropdownMenuItem>
+            <DropdownMenuItem className="cursor-pointer">
+              Add label
+            </DropdownMenuItem>
+            <DropdownMenuItem className="cursor-pointer">
+              Follow up
+            </DropdownMenuItem>
+            <DropdownMenuItem className="cursor-pointer">
+              Forward on
+            </DropdownMenuItem>
+            <DropdownMenuItem className="cursor-pointer">
+              View details
+            </DropdownMenuItem>
           </DropdownMenuContent>
         </DropdownMenu>
       );

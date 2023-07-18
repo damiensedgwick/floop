@@ -4,6 +4,7 @@ import {
 } from "@/app/(protected-routes)/project/utils";
 import { ExclamationTriangleIcon } from "@heroicons/react/24/outline";
 import Link from "next/link";
+import { Separator } from "@/components/ui/separator";
 
 export default async function Page() {
   const user = await getPublicUser();
@@ -14,9 +15,11 @@ export default async function Page() {
   return (
     <div className="px-4 pt-2 sm:px-6 lg:px-8">
       <div className="sm:flex sm:items-center">
-        <div className="sm:flex-auto">
+        <div className="sm:flex-auto space-y-3.5">
+          <h1 className="text-base font-semibold leading-6">Dashboard</h1>
+          <Separator />
           {project.total_submissions === 0 ? (
-            <div className="mb-4 border-l-4 border-yellow-400 bg-yellow-50 p-4">
+            <div className="border-l-4 border-yellow-400 bg-yellow-50 p-4">
               <div className="flex">
                 <div className="flex-shrink-0">
                   <ExclamationTriangleIcon
@@ -40,8 +43,6 @@ export default async function Page() {
               </div>
             </div>
           ) : null}
-
-          <h1 className="text-base font-semibold leading-6">Dashboard</h1>
         </div>
       </div>
     </div>
