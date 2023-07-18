@@ -7,11 +7,11 @@ import {
   flexRender,
   getCoreRowModel,
   getFilteredRowModel,
-  VisibilityState,
   getPaginationRowModel,
   getSortedRowModel,
   SortingState,
   useReactTable,
+  VisibilityState,
 } from "@tanstack/react-table";
 
 import {
@@ -83,12 +83,11 @@ export function DataTable<TData, TValue>({
   return (
     <div>
       <div className="flex flex-col justify-between py-4 space-y-6">
-        <h1 className="text-base font-semibold leading-6">{pageTitle}</h1>
         <div className="flex items-center justify-between">
           {filterColumn ? (
             <Input
               placeholder={
-                pageTitle === "Ratings" ? "Filter details" : "Filter title"
+                pageTitle === "Ratings" ? "Search details" : "Search title"
               }
               value={
                 (table.getColumn(filterColumn)?.getFilterValue() as string) ??
