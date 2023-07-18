@@ -1,12 +1,12 @@
 export default async function Loading() {
   return (
-    <div className="mx-auto max-w-7xl px-4 sm:px-6 lg:px-8 h-full">
-      <div className="mx-auto max-w-3xl h-full">
-        <div className="flex flex-col items-center justify-center h-full">
+    <div className="mx-auto h-full max-w-7xl px-4 sm:px-6 lg:px-8">
+      <div className="mx-auto h-full max-w-3xl">
+        <div className="flex h-full flex-col items-center justify-center">
           <div role="status">
             <svg
               aria-hidden="true"
-              className="w-14 h-14 mr-2 animate-spin fill-teal-600"
+              className="mr-2 h-14 w-14 animate-spin fill-teal-600"
               viewBox="0 0 100 101"
               fill="none"
               xmlns="http://www.w3.org/2000/svg"
