@@ -76,12 +76,12 @@ export default async function Page() {
           ) : null}
 
           <div className="space-y-4">
-            <h2 className="text-lg leading-6 font-medium text-gray-900">
+            <h2 className="text-lg font-medium leading-6 text-gray-900">
               All Time Stats
             </h2>
-            <div className="grid gap-4 grid-cols-2 lg:grid-cols-4">
+            <div className="grid grid-cols-2 gap-4 lg:grid-cols-4">
               <Card className="shadow">
-                <CardHeader className="flex flex-row items-center justify-between space-y-0 pb-2">
+                <CardHeader className="flex flex-row items-center justify-between pb-2 space-y-0">
                   <CardTitle className="text-sm font-medium">
                     Average Rating
                   </CardTitle>
@@ -98,7 +98,7 @@ export default async function Page() {
                 </CardContent>
               </Card>
               <Card className="shadow">
-                <CardHeader className="flex flex-row items-center justify-between space-y-0 pb-2">
+                <CardHeader className="flex flex-row items-center justify-between pb-2 space-y-0">
                   <CardTitle className="text-sm font-medium">
                     Total Ratings
                   </CardTitle>
@@ -110,7 +110,7 @@ export default async function Page() {
                 </CardContent>
               </Card>
               <Card className="shadow">
-                <CardHeader className="flex flex-row items-center justify-between space-y-0 pb-2">
+                <CardHeader className="flex flex-row items-center justify-between pb-2 space-y-0">
                   <CardTitle className="text-sm font-medium">
                     Total Issues
                   </CardTitle>
@@ -122,7 +122,7 @@ export default async function Page() {
                 </CardContent>
               </Card>
               <Card className="shadow">
-                <CardHeader className="flex flex-row items-center justify-between space-y-0 pb-2">
+                <CardHeader className="flex flex-row items-center justify-between pb-2 space-y-0">
                   <CardTitle className="text-sm font-medium">
                     Total Suggestions
                   </CardTitle>
@@ -137,11 +137,11 @@ export default async function Page() {
           </div>
 
           <div className="space-y-4">
-            <h2 className="text-lg leading-6 font-medium text-gray-900">
+            <h2 className="text-lg font-medium leading-6 text-gray-900">
               Monthly Overview
             </h2>
-            <div className="grid gap-4 grid-cols-1 lg:grid-cols-7">
-              <Card className="col-span-1 lg:col-span-4 shadow">
+            <div className="grid grid-cols-1 gap-4 lg:grid-cols-7">
+              <Card className="col-span-1 shadow lg:col-span-4">
                 <CardHeader>
                   <CardTitle>Ratings</CardTitle>
                   <CardDescription>
@@ -155,7 +155,7 @@ export default async function Page() {
                   <Overview ratings={thisMonthsRatings} />
                 </CardContent>
               </Card>
-              <Card className="col-span-1 lg:col-span-3 shadow">
+              <Card className="col-span-1 shadow lg:col-span-3">
                 <CardHeader>
                   <CardTitle>Recent Activity</CardTitle>
                   <CardDescription>
