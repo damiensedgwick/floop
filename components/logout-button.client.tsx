@@ -17,7 +17,11 @@ export default function LogoutButton() {
   };
 
   return (
-    <Button className="w-1/3 lg:w-full" variant="outline" onClick={signOut}>
+    <Button
+      className="w-1/3 lg:w-full shadow"
+      variant="outline"
+      onClick={signOut}
+    >
       <ArrowLeftOnRectangleIcon className="mr-1" width={24} height={24} />
       Logout
     </Button>

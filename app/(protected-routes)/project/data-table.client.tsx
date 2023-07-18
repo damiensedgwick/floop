@@ -83,7 +83,7 @@ export function DataTable<TData, TValue>({
   return (
     <div>
       <div className="flex flex-col justify-between py-4 space-y-6">
-        <div className="flex items-center justify-between">
+        <div className="flex items-center lg:justify-between flex-col lg:flex-row space-y-3 lg:space-y-0">
           {filterColumn ? (
             <Input
               placeholder={
@@ -98,12 +98,15 @@ export function DataTable<TData, TValue>({
                   .getColumn(filterColumn)
                   ?.setFilterValue(event.target.value)
               }
-              className="max-w-sm"
+              className="max-w-sm shadow"
             />
           ) : null}
           <DropdownMenu>
             <DropdownMenuTrigger asChild>
-              <Button variant="outline" className="ml-auto">
+              <Button
+                variant="outline"
+                className="lg:ml-auto shadow w-full lg:max-w-[129px]"
+              >
                 Columns
               </Button>
             </DropdownMenuTrigger>
@@ -129,7 +132,7 @@ export function DataTable<TData, TValue>({
           </DropdownMenu>
         </div>
       </div>
-      <div className="rounded-md border">
+      <div className="rounded-md border shadow">
         <Table>
           <TableHeader>
             {table.getHeaderGroups().map((headerGroup) => (
@@ -185,6 +188,7 @@ export function DataTable<TData, TValue>({
           size="sm"
           onClick={() => table.previousPage()}
           disabled={!table.getCanPreviousPage()}
+          className="shadow"
         >
           Previous
         </Button>
@@ -193,6 +197,7 @@ export function DataTable<TData, TValue>({
           size="sm"
           onClick={() => table.nextPage()}
           disabled={!table.getCanNextPage()}
+          className="shadow"
         >
           Next
         </Button>
