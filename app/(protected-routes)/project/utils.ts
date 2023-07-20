@@ -1,43 +1,38 @@
+import { cache } from "react";
 import { cookies } from "next/headers";
 import { redirect } from "next/navigation";
 import { createServerComponentClient } from "@supabase/auth-helpers-nextjs";
 import { Database } from "@/types/supabase";
 import { adverbs } from "@/lib/adverbs";
 import { nouns } from "@/lib/nouns";
+import { User } from "@supabase/supabase-js";
 
-export async function getPublicUser() {
-  try {
-    const supabase = createServerComponentClient<Database>({ cookies });
+export const getPublicUser = cache(async () => {
+  const supabase = createServerComponentClient<Database>({ cookies });
 
-    const {
-      data: { user },
-    } = await supabase.auth.getUser();
+  const {
+    data: { user },
+  } = await supabase.auth.getUser();
 
-    if (!user) {
-      redirect("/auth/sign-in");
-    }
-
-    const { data: publicUser } = await supabase
-      .from("users")
-      .select()
-      .eq("id", user.id)
-      .single();
-
-    if (!publicUser) {
-      redirect("/auth/sign-in");
-    }
-
-    return publicUser;
-  } catch (error) {
-    console.error(error);
+  if (!user) {
     redirect("/auth/sign-in");
   }
-}
 
-export async function getProject(
-  user: Database["public"]["Tables"]["users"]["Row"],
-) {
-  try {
+  const { data: publicUser } = await supabase
+    .from("users")
+    .select()
+    .eq("id", user.id)
+    .single();
+
+  if (!publicUser) {
+    redirect("/auth/sign-in");
+  }
+
+  return publicUser;
+});
+
+export const getProject = cache(
+  async (user: Database["public"]["Tables"]["users"]["Row"]) => {
     const supabase = createServerComponentClient<Database>({ cookies });
 
     const { data } = await supabase
@@ -51,11 +46,8 @@ export async function getProject(
     }
 
     return data;
-  } catch (error) {
-    console.error(error);
-    redirect("/auth/sign-in");
-  }
-}
+  },
+);
 
 export async function createNewProject(
   user: Database["public"]["Tables"]["users"]["Row"],
