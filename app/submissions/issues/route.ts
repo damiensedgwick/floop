@@ -13,6 +13,26 @@ export async function POST(request: Request): Promise<NextResponse> {
 
   const supabase = createServerComponentClient<Database>({ cookies });
 
+  const { data: project } = await supabase
+    .from("projects")
+    .select()
+    .eq("id", project_id)
+    .single();
+
+  if (!project) {
+    return NextResponse.json({ message: "Bad request" }, { status: 400 });
+  }
+
+  if (
+    project.subscription_type === "hobby" &&
+    project.total_submissions >= 50
+  ) {
+    return NextResponse.json(
+      { message: "Project has reached submission limit, please subscribe." },
+      { status: 400 },
+    );
+  }
+
   const { error } = await supabase.from("issues").insert({
     project_id: project_id,
     title: title,
