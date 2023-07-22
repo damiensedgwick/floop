@@ -18,7 +18,7 @@ export default function LogoutButton() {
 
   return (
     <Button
-      className="w-1/3 shadow lg:w-full"
+      className="w-[125px] shadow lg:w-full"
       variant="outline"
       onClick={signOut}
     >
