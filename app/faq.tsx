@@ -31,7 +31,8 @@ export default function FAQ() {
               Frequently asked questions
             </h2>
             <p className="mt-4 text-base leading-7">
-              Can't find the answer you're looking for? Reach out to our{" "}
+              Can&apos;t find the answer you&apos;re looking for? Reach out to
+              our{" "}
               <a
                 href="mailto:damienksedgwick@gmail.com"
                 className="font-semibold text-teal-600 hover:text-teal-500"
