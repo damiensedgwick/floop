@@ -26,7 +26,7 @@
     "date-fns": "^2.30.0",
     "encoding": "^0.1.13",
     "lucide-react": "^0.260.0",
-    "next": "^13.4.12",
+    "next": "latest",
     "next-themes": "^0.2.1",
     "postcss": "8.4.24",
     "prettier": "^3.0.0",
