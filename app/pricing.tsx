@@ -21,7 +21,7 @@ const tiers = [
     name: "Growth",
     id: "tier-growth",
     href: "#",
-    priceMonthly: "£50",
+    priceMonthly: "£14.99",
     description:
       "Perfect for growing teams and business looking to get more value from their feedback.",
     features: [
@@ -96,7 +96,7 @@ export default function Pricing() {
                       </span>
                       {tier.id === "tier-growth" ? (
                         <span className="text-base font-semibold leading-7">
-                          / annually
+                          / month
                         </span>
                       ) : null}
                     </div>
