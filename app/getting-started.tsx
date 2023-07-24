@@ -4,7 +4,6 @@ import {
   AccordionItem,
   AccordionTrigger,
 } from "@/components/ui/accordion";
-// @ts-ignore
 import { CodeBlock } from "react-perfect-syntax-highlighter";
 
 export default function GettingStarted() {
@@ -30,17 +29,19 @@ export default function GettingStarted() {
             <AccordionContent className="py-3">
               <CodeBlock
                 className="rounded-md p-4"
-                language="tsx"
+                lang="tsx"
                 theme="github-dark"
-                code={`import { FloopWidget } from "@feedback-loop/react"
-
-export const MyComponent = () => {
-    return (
-        <FloopWidget projectId="..." userEmail="...">
-            <button>Give feedback</button>
-        </FloopWidget>
-    );
-};`}
+                code={[
+                  "import { FloopWidget } from @feedback-loop/react",
+                  "",
+                  "export const MyComponent = () => {",
+                  "    return (",
+                  '        <FloopWidget projectId="..." userEmail="...">',
+                  "            <button>Give feedback</button>",
+                  "        </FloopWidget>",
+                  "    );",
+                  "};",
+                ].join("\n")}
               />
             </AccordionContent>
           </AccordionItem>
@@ -58,22 +59,91 @@ export const MyComponent = () => {
                 the three following endpoints like the examples below:
               </p>
               <CodeBlock
-                className="rounded-md p-4 text-white mb-4"
-                language="tsx"
-                theme="dracula"
-                code={`// Ratings`}
+                className="rounded-md p-4 mb-4"
+                lang="tsx"
+                theme="github-dark"
+                code={[
+                  "// Ratings",
+                  "",
+                  "const handleSubmitRating = async (formData: FormData) => {",
+                  "  // ... your form code and validation",
+                  "",
+                  "  const body = {",
+                  "    score: Number(rating),",
+                  "    details: message,",
+                  "    project_id: projectId,",
+                  "    user_email: userEmail,",
+                  "  };",
+                  "",
+                  "  await fetch('https://feedback-loop.io/submissions/ratings', {",
+                  "    method: 'POST',",
+                  "    mode: 'no-cors',",
+                  "    headers: {",
+                  "      'Content-Type': 'application/json',",
+                  "    },",
+                  "    body: JSON.stringify(body),",
+                  "",
+                  "  // ... return",
+                  "});",
+                ].join("\n")}
               />
               <CodeBlock
-                className="rounded-md p-4 text-white mb-4"
-                language="tsx"
-                theme="dracula"
-                code={`// Issues`}
+                className="rounded-md p-4 mb-4"
+                lang="tsx"
+                theme="github-dark"
+                code={[
+                  "// Issues",
+                  "",
+                  "const handleSubmitIssue = async (formData: FormData) => {",
+                  "  // ... your form code and validation",
+                  "",
+                  "  const body = {",
+                  "    title: title,",
+                  "    details: message,",
+                  "    project_id: projectId,",
+                  "    user_email: userEmail,",
+                  "  };",
+                  "",
+                  "  await fetch('https://feedback-loop.io/submissions/issues', {",
+                  "    method: 'POST',",
+                  "    mode: 'no-cors',",
+                  "    headers: {",
+                  "      'Content-Type': 'application/json',",
+                  "    },",
+                  "    body: JSON.stringify(body),",
+                  "",
+                  "  // ... return",
+                  "});",
+                ].join("\n")}
               />
               <CodeBlock
-                className="rounded-md p-4 text-white mb-4"
-                language="tsx"
-                theme="dracula"
-                code={`// Suggestions`}
+                className="rounded-md p-4 mb-4"
+                lang="tsx"
+                theme="github-dark"
+                code={[
+                  "// Suggestions",
+                  "",
+                  "const handleSubmitRating = async (formData: FormData) => {",
+                  "  // ... your form code and validation",
+                  "",
+                  "  const body = {",
+                  "    title: title,",
+                  "    details: message,",
+                  "    project_id: projectId,",
+                  "    user_email: userEmail,",
+                  "  };",
+                  "",
+                  "  await fetch('https://feedback-loop.io/submissions/suggestions', {",
+                  "    method: 'POST',",
+                  "    mode: 'no-cors',",
+                  "    headers: {",
+                  "      'Content-Type': 'application/json',",
+                  "    },",
+                  "    body: JSON.stringify(body),",
+                  "",
+                  "  // ... return",
+                  "});",
+                ].join("\n")}
               />
             </AccordionContent>
           </AccordionItem>
