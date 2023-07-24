@@ -5,6 +5,9 @@ import {
   AccordionTrigger,
 } from "@/components/ui/accordion";
 import { CodeBlock } from "react-perfect-syntax-highlighter";
+import Link from "next/link";
+import { buttonVariants } from "@/components/ui/button";
+import { cn } from "@/lib/utils";
 
 export default function GettingStarted() {
   return (
@@ -28,11 +31,18 @@ export default function GettingStarted() {
             <AccordionTrigger>Using React</AccordionTrigger>
             <AccordionContent className="py-3">
               <CodeBlock
-                className="rounded-md p-4"
+                className="rounded-md p-4 mb-4"
+                lang="bash"
+                theme="github-dark"
+                code={["pnpm add @feedback-loop/react"].join("\n")}
+              />
+
+              <CodeBlock
+                className="rounded-md p-4 mb-4"
                 lang="tsx"
                 theme="github-dark"
                 code={[
-                  "import { FloopWidget } from @feedback-loop/react",
+                  'import { FloopWidget } from "@feedback-loop/react";',
                   "",
                   "export const MyComponent = () => {",
                   "    return (",
@@ -43,6 +53,15 @@ export default function GettingStarted() {
                   "};",
                 ].join("\n")}
               />
+
+              <Link
+                href="https://github.com/damiensedgwick/floop-react"
+                title="View Floop Widget, React source code"
+                className={cn(buttonVariants({ variant: "themed" }), "mt-4")}
+                target="_blank"
+              >
+                View on GitHub
+              </Link>
             </AccordionContent>
           </AccordionItem>
           <AccordionItem value="item-2">

@@ -30,7 +30,7 @@ export default function FAQ() {
             <h2 className="text-2xl font-bold leading-10 tracking-tight">
               Frequently asked questions
             </h2>
-            <p className="mt-4 text-base leading-7">
+            <p className="mt-4 text-lg leading-7">
               Can&apos;t find the answer you&apos;re looking for? Reach out to
               our{" "}
               <a
@@ -49,7 +49,7 @@ export default function FAQ() {
                   <dt className="text-base font-semibold leading-7">
                     {faq.question}
                   </dt>
-                  <dd className="mt-2 text-base leading-7">{faq.answer}</dd>
+                  <dd className="mt-2 text-lg leading-7">{faq.answer}</dd>
                 </div>
               ))}
             </dl>

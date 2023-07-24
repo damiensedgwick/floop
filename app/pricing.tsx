@@ -11,18 +11,17 @@ const tiers = [
       "The essentials for getting started, collecting feedback and enhancing your platform.",
     features: [
       "1 User",
-      "Up to 50 total submissions",
+      "20 total submissions",
       "Ratings",
       "Issues",
       "Suggestions",
-      "72-hour support response time",
     ],
   },
   {
     name: "Growth",
     id: "tier-growth",
     href: "#",
-    priceMonthly: "£25",
+    priceMonthly: "£50",
     description:
       "Perfect for growing teams and business looking to get more value from their feedback.",
     features: [
@@ -31,7 +30,8 @@ const tiers = [
       "Ratings",
       "Issues",
       "Suggestions",
-      "12-hour support response time",
+      "Reports",
+      "Team management",
     ],
   },
 ];
@@ -94,13 +94,13 @@ export default function Pricing() {
                       <span className="text-5xl font-bold tracking-tight">
                         {tier.priceMonthly}
                       </span>
-                      <span className="text-base font-semibold leading-7">
-                        /month
-                      </span>
+                      {tier.id === "tier-growth" ? (
+                        <span className="text-base font-semibold leading-7">
+                          / annually
+                        </span>
+                      ) : null}
                     </div>
-                    <p className="mt-6 text-base leading-7">
-                      {tier.description}
-                    </p>
+                    <p className="mt-6 leading-7">{tier.description}</p>
                     <ul
                       role="list"
                       className="mt-10 text-sm leading-6 space-y-4"
@@ -125,23 +125,6 @@ export default function Pricing() {
                   </Link>
                 </div>
               ))}
-              <div className="flex flex-col items-start gap-x-8 gap-y-6 rounded-3xl bg-white p-8 ring-1 ring-gray-900/10 text-zinc-950 sm:gap-y-10 sm:p-10 lg:col-span-2 lg:flex-row lg:items-center">
-                <div className="lg:min-w-0 lg:flex-1">
-                  <h3 className="text-lg font-semibold leading-8 tracking-tight text-teal-600">
-                    Discounted
-                  </h3>
-                  <p className="mt-1 text-base leading-7">
-                    Love Floop or love a saving? Get 2 months for free when you
-                    purchase an annual subscription.
-                  </p>
-                </div>
-                <Link
-                  href="#"
-                  className="rounded-md py-2 text-sm font-semibold leading-6 text-teal-600 ring-1 ring-inset ring-teal-600 px-3.5 hover:ring-teal-500 focus-visible:outline focus-visible:outline-2 focus-visible:outline-offset-2 focus-visible:outline-teal-500"
-                >
-                  Buy annual subscription <span aria-hidden="true">&rarr;</span>
-                </Link>
-              </div>
             </div>
           </div>
         </div>
