@@ -46,7 +46,6 @@ export default async function Hero() {
               alt="Floop logo"
             />
             <div>
-              {/* TODO: Add avatar here when the user is signed in*/}
               <ThemeToggle />
             </div>
           </div>
@@ -70,7 +69,7 @@ export default async function Hero() {
           </p>
           <div className="mt-10 flex items-center gap-x-6">
             <Link
-              href="#"
+              href="/auth/sign-in"
               className="rounded-md bg-teal-600 text-sm font-semibold text-white shadow-sm px-3.5 py-2.5 hover:bg-teal-500 focus-visible:outline focus-visible:outline-2 focus-visible:outline-offset-2 focus-visible:outline-teal-600"
             >
               Get started for free
