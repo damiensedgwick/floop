@@ -1,11 +1,12 @@
 import { CheckIcon } from "@heroicons/react/20/solid";
 import Link from "next/link";
+import { ExclamationTriangleIcon } from "@heroicons/react/24/outline";
 
 const tiers = [
   {
     name: "Hobby",
     id: "tier-hobby",
-    href: "#",
+    href: "/auth/sign-in",
     priceMonthly: "£0",
     description:
       "The essentials for getting started, collecting feedback and enhancing your platform.",
@@ -15,12 +16,13 @@ const tiers = [
       "Ratings",
       "Issues",
       "Suggestions",
+      "No Credit Card Required",
     ],
   },
   {
     name: "Growth",
     id: "tier-growth",
-    href: "#",
+    href: "/auth/sign-in",
     priceMonthly: "£14.99",
     description:
       "Perfect for growing teams and business looking to get more value from their feedback.",
@@ -77,6 +79,29 @@ export default function Pricing() {
       <div className="flow-root pb-24 sm:pb-32">
         <div className="-mt-80">
           <div className="mx-auto max-w-7xl px-6 lg:px-8">
+            <div className="rounded-md bg-yellow-50 p-4 max-w-4xl mx-auto mb-6">
+              <div className="flex">
+                <div className="flex-shrink-0">
+                  <ExclamationTriangleIcon
+                    className="h-5 w-5 text-yellow-400"
+                    aria-hidden="true"
+                  />
+                </div>
+                <div className="ml-3">
+                  <h3 className="text-sm font-medium text-yellow-800">
+                    Pricing plans
+                  </h3>
+                  <div className="mt-2 text-sm text-yellow-700">
+                    <p>
+                      The current pricing plans are to try and make Floop as
+                      accessible as possible. We would like to keep it this way
+                      for as long as possible, but we may need to change the
+                      pricing plans in the future should we need to.
+                    </p>
+                  </div>
+                </div>
+              </div>
+            </div>
             <div className="mx-auto grid max-w-md grid-cols-1 gap-8 lg:max-w-4xl lg:grid-cols-2">
               {tiers.map((tier) => (
                 <div
@@ -121,7 +146,7 @@ export default function Pricing() {
                     aria-describedby={tier.id}
                     className="mt-8 block rounded-md bg-teal-600 py-2 text-center text-sm font-semibold leading-6 text-white shadow-sm px-3.5 hover:bg-teal-500 focus-visible:outline focus-visible:outline-2 focus-visible:outline-offset-2 focus-visible:outline-teal-600"
                   >
-                    Get started today
+                    Get started for free
                   </Link>
                 </div>
               ))}
