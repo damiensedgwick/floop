@@ -55,7 +55,7 @@ export default function Features() {
             <p className="mt-2 text-3xl font-bold tracking-tight sm:text-4xl">
               Focus on building your service and let us collect your feedback
             </p>
-            <p className="mt-6 text-base leading-7">
+            <p className="mt-6 text-lg leading-7">
               Floop eliminates the stress of building and managing your own
               feedback system. With a centralised platform, we handle the volume
               and varying formats of customer feedback, boosting project
@@ -72,7 +72,7 @@ export default function Features() {
                   />
                   {feature.name}
                 </dt>
-                <dd className="mt-2">{feature.description}</dd>
+                <dd className="mt-2 text-lg">{feature.description}</dd>
               </div>
             ))}
           </dl>
