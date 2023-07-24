@@ -1,3 +1,12 @@
+import {
+  Accordion,
+  AccordionContent,
+  AccordionItem,
+  AccordionTrigger,
+} from "@/components/ui/accordion";
+// @ts-ignore
+import { CodeBlock } from "react-perfect-syntax-highlighter";
+
 export default function GettingStarted() {
   return (
     <div className="py-24 sm:py-32">
@@ -15,18 +24,60 @@ export default function GettingStarted() {
             use a bespoke form and sending the data to our endpoints.
           </p>
         </div>
-        <div className="mt-10 flex items-center gap-x-6">
-          <a
-            href="https://www.github.com/damiensedgwick/floop-react"
-            target="_blank"
-            className="rounded-md bg-teal-600 text-sm font-semibold text-white shadow-sm px-3.5 py-2.5 hover:bg-teal-500 focus-visible:outline focus-visible:outline-2 focus-visible:outline-offset-2 focus-visible:outline-teal-600"
-          >
-            Meet the widget
-          </a>
-          <a href="#" className="text-sm font-semibold leading-6">
-            Fly solo <span aria-hidden="true">→</span>
-          </a>
-        </div>
+        <Accordion type="single" collapsible className="w-full my-8">
+          <AccordionItem value="item-1">
+            <AccordionTrigger>Using React</AccordionTrigger>
+            <AccordionContent className="py-3">
+              <CodeBlock
+                className="rounded-md p-4"
+                language="tsx"
+                theme="github-dark"
+                code={`import { FloopWidget } from "@feedback-loop/react"
+
+export const MyComponent = () => {
+    return (
+        <FloopWidget projectId="..." userEmail="...">
+            <button>Give feedback</button>
+        </FloopWidget>
+    );
+};`}
+              />
+            </AccordionContent>
+          </AccordionItem>
+          <AccordionItem value="item-2">
+            <AccordionTrigger>Using Vue</AccordionTrigger>
+            <AccordionContent>
+              <i>Coming soon...</i>
+            </AccordionContent>
+          </AccordionItem>
+          <AccordionItem value="item-3">
+            <AccordionTrigger>Going Bespoke</AccordionTrigger>
+            <AccordionContent>
+              <p className="mb-4 text-lg leading-4">
+                After you have built your forms, simply send your data to one of
+                the three following endpoints like the examples below:
+              </p>
+              <CodeBlock
+                className="rounded-md p-4 text-white mb-4"
+                language="tsx"
+                theme="dracula"
+                code={`// Ratings`}
+              />
+              <CodeBlock
+                className="rounded-md p-4 text-white mb-4"
+                language="tsx"
+                theme="dracula"
+                code={`// Issues`}
+              />
+              <CodeBlock
+                className="rounded-md p-4 text-white mb-4"
+                language="tsx"
+                theme="dracula"
+                code={`// Suggestions`}
+              />
+            </AccordionContent>
+          </AccordionItem>
+        </Accordion>
       </div>
     </div>
   );
