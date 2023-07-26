@@ -25,7 +25,7 @@ export default async function Page({
   );
 
   const subscription = await stripe.subscriptions.retrieve(
-    "sub_1NYEa2Jjkjlhn0vrT9dRtLsg",
+    session.subscription as string,
   );
 
   const supabase = createServerComponentClient<Database>({ cookies });
