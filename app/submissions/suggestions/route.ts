@@ -41,7 +41,7 @@ export async function POST(request: Request) {
     );
   }
 
-  const subscription = await getSubscription(project.id);
+  const subscription = await getSubscription(project.stripe_subscription_id);
 
   if (!subscription && project.total_submissions >= 20) {
     return NextResponse.json(

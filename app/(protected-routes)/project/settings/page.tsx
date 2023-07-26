@@ -9,13 +9,12 @@ import { Separator } from "@/components/ui/separator";
 import { createServerComponentClient } from "@supabase/auth-helpers-nextjs";
 import { Database } from "@/types/supabase";
 import { buttonVariants } from "@/components/ui/button";
-import createStripe from "stripe";
 import getSubscription from "@/app/submissions/utils";
 
 export default async function Page() {
   const user = await getPublicUser();
   const project = await getProject(user);
-  const subscription = await getSubscription(project.id);
+  const subscription = await getSubscription(project.stripe_subscription_id);
   const supabase = createServerComponentClient<Database>({ cookies });
 
   const { data: result } = await supabase
