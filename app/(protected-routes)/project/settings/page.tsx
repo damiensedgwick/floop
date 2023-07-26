@@ -49,7 +49,7 @@ export default async function Page() {
                 <div className="px-4 py-6 sm:grid sm:grid-cols-3 sm:gap-4 sm:px-6">
                   <dt className="text-sm font-medium">Owner&apos;s name</dt>
                   <dd className="mt-1 text-sm leading-6 sm:col-span-2 sm:mt-0">
-                    {owner?.first_name + " " + owner?.last_name}
+                    {owner?.preferred_name || owner?.email}
                   </dd>
                 </div>
                 <div className="px-4 py-6 sm:grid sm:grid-cols-3 sm:gap-4 sm:px-6">
