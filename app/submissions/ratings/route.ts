@@ -3,7 +3,6 @@ import { cookies } from "next/headers";
 import { NextResponse } from "next/server";
 import { Database } from "@/types/supabase";
 import getSubscription from "@/app/submissions/utils";
-import { getProject } from "@/app/(protected-routes)/project/utils";
 
 export async function POST(request: Request) {
   const { project_id, score, details, user_email } = await request.json();
@@ -30,7 +29,7 @@ export async function POST(request: Request) {
 
   const { data: project } = await supabase
     .from("projects")
-    .select("id, total_submissions")
+    .select("id, total_submissions, stripe_subscription_id")
     .eq("id", project_id)
     .single();
 
