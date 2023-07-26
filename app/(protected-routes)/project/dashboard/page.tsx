@@ -16,10 +16,8 @@ import { Overview } from "@/app/(protected-routes)/project/dashboard/overview";
 import { RecentActivity } from "@/app/(protected-routes)/project/dashboard/recent-activity";
 import { cn } from "@/lib/utils";
 import {
-  createActivityTimeline,
   createChartData,
   getScoreTextColor,
-  getThisMonthsRatings,
 } from "@/app/(protected-routes)/project/dashboard/utils";
 import { getRatings } from "@/app/(protected-routes)/project/ratings/ratings";
 import { getIssues } from "@/app/(protected-routes)/project/issues/issues";
