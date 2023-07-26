@@ -5,7 +5,6 @@ import { createServerComponentClient } from "@supabase/auth-helpers-nextjs";
 import { Database } from "@/types/supabase";
 import { adverbs } from "@/lib/adverbs";
 import { nouns } from "@/lib/nouns";
-import { User } from "@supabase/supabase-js";
 import { revalidatePath } from "next/cache";
 
 export const getPublicUser = cache(async () => {
