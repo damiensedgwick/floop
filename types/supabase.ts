@@ -52,6 +52,7 @@ export interface Database {
           id: string
           name: string
           owner_id: string
+          stripe_subscription_id: string | null
           total_submissions: number
           updated_at: string | null
         }
@@ -60,6 +61,7 @@ export interface Database {
           id?: string
           name: string
           owner_id: string
+          stripe_subscription_id?: string | null
           total_submissions?: number
           updated_at?: string | null
         }
@@ -68,6 +70,7 @@ export interface Database {
           id?: string
           name?: string
           owner_id?: string
+          stripe_subscription_id?: string | null
           total_submissions?: number
           updated_at?: string | null
         }
