@@ -6,6 +6,7 @@ import { Database } from "@/types/supabase";
 import { adverbs } from "@/lib/adverbs";
 import { nouns } from "@/lib/nouns";
 import { User } from "@supabase/supabase-js";
+import { revalidatePath } from "next/cache";
 
 export const getPublicUser = cache(async () => {
   const supabase = createServerComponentClient<Database>({ cookies });
@@ -75,6 +76,15 @@ export async function createNewProject(
       .from("users")
       .update({ project_id: data[0].id })
       .eq("id", user.id);
+
+    revalidatePath("/project/dashboard");
+    revalidatePath("/project/issues");
+    revalidatePath("/project/profile");
+    revalidatePath("/project/ratings");
+    revalidatePath("/project/reports");
+    revalidatePath("/project/settings");
+    revalidatePath("/project/suggestions");
+    revalidatePath("/project/team");
 
     return data[0];
   } catch (error) {
