@@ -1,3 +1,6 @@
+import Link from "next/link";
+import { cookies } from "next/headers";
+import { format } from "date-fns";
 import {
   getProject,
   getPublicUser,
@@ -5,11 +8,14 @@ import {
 import { Separator } from "@/components/ui/separator";
 import { createServerComponentClient } from "@supabase/auth-helpers-nextjs";
 import { Database } from "@/types/supabase";
-import { cookies } from "next/headers";
+import { buttonVariants } from "@/components/ui/button";
+import createStripe from "stripe";
+import getSubscription from "@/app/submissions/utils";
 
 export default async function Page() {
   const user = await getPublicUser();
   const project = await getProject(user);
+  const subscription = await getSubscription(project.id);
   const supabase = createServerComponentClient<Database>({ cookies });
 
   const { data: result } = await supabase
@@ -30,49 +36,87 @@ export default async function Page() {
             <div className="border-gray-100">
               <dl className="divide-y">
                 <div className="px-4 py-6 sm:grid sm:grid-cols-3 sm:gap-4 sm:px-6">
-                  <dt className="text-sm font-medium">Name</dt>
+                  <dt className="text-sm font-medium">Project name</dt>
                   <dd className="mt-1 text-sm leading-6 sm:col-span-2 sm:mt-0">
                     {project.name}
                   </dd>
                 </div>
                 <div className="px-4 py-6 sm:grid sm:grid-cols-3 sm:gap-4 sm:px-6">
-                  <dt className="text-sm font-medium">Owner</dt>
+                  <dt className="text-sm font-medium">Project ID</dt>
+                  <dd className="mt-1 text-sm leading-6 sm:col-span-2 sm:mt-0">
+                    {project.id}
+                  </dd>
+                </div>
+                <div className="px-4 py-6 sm:grid sm:grid-cols-3 sm:gap-4 sm:px-6">
+                  <dt className="text-sm font-medium">Owner&apos;s name</dt>
                   <dd className="mt-1 text-sm leading-6 sm:col-span-2 sm:mt-0">
                     {owner?.first_name + " " + owner?.last_name}
                   </dd>
                 </div>
                 <div className="px-4 py-6 sm:grid sm:grid-cols-3 sm:gap-4 sm:px-6">
-                  <dt className="text-sm font-medium">Subscription Type</dt>
+                  <dt className="text-sm font-medium">Owner&apos;s email</dt>
                   <dd className="mt-1 text-sm leading-6 sm:col-span-2 sm:mt-0">
-                    {project.subscription_type}
+                    {owner?.email}
                   </dd>
                 </div>
                 <div className="px-4 py-6 sm:grid sm:grid-cols-3 sm:gap-4 sm:px-6">
-                  <dt className="text-sm font-medium">Subscription Expiry</dt>
+                  <dt className="text-sm font-medium">Subscription type</dt>
                   <dd className="mt-1 text-sm leading-6 sm:col-span-2 sm:mt-0">
-                    {project.subscription_expiry || "N/A"}
+                    {subscription ? "Growth" : "Hobby"}
                   </dd>
                 </div>
                 <div className="px-4 py-6 sm:grid sm:grid-cols-3 sm:gap-4 sm:px-6">
-                  <dt className="text-sm font-medium">Submission Count</dt>
+                  <dt className="text-sm font-medium">
+                    Subscription expiry date
+                  </dt>
+                  <dd className="mt-1 text-sm leading-6 sm:col-span-2 sm:mt-0">
+                    {subscription
+                      ? format(
+                          new Date(subscription.current_period_end),
+                          "dd MMM yyyy",
+                        )
+                      : "Free Forever"}
+                  </dd>
+                </div>
+                <div className="px-4 py-6 sm:grid sm:grid-cols-3 sm:gap-4 sm:px-6">
+                  <dt className="text-sm font-medium">
+                    Total submission count
+                  </dt>
                   <dd className="mt-1 text-sm leading-6 sm:col-span-2 sm:mt-0">
                     {project.total_submissions}
                   </dd>
                 </div>
                 <div className="px-4 py-6 sm:grid sm:grid-cols-3 sm:gap-4 sm:px-6">
-                  <dt className="text-sm font-medium">Team Size</dt>
+                  <dt className="text-sm font-medium">Number of users</dt>
                   <dd className="mt-1 text-sm leading-6 sm:col-span-2 sm:mt-0">
                     {users?.length}
                   </dd>
                 </div>{" "}
                 <div className="px-4 py-6 sm:grid sm:grid-cols-3 sm:gap-4 sm:px-6">
-                  <dt className="text-sm font-medium">Created Date</dt>
+                  <dt className="text-sm font-medium">Created On</dt>
                   <dd className="mt-1 text-sm leading-6 sm:col-span-2 sm:mt-0">
-                    {project.created_at}
+                    {format(new Date(project.created_at!), "dd MMM yyyy")}
                   </dd>
                 </div>
               </dl>
             </div>
+          </div>
+          <div className="flex justify-end">
+            {subscription ? (
+              <Link
+                href={process.env.NEXT_PUBLIC_STRIPE_PORTAL_LINK_URL!}
+                className={buttonVariants({ variant: "themed", size: "lg" })}
+              >
+                Manage Subscription
+              </Link>
+            ) : (
+              <Link
+                href={process.env.NEXT_PUBLIC_STRIPE_CHECKOUT_LINK_URL!}
+                className={buttonVariants({ variant: "themed", size: "lg" })}
+              >
+                Buy Subscription
+              </Link>
+            )}
           </div>
         </div>
       </div>
