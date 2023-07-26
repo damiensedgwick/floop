@@ -52,8 +52,6 @@ export interface Database {
           id: string
           name: string
           owner_id: string
-          subscription_expiry: string | null
-          subscription_type: string
           total_submissions: number
           updated_at: string | null
         }
@@ -62,8 +60,6 @@ export interface Database {
           id?: string
           name: string
           owner_id: string
-          subscription_expiry?: string | null
-          subscription_type?: string
           total_submissions?: number
           updated_at?: string | null
         }
@@ -72,8 +68,6 @@ export interface Database {
           id?: string
           name?: string
           owner_id?: string
-          subscription_expiry?: string | null
-          subscription_type?: string
           total_submissions?: number
           updated_at?: string | null
         }
