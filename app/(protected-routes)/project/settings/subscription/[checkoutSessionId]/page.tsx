@@ -7,7 +7,7 @@ import {
 import Link from "next/link";
 import { buttonVariants } from "@/components/ui/button";
 
-export default async function ({
+export default async function Page({
   params,
 }: {
   params: { checkoutSessionId: string };
