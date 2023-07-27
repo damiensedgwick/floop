@@ -1,18 +1,17 @@
-import createStripe from "stripe";
+import { NextRequest, NextResponse } from "next/server";
 import {
   getProject,
   getPublicUser,
 } from "@/app/(protected-routes)/project/utils";
-import { redirect } from "next/navigation";
+import createStripe from "stripe";
 import { createServerComponentClient } from "@supabase/auth-helpers-nextjs";
 import { Database } from "@/types/supabase";
 import { cookies } from "next/headers";
 
-export default async function Page({
-  params,
-}: {
-  params: { checkoutSessionId: string };
-}) {
+export default async function GET(
+  request: NextRequest,
+  context: { params: { checkoutSessionId: string } },
+) {
   const user = await getPublicUser();
   const project = await getProject(user);
 
@@ -21,7 +20,7 @@ export default async function Page({
   });
 
   const session = await stripe.checkout.sessions.retrieve(
-    params.checkoutSessionId,
+    context.params.checkoutSessionId,
   );
 
   const subscription = await stripe.subscriptions.retrieve(
@@ -37,5 +36,5 @@ export default async function Page({
     })
     .match({ id: project.id });
 
-  redirect("/project/settings");
+  return NextResponse.redirect("/project/settings");
 }
