@@ -8,7 +8,7 @@ import { createServerComponentClient } from "@supabase/auth-helpers-nextjs";
 import { Database } from "@/types/supabase";
 import { cookies } from "next/headers";
 
-export default async function GET(
+export async function GET(
   request: NextRequest,
   context: { params: { checkoutSessionId: string } },
 ) {
