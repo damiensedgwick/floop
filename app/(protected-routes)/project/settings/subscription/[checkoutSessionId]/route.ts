@@ -36,5 +36,7 @@ export async function GET(
     })
     .match({ id: project.id });
 
-  return NextResponse.redirect("/project/settings");
+  const url = request.nextUrl.clone();
+  url.pathname = "/project/settings";
+  return NextResponse.redirect(url);
 }
