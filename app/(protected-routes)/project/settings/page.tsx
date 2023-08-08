@@ -100,7 +100,7 @@ export default async function Page() {
               </dl>
             </div>
           </div>
-          <div className="flex justify-end">
+          <div className="flex justify-between flex-col md:flex-row space-y-4 md:space-y-0">
             {subscription ? (
               <Link
                 href={process.env.NEXT_PUBLIC_STRIPE_PORTAL_LINK_URL!}
@@ -116,6 +116,13 @@ export default async function Page() {
                 Buy Subscription
               </Link>
             )}
+
+            <Link
+              href={`/project/settings/update-project/${project.id}`}
+              className={buttonVariants({ variant: "outline", size: "lg" })}
+            >
+              Update Project
+            </Link>
           </div>
         </div>
       </div>

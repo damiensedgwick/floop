@@ -3,6 +3,8 @@ import {
   getPublicUser,
 } from "@/app/(protected-routes)/project/utils";
 import { Separator } from "@/components/ui/separator";
+import Link from "next/link";
+import { buttonVariants } from "@/components/ui/button";
 
 export default async function Page() {
   const user = await getPublicUser();
@@ -20,19 +22,19 @@ export default async function Page() {
                 <div className="px-4 py-6 sm:grid sm:grid-cols-3 sm:gap-4 sm:px-6">
                   <dt className="text-sm font-medium">Preferred name</dt>
                   <dd className="mt-1 text-sm leading-6 sm:col-span-2 sm:mt-0">
-                    {user.preferred_name}
+                    {user.preferred_name || "---"}
                   </dd>
                 </div>
                 <div className="px-4 py-6 sm:grid sm:grid-cols-3 sm:gap-4 sm:px-6">
                   <dt className="text-sm font-medium">First name</dt>
                   <dd className="mt-1 text-sm leading-6 sm:col-span-2 sm:mt-0">
-                    {user.first_name}
+                    {user.first_name || "---"}
                   </dd>
                 </div>
                 <div className="px-4 py-6 sm:grid sm:grid-cols-3 sm:gap-4 sm:px-6">
                   <dt className="text-sm font-medium">Last name</dt>
                   <dd className="mt-1 text-sm leading-6 sm:col-span-2 sm:mt-0">
-                    {user.last_name}
+                    {user.last_name || "---"}
                   </dd>
                 </div>
 
@@ -50,6 +52,14 @@ export default async function Page() {
                 </div>
               </dl>
             </div>
+          </div>
+          <div className="flex justify-end">
+            <Link
+              href={`/project/profile/update-profile/${user.id}`}
+              className={buttonVariants({ variant: "outline", size: "lg" })}
+            >
+              Update Profile
+            </Link>
           </div>
         </div>
       </div>
