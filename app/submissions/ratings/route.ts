@@ -11,7 +11,7 @@ export async function POST(request: Request) {
     return NextResponse.json({ message: "Bad request" }, { status: 400 });
   }
 
-  if (score < 1 || (score > 10 && score !== typeof "number")) {
+  if (score > 1 || score < 10) {
     return NextResponse.json(
       { message: "Score must be between 1 and 10, and must be a number" },
       { status: 400 },
