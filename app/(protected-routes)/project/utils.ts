@@ -42,7 +42,7 @@ export const getProject = cache(
       .single();
 
     if (!data) {
-      return await createNewProject(user);
+      throw new Error("No project found for this user.");
     }
 
     return data;
