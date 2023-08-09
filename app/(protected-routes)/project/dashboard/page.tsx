@@ -22,6 +22,7 @@ import {
 import { getRatings } from "@/app/(protected-routes)/project/ratings/ratings";
 import { getIssues } from "@/app/(protected-routes)/project/issues/issues";
 import { getSuggestions } from "@/app/(protected-routes)/project/suggestions/suggestions";
+import FloopWidgetButton from "@/components/floop-widget.client";
 
 export default async function Page() {
   const user = await getPublicUser();
@@ -44,7 +45,15 @@ export default async function Page() {
     <div className="px-4 pt-2 sm:px-6 lg:px-8">
       <div className="sm:flex sm:items-center">
         <div className="space-y-6 sm:flex-auto">
-          <h1 className="text-xl font-semibold leading-6">Dashboard</h1>
+          <div className="flex justify-between items-center mr-10">
+            <h1 className="text-xl font-semibold leading-6">Dashboard</h1>
+            {project.id === process.env.FLOOP_PROJECT_ID ? (
+              <FloopWidgetButton
+                projectId={process.env.FLOOP_PROJECT_ID!}
+                userEmail={user.email}
+              />
+            ) : null}
+          </div>
           <Separator />
 
           {project.total_submissions === 0 ? (
