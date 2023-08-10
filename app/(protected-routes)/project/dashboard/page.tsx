@@ -47,12 +47,10 @@ export default async function Page() {
         <div className="space-y-6 sm:flex-auto">
           <div className="flex justify-between items-center mr-10">
             <h1 className="text-xl font-semibold leading-6">Dashboard</h1>
-            {project.id === process.env.FLOOP_PROJECT_ID ? (
-              <FloopWidgetButton
-                projectId={process.env.FLOOP_PROJECT_ID!}
-                userEmail={user.email}
-              />
-            ) : null}
+            <FloopWidgetButton
+              projectId={process.env.FLOOP_PROJECT_ID!}
+              userEmail={user.email}
+            />
           </div>
           <Separator />
 
