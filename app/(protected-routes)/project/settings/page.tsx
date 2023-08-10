@@ -29,7 +29,7 @@ export default async function Page() {
   async function handleUpdateProjectName(name: string) {
     "use server";
 
-    console.log("name: ", name);
+    const supabase = createServerComponentClient<Database>({ cookies });
 
     await supabase.from("projects").update({ name }).eq("id", project.id);
     revalidatePath("/project/settings");
