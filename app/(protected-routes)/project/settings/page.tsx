@@ -71,7 +71,7 @@ export default async function Page() {
                   <dd className="mt-1 text-sm leading-6 sm:col-span-2 sm:mt-0">
                     {subscription
                       ? format(
-                          new Date(subscription.current_period_end),
+                          new Date(subscription.current_period_end * 1000),
                           "dd MMM yyyy",
                         )
                       : "Free Forever"}
