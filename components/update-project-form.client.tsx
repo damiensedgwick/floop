@@ -20,6 +20,8 @@ import {
   CardHeader,
   CardTitle,
 } from "@/components/ui/card";
+import { useTransition } from "react";
+import Loading from "@/app/(protected-routes)/project/loading";
 
 type Props = {
   projectName: string;
@@ -30,6 +32,8 @@ export default function UpdateProjectForm({
   projectName,
   handleUpdateProjectName,
 }: Props) {
+  const [isPending, startTransition] = useTransition();
+
   const formSchema = z.object({
     name: z.string().min(3).max(50),
   });
@@ -42,8 +46,10 @@ export default function UpdateProjectForm({
   });
 
   async function onSubmit(values: z.infer<typeof formSchema>) {
-    return await handleUpdateProjectName(values.name);
+    return startTransition(() => handleUpdateProjectName(values.name));
   }
+
+  console.log("PENDING: ", isPending);
 
   return (
     <Form {...form}>
@@ -71,7 +77,9 @@ export default function UpdateProjectForm({
                 <p>
                   <small>Please use 50 characters at maximum.</small>
                 </p>
-                <Button type="submit">Save</Button>
+                <Button type="submit" disabled={isPending}>
+                  {isPending ? "Saving..." : "Save"}
+                </Button>
               </CardFooter>
             </Card>
           )}
