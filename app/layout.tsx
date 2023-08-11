@@ -1,5 +1,6 @@
 import "./globals.css";
 import { ThemeProvider } from "@/components/theme-provider";
+import { Toaster } from "@/components/ui/toaster";
 
 export const metadata = {
   title: "Floop | A feedback loop for your product",
@@ -19,6 +20,7 @@ export default function RootLayout({
       <body className="h-full">
         <ThemeProvider attribute="class" defaultTheme="system" enableSystem>
           <main className="h-full">{children}</main>
+          <Toaster />
         </ThemeProvider>
       </body>
     </html>
