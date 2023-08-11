@@ -21,7 +21,7 @@ import {
   CardTitle,
 } from "@/components/ui/card";
 import { useTransition } from "react";
-import Loading from "@/app/(protected-routes)/project/loading";
+import { useToast } from "@/components/ui/use-toast";
 
 type Props = {
   projectName: string;
@@ -33,6 +33,7 @@ export default function UpdateProjectForm({
   handleUpdateProjectName,
 }: Props) {
   const [isPending, startTransition] = useTransition();
+  const { toast } = useToast();
 
   const formSchema = z.object({
     name: z.string().min(3).max(50),
@@ -46,10 +47,11 @@ export default function UpdateProjectForm({
   });
 
   async function onSubmit(values: z.infer<typeof formSchema>) {
-    return startTransition(() => handleUpdateProjectName(values.name));
+    startTransition(() => handleUpdateProjectName(values.name));
+    toast({
+      title: "Project name updated",
+    });
   }
-
-  console.log("PENDING: ", isPending);
 
   return (
     <Form {...form}>
@@ -74,10 +76,10 @@ export default function UpdateProjectForm({
                 </FormItem>
               </CardContent>
               <CardFooter className="bg-secondary p-4 flex justify-between items-center">
-                <p>
-                  <small>Please use 50 characters at maximum.</small>
+                <p className="max-w-[250px] md:max-w-prose">
+                  <small>Please use 50 characters at maximum</small>
                 </p>
-                <Button type="submit" disabled={isPending}>
+                <Button type="submit" size="sm" disabled={isPending}>
                   {isPending ? "Saving..." : "Save"}
                 </Button>
               </CardFooter>

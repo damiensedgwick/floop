@@ -9,8 +9,17 @@ import { Database } from "@/types/supabase";
 import getSubscription from "@/app/submissions/utils";
 import { buttonVariants } from "@/components/ui/button";
 import Link from "next/link";
-import UpdateProjectForm from "@/components/update-project-form.client";
+import UpdateProjectForm from "@/app/(protected-routes)/project/settings/update-project-form.client";
 import { revalidatePath } from "next/cache";
+import ProjectIdCard from "@/app/(protected-routes)/project/settings/project-id-card.client";
+import OwnersNameCard from "@/app/(protected-routes)/project/settings/owners-name-card.client";
+import OwnersEmailCard from "@/app/(protected-routes)/project/settings/owners-email.client";
+import SubscriptionTypeCard from "@/app/(protected-routes)/project/settings/subscription-type-card";
+import SubscriptionExpiryCard from "@/app/(protected-routes)/project/settings/subscription-expiry-card";
+import { format } from "date-fns";
+import TotalSubmissionsCard from "@/app/(protected-routes)/project/settings/total-submissions-card";
+import NumberOfUsersCard from "@/app/(protected-routes)/project/settings/number-of-users-card";
+import ProjectCreatedOnDate from "@/app/(protected-routes)/project/settings/project-created-on-date";
 
 export default async function Page() {
   const user = await getPublicUser();
@@ -36,31 +45,44 @@ export default async function Page() {
   }
 
   return (
-    <div className="px-4 pt-2 sm:px-6 lg:px-8">
+    <div className="px-4 pt-2 sm:px-6 lg:px-8 pb-16">
       <div className="sm:flex sm:items-center">
         <div className="space-y-6 sm:flex-auto">
-          <div className="flex justify-between items-center">
-            <h1 className="text-xl font-semibold leading-6">Settings</h1>
-            {subscription ? (
-              <Link
-                href={process.env.NEXT_PUBLIC_STRIPE_PORTAL_LINK_URL!}
-                className={buttonVariants({ variant: "themed", size: "sm" })}
-              >
-                Manage Subscription
-              </Link>
-            ) : (
-              <Link
-                href={process.env.NEXT_PUBLIC_STRIPE_CHECKOUT_LINK_URL!}
-                className={buttonVariants({ variant: "themed", size: "sm" })}
-              >
-                Buy Subscription
-              </Link>
-            )}
-          </div>
+          <h1 className="text-xl font-semibold leading-6">Settings</h1>
           <Separator />
           <UpdateProjectForm
             projectName={project.name}
             handleUpdateProjectName={handleUpdateProjectName}
+          />
+          <ProjectIdCard projectId={project.id} />
+          <OwnersNameCard
+            ownersName={
+              owner?.preferred_name ||
+              owner?.first_name ||
+              "Name details not provided"
+            }
+          />
+          <OwnersEmailCard
+            ownersEmail={owner?.email || "Cannot find owners email"}
+          />
+          <SubscriptionTypeCard
+            subscriptionType={subscription ? "Growth" : "Hobby"}
+          />
+          <SubscriptionExpiryCard
+            subscriptionType={subscription ? "Growth" : "Hobby"}
+            expiry={
+              subscription
+                ? format(
+                    new Date(subscription.current_period_end * 1000),
+                    "dd MMM yyyy",
+                  )
+                : "No expiry date"
+            }
+          />
+          <TotalSubmissionsCard count={project.total_submissions} />
+          <NumberOfUsersCard count={users?.length || 1} />
+          <ProjectCreatedOnDate
+            createdOn={format(new Date(project.created_at!), "dd MMM yyyy")}
           />
         </div>
       </div>
