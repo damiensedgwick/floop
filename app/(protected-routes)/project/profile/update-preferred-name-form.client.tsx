@@ -38,7 +38,7 @@ export default function UpdatePreferredNameForm({
   const { toast } = useToast();
 
   const formSchema = z.object({
-    name: z.string().min(2).max(50),
+    name: z.string().min(2).max(100),
   });
 
   const form = useForm<z.infer<typeof formSchema>>({
@@ -79,7 +79,7 @@ export default function UpdatePreferredNameForm({
               </CardContent>
               <CardFooter className="bg-secondary p-4 flex justify-between items-center">
                 <p className="max-w-[250px] md:max-w-prose">
-                  <small>Please use 50 characters at maximum</small>
+                  <small>Please use 100 characters at maximum</small>
                 </p>
                 <Button type="submit" size="sm" disabled={isPending}>
                   {isPending ? "Saving..." : "Save"}
