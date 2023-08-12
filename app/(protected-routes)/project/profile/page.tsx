@@ -5,7 +5,7 @@ import UpdateFirstNameForm from "@/app/(protected-routes)/project/profile/update
 import UpdateLastNameForm from "@/app/(protected-routes)/project/profile/update-last-name-form.client";
 import { Database } from "@/types/supabase";
 import { revalidatePath } from "next/cache";
-import { createServerComponentClient } from "@supabase/auth-helpers-nextjs";
+import { createServerActionClient } from "@supabase/auth-helpers-nextjs";
 import { cookies } from "next/headers";
 
 export default async function Page() {
@@ -14,7 +14,7 @@ export default async function Page() {
   async function handleUpdatePreferredName(name: string, userId: string) {
     "use server";
 
-    const supabase = createServerComponentClient<Database>({ cookies });
+    const supabase = createServerActionClient<Database>({ cookies });
 
     await supabase
       .from("users")
@@ -31,7 +31,7 @@ export default async function Page() {
   async function handleUpdateFirstName(name: string, userId: string) {
     "use server";
 
-    const supabase = createServerComponentClient<Database>({ cookies });
+    const supabase = createServerActionClient<Database>({ cookies });
 
     await supabase
       .from("users")
@@ -48,7 +48,7 @@ export default async function Page() {
   async function handleUpdateLastName(name: string, userId: string) {
     "use server";
 
-    const supabase = createServerComponentClient<Database>({ cookies });
+    const supabase = createServerActionClient<Database>({ cookies });
 
     await supabase
       .from("users")

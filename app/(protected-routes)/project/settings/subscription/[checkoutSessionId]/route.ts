@@ -4,7 +4,7 @@ import {
   getPublicUser,
 } from "@/app/(protected-routes)/project/utils";
 import createStripe from "stripe";
-import { createServerComponentClient } from "@supabase/auth-helpers-nextjs";
+import { createRouteHandlerClient } from "@supabase/auth-helpers-nextjs";
 import { Database } from "@/types/supabase";
 import { cookies } from "next/headers";
 
@@ -27,7 +27,7 @@ export async function GET(
     session.subscription as string,
   );
 
-  const supabase = createServerComponentClient<Database>({ cookies });
+  const supabase = createRouteHandlerClient<Database>({ cookies });
 
   await supabase
     .from("projects")

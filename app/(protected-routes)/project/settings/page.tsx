@@ -4,11 +4,12 @@ import {
   getPublicUser,
 } from "@/app/(protected-routes)/project/utils";
 import { Separator } from "@/components/ui/separator";
-import { createServerComponentClient } from "@supabase/auth-helpers-nextjs";
+import {
+  createServerActionClient,
+  createServerComponentClient,
+} from "@supabase/auth-helpers-nextjs";
 import { Database } from "@/types/supabase";
 import getSubscription from "@/app/submissions/utils";
-import { buttonVariants } from "@/components/ui/button";
-import Link from "next/link";
 import UpdateProjectForm from "@/app/(protected-routes)/project/settings/update-project-form.client";
 import { revalidatePath } from "next/cache";
 import ProjectIdCard from "@/app/(protected-routes)/project/settings/project-id-card.client";
@@ -38,7 +39,7 @@ export default async function Page() {
   async function handleUpdateProjectName(name: string) {
     "use server";
 
-    const supabase = createServerComponentClient<Database>({ cookies });
+    const supabase = createServerActionClient<Database>({ cookies });
 
     await supabase
       .from("projects")
