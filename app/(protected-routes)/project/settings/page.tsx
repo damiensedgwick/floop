@@ -40,7 +40,10 @@ export default async function Page() {
 
     const supabase = createServerComponentClient<Database>({ cookies });
 
-    await supabase.from("projects").update({ name }).eq("id", project.id);
+    await supabase
+      .from("projects")
+      .update({ name, updated_at: new Date().toISOString() })
+      .eq("id", project.id);
     revalidatePath("/project/settings");
   }
 
