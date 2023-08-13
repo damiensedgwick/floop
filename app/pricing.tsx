@@ -91,14 +91,6 @@ export default function Pricing() {
                   <h3 className="text-sm font-medium text-yellow-800">
                     Pricing plans
                   </h3>
-                  <div className="mt-2 text-sm text-yellow-700">
-                    <p>
-                      The current pricing plans are to try and make Floop as
-                      accessible as possible. We would like to keep it this way
-                      for as long as possible, but we may need to change the
-                      pricing plans in the future should we need to.
-                    </p>
-                  </div>
                 </div>
               </div>
             </div>
