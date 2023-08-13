@@ -21,6 +21,7 @@ import { format } from "date-fns";
 import TotalSubmissionsCard from "@/app/(protected-routes)/project/settings/total-submissions-card";
 import NumberOfUsersCard from "@/app/(protected-routes)/project/settings/number-of-users-card";
 import ProjectCreatedOnDate from "@/app/(protected-routes)/project/settings/project-created-on-date";
+import { ThemeToggle } from "@/components/theme-toggle";
 
 export default async function Page() {
   const user = await getPublicUser();
@@ -52,7 +53,10 @@ export default async function Page() {
     <div className="px-4 pt-2 sm:px-6 lg:px-8 pb-16">
       <div className="sm:flex sm:items-center">
         <div className="space-y-6 sm:flex-auto">
-          <h1 className="text-xl font-semibold leading-6">Settings</h1>
+          <div className="flex items-center justify-between">
+            <h1 className="text-xl font-semibold leading-6">Settings</h1>
+            <ThemeToggle />
+          </div>
           <Separator />
           <UpdateProjectForm
             projectName={project.name}
