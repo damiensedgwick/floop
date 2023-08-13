@@ -1,23 +1,18 @@
 const faqs = [
   {
-    question: "How do you make holy water?",
+    question: "What do I need to get started?",
     answer:
-      "You boil the hell out of it. Lorem ipsum dolor sit amet consectetur adipisicing elit. Quas cupiditate laboriosam fugiat.",
+      "Getting started is simple, just sign up for an account and we will automatically create a project on the hobby plan for you. No credit card or payment details required. Then you can either install one of our widgets or use our API to start collecting feedback.",
   },
   {
-    question: "What's the best thing about Switzerland?",
+    question: "Is the hobby plan free forever?",
     answer:
-      "I don't know, but the flag is a big plus. Lorem ipsum dolor sit amet consectetur adipisicing elit. Quas cupiditate laboriosam fugiat.",
+      "Yes, the hobby plan will remain forever. This is so that it is easy to get started and start collecting feedback. However, there is a limit of 20 total submissions before you will need to subscribe.",
   },
   {
-    question: "What do you call someone with no body and no nose?",
+    question: "Why use Floop when I can just build my own forms and dashboard?",
     answer:
-      "Nobody knows. Lorem ipsum dolor sit amet consectetur adipisicing elit. Quas cupiditate laboriosam fugiat.",
-  },
-  {
-    question: "Why do you never see elephants hiding in trees?",
-    answer:
-      "Because they're so good at it. Lorem ipsum dolor sit amet consectetur adipisicing elit. Quas cupiditate laboriosam fugiat.",
+      "The idea behind Floop is to enable product teams and engineers to start collecting user feedback as quickly and as easily as possibly. We take care of the forms and the dashboard so that you can focus on building your product.",
   },
 ];
 

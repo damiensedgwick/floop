@@ -1,6 +1,5 @@
 import { CheckIcon } from "@heroicons/react/20/solid";
 import Link from "next/link";
-import { ExclamationTriangleIcon } from "@heroicons/react/24/outline";
 
 const tiers = [
   {
@@ -79,21 +78,6 @@ export default function Pricing() {
       <div className="flow-root pb-24 sm:pb-32">
         <div className="-mt-80">
           <div className="mx-auto max-w-7xl px-6 lg:px-8">
-            <div className="rounded-md bg-yellow-50 p-4 max-w-4xl mx-auto mb-6">
-              <div className="flex">
-                <div className="flex-shrink-0">
-                  <ExclamationTriangleIcon
-                    className="h-5 w-5 text-yellow-400"
-                    aria-hidden="true"
-                  />
-                </div>
-                <div className="ml-3">
-                  <h3 className="text-sm font-medium text-yellow-800">
-                    Pricing plans
-                  </h3>
-                </div>
-              </div>
-            </div>
             <div className="mx-auto grid max-w-md grid-cols-1 gap-8 lg:max-w-4xl lg:grid-cols-2">
               {tiers.map((tier) => (
                 <div
