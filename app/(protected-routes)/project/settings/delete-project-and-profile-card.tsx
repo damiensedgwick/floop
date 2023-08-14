@@ -11,13 +11,16 @@ import { Button } from "@/components/ui/button";
 import { Fragment, useRef, useState } from "react";
 import { Dialog, Transition } from "@headlessui/react";
 import { ExclamationTriangleIcon } from "@heroicons/react/24/outline";
-import { supabase } from "@/lib/supabase";
 
 type Props = {
   userId: string;
+  onDeleteHandler: (userId: string) => void;
 };
 
-export default function DeleteProjectAndProfileCard({ userId }: Props) {
+export default function DeleteProjectAndProfileCard({
+  userId,
+  onDeleteHandler,
+}: Props) {
   const [isDeleting, setIsDeleting] = useState(false);
   const cancelButtonRef = useRef(null);
 
@@ -74,7 +77,7 @@ export default function DeleteProjectAndProfileCard({ userId }: Props) {
                 leaveFrom="opacity-100 translate-y-0 sm:scale-100"
                 leaveTo="opacity-0 translate-y-4 sm:translate-y-0 sm:scale-95"
               >
-                <Dialog.Panel className="relative transform overflow-hidden rounded-lg px-4 pb-4 pt-5 text-left shadow-xl transition-all sm:my-8 sm:w-full sm:max-w-lg sm:p-6">
+                <Dialog.Panel className="relative transform overflow-hidden rounded-lg px-4 pb-4 pt-5 text-left shadow-xl transition-all sm:my-8 sm:w-full sm:max-w-lg sm:p-6 bg-secondary">
                   <div className="sm:flex sm:items-start">
                     <div className="mx-auto flex h-12 w-12 flex-shrink-0 items-center justify-center rounded-full bg-red-100 sm:mx-0 sm:h-10 sm:w-10">
                       <ExclamationTriangleIcon
@@ -99,23 +102,23 @@ export default function DeleteProjectAndProfileCard({ userId }: Props) {
                     </div>
                   </div>
                   <div className="mt-5 sm:mt-4 sm:flex sm:flex-row-reverse">
-                    <button
+                    <Button
+                      variant="destructive"
                       type="button"
                       className="inline-flex w-full justify-center rounded-md bg-red-600 px-3 py-2 text-sm font-semibold shadow-sm hover:bg-red-500 sm:ml-3 sm:w-auto"
-                      onClick={async () => {
-                        await supabase.auth.admin.deleteUser(userId);
-                      }}
+                      onClick={() => onDeleteHandler(userId)}
                     >
                       Delete
-                    </button>
-                    <button
+                    </Button>
+                    <Button
                       type="button"
+                      variant="secondary"
                       className="mt-3 inline-flex w-full justify-center rounded-md px-3 py-2 text-sm font-semibold shadow-sm ring-1 ring-inset ring-gray-300 hover:bg-gray-50 sm:mt-0 sm:w-auto"
                       onClick={() => setIsDeleting(false)}
                       ref={cancelButtonRef}
                     >
                       Cancel
-                    </button>
+                    </Button>
                   </div>
                 </Dialog.Panel>
               </Transition.Child>

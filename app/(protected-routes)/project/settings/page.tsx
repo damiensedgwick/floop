@@ -23,6 +23,7 @@ import NumberOfUsersCard from "@/app/(protected-routes)/project/settings/number-
 import ProjectCreatedOnDate from "@/app/(protected-routes)/project/settings/project-created-on-date";
 import { ThemeToggle } from "@/components/theme-toggle";
 import DeleteProjectAndProfileCard from "@/app/(protected-routes)/project/settings/delete-project-and-profile-card";
+import { supabase as sb } from "@/lib/supabase";
 
 export default async function Page() {
   const user = await getPublicUser();
@@ -48,6 +49,21 @@ export default async function Page() {
       .update({ name, updated_at: new Date().toISOString() })
       .eq("id", project.id);
     revalidatePath("/project/settings");
+  }
+
+  async function handleDeleteProfileAndProject(userId: string) {
+    "use server";
+
+    await sb.auth.admin.deleteUser(userId);
+
+    revalidatePath("/project/dashboard");
+    revalidatePath("/project/issues");
+    revalidatePath("/project/profile");
+    revalidatePath("/project/ratings");
+    revalidatePath("/project/reports");
+    revalidatePath("/project/settings");
+    revalidatePath("/project/suggestions");
+    revalidatePath("/project/team");
   }
 
   return (
@@ -93,7 +109,12 @@ export default async function Page() {
           <ProjectCreatedOnDate
             createdOn={format(new Date(project.created_at!), "dd MMM yyyy")}
           />
-          <DeleteProjectAndProfileCard userId={user.id} />
+          {project.owner_id === user.id ? (
+            <DeleteProjectAndProfileCard
+              userId={user.id}
+              onDeleteHandler={handleDeleteProfileAndProject}
+            />
+          ) : null}
         </div>
       </div>
     </div>
