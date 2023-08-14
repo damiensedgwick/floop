@@ -2,7 +2,6 @@
 
 import { useState } from "react";
 import Image from "next/image";
-import { useRouter } from "next/navigation";
 import { createClientComponentClient } from "@supabase/auth-helpers-nextjs";
 import Link from "next/link";
 import { Button } from "@/components/ui/button";
@@ -10,34 +9,8 @@ import { Input } from "@/components/ui/input";
 
 export default function Page() {
   const [email, setEmail] = useState("");
-  const [password, setPassword] = useState("");
   const [view, setView] = useState("sign-in");
-  const router = useRouter();
   const supabase = createClientComponentClient();
-
-  const handleSignUp = async (e: React.FormEvent<HTMLFormElement>) => {
-    e.preventDefault();
-    await supabase.auth.signUp({
-      email,
-      password,
-      options: {
-        emailRedirectTo: `${location.origin}/auth/callback`,
-      },
-    });
-
-    setView("check-email");
-  };
-
-  const handleSignIn = async (e: React.FormEvent<HTMLFormElement>) => {
-    e.preventDefault();
-    await supabase.auth.signInWithPassword({
-      email,
-      password,
-    });
-
-    router.push("/project/dashboard");
-    router.refresh();
-  };
 
   const handleMagicLinkSignIn = async (e: React.FormEvent<HTMLFormElement>) => {
     e.preventDefault();
@@ -87,6 +60,7 @@ export default function Page() {
           </svg>{" "}
           Back
         </Link>
+
         {view === "check-email" ? (
           <p className="text-center text-foreground">
             Check <span className="font-bold">{email}</span> to continue signing
@@ -95,7 +69,7 @@ export default function Page() {
         ) : (
           <form
             className="flex w-full flex-1 flex-col justify-center gap-2 space-y-6 text-foreground"
-            onSubmit={view === "sign-in" ? handleSignIn : handleSignUp}
+            onSubmit={handleMagicLinkSignIn}
           >
             <div>
               <label
