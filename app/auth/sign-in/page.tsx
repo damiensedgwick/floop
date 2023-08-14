@@ -14,10 +14,11 @@ export default function Page() {
 
   const handleMagicLinkSignIn = async (e: React.FormEvent<HTMLFormElement>) => {
     e.preventDefault();
+
     await supabase.auth.signInWithOtp({
       email,
       options: {
-        emailRedirectTo: `${location.origin}/project/dashboard`,
+        emailRedirectTo: `${location.origin}/auth/callback`,
       },
     });
 
