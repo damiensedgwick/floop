@@ -22,6 +22,7 @@ import TotalSubmissionsCard from "@/app/(protected-routes)/project/settings/tota
 import NumberOfUsersCard from "@/app/(protected-routes)/project/settings/number-of-users-card";
 import ProjectCreatedOnDate from "@/app/(protected-routes)/project/settings/project-created-on-date";
 import { ThemeToggle } from "@/components/theme-toggle";
+import DeleteProjectAndProfileCard from "@/app/(protected-routes)/project/settings/delete-project-and-profile-card";
 
 export default async function Page() {
   const user = await getPublicUser();
@@ -92,6 +93,7 @@ export default async function Page() {
           <ProjectCreatedOnDate
             createdOn={format(new Date(project.created_at!), "dd MMM yyyy")}
           />
+          <DeleteProjectAndProfileCard userId={user.id} />
         </div>
       </div>
     </div>
