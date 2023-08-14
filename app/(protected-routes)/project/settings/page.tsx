@@ -54,6 +54,7 @@ export default async function Page() {
   async function handleDeleteProfileAndProject(userId: string) {
     "use server";
 
+    await sb.auth.signOut();
     await sb.auth.admin.deleteUser(userId);
 
     revalidatePath("/project/dashboard");
