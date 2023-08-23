@@ -8,8 +8,6 @@ export const metadata = {
     "Floop enables your users to submit ratings, issues and suggestions for your product and then presents them to you in a way that is easy to understand!",
 };
 
-export const dynamic = "force-dynamic";
-
 export default function RootLayout({
   children,
 }: {
