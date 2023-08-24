@@ -1,8 +1,8 @@
 export default async function Loading() {
   return (
-    <div className="mx-auto h-full max-w-7xl px-4 sm:px-6 lg:px-8">
-      <div className="mx-auto h-full max-w-3xl">
-        <div className="flex h-full flex-col items-center justify-center">
+    <div className="h-full px-4 mx-auto max-w-7xl sm:px-6 lg:px-8">
+      <div className="h-full max-w-3xl mx-auto">
+        <div className="flex flex-col items-center justify-center h-full">
           <div role="status">
             <svg
               aria-hidden="true"

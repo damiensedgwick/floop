@@ -33,7 +33,7 @@ export default function SubscriptionExpiryCard({
       <CardContent>
         <p>{expiry}</p>
       </CardContent>
-      <CardFooter className="bg-secondary p-4 flex justify-between items-center">
+      <CardFooter className="flex items-center justify-between p-4 bg-secondary">
         <p className="max-w-[250px] md:max-w-prose">
           <small>
             If you are not subscribed, you will be able to continue using the

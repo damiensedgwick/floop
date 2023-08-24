@@ -12,9 +12,9 @@ import { cn } from "@/lib/utils";
 export default function GettingStarted() {
   return (
     <div className="py-24 sm:py-32">
-      <div className="mx-auto max-w-7xl px-6 lg:px-8">
-        <div className="mx-auto max-w-2xl lg:mx-0">
-          <p className="text-base font-semibold leading-7 text-teal-600">
+      <div className="px-6 mx-auto max-w-7xl lg:px-8">
+        <div className="max-w-2xl mx-auto lg:mx-0">
+          <p className="text-base font-semibold text-teal-600 leading-7">
             Getting you started
           </p>
           <h2 className="mt-2 text-4xl font-bold tracking-tight sm:text-6xl">
@@ -31,14 +31,14 @@ export default function GettingStarted() {
             <AccordionTrigger>Using React</AccordionTrigger>
             <AccordionContent className="py-3">
               <CodeBlock
-                className="rounded-md p-4 mb-4"
+                className="p-4 mb-4 rounded-md"
                 lang="bash"
                 theme="github-dark"
                 code={["pnpm add @feedback-loop/react"].join("\n")}
               />
 
               <CodeBlock
-                className="rounded-md p-4 mb-4"
+                className="p-4 mb-4 rounded-md"
                 lang="tsx"
                 theme="github-dark"
                 code={[
@@ -78,7 +78,7 @@ export default function GettingStarted() {
                 the three following endpoints like the examples below:
               </p>
               <CodeBlock
-                className="rounded-md p-4 mb-4"
+                className="p-4 mb-4 rounded-md"
                 lang="tsx"
                 theme="github-dark"
                 code={[
@@ -107,7 +107,7 @@ export default function GettingStarted() {
                 ].join("\n")}
               />
               <CodeBlock
-                className="rounded-md p-4 mb-4"
+                className="p-4 mb-4 rounded-md"
                 lang="tsx"
                 theme="github-dark"
                 code={[
@@ -136,7 +136,7 @@ export default function GettingStarted() {
                 ].join("\n")}
               />
               <CodeBlock
-                className="rounded-md p-4 mb-4"
+                className="p-4 mb-4 rounded-md"
                 lang="tsx"
                 theme="github-dark"
                 code={[

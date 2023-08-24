@@ -42,10 +42,10 @@ export default async function Page() {
   }
 
   return (
-    <div className="px-4 pt-2 sm:px-6 lg:px-8 pb-16">
+    <div className="px-4 pt-2 pb-16 sm:px-6 lg:px-8">
       <div className="sm:flex sm:items-center">
         <div className="space-y-6 sm:flex-auto">
-          <div className="flex justify-between items-center mr-10">
+          <div className="flex items-center justify-between mr-10">
             <h1 className="text-xl font-semibold leading-6">Dashboard</h1>
             <FloopWidgetButton
               projectId={process.env.FLOOP_PROJECT_ID!}
@@ -55,15 +55,15 @@ export default async function Page() {
           <Separator />
 
           {project.total_submissions === 0 ? (
-            <div className="border-l-4 border-yellow-400 bg-yellow-50 p-4">
+            <div className="p-4 border-l-4 border-yellow-400 bg-yellow-50">
               <div className="flex">
                 <div className="flex-shrink-0">
                   <ExclamationTriangleIcon
-                    className="h-5 w-5 text-yellow-400"
+                    className="w-5 h-5 text-yellow-400"
                     aria-hidden="true"
                   />
                 </div>
-                <div className="ml-3 flex-1 md:flex md:items-center md:justify-between">
+                <div className="flex-1 ml-3 md:flex md:items-center md:justify-between">
                   <p className="text-sm text-yellow-700">
                     You have 0 submissions.
                   </p>
@@ -142,7 +142,7 @@ export default async function Page() {
           <div className="space-y-4">
             <h2 className="text-lg font-medium leading-6">Monthly Overview</h2>
             <div className="grid grid-cols-1 gap-4 lg:grid-cols-7">
-              <Card className="col-span-1 shadow lg:col-span-4">
+              <Card className="shadow col-span-1 lg:col-span-4">
                 <CardHeader>
                   <CardTitle>Ratings</CardTitle>
                   <CardDescription>
@@ -156,7 +156,7 @@ export default async function Page() {
                   <Overview ratings={thisMonthsRatings} />
                 </CardContent>
               </Card>
-              <Card className="col-span-1 shadow lg:col-span-3">
+              <Card className="shadow col-span-1 lg:col-span-3">
                 <CardHeader>
                   <CardTitle>Recent Activity</CardTitle>
                   <CardDescription>

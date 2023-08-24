@@ -39,10 +39,10 @@ const tiers = [
 
 export default function Pricing() {
   return (
-    <div className="isolate overflow-hidden bg-zinc-950">
-      <div className="mx-auto max-w-7xl px-6 pt-24 pb-96 text-center sm:pt-32 lg:px-8">
-        <div className="mx-auto max-w-4xl">
-          <h2 className="text-base font-semibold leading-7 text-teal-400">
+    <div className="overflow-hidden isolate bg-zinc-950">
+      <div className="px-6 pt-24 mx-auto text-center max-w-7xl pb-96 sm:pt-32 lg:px-8">
+        <div className="max-w-4xl mx-auto">
+          <h2 className="text-base font-semibold text-teal-400 leading-7">
             Budget friendly pricing
           </h2>
           <p className="mt-2 text-4xl font-bold tracking-tight text-white sm:text-5xl">
@@ -50,7 +50,7 @@ export default function Pricing() {
           </p>
         </div>
         <div className="relative mt-6">
-          <p className="mx-auto max-w-2xl text-lg leading-8 text-white/60">
+          <p className="max-w-2xl mx-auto text-lg leading-8 text-white/60">
             Unlock valuable insights, take action and champion success. Whether
             you&apos;re looking to trial Floop or get serious about user
             feedback. We&apos;ve got you covered.
@@ -75,23 +75,23 @@ export default function Pricing() {
           </svg>
         </div>
       </div>
-      <div className="flow-root pb-24 sm:pb-32">
+      <div className="pb-24 flow-root sm:pb-32">
         <div className="-mt-80">
-          <div className="mx-auto max-w-7xl px-6 lg:px-8">
-            <div className="mx-auto grid max-w-md grid-cols-1 gap-8 lg:max-w-4xl lg:grid-cols-2">
+          <div className="px-6 mx-auto max-w-7xl lg:px-8">
+            <div className="max-w-md mx-auto grid grid-cols-1 gap-8 lg:max-w-4xl lg:grid-cols-2">
               {tiers.map((tier) => (
                 <div
                   key={tier.id}
-                  className="flex flex-col justify-between rounded-3xl bg-white p-8 shadow-xl ring-1 ring-gray-900/10 text-zinc-950 sm:p-10"
+                  className="flex flex-col justify-between p-8 bg-white shadow-xl rounded-3xl ring-1 ring-gray-900/10 text-zinc-950 sm:p-10"
                 >
                   <div>
                     <h3
                       id={tier.id}
-                      className="text-base font-semibold leading-7 text-teal-600"
+                      className="text-base font-semibold text-teal-600 leading-7"
                     >
                       {tier.name}
                     </h3>
-                    <div className="mt-4 flex items-baseline gap-x-2">
+                    <div className="flex items-baseline mt-4 gap-x-2">
                       <span className="text-5xl font-bold tracking-tight">
                         {tier.priceMonthly}
                       </span>
@@ -109,7 +109,7 @@ export default function Pricing() {
                       {tier.features.map((feature) => (
                         <li key={feature} className="flex gap-x-3">
                           <CheckIcon
-                            className="h-6 w-5 flex-none text-teal-600"
+                            className="flex-none w-5 h-6 text-teal-600"
                             aria-hidden="true"
                           />
                           {feature}
