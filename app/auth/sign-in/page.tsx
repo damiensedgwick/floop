@@ -40,7 +40,7 @@ export default function Page() {
   };
 
   return (
-    <div className="flex min-h-full flex-1 flex-col justify-center px-6 py-12 lg:px-8">
+    <div className="flex flex-col justify-center flex-1 min-h-full px-6 py-12 lg:px-8">
       <div className="sm:mx-auto sm:w-full sm:max-w-sm">
         <Image
           className="mx-auto"
@@ -49,7 +49,7 @@ export default function Page() {
           height={88}
           alt="Floop logo"
         />
-        <h2 className="mt-10 text-center text-2xl font-bold leading-9 tracking-tight">
+        <h2 className="mt-10 text-2xl font-bold tracking-tight text-center leading-9">
           Sign in to your account
         </h2>
       </div>
@@ -57,7 +57,7 @@ export default function Page() {
       <div className="mt-10 sm:mx-auto sm:w-full sm:max-w-sm">
         <Link
           href="/"
-          className="absolute top-8 left-8 flex items-center rounded-md px-4 py-2 text-sm no-underline text-foreground bg-btn-background group hover:bg-btn-background-hover"
+          className="absolute flex items-center px-4 py-2 text-sm no-underline top-8 left-8 rounded-md text-foreground bg-btn-background group hover:bg-btn-background-hover"
         >
           <svg
             xmlns="http://www.w3.org/2000/svg"
@@ -69,7 +69,7 @@ export default function Page() {
             strokeWidth="2"
             strokeLinecap="round"
             strokeLinejoin="round"
-            className="mr-2 h-4 w-4 transition-transform group-hover:-translate-x-1"
+            className="w-4 h-4 mr-2 transition-transform group-hover:-translate-x-1"
           >
             <polyline points="15 18 9 12 15 6" />
           </svg>{" "}
@@ -82,7 +82,7 @@ export default function Page() {
           </p>
         ) : (
           <form
-            className="flex w-full flex-1 flex-col justify-center gap-2 space-y-6 text-foreground"
+            className="flex flex-col justify-center flex-1 w-full gap-2 space-y-6 text-foreground"
             onSubmit={view === "sign-in" ? handleSignIn : handleSignUp}
           >
             <div>
@@ -142,7 +142,7 @@ export default function Page() {
                 <Button variant="themed" type="submit">
                   Sign In
                 </Button>
-                <p className="text-center text-sm">
+                <p className="text-sm text-center">
                   Don&apos;t have an account?
                   <Button
                     size="sm"
@@ -161,7 +161,7 @@ export default function Page() {
                 <Button variant="themed" type="submit">
                   Sign Up
                 </Button>
-                <p className="text-center text-sm">
+                <p className="text-sm text-center">
                   Already have an account?
                   <Button
                     size="sm"

@@ -7,6 +7,7 @@ import {
   HomeIcon,
   StarIcon,
   UserCircleIcon,
+  UsersIcon,
 } from "@heroicons/react/24/outline";
 import NavigationLink from "@/app/(protected-routes)/project/navigation-link.client";
 import MobileMenu from "@/app/(protected-routes)/project/mobile-menu.client";
@@ -32,6 +33,16 @@ const navigation = [
     name: "Suggestions",
     href: "/suggestions",
     icon: <ChatBubbleLeftIcon width={24} height={24} />,
+  },
+  {
+    name: "Reports",
+    href: "/reports",
+    icon: <ExclamationTriangleIcon width={24} height={24} />,
+  },
+  {
+    name: "Team",
+    href: "/team",
+    icon: <UsersIcon width={24} height={24} />,
   },
   {
     name: "Profile",
@@ -74,7 +85,7 @@ export default async function ProjectLayout({
           <nav className="flex flex-col flex-1">
             <ul role="list" className="flex flex-col flex-1 gap-y-7">
               <li>
-                <div className="mb-2 text-xs font-semibold leading-6 text-gray-400">
+                <div className="mb-2 text-xs font-semibold text-gray-400 leading-6">
                   Navigation
                 </div>
 

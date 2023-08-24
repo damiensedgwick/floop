@@ -46,10 +46,10 @@ const features = [
 export default function Features() {
   return (
     <div className="py-24 sm:py-32 lg:py-44">
-      <div className="mx-auto max-w-7xl px-6 lg:px-8">
-        <div className="mx-auto grid max-w-2xl grid-cols-1 gap-x-8 gap-y-16 sm:gap-y-20 lg:mx-0 lg:max-w-none lg:grid-cols-3">
+      <div className="px-6 mx-auto max-w-7xl lg:px-8">
+        <div className="max-w-2xl mx-auto grid grid-cols-1 gap-x-8 gap-y-16 sm:gap-y-20 lg:mx-0 lg:max-w-none lg:grid-cols-3">
           <div>
-            <h2 className="text-base font-semibold leading-7 text-teal-600">
+            <h2 className="text-base font-semibold text-teal-600 leading-7">
               Feedback made simple
             </h2>
             <p className="mt-2 text-3xl font-bold tracking-tight sm:text-4xl">
@@ -62,12 +62,12 @@ export default function Features() {
               management and analysis.
             </p>
           </div>
-          <dl className="col-span-2 grid grid-cols-1 gap-x-8 gap-y-10 text-base leading-7 sm:grid-cols-2 lg:gap-y-16">
+          <dl className="text-base col-span-2 grid grid-cols-1 gap-x-8 gap-y-10 leading-7 sm:grid-cols-2 lg:gap-y-16">
             {features.map((feature) => (
               <div key={feature.name} className="relative pl-9">
                 <dt className="font-semibold">
                   <CheckIcon
-                    className="absolute top-1 left-0 h-5 w-5 text-teal-500"
+                    className="absolute left-0 w-5 h-5 text-teal-500 top-1"
                     aria-hidden="true"
                   />
                   {feature.name}
