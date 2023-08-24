@@ -10,7 +10,7 @@ import getSubscription from "@/app/submissions/utils";
 export default async function Page() {
   const user = await getPublicUser();
   const project = await getProject(user);
-  const subscription = getSubscription(project.stripe_subscription_id);
+  const subscription = await getSubscription(project.stripe_subscription_id);
 
   return (
     <div className="px-4 pt-2 pb-16 sm:px-6 lg:px-8">
