@@ -144,7 +144,7 @@ export default async function Page() {
           <div className="space-y-4">
             <h2 className="text-lg font-medium leading-6">Monthly Overview</h2>
             <div className="grid grid-cols-1 gap-4 lg:grid-cols-7">
-              <Card className="col-span-1 shadow lg:col-span-4">
+              <Card className="shadow col-span-1 lg:col-span-4">
                 <CardHeader>
                   <CardTitle>Ratings</CardTitle>
                   <CardDescription>
@@ -158,7 +158,7 @@ export default async function Page() {
                   <Overview ratings={thisMonthsRatings} />
                 </CardContent>
               </Card>
-              <Card className="col-span-1 shadow lg:col-span-3">
+              <Card className="shadow col-span-1 lg:col-span-3">
                 <CardHeader>
                   <CardTitle>Recent Activity</CardTitle>
                   <CardDescription>

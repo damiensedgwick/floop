@@ -88,7 +88,7 @@ export default async function ProjectLayout({
           <nav className="flex flex-col flex-1">
             <ul role="list" className="flex flex-col flex-1 gap-y-7">
               <li>
-                <div className="mb-2 text-xs font-semibold leading-6 text-gray-400">
+                <div className="mb-2 text-xs font-semibold text-gray-400 leading-6">
                   Navigation
                 </div>
 
