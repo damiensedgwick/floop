@@ -22,14 +22,14 @@ export default function FAQ() {
       <div className="px-6 py-24 mx-auto max-w-7xl sm:pt-32 lg:px-8 lg:py-40">
         <div className="lg:grid lg:grid-cols-12 lg:gap-8">
           <div className="lg:col-span-5">
-            <h2 className="text-2xl font-bold tracking-tight leading-10">
+            <h2 className="text-2xl font-bold leading-10 tracking-tight">
               Frequently asked questions
             </h2>
             <p className="mt-4 text-lg leading-7">
               Can&apos;t find the answer you&apos;re looking for? Reach out to
               our{" "}
               <a
-                href="mailto:damienksedgwick@gmail.com"
+                href="mailto:support@feedback-loop.io"
                 className="font-semibold text-teal-600 hover:text-teal-500"
               >
                 customer support
