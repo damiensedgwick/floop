@@ -11,7 +11,7 @@
     "update-types": "npx supabase gen types typescript --project-id \"$PROJECT_REF\" > types/supabase.ts"
   },
   "dependencies": {
-    "@feedback-loop/react": "^0.0.35",
+    "@feedback-loop/react": "^1.0.0",
     "@headlessui/react": "^1.7.17",
     "@heroicons/react": "^2.0.18",
     "@hookform/resolvers": "^3.2.0",
