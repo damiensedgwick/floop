@@ -6,8 +6,8 @@ settings:
 
 dependencies:
   '@feedback-loop/react':
-    specifier: ^0.0.34
-    version: 0.0.34(react-dom@18.2.0)(react@18.2.0)
+    specifier: ^0.0.35
+    version: 0.0.35(react-dom@18.2.0)(react@18.2.0)
   '@headlessui/react':
     specifier: ^1.7.17
     version: 1.7.17(react-dom@18.2.0)(react@18.2.0)
@@ -189,8 +189,8 @@ packages:
     engines: {node: ^12.22.0 || ^14.17.0 || >=16.0.0}
     dev: true
 
-  /@feedback-loop/react@0.0.34(react-dom@18.2.0)(react@18.2.0):
-    resolution: {integrity: sha512-7nc+B4XVY7QYppYJiZ66bbdvm/rjhtC7Uzb/omO+uMaLucV785fyWz1hISz5borADqzWcSZhDZ9TD4jO882f7w==}
+  /@feedback-loop/react@0.0.35(react-dom@18.2.0)(react@18.2.0):
+    resolution: {integrity: sha512-2EYf3LsU/iN+fbbg5P6ReLeUejPGk0Qd2DAtbxLnpaRMkQkGUwq8/4dSsH7tI78q1CWp62h1KS7ZH05LssFASg==}
     peerDependencies:
       react: ^18.2.0
       react-dom: ^18.2.0

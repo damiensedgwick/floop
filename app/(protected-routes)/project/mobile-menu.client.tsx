@@ -6,7 +6,6 @@ import { Dialog, Transition } from "@headlessui/react";
 import { Bars3Icon, XMarkIcon } from "@heroicons/react/24/outline";
 import NavigationLink from "@/app/(protected-routes)/project/navigation-link.client";
 import LogoutButton from "@/components/logout-button.client";
-import FloopWidgetButton from "@/components/floop-widget.client";
 
 type Props = {
   navigation: { name: string; href: string; icon: React.JSX.Element }[];
@@ -117,12 +116,6 @@ export default function MobileMenu({ navigation, userEmail }: Props) {
           <span className="sr-only">Open sidebar</span>
           <Bars3Icon width={32} height={32} aria-hidden="true" />
         </button>
-        <div className="lg:hidden">
-          <FloopWidgetButton
-            projectId={process.env.FLOOP_PROJECT_ID!}
-            userEmail={userEmail}
-          />
-        </div>
         <span className="sr-only">Logout</span>
         <LogoutButton />
       </div>
