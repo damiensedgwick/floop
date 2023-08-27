@@ -1,7 +1,7 @@
 "use client";
 
 import { FloopWidget } from "@feedback-loop/react";
-import { Button, buttonVariants } from "@/components/ui/button";
+import { buttonVariants } from "@/components/ui/button";
 
 type Props = {
   projectId: string;
