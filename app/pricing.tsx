@@ -22,7 +22,7 @@ const tiers = [
     name: "Growth",
     id: "tier-growth",
     href: "/auth/sign-in",
-    priceMonthly: "£14.99",
+    priceMonthly: "£20",
     description:
       "Perfect for growing teams and business looking to get more value from their feedback.",
     features: [
@@ -42,7 +42,7 @@ export default function Pricing() {
     <div className="overflow-hidden isolate bg-zinc-950">
       <div className="px-6 pt-24 mx-auto text-center max-w-7xl pb-96 sm:pt-32 lg:px-8">
         <div className="max-w-4xl mx-auto">
-          <h2 className="text-base font-semibold text-teal-400 leading-7">
+          <h2 className="text-base font-semibold leading-7 text-teal-400">
             Budget friendly pricing
           </h2>
           <p className="mt-2 text-4xl font-bold tracking-tight text-white sm:text-5xl">
@@ -75,10 +75,10 @@ export default function Pricing() {
           </svg>
         </div>
       </div>
-      <div className="pb-24 flow-root sm:pb-32">
+      <div className="flow-root pb-24 sm:pb-32">
         <div className="-mt-80">
           <div className="px-6 mx-auto max-w-7xl lg:px-8">
-            <div className="max-w-md mx-auto grid grid-cols-1 gap-8 lg:max-w-4xl lg:grid-cols-2">
+            <div className="grid max-w-md grid-cols-1 gap-8 mx-auto lg:max-w-4xl lg:grid-cols-2">
               {tiers.map((tier) => (
                 <div
                   key={tier.id}
@@ -87,7 +87,7 @@ export default function Pricing() {
                   <div>
                     <h3
                       id={tier.id}
-                      className="text-base font-semibold text-teal-600 leading-7"
+                      className="text-base font-semibold leading-7 text-teal-600"
                     >
                       {tier.name}
                     </h3>
@@ -104,7 +104,7 @@ export default function Pricing() {
                     <p className="mt-6 leading-7">{tier.description}</p>
                     <ul
                       role="list"
-                      className="mt-10 text-sm leading-6 space-y-4"
+                      className="mt-10 space-y-4 text-sm leading-6"
                     >
                       {tier.features.map((feature) => (
                         <li key={feature} className="flex gap-x-3">
