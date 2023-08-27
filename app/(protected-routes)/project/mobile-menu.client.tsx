@@ -6,12 +6,14 @@ import { Dialog, Transition } from "@headlessui/react";
 import { Bars3Icon, XMarkIcon } from "@heroicons/react/24/outline";
 import NavigationLink from "@/app/(protected-routes)/project/navigation-link.client";
 import LogoutButton from "@/components/logout-button.client";
+import FloopWidgetButton from "@/components/floop-widget.client";
 
 type Props = {
   navigation: { name: string; href: string; icon: React.JSX.Element }[];
+  userEmail: string;
 };
 
-export default function MobileMenu({ navigation }: Props) {
+export default function MobileMenu({ navigation, userEmail }: Props) {
   const [sidebarOpen, setSidebarOpen] = useState(false);
 
   return (
@@ -106,7 +108,7 @@ export default function MobileMenu({ navigation }: Props) {
         </Dialog>
       </Transition.Root>
 
-      <div className="sticky top-0 z-40 flex items-center justify-between px-4 py-4 gap-x-6 shadow-sm bg-background sm:px-6 lg:hidden">
+      <div className="sticky top-0 z-40 flex items-center justify-between px-4 py-4 shadow-sm gap-x-6 bg-background sm:px-6 lg:hidden">
         <button
           type="button"
           className="-m-2.5 p-2.5 lg:hidden"
@@ -115,6 +117,12 @@ export default function MobileMenu({ navigation }: Props) {
           <span className="sr-only">Open sidebar</span>
           <Bars3Icon width={32} height={32} aria-hidden="true" />
         </button>
+        <div className="lg:hidden">
+          <FloopWidgetButton
+            projectId={process.env.FLOOP_PROJECT_ID!}
+            userEmail={userEmail}
+          />
+        </div>
         <span className="sr-only">Logout</span>
         <LogoutButton />
       </div>

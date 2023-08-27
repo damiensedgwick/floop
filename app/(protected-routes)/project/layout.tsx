@@ -12,6 +12,7 @@ import {
 import NavigationLink from "@/app/(protected-routes)/project/navigation-link.client";
 import MobileMenu from "@/app/(protected-routes)/project/mobile-menu.client";
 import LogoutButton from "@/components/logout-button.client";
+import { getPublicUser } from "./utils";
 
 const navigation = [
   {
@@ -63,10 +64,12 @@ export default async function ProjectLayout({
 }: {
   children: ReactNode;
 }) {
+  const user = await getPublicUser();
+
   return (
     <div className="h-full">
       {/* Dynamic sidebar for mobile*/}
-      <MobileMenu navigation={navigation} />
+      <MobileMenu navigation={navigation} userEmail={user.email} />
 
       {/* Static sidebar for desktop */}
       <div className="hidden lg:fixed lg:inset-y-0 lg:z-50 lg:flex lg:w-72 lg:flex-col">
@@ -85,7 +88,7 @@ export default async function ProjectLayout({
           <nav className="flex flex-col flex-1">
             <ul role="list" className="flex flex-col flex-1 gap-y-7">
               <li>
-                <div className="mb-2 text-xs font-semibold text-gray-400 leading-6">
+                <div className="mb-2 text-xs font-semibold leading-6 text-gray-400">
                   Navigation
                 </div>
 

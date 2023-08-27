@@ -1,7 +1,7 @@
 "use client";
 
 import { FloopWidget } from "@feedback-loop/react";
-import { Button } from "@/components/ui/button";
+import { Button, buttonVariants } from "@/components/ui/button";
 
 type Props = {
   projectId: string;
@@ -11,9 +11,9 @@ type Props = {
 export default function FloopWidgetButton({ projectId, userEmail }: Props) {
   return (
     <FloopWidget projectId={projectId} userEmail={userEmail}>
-      <Button variant="themed" size="sm" className="hidden md:inline-block">
+      <span className={buttonVariants({ variant: "themed" })}>
         Give Feedback
-      </Button>
+      </span>
     </FloopWidget>
   );
 }

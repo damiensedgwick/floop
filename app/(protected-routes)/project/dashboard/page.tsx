@@ -45,12 +45,14 @@ export default async function Page() {
     <div className="px-4 pt-2 pb-16 sm:px-6 lg:px-8">
       <div className="sm:flex sm:items-center">
         <div className="space-y-6 sm:flex-auto">
-          <div className="flex items-center justify-between mr-10">
+          <div className="flex items-center justify-between">
             <h1 className="text-xl font-semibold leading-6">Dashboard</h1>
-            <FloopWidgetButton
-              projectId={process.env.FLOOP_PROJECT_ID!}
-              userEmail={user.email}
-            />
+            <div className="hidden lg:block">
+              <FloopWidgetButton
+                projectId={process.env.FLOOP_PROJECT_ID!}
+                userEmail={user.email}
+              />
+            </div>
           </div>
           <Separator />
 
@@ -142,7 +144,7 @@ export default async function Page() {
           <div className="space-y-4">
             <h2 className="text-lg font-medium leading-6">Monthly Overview</h2>
             <div className="grid grid-cols-1 gap-4 lg:grid-cols-7">
-              <Card className="shadow col-span-1 lg:col-span-4">
+              <Card className="col-span-1 shadow lg:col-span-4">
                 <CardHeader>
                   <CardTitle>Ratings</CardTitle>
                   <CardDescription>
@@ -156,7 +158,7 @@ export default async function Page() {
                   <Overview ratings={thisMonthsRatings} />
                 </CardContent>
               </Card>
-              <Card className="shadow col-span-1 lg:col-span-3">
+              <Card className="col-span-1 shadow lg:col-span-3">
                 <CardHeader>
                   <CardTitle>Recent Activity</CardTitle>
                   <CardDescription>
