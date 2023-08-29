@@ -18,21 +18,6 @@ export default async function Page() {
         <div className="space-y-6 sm:flex-auto">
           <h1 className="text-xl font-semibold leading-6">Team</h1>
           <Separator />
-          <div className="p-4 border-l-4 border-yellow-400 bg-yellow-50">
-            <div className="flex">
-              <div className="flex-shrink-0">
-                <ExclamationTriangleIcon
-                  className="w-5 h-5 text-yellow-400"
-                  aria-hidden="true"
-                />
-              </div>
-              <div className="flex-1 ml-3 md:flex md:items-center md:justify-between">
-                <p className="text-sm text-yellow-700">
-                  Teams will be here soon!
-                </p>
-              </div>
-            </div>
-          </div>
 
           {!subscription ? (
             <div className="p-4 border-l-4 border-yellow-400 bg-yellow-50">
@@ -58,7 +43,8 @@ export default async function Page() {
                 </div>
               </div>
             </div>
-          ) : null}
+          ) : // TODO: Show teams page instead of null if there is a subscription
+          null}
         </div>
       </div>
     </div>

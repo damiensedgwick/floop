@@ -7,6 +7,7 @@ import {
   HomeIcon,
   StarIcon,
   UserCircleIcon,
+  UsersIcon,
 } from "@heroicons/react/24/outline";
 import NavigationLink from "@/app/(protected-routes)/project/navigation-link.client";
 import MobileMenu from "@/app/(protected-routes)/project/mobile-menu.client";
@@ -40,11 +41,11 @@ const navigation = [
   //   href: "/reports",
   //   icon: <ExclamationTriangleIcon width={24} height={24} />,
   // },
-  // {
-  //   name: "Team",
-  //   href: "/team",
-  //   icon: <UsersIcon width={24} height={24} />,
-  // },
+  {
+    name: "Team",
+    href: "/team",
+    icon: <UsersIcon width={24} height={24} />,
+  },
   {
     name: "Profile",
     href: "/profile",
