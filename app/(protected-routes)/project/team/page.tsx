@@ -6,6 +6,8 @@ import { Separator } from "@/components/ui/separator";
 import { ExclamationTriangleIcon } from "@heroicons/react/24/outline";
 import Link from "next/link";
 import getSubscription from "@/app/submissions/utils";
+import { Card, CardHeader, CardTitle, CardContent } from "@/components/ui/card";
+import ManageUsersForm from "./manage-users-form";
 
 export default async function Page() {
   const user = await getPublicUser();
@@ -43,8 +45,28 @@ export default async function Page() {
                 </div>
               </div>
             </div>
-          ) : // TODO: Show teams page instead of null if there is a subscription
-          null}
+          ) : (
+            <div className="space-y-4">
+              <div className="grid grid-cols-1 gap-4 lg:grid-cols-7">
+                <Card className="col-span-1 shadow lg:col-span-4">
+                  <CardHeader>
+                    <CardTitle>Invite team members</CardTitle>
+                  </CardHeader>
+                  <CardContent>
+                    <p>Invite user form</p>
+                  </CardContent>
+                </Card>
+                <Card className="col-span-1 shadow lg:col-span-3">
+                  <CardHeader>
+                    <CardTitle>Manage team members</CardTitle>
+                  </CardHeader>
+                  <CardContent>
+                    <ManageUsersForm projectId={project.id} />
+                  </CardContent>
+                </Card>
+              </div>
+            </div>
+          )}
         </div>
       </div>
     </div>
