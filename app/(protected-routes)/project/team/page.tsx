@@ -1,3 +1,5 @@
+import { revalidatePath } from "next/cache";
+import { supabase as sb } from "@/lib/supabase";
 import {
   getProject,
   getPublicUser,
@@ -8,11 +10,29 @@ import Link from "next/link";
 import getSubscription from "@/app/submissions/utils";
 import { Card, CardHeader, CardTitle, CardContent } from "@/components/ui/card";
 import ManageUsersForm from "./manage-users-form";
+import PendingInvites from "./pending-invites";
+import InviteUserForm from "./invite-user-form";
 
 export default async function Page() {
   const user = await getPublicUser();
   const project = await getProject(user);
   const subscription = await getSubscription(project.stripe_subscription_id);
+
+  async function inviteUserViaEmail(email: string) {
+    "use server";
+
+    const { error } = await sb.auth.admin.inviteUserByEmail(email, {
+      data: {
+        project_id: project.id,
+      },
+    });
+
+    if (error) {
+      console.log("Error inviting user:", error.message);
+    }
+
+    revalidatePath("/project/team");
+  }
 
   return (
     <div className="px-4 pt-2 pb-16 sm:px-6 lg:px-8">
@@ -52,8 +72,10 @@ export default async function Page() {
                   <CardHeader>
                     <CardTitle>Invite team members</CardTitle>
                   </CardHeader>
-                  <CardContent>
-                    <p>Invite user form</p>
+                  <CardContent className="space-y-6">
+                    <InviteUserForm handleSubmit={inviteUserViaEmail} />
+                    <Separator />
+                    <PendingInvites />
                   </CardContent>
                 </Card>
                 <Card className="col-span-1 shadow lg:col-span-3">

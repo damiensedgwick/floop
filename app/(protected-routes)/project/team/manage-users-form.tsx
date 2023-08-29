@@ -32,7 +32,7 @@ export default async function ManageUsersForm({ projectId }: Props) {
   }
 
   return (
-    <div className="space-y-4">
+    <div className="space-y-6">
       {users
         ?.filter((user) => user.id !== project?.owner_id)
         .map((user) => (
