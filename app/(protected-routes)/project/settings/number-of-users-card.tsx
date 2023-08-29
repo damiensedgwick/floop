@@ -8,6 +8,8 @@ import {
   CardHeader,
   CardTitle,
 } from "@/components/ui/card";
+import { buttonVariants } from "@/components/ui/button";
+import Link from "next/link";
 
 type Props = {
   count: number;
@@ -32,6 +34,12 @@ export default function NumberOfUsersCard({ count }: Props) {
             subscription to the growth plan
           </small>
         </p>
+        <Link
+          href="/project/team"
+          className={buttonVariants({ variant: "default", size: "sm" })}
+        >
+          Invite Users
+        </Link>
       </CardFooter>
     </Card>
   );

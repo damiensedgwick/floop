@@ -16,7 +16,6 @@ import ProjectIdCard from "@/app/(protected-routes)/project/settings/project-id-
 import OwnersNameCard from "@/app/(protected-routes)/project/settings/owners-name-card.client";
 import OwnersEmailCard from "@/app/(protected-routes)/project/settings/owners-email.client";
 import SubscriptionTypeCard from "@/app/(protected-routes)/project/settings/subscription-type-card";
-import SubscriptionExpiryCard from "@/app/(protected-routes)/project/settings/subscription-expiry-card";
 import { format } from "date-fns";
 import TotalSubmissionsCard from "@/app/(protected-routes)/project/settings/total-submissions-card";
 import NumberOfUsersCard from "@/app/(protected-routes)/project/settings/number-of-users-card";
@@ -93,16 +92,13 @@ export default async function Page() {
           />
           <SubscriptionTypeCard
             subscriptionType={subscription ? "Growth" : "Hobby"}
-          />
-          <SubscriptionExpiryCard
-            subscriptionType={subscription ? "Growth" : "Hobby"}
             expiry={
               subscription
                 ? format(
                     new Date(subscription.current_period_end * 1000),
                     "dd MMM yyyy",
                   )
-                : "No expiry date"
+                : "N/A"
             }
           />
           <TotalSubmissionsCard count={project.total_submissions} />

@@ -8,14 +8,18 @@ import {
   CardHeader,
   CardTitle,
 } from "@/components/ui/card";
-import { Button, buttonVariants } from "@/components/ui/button";
+import { buttonVariants } from "@/components/ui/button";
 import Link from "next/link";
 
 type Props = {
   subscriptionType: string;
+  expiry: string;
 };
 
-export default function SubscriptionTypeCard({ subscriptionType }: Props) {
+export default function SubscriptionTypeCard({
+  subscriptionType,
+  expiry,
+}: Props) {
   const hasSubscription = subscriptionType === "Growth";
 
   return (
@@ -27,7 +31,9 @@ export default function SubscriptionTypeCard({ subscriptionType }: Props) {
         </CardDescription>
       </CardHeader>
       <CardContent>
-        <p>{subscriptionType}</p>
+        <p>
+          {subscriptionType} Plan, Expires on {expiry}
+        </p>
       </CardContent>
       <CardFooter className="flex items-center justify-between p-4 bg-secondary">
         <p className="max-w-[250px] md:max-w-prose">
