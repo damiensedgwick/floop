@@ -1,3 +1,4 @@
+import Link from "next/link";
 import { revalidatePath } from "next/cache";
 import { supabase as sb } from "@/lib/supabase";
 import {
@@ -6,7 +7,6 @@ import {
 } from "@/app/(protected-routes)/project/utils";
 import { Separator } from "@/components/ui/separator";
 import { ExclamationTriangleIcon } from "@heroicons/react/24/outline";
-import Link from "next/link";
 import getSubscription from "@/app/submissions/utils";
 import { Card, CardHeader, CardTitle, CardContent } from "@/components/ui/card";
 import ManageUsersForm from "./manage-users-form";
@@ -21,7 +21,7 @@ export default async function Page() {
   async function inviteUserViaEmail(email: string) {
     "use server";
 
-    const { error } = await sb.auth.admin.inviteUserByEmail(email, {
+    const { data, error } = await sb.auth.admin.inviteUserByEmail(email, {
       data: {
         project_id: project.id,
       },
@@ -29,6 +29,10 @@ export default async function Page() {
 
     if (error) {
       console.log("Error inviting user:", error.message);
+    }
+
+    if (data && data.user) {
+      console.log("User invited:", data);
     }
 
     revalidatePath("/project/team");
