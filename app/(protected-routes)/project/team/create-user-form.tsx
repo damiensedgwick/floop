@@ -16,10 +16,10 @@ import { Button } from "@/components/ui/button";
 import { useForm } from "react-hook-form";
 
 type Props = {
-  handleSubmit: (email: string) => void;
+  projectId: string;
 };
 
-export default function CreateUserForm({ handleSubmit }: Props) {
+export default function CreateUserForm({ projectId }: Props) {
   const [isPending, startTransition] = useTransition();
   const { toast } = useToast();
 
@@ -35,13 +35,23 @@ export default function CreateUserForm({ handleSubmit }: Props) {
   });
 
   async function onSubmit(values: z.infer<typeof formSchema>) {
-    startTransition(() => handleSubmit(values.email));
-
-    toast({
-      title: "User has been invited",
+    startTransition(async () => {
+      await fetch("/project/team/user", {
+        method: "POST",
+        body: JSON.stringify({
+          project_id: projectId,
+          email: values.email,
+        }),
+      });
     });
 
-    form.reset();
+    if (!isPending) {
+      toast({
+        title: "User has been invited",
+      });
+
+      form.reset();
+    }
   }
 
   return (
