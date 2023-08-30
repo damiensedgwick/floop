@@ -21,8 +21,9 @@ export default async function Page() {
   async function inviteUserViaEmail(email: string) {
     "use server";
 
-    const { data, error } = await sb.auth.admin.inviteUserByEmail(email, {
-      data: {
+    const { data, error } = await sb.auth.admin.createUser({
+      email,
+      app_metadata: {
         project_id: project.id,
       },
     });
