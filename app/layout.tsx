@@ -1,6 +1,7 @@
 import "./globals.css";
 import { ThemeProvider } from "@/components/theme-provider";
 import { Toaster } from "@/components/ui/toaster";
+import { Analytics } from "@vercel/analytics/react";
 
 export const metadata = {
   title: "Floop | A feedback loop for your product",
@@ -22,6 +23,7 @@ export default function RootLayout({
           <main className="h-full">{children}</main>
           <Toaster />
         </ThemeProvider>
+        <Analytics />
       </body>
     </html>
   );

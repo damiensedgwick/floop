@@ -18,7 +18,7 @@ export default async function Page() {
   const project = await getProject(user);
   const subscription = await getSubscription(project.stripe_subscription_id);
 
-  async function inviteUserViaEmail(email: string) {
+  async function createNewTeamUser(email: string) {
     "use server";
 
     const { data, error } = await sb.auth.admin.createUser({
@@ -33,7 +33,10 @@ export default async function Page() {
     }
 
     if (data && data.user) {
-      console.log("User invited:", data);
+      await sb
+        .from("users")
+        .update({ project_id: project.id })
+        .eq("id", data.user.id);
     }
 
     revalidatePath("/project/team");
@@ -78,7 +81,7 @@ export default async function Page() {
                     <CardTitle>Invite team members</CardTitle>
                   </CardHeader>
                   <CardContent className="space-y-6">
-                    <InviteUserForm handleSubmit={inviteUserViaEmail} />
+                    <InviteUserForm handleSubmit={createNewTeamUser} />
                     <Separator />
                     <PendingInvites />
                   </CardContent>
