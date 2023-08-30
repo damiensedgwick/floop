@@ -38,10 +38,10 @@ export default async function Page() {
         .update({ project_id: project.id })
         .eq("id", data.user.id);
 
-      // await sb.from("project_users").insert({
-      //   project_id: project.id,
-      //   user_id: data.user.id,
-      // });
+      await sb.from("project_users").insert({
+        project_id: project.id,
+        user_id: data.user.id,
+      });
     }
 
     revalidatePath("/project/team");
