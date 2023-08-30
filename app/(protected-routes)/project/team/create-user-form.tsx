@@ -37,13 +37,11 @@ export default function CreateUserForm({ handleSubmit }: Props) {
   async function onSubmit(values: z.infer<typeof formSchema>) {
     startTransition(() => handleSubmit(values.email));
 
-    if (!isPending) {
-      toast({
-        title: "User has been invited",
-      });
+    toast({
+      title: "User has been invited",
+    });
 
-      form.reset();
-    }
+    form.reset();
   }
 
   return (
