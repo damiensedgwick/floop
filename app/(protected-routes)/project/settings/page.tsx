@@ -47,6 +47,7 @@ export default async function Page() {
       .from("projects")
       .update({ name, updated_at: new Date().toISOString() })
       .eq("id", project.id);
+
     revalidatePath("/project/settings");
   }
 

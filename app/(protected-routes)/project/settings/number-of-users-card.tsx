@@ -38,7 +38,7 @@ export default function NumberOfUsersCard({ count }: Props) {
           href="/project/team"
           className={buttonVariants({ variant: "default", size: "sm" })}
         >
-          Invite Users
+          View Users
         </Link>
       </CardFooter>
     </Card>

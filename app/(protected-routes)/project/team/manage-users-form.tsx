@@ -7,9 +7,13 @@ import DeleteAndRemoveUserButton from "./delete-and-remove-user-button.client";
 
 type Props = {
   projectId: string;
+  isProjectOwner: boolean;
 };
 
-export default async function ManageUsersForm({ projectId }: Props) {
+export default async function ManageUsersForm({
+  projectId,
+  isProjectOwner,
+}: Props) {
   const supabase = createServerComponentClient<Database>({ cookies });
 
   const { data: project } = await supabase
@@ -39,16 +43,15 @@ export default async function ManageUsersForm({ projectId }: Props) {
           <div key={user.id} className="flex items-center justify-between">
             <div>
               <p className="text-sm font-medium leading-none">
-                {user.preferred_name ||
-                  user.first_name ||
-                  "Name has not been updated"}
+                {user.preferred_name || user.first_name || "N/A"}
               </p>
               <p className="text-sm text-muted-foreground">{user.email}</p>
             </div>
 
             <DeleteAndRemoveUserButton
               userId={user.id}
-              onDeleteHander={deleteAndRemoveUser}
+              onDeleteHandler={deleteAndRemoveUser}
+              disabled={!isProjectOwner}
             />
           </div>
         ))}

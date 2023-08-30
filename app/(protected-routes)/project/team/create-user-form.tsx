@@ -17,9 +17,10 @@ import { useForm } from "react-hook-form";
 
 type Props = {
   projectId: string;
+  isProjectOwner: boolean;
 };
 
-export default function CreateUserForm({ projectId }: Props) {
+export default function CreateUserForm({ projectId, isProjectOwner }: Props) {
   const [isPending, startTransition] = useTransition();
   const { toast } = useToast();
 
@@ -79,7 +80,7 @@ export default function CreateUserForm({ projectId }: Props) {
 
         <Button
           type="submit"
-          disabled={isPending}
+          disabled={isPending || !isProjectOwner}
           className="w-full md:max-w-[125px]"
         >
           {isPending ? "Creating..." : "Create"}
