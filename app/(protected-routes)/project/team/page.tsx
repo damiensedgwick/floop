@@ -80,26 +80,16 @@ export default async function Page() {
             </div>
           ) : (
             <div className="space-y-4">
-              <div className="grid grid-cols-1 gap-4 lg:grid-cols-7">
-                <Card className="col-span-1 shadow lg:col-span-4">
-                  <CardHeader>
-                    <CardTitle>Create team members</CardTitle>
-                  </CardHeader>
-                  <CardContent className="space-y-6">
-                    <CreateUserForm handleSubmit={createNewTeamUser} />
-                    <Separator />
-                    <PendingInvites />
-                  </CardContent>
-                </Card>
-                <Card className="col-span-1 shadow lg:col-span-3">
-                  <CardHeader>
-                    <CardTitle>Manage team members</CardTitle>
-                  </CardHeader>
-                  <CardContent>
-                    <ManageUsersForm projectId={project.id} />
-                  </CardContent>
-                </Card>
-              </div>
+              <Card className="col-span-1 shadow lg:col-span-4">
+                <CardHeader>
+                  <CardTitle>Create team members</CardTitle>
+                </CardHeader>
+                <CardContent className="space-y-6">
+                  <CreateUserForm handleSubmit={createNewTeamUser} />
+                  <Separator />
+                  <ManageUsersForm projectId={project.id} />
+                </CardContent>
+              </Card>
             </div>
           )}
         </div>
