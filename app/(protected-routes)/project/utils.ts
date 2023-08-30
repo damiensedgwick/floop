@@ -35,17 +35,27 @@ export const getProject = cache(
   async (user: Database["public"]["Tables"]["users"]["Row"]) => {
     const supabase = createServerComponentClient<Database>({ cookies });
 
-    const { data } = await supabase
-      .from("projects")
+    const { data: row } = await supabase
+      .from("project_users")
       .select()
-      .eq("owner_id", user.id)
+      .eq("user_id", user.id)
       .single();
 
-    if (!data) {
-      throw new Error("No project found for this user.");
+    if (!row) {
+      throw new Error("No row found for this user");
     }
 
-    return data;
+    const { data: project } = await supabase
+      .from("projects")
+      .select()
+      .eq("id", row.project_id)
+      .single();
+
+    if (!project) {
+      throw new Error("No project found for this user");
+    }
+
+    return project;
   },
 );
 
@@ -75,6 +85,11 @@ export async function createNewProject(
       .from("users")
       .update({ project_id: data[0].id })
       .eq("id", user.id);
+
+    await supabase.from("project_users").insert({
+      project_id: data[0].id,
+      user_id: user.id,
+    });
 
     revalidatePath("/project/dashboard");
     revalidatePath("/project/issues");
