@@ -18,35 +18,6 @@ export default async function Page() {
   const project = await getProject(user);
   const subscription = await getSubscription(project.stripe_subscription_id);
 
-  async function createNewTeamUser(email: string) {
-    "use server";
-
-    const { data, error } = await sb.auth.admin.createUser({
-      email,
-      app_metadata: {
-        project_id: project.id,
-      },
-    });
-
-    if (error) {
-      console.log("Error inviting user:", error.message);
-    }
-
-    if (data && data.user) {
-      await sb
-        .from("users")
-        .update({ project_id: project.id })
-        .eq("id", data.user.id);
-
-      await sb.from("project_users").insert({
-        project_id: project.id,
-        user_id: data.user.id,
-      });
-    }
-
-    revalidatePath("/project/team");
-  }
-
   return (
     <div className="px-4 pt-2 pb-16 sm:px-6 lg:px-8">
       <div className="sm:flex sm:items-center">
@@ -101,7 +72,7 @@ export default async function Page() {
                   <CardTitle>Create team members</CardTitle>
                 </CardHeader>
                 <CardContent className="space-y-6">
-                  <CreateUserForm handleSubmit={createNewTeamUser} />
+                  <CreateUserForm projectId={project.id} />
                   <Separator />
                   <ManageUsersForm projectId={project.id} />
                 </CardContent>
