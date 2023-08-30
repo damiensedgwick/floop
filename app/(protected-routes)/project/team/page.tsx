@@ -11,7 +11,7 @@ import getSubscription from "@/app/submissions/utils";
 import { Card, CardHeader, CardTitle, CardContent } from "@/components/ui/card";
 import ManageUsersForm from "./manage-users-form";
 import PendingInvites from "./pending-invites";
-import InviteUserForm from "./invite-user-form";
+import CreateUserForm from "./create-user-form";
 
 export default async function Page() {
   const user = await getPublicUser();
@@ -37,6 +37,11 @@ export default async function Page() {
         .from("users")
         .update({ project_id: project.id })
         .eq("id", data.user.id);
+
+      await sb.from("project_users").insert({
+        project_id: project.id,
+        user_id: data.user.id,
+      });
     }
 
     revalidatePath("/project/team");
@@ -60,7 +65,7 @@ export default async function Page() {
                 </div>
                 <div className="flex-1 ml-3 md:flex md:items-center md:justify-between">
                   <p className="text-sm text-yellow-700">
-                    Subscription needed to access reports.
+                    Subscription needed to access teams.
                   </p>
                   <p className="text-sm text-yellow-700">
                     <Link
@@ -78,10 +83,10 @@ export default async function Page() {
               <div className="grid grid-cols-1 gap-4 lg:grid-cols-7">
                 <Card className="col-span-1 shadow lg:col-span-4">
                   <CardHeader>
-                    <CardTitle>Invite team members</CardTitle>
+                    <CardTitle>Create team members</CardTitle>
                   </CardHeader>
                   <CardContent className="space-y-6">
-                    <InviteUserForm handleSubmit={createNewTeamUser} />
+                    <CreateUserForm handleSubmit={createNewTeamUser} />
                     <Separator />
                     <PendingInvites />
                   </CardContent>

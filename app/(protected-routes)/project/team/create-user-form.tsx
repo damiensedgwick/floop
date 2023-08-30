@@ -19,7 +19,7 @@ type Props = {
   handleSubmit: (email: string) => void;
 };
 
-export default function InviteUserForm({ handleSubmit }: Props) {
+export default function CreateUserForm({ handleSubmit }: Props) {
   const [isPending, startTransition] = useTransition();
   const { toast } = useToast();
 
@@ -37,11 +37,13 @@ export default function InviteUserForm({ handleSubmit }: Props) {
   async function onSubmit(values: z.infer<typeof formSchema>) {
     startTransition(() => handleSubmit(values.email));
 
-    toast({
-      title: "User has been invited",
-    });
+    if (!isPending) {
+      toast({
+        title: "User has been invited",
+      });
 
-    form.reset();
+      form.reset();
+    }
   }
 
   return (
@@ -72,7 +74,7 @@ export default function InviteUserForm({ handleSubmit }: Props) {
           disabled={isPending}
           className="w-full md:max-w-[125px]"
         >
-          {isPending ? "Sending..." : "Invite"}
+          {isPending ? "Creating..." : "Create"}
         </Button>
       </form>
     </Form>

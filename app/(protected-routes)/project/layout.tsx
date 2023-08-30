@@ -41,11 +41,11 @@ const navigation = [
   //   href: "/reports",
   //   icon: <ExclamationTriangleIcon width={24} height={24} />,
   // },
-  // {
-  //   name: "Team",
-  //   href: "/team",
-  //   icon: <UsersIcon width={24} height={24} />,
-  // },
+  {
+    name: "Team",
+    href: "/team",
+    icon: <UsersIcon width={24} height={24} />,
+  },
   {
     name: "Profile",
     href: "/profile",
