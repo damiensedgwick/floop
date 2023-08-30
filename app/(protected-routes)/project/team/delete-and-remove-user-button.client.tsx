@@ -5,21 +5,24 @@ import { TrashIcon } from "@heroicons/react/24/outline";
 
 type Props = {
   userId: string;
-  onDeleteHander: (userId: string) => void;
+  onDeleteHandler: (userId: string) => void;
+  disabled: boolean;
 };
 
 export default function DeleteAndRemoveUserButton({
   userId,
-  onDeleteHander,
+  onDeleteHandler,
+  disabled,
 }: Props) {
   return (
     <Button
       variant="destructive"
-      size="tiny"
       type="button"
-      onClick={() => onDeleteHander(userId)}
+      onClick={() => onDeleteHandler(userId)}
+      disabled={disabled}
     >
-      <TrashIcon width={16} height={16} />
+      <TrashIcon width={16} height={16} className="md:hidden" />
+      <span className="hidden md:block">Remove User</span>
     </Button>
   );
 }

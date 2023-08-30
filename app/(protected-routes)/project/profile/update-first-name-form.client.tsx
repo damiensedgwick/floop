@@ -51,14 +51,18 @@ export default function UpdateFirstNameForm({
   async function onSubmit(values: z.infer<typeof formSchema>) {
     startTransition(() => handleUpdateProfile(values.name, userId));
 
-    toast({
-      title: "First name updated",
-    });
+    if (!isPending) {
+      toast({
+        title: "First name updated",
+      });
+
+      form.reset();
+    }
   }
 
   return (
     <Form {...form}>
-      <form onSubmit={form.handleSubmit(onSubmit)} className="w-full max-w-7xl">
+      <form onSubmit={form.handleSubmit(onSubmit)} className="w-full">
         <FormField
           control={form.control}
           name="name"

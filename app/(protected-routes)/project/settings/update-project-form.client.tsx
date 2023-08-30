@@ -48,9 +48,14 @@ export default function UpdateProjectForm({
 
   async function onSubmit(values: z.infer<typeof formSchema>) {
     startTransition(() => handleUpdateProjectName(values.name));
-    toast({
-      title: "Project name updated",
-    });
+
+    if (!isPending) {
+      toast({
+        title: "Project name updated",
+      });
+
+      form.reset();
+    }
   }
 
   return (
