@@ -7,6 +7,7 @@ import { Database } from "@/types/supabase";
 import { revalidatePath } from "next/cache";
 import { createServerActionClient } from "@supabase/auth-helpers-nextjs";
 import { cookies } from "next/headers";
+import UpdatePasswordForm from "@/app/(protected-routes)/project/profile/update-password-form.client";
 
 export default async function Page() {
   const user = await getPublicUser();
@@ -61,6 +62,16 @@ export default async function Page() {
     revalidatePath("/project/profile");
   }
 
+  async function handleUpdatePassword(password: string) {
+    "use server";
+
+    const supabase = createServerActionClient<Database>({ cookies });
+
+    await supabase.auth.updateUser({ password });
+
+    revalidatePath("/project/profile");
+  }
+
   return (
     <div className="px-4 pt-2 pb-16 sm:px-6 lg:px-8">
       <div className="sm:flex sm:items-center">
@@ -82,6 +93,7 @@ export default async function Page() {
             userId={user.id}
             handleUpdateProfile={handleUpdateLastName}
           />
+          <UpdatePasswordForm handleUpdatePassword={handleUpdatePassword} />
         </div>
       </div>
     </div>

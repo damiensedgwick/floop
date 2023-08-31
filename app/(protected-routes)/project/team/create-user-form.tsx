@@ -59,7 +59,7 @@ export default function CreateUserForm({ projectId, isProjectOwner }: Props) {
     <Form {...form}>
       <form
         onSubmit={form.handleSubmit(onSubmit)}
-        className="flex flex-col items-center justify-between w-full space-y-4 md:flex-row md:space-y-0 md:space-x-4"
+        className="flex w-full flex-col items-center justify-between space-y-4 md:space-y-0 md:space-x-4 md:flex-row"
       >
         <FormField
           control={form.control}

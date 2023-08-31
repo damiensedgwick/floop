@@ -30,7 +30,7 @@ export function RecentActivity({ ratings, issues, suggestions }: Props) {
               <p className="ml-3 text-sm font-medium leading-none">
                 {entry.score}
               </p>
-              <div className="hidden ml-auto font-medium sm:block">
+              <div className="ml-auto hidden font-medium sm:block">
                 {format(parseISO(entry.created_at), "d MMMM")}
               </div>
             </>
@@ -46,7 +46,7 @@ export function RecentActivity({ ratings, issues, suggestions }: Props) {
               <p className="ml-3 text-sm font-medium leading-none">
                 {entry.title}
               </p>
-              <div className="hidden ml-auto font-medium sm:block">
+              <div className="ml-auto hidden font-medium sm:block">
                 {format(parseISO(entry.created_at), "d MMMM")}
               </div>
             </>
@@ -62,7 +62,7 @@ export function RecentActivity({ ratings, issues, suggestions }: Props) {
               <p className="ml-3 text-sm font-medium leading-none">
                 {entry.title}
               </p>
-              <div className="hidden ml-auto font-medium sm:block">
+              <div className="ml-auto hidden font-medium sm:block">
                 {format(parseISO(entry.created_at), "d MMMM")}
               </div>
             </>

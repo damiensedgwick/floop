@@ -7,10 +7,10 @@ import { mt } from "date-fns/locale";
 export default function Page() {
   return (
     <div className="px-6 py-32 lg:px-8">
-      <div className="max-w-3xl mx-auto text-base leading-7">
+      <div className="mx-auto max-w-3xl text-base leading-7">
         <Link
           href="/"
-          className="flex items-center py-2 text-sm no-underline rounded-md text-foreground bg-btn-background group hover:bg-btn-background-hover"
+          className="flex items-center rounded-md py-2 text-sm no-underline text-foreground bg-btn-background group hover:bg-btn-background-hover"
         >
           <svg
             xmlns="http://www.w3.org/2000/svg"
@@ -22,7 +22,7 @@ export default function Page() {
             strokeWidth="2"
             strokeLinecap="round"
             strokeLinejoin="round"
-            className="w-4 h-4 mr-2 transition-transform group-hover:-translate-x-1"
+            className="mr-2 h-4 w-4 transition-transform group-hover:-translate-x-1"
           >
             <polyline points="15 18 9 12 15 6" />
           </svg>{" "}
@@ -38,43 +38,43 @@ export default function Page() {
           Floop is a simple, easy-to-use platform that allows you to collect
           feedback from your customers.
         </p>
-        <div className="max-w-2xl mt-14">
-          <h2 className="mb-2 text-2xl font-bold tracking-tight ">
+        <div className="mt-14 max-w-2xl">
+          <h2 className="mb-2 text-2xl font-bold tracking-tight">
             Focusing on the fundamentals
           </h2>
           <p className="mt-6">
             Our goal here at Floop to help you understand what your customers
             think and feel about your product, and how you can improve it.
           </p>
-          <ul role="list" className="max-w-xl mt-8 space-y-8">
+          <ul role="list" className="mt-8 max-w-xl space-y-8">
             <li className="flex gap-x-3">
               <CheckCircleIcon
-                className="flex-none w-5 h-5 mt-1 text-teal-600"
+                className="mt-1 h-5 w-5 flex-none text-teal-600"
                 aria-hidden="true"
               />
               <span>
-                <strong className="font-semibold ">Ratings.</strong> How are
-                your customers feeling about your service?
+                <strong className="font-semibold">Ratings.</strong> How are your
+                customers feeling about your service?
               </span>
             </li>
             <li className="flex gap-x-3">
               <CheckCircleIcon
-                className="flex-none w-5 h-5 mt-1 text-teal-600"
+                className="mt-1 h-5 w-5 flex-none text-teal-600"
                 aria-hidden="true"
               />
               <span>
-                <strong className="font-semibold ">Issues.</strong> What issues
+                <strong className="font-semibold">Issues.</strong> What issues
                 are your customers facing with your product?
               </span>
             </li>
             <li className="flex gap-x-3">
               <CheckCircleIcon
-                className="flex-none w-5 h-5 mt-1 text-teal-600"
+                className="mt-1 h-5 w-5 flex-none text-teal-600"
                 aria-hidden="true"
               />
               <span>
-                <strong className="font-semibold ">Suggestions.</strong> Is
-                there anything your customers would like to see?
+                <strong className="font-semibold">Suggestions.</strong> Is there
+                anything your customers would like to see?
               </span>
             </li>
           </ul>
@@ -84,7 +84,7 @@ export default function Page() {
             on these three areas, you&apos;ll be able to make better decisions
             about your product and how you can improve it.
           </p>
-          <h2 className="text-2xl font-bold tracking-tight mt-14 ">
+          <h2 className="mt-14 text-2xl font-bold tracking-tight">
             Start collecting your customer feedback in minutes
           </h2>
           <p className="mt-6">
@@ -94,8 +94,8 @@ export default function Page() {
             yours.
           </p>
         </div>
-        <div className="max-w-2xl mt-14">
-          <h2 className="text-2xl font-bold tracking-tight ">
+        <div className="mt-14 max-w-2xl">
+          <h2 className="text-2xl font-bold tracking-tight">
             Meet the Floop Widget
           </h2>
           <p className="mt-6">
@@ -104,9 +104,9 @@ export default function Page() {
             your project within minutes. All you have to do is choose your
             flavour, which currently comes in React and Vue.
           </p>
-          <div className="flex items-center justify-center mt-6">
+          <div className="mt-6 flex items-center justify-center">
             <Image
-              className="shadow-2xl rounded-2xl"
+              className="rounded-2xl shadow-2xl"
               src="/widget.png"
               width={300}
               height={150}
@@ -114,8 +114,8 @@ export default function Page() {
             />
           </div>
         </div>
-        <div className="max-w-2xl mt-14">
-          <h2 className="text-2xl font-bold tracking-tight ">
+        <div className="mt-14 max-w-2xl">
+          <h2 className="text-2xl font-bold tracking-tight">
             Get a centralised view of your customer feedback
           </h2>
           <p className="mt-6">
@@ -123,7 +123,7 @@ export default function Page() {
             can view all of your customer ratings, issues and suggestions in one
             place.
           </p>
-          <div className="flex items-center justify-center mt-6">
+          <div className="mt-6 flex items-center justify-center">
             <Image
               className="rounded shadow-2xl"
               src="/dashboard.png"
@@ -139,8 +139,8 @@ export default function Page() {
             you.
           </p>
         </div>
-        <div className="max-w-2xl mt-14">
-          <h2 className="text-2xl font-bold tracking-tight ">What Next?</h2>
+        <div className="mt-14 max-w-2xl">
+          <h2 className="text-2xl font-bold tracking-tight">What Next?</h2>
           <p className="mt-6">
             We are currently in beta and are looking to build out our platform
             with more features and integrations. Specifically, we are looking to

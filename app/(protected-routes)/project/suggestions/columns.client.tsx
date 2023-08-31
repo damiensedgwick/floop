@@ -38,7 +38,7 @@ export const columns: ColumnDef<
           onClick={() => column.toggleSorting(column.getIsSorted() === "asc")}
         >
           Created
-          <ArrowsUpDownIcon width={12} height={12} className="w-4 h-4 ml-2" />
+          <ArrowsUpDownIcon width={12} height={12} className="ml-2 h-4 w-4" />
         </Button>
       );
     },
@@ -56,7 +56,7 @@ export const columns: ColumnDef<
       return (
         <DropdownMenu>
           <DropdownMenuTrigger asChild>
-            <Button variant="ghost" className="w-8 h-8 p-0">
+            <Button variant="ghost" className="h-8 w-8 p-0">
               <span className="sr-only">Open menu</span>
               <EllipsisHorizontalIcon width={20} height={20} />
             </Button>

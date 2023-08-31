@@ -82,11 +82,16 @@ export default function UpdatePreferredNameForm({
                   <FormMessage />
                 </FormItem>
               </CardContent>
-              <CardFooter className="flex items-center justify-between p-4 bg-secondary">
-                <p className="max-w-[250px] md:max-w-prose">
+              <CardFooter className="flex flex-col items-start justify-between p-4 bg-secondary space-y-3 sm:space-y-0 sm:flex-row sm:items-center">
+                <p className="sm:max-w-prose">
                   <small>Please use 100 characters at maximum</small>
                 </p>
-                <Button type="submit" size="sm" disabled={isPending}>
+                <Button
+                  type="submit"
+                  size="sm"
+                  disabled={isPending}
+                  className="w-full sm:w-20"
+                >
                   {isPending ? "Saving..." : "Save"}
                 </Button>
               </CardFooter>

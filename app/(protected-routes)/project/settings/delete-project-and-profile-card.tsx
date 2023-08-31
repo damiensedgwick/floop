@@ -32,8 +32,8 @@ export default function DeleteProjectAndProfileCard({
           This will delete your project and profile.
         </CardDescription>
       </CardHeader>
-      <CardFooter className="flex items-center justify-between p-4 bg-secondary">
-        <p className="max-w-[250px] md:max-w-prose">
+      <CardFooter className="flex flex-col items-start justify-between p-4 bg-secondary space-y-3 sm:space-y-0 sm:flex-row sm:items-center">
+        <p className="sm:max-w-prose">
           <small>
             Please only do this if you are certain you want to delete everything
           </small>
@@ -43,8 +43,9 @@ export default function DeleteProjectAndProfileCard({
           type="button"
           variant="destructive"
           onClick={() => setIsDeleting(true)}
+          className="w-full sm:w-20"
         >
-          Delete Account
+          Delete
         </Button>
       </CardFooter>
       <Transition.Root show={isDeleting} as={Fragment}>
@@ -67,7 +68,7 @@ export default function DeleteProjectAndProfileCard({
           </Transition.Child>
 
           <div className="fixed inset-0 z-10 overflow-y-auto">
-            <div className="flex items-end justify-center min-h-full p-4 text-center sm:items-center sm:p-0">
+            <div className="flex min-h-full items-end justify-center p-4 text-center sm:items-center sm:p-0">
               <Transition.Child
                 as={Fragment}
                 enter="ease-out duration-300"
@@ -77,15 +78,15 @@ export default function DeleteProjectAndProfileCard({
                 leaveFrom="opacity-100 translate-y-0 sm:scale-100"
                 leaveTo="opacity-0 translate-y-4 sm:translate-y-0 sm:scale-95"
               >
-                <Dialog.Panel className="relative px-4 pt-5 pb-4 overflow-hidden text-left rounded-lg shadow-xl transform transition-all sm:my-8 sm:w-full sm:max-w-lg sm:p-6 bg-secondary">
+                <Dialog.Panel className="relative transform overflow-hidden rounded-lg px-4 pt-5 pb-4 text-left shadow-xl transition-all bg-secondary sm:my-8 sm:w-full sm:max-w-lg sm:p-6">
                   <div className="sm:flex sm:items-start">
-                    <div className="flex items-center justify-center flex-shrink-0 w-12 h-12 mx-auto bg-red-100 rounded-full sm:mx-0 sm:h-10 sm:w-10">
+                    <div className="mx-auto flex h-12 w-12 flex-shrink-0 items-center justify-center rounded-full bg-red-100 sm:mx-0 sm:h-10 sm:w-10">
                       <ExclamationTriangleIcon
-                        className="w-6 h-6 text-red-600"
+                        className="h-6 w-6 text-red-600"
                         aria-hidden="true"
                       />
                     </div>
-                    <div className="mt-3 text-center sm:ml-4 sm:mt-0 sm:text-left">
+                    <div className="mt-3 text-center sm:mt-0 sm:ml-4 sm:text-left">
                       <Dialog.Title
                         as="h3"
                         className="text-base font-semibold leading-6"
@@ -105,7 +106,7 @@ export default function DeleteProjectAndProfileCard({
                     <Button
                       variant="destructive"
                       type="button"
-                      className="inline-flex justify-center w-full px-3 py-2 text-sm font-semibold bg-red-600 rounded-md shadow-sm hover:bg-red-500 sm:ml-3 sm:w-auto"
+                      className="inline-flex w-full justify-center rounded-md bg-red-600 px-3 py-2 text-sm font-semibold shadow-sm hover:bg-red-500 sm:ml-3 sm:w-auto"
                       onClick={() => onDeleteHandler(userId)}
                     >
                       Delete
@@ -113,7 +114,7 @@ export default function DeleteProjectAndProfileCard({
                     <Button
                       type="button"
                       variant="secondary"
-                      className="inline-flex justify-center w-full px-3 py-2 mt-3 text-sm font-semibold rounded-md shadow-sm ring-1 ring-inset ring-gray-300 hover:bg-gray-50 sm:mt-0 sm:w-auto"
+                      className="mt-3 inline-flex w-full justify-center rounded-md px-3 py-2 text-sm font-semibold shadow-sm ring-1 ring-inset ring-gray-300 hover:bg-gray-50 sm:mt-0 sm:w-auto"
                       onClick={() => setIsDeleting(false)}
                       ref={cancelButtonRef}
                     >

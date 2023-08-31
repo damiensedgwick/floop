@@ -57,15 +57,15 @@ export default async function Page() {
           <Separator />
 
           {project.total_submissions === 0 ? (
-            <div className="p-4 border-l-4 border-yellow-400 bg-yellow-50">
+            <div className="border-l-4 border-yellow-400 bg-yellow-50 p-4">
               <div className="flex">
                 <div className="flex-shrink-0">
                   <ExclamationTriangleIcon
-                    className="w-5 h-5 text-yellow-400"
+                    className="h-5 w-5 text-yellow-400"
                     aria-hidden="true"
                   />
                 </div>
-                <div className="flex-1 ml-3 md:flex md:items-center md:justify-between">
+                <div className="ml-3 flex-1 md:flex md:items-center md:justify-between">
                   <p className="text-sm text-yellow-700">
                     You have 0 submissions.
                   </p>

@@ -15,7 +15,7 @@ export default async function Page() {
 
   if (!suggestions?.length) {
     return (
-      <div className="flex flex-col items-center justify-center h-full px-4 pt-2 sm:px-6 lg:px-8">
+      <div className="flex h-full flex-col items-center justify-center px-4 pt-2 sm:px-6 lg:px-8">
         <h1 className="text-base font-semibold leading-6">
           <i>&ldquo;Live, laugh, copy & paste&ldquo;</i>
         </h1>

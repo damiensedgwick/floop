@@ -132,7 +132,7 @@ export function DataTable<TData, TValue>({
           </DropdownMenu>
         </div>
       </div>
-      <div className="border shadow rounded-md">
+      <div className="rounded-md border shadow">
         <Table>
           <TableHeader>
             {table.getHeaderGroups().map((headerGroup) => (
