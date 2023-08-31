@@ -24,36 +24,30 @@ import { useTransition } from "react";
 import { useToast } from "@/components/ui/use-toast";
 
 type Props = {
-  firstName: string;
-  userId: string;
-  handleUpdateProfile: (name: string, userId: string) => void;
+  handleUpdatePassword: (password: string) => void;
 };
 
-export default function UpdateFirstNameForm({
-  firstName,
-  userId,
-  handleUpdateProfile,
-}: Props) {
+export default function UpdatePasswordForm({ handleUpdatePassword }: Props) {
   const [isPending, startTransition] = useTransition();
   const { toast } = useToast();
 
   const formSchema = z.object({
-    name: z.string().min(2).max(50),
+    password: z.string().min(8).max(25),
   });
 
   const form = useForm<z.infer<typeof formSchema>>({
     resolver: zodResolver(formSchema),
     defaultValues: {
-      name: "",
+      password: "",
     },
   });
 
   async function onSubmit(values: z.infer<typeof formSchema>) {
-    startTransition(() => handleUpdateProfile(values.name, userId));
+    startTransition(() => handleUpdatePassword(values.password));
 
     if (!isPending) {
       toast({
-        title: "First name updated",
+        title: "Password updated",
       });
 
       form.reset();
@@ -65,26 +59,26 @@ export default function UpdateFirstNameForm({
       <form onSubmit={form.handleSubmit(onSubmit)} className="w-full">
         <FormField
           control={form.control}
-          name="name"
+          name="password"
           render={({ field }) => (
             <Card>
               <CardHeader>
-                <CardTitle className="text-lg">First Name</CardTitle>
+                <CardTitle className="text-lg">Update Password</CardTitle>
                 <CardDescription>
-                  This should be your first name
+                  Passwords must have a minimum of 8 characters
                 </CardDescription>
               </CardHeader>
               <CardContent>
                 <FormItem className="w-full md:w-1/2">
                   <FormControl>
-                    <Input placeholder={firstName} {...field} />
+                    <Input placeholder="New password" {...field} />
                   </FormControl>
                   <FormMessage />
                 </FormItem>
               </CardContent>
               <CardFooter className="flex flex-col items-start justify-between p-4 bg-secondary space-y-3 sm:space-y-0 sm:flex-row sm:items-center">
                 <p className="sm:max-w-prose">
-                  <small>Please use 50 characters at maximum</small>
+                  <small>Using a password manager is probably safest</small>
                 </p>
                 <Button
                   type="submit"

@@ -12,8 +12,8 @@ import { cn } from "@/lib/utils";
 export default function GettingStarted() {
   return (
     <div className="py-24 sm:py-32">
-      <div className="px-6 mx-auto max-w-7xl lg:px-8">
-        <div className="max-w-2xl mx-auto lg:mx-0">
+      <div className="mx-auto max-w-7xl px-6 lg:px-8">
+        <div className="mx-auto max-w-2xl lg:mx-0">
           <p className="text-base font-semibold leading-7 text-teal-600">
             Getting you started
           </p>
@@ -26,12 +26,12 @@ export default function GettingStarted() {
             use our API and a send feedback using your own bespoke forms.
           </p>
         </div>
-        <Accordion type="single" collapsible className="w-full my-8">
+        <Accordion type="single" collapsible className="my-8 w-full">
           <AccordionItem value="item-1">
             <AccordionTrigger>Using React</AccordionTrigger>
             <AccordionContent className="py-3">
               <CodeBlock
-                className="p-4 mb-4 rounded-md"
+                className="mb-4 rounded-md p-4"
                 lang="bash"
                 theme="github-dark"
                 code={["pnpm add @feedback-loop/react"].join("\n")}
@@ -47,7 +47,7 @@ export default function GettingStarted() {
                 the exact code we are using to import and use the widget.
               </p>
               <CodeBlock
-                className="p-4 mb-4 rounded-md"
+                className="mb-4 rounded-md p-4"
                 lang="tsx"
                 theme="github-dark"
                 code={[
@@ -78,14 +78,14 @@ export default function GettingStarted() {
               </p>
 
               <CodeBlock
-                className="p-4 mb-4 rounded-md"
+                className="mb-4 rounded-md p-4"
                 lang="tsx"
                 theme="github-dark"
                 code={['data-floop-widget="widget-trigger"'].join("\n")}
               />
 
               <CodeBlock
-                className="p-4 mb-4 rounded-md"
+                className="mb-4 rounded-md p-4"
                 lang="tsx"
                 theme="github-dark"
                 code={['data-floop-widget="widget-popup"'].join("\n")}
@@ -120,7 +120,7 @@ export default function GettingStarted() {
                 the three following endpoints like the examples below:
               </p>
               <CodeBlock
-                className="p-4 mb-4 rounded-md"
+                className="mb-4 rounded-md p-4"
                 lang="tsx"
                 theme="github-dark"
                 code={[
@@ -149,7 +149,7 @@ export default function GettingStarted() {
                 ].join("\n")}
               />
               <CodeBlock
-                className="p-4 mb-4 rounded-md"
+                className="mb-4 rounded-md p-4"
                 lang="tsx"
                 theme="github-dark"
                 code={[
@@ -178,7 +178,7 @@ export default function GettingStarted() {
                 ].join("\n")}
               />
               <CodeBlock
-                className="p-4 mb-4 rounded-md"
+                className="mb-4 rounded-md p-4"
                 lang="tsx"
                 theme="github-dark"
                 code={[

@@ -39,15 +39,15 @@ export default async function TeamPreview() {
         ? members.map((member) => (
             <li
               key={member.email}
-              className="col-span-1 divide-y rounded-lg shadow-md border"
+              className="col-span-1 rounded-lg border shadow-md divide-y"
             >
-              <div className="flex w-full items-center justify-between space-x-6 p-6">
+              <div className="flex w-full items-center justify-between p-6 space-x-6">
                 <div className="flex-1 truncate space-y-3">
                   <div className="flex items-center space-x-3">
                     <h3 className="truncate text-sm font-medium">
                       {member.preferred_name || member.first_name || ""}
                     </h3>
-                    <span className="inline-flex flex-shrink-0 items-center rounded-full bg-green-50 px-1.5 py-0.5 text-xs font-medium text-green-700 ring-1 ring-inset ring-green-600/20">
+                    <span className="inline-flex flex-shrink-0 items-center rounded-full bg-green-50 text-xs font-medium text-green-700 ring-1 ring-inset ring-green-600/20 px-1.5 py-0.5">
                       {member.id === project.owner_id ? "Admin" : "Member"}
                     </span>
                   </div>

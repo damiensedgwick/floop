@@ -26,8 +26,8 @@ export default function TotalSubmissionsCard({ count }: Props) {
       <CardContent>
         <p>{count}</p>
       </CardContent>
-      <CardFooter className="flex items-center justify-between p-4 bg-secondary">
-        <p className="max-w-[250px] md:max-w-prose">
+      <CardFooter className="flex flex-col items-start justify-between p-4 bg-secondary space-y-3 sm:space-y-0 sm:flex-row sm:items-center">
+        <p className="sm:max-w-prose">
           <small>
             If you are unable to receive any more submissions, please upgrade
             your subscription to the growth plan

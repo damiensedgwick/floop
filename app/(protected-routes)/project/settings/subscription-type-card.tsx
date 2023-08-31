@@ -35,8 +35,8 @@ export default function SubscriptionTypeCard({
           {subscriptionType} Plan, Expires on {expiry}
         </p>
       </CardContent>
-      <CardFooter className="flex items-center justify-between p-4 bg-secondary">
-        <p className="max-w-[250px] md:max-w-prose">
+      <CardFooter className="flex flex-col items-start justify-between p-4 bg-secondary space-y-3 sm:space-y-0 sm:flex-row sm:items-center">
+        <p className="sm:max-w-prose">
           <small>
             You will be able to subscribe or manage your subscription from here
           </small>
@@ -47,7 +47,11 @@ export default function SubscriptionTypeCard({
               ? process.env.NEXT_PUBLIC_STRIPE_PORTAL_LINK_URL!
               : process.env.NEXT_PUBLIC_STRIPE_CHECKOUT_LINK_URL!
           }
-          className={buttonVariants({ variant: "default", size: "sm" })}
+          className={buttonVariants({
+            variant: "default",
+            size: "sm",
+            className: "w-full sm:w-20",
+          })}
         >
           {hasSubscription ? "Manage" : "Subscribe"}
         </Link>

@@ -35,14 +35,19 @@ export default function ProjectIdCard({ projectId }: Props) {
       <CardContent>
         <p>{projectId}</p>
       </CardContent>
-      <CardFooter className="flex items-center justify-between p-4 bg-secondary">
-        <p className="max-w-[250px] md:max-w-prose">
+      <CardFooter className="flex flex-col items-start justify-between p-4 bg-secondary space-y-3 sm:space-y-0 sm:flex-row sm:items-center">
+        <p className="sm:max-w-prose">
           <small>
             You will need to use this ID within the Floop Widget should you
             choose to use it
           </small>
         </p>
-        <Button size="sm" type="button" onClick={handleCopyIdClick}>
+        <Button
+          size="sm"
+          type="button"
+          onClick={handleCopyIdClick}
+          className="w-full sm:w-20"
+        >
           Copy
         </Button>
       </CardFooter>
