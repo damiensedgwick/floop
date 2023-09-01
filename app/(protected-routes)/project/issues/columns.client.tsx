@@ -15,6 +15,7 @@ import {
   DropdownMenuSeparator,
   DropdownMenuTrigger,
 } from "@/components/ui/dropdown-menu";
+import { format, parseISO } from "date-fns";
 
 export const columns: ColumnDef<
   Database["public"]["Tables"]["issues"]["Row"]
@@ -40,6 +41,15 @@ export const columns: ColumnDef<
           Created
           <ArrowsUpDownIcon width={12} height={12} className="ml-2 h-4 w-4" />
         </Button>
+      );
+    },
+    cell: ({ row }) => {
+      if (!row.original.created_at) {
+        return <span></span>;
+      }
+
+      return (
+        <span>{format(parseISO(row.original.created_at), "d MMM y")}</span>
       );
     },
   },
