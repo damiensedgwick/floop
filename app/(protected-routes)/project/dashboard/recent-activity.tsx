@@ -48,7 +48,7 @@ export default async function RecentActivity() {
             <>
               <StarIcon width={28} height={28} className="text-teal-500" />
               <p className="ml-3 text-sm font-medium leading-none">
-                {entry.score}
+                {entry.score} / 10
               </p>
               <div className="ml-auto hidden font-medium sm:block">
                 {format(parseISO(entry.created_at), "d MMMM")}
