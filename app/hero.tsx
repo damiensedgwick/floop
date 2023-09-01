@@ -1,7 +1,5 @@
 import Image from "next/image";
 import Link from "next/link";
-import { createServerComponentClient } from "@supabase/auth-helpers-nextjs";
-import { cookies } from "next/headers";
 import { ThemeToggle } from "@/components/theme-toggle";
 
 export default async function Hero() {
@@ -67,7 +65,7 @@ export default async function Hero() {
           <div className="mt-10 flex items-center gap-x-6">
             <Link
               href="/auth/sign-in"
-              className="rounded-md bg-teal-600 text-sm font-semibold text-white shadow-sm px-3.5 py-2.5 hover:bg-teal-500 focus-visible:outline focus-visible:outline-2 focus-visible:outline-offset-2 focus-visible:outline-teal-600"
+              className="rounded-md bg-teal-600 text-sm font-semibold text-white shadow px-3.5 py-2.5 hover:bg-teal-500 focus-visible:outline focus-visible:outline-2 focus-visible:outline-offset-2 focus-visible:outline-teal-600"
             >
               Get started for free
             </Link>
@@ -87,7 +85,7 @@ export default async function Hero() {
                 alt="App screenshot"
                 width={2432}
                 height={1442}
-                className="rounded-md shadow-2xl ring-1 ring-gray-900/10 w-[76rem]"
+                className="rounded-md shadow ring-1 ring-gray-900/10 w-[76rem]"
               />
             </div>
           </div>

@@ -107,7 +107,7 @@ export default function MobileMenu({ navigation, userEmail }: Props) {
         </Dialog>
       </Transition.Root>
 
-      <div className="sticky top-0 z-40 flex items-center justify-between gap-x-6 px-4 py-4 shadow-sm bg-background sm:px-6 lg:hidden">
+      <div className="sticky top-0 z-40 flex items-center justify-between gap-x-6 px-4 py-4 shadow bg-background sm:px-6 lg:hidden">
         <button
           type="button"
           className="-m-2.5 p-2.5 lg:hidden"
