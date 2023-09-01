@@ -1,39 +1,19 @@
 import { format, parseISO } from "date-fns";
-import {
-  createActivityTimeline,
-  createChartData,
-} from "@/app/(protected-routes)/project/dashboard/utils";
+import { createActivityTimeline } from "@/app/(protected-routes)/project/dashboard/utils";
 import { Database } from "@/types/supabase";
 import {
   ExclamationTriangleIcon,
   LightBulbIcon,
   StarIcon,
 } from "@heroicons/react/24/outline";
-import {
-  getProject,
-  getPublicUser,
-} from "@/app/(protected-routes)/project/utils";
-import { getRatings } from "@/app/(protected-routes)/project/ratings/ratings";
-import { getIssues } from "@/app/(protected-routes)/project/issues/issues";
-import { getSuggestions } from "@/app/(protected-routes)/project/suggestions/suggestions";
 
-export default async function RecentActivity() {
-  const user = await getPublicUser();
-  const project = await getProject(user);
+type Props = {
+  ratings: Database["public"]["Tables"]["ratings"]["Row"][];
+  issues: Database["public"]["Tables"]["issues"]["Row"][];
+  suggestions: Database["public"]["Tables"]["suggestions"]["Row"][];
+};
 
-  const [ratings, issues, suggestions, thisMonthsRatings] = await Promise.all([
-    getRatings(project.id),
-    getIssues(project.id),
-    getSuggestions(project.id),
-    createChartData(project),
-  ]);
-
-  let average = 0;
-  if (ratings && ratings.length > 0) {
-    average =
-      ratings.reduce((sum, rating) => sum + rating.score, 0) / ratings.length;
-  }
-
+export function RecentActivity({ ratings, issues, suggestions }: Props) {
   const timeline = createActivityTimeline(
     ratings || [],
     issues || [],

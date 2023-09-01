@@ -9,7 +9,7 @@ type Props = {
   }[];
 };
 
-export function Overview({ ratings }: Props) {
+export function RatingsGraphClient({ ratings }: Props) {
   return (
     <ResponsiveContainer width="100%" height={300}>
       <LineChart data={ratings}>
