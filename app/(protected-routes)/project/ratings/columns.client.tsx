@@ -116,10 +116,10 @@ export const columns: ColumnDef<
               Add label
             </DropdownMenuItem>
             <DropdownMenuItem className="cursor-pointer">
-              Follow up
+              Reply to
             </DropdownMenuItem>
             <DropdownMenuItem className="cursor-pointer">
-              Forward on
+              Forward to
             </DropdownMenuItem>
             <DropdownMenuItem className="cursor-pointer">
               View details
