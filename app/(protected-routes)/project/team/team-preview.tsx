@@ -39,7 +39,7 @@ export default async function TeamPreview() {
         ? members.map((member) => (
             <li
               key={member.email}
-              className="col-span-1 rounded-lg border shadow-md divide-y"
+              className="col-span-1 rounded-lg border shadow divide-y bg-background"
             >
               <div className="flex w-full items-center justify-between p-6 space-x-6">
                 <div className="flex-1 truncate space-y-3">

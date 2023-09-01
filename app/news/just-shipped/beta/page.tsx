@@ -1,8 +1,7 @@
 import Image from "next/image";
 import Link from "next/link";
-import { CheckCircleIcon, ArrowLeftIcon } from "@heroicons/react/20/solid";
+import { CheckCircleIcon } from "@heroicons/react/20/solid";
 import { buttonVariants } from "@/components/ui/button";
-import { mt } from "date-fns/locale";
 
 export default function Page() {
   return (
@@ -106,7 +105,7 @@ export default function Page() {
           </p>
           <div className="mt-6 flex items-center justify-center">
             <Image
-              className="rounded-2xl shadow-2xl"
+              className="rounded-2xl shadow"
               src="/widget.png"
               width={300}
               height={150}
@@ -125,7 +124,7 @@ export default function Page() {
           </p>
           <div className="mt-6 flex items-center justify-center">
             <Image
-              className="rounded shadow-2xl"
+              className="rounded shadow"
               src="/dashboard.png"
               width={800}
               height={600}

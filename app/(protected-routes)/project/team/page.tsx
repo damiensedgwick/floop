@@ -1,6 +1,4 @@
 import Link from "next/link";
-import { revalidatePath } from "next/cache";
-import { supabase as sb } from "@/lib/supabase";
 import {
   getProject,
   getPublicUser,
@@ -8,9 +6,8 @@ import {
 import { Separator } from "@/components/ui/separator";
 import { ExclamationTriangleIcon } from "@heroicons/react/24/outline";
 import getSubscription from "@/app/submissions/utils";
-import { Card, CardHeader, CardTitle, CardContent } from "@/components/ui/card";
+import { Card, CardContent, CardHeader, CardTitle } from "@/components/ui/card";
 import ManageUsersForm from "./manage-users-form";
-import PendingInvites from "./pending-invites";
 import CreateUserForm from "./create-user-form";
 import TeamPreview from "@/app/(protected-routes)/project/team/team-preview";
 
@@ -53,7 +50,7 @@ export default async function Page() {
             </div>
           ) : (
             <div className="space-y-4">
-              <Card className="col-span-1 shadow-md lg:col-span-4">
+              <Card className="col-span-1 shadow lg:col-span-4">
                 <CardHeader>
                   <CardTitle>Create team members</CardTitle>
                 </CardHeader>
