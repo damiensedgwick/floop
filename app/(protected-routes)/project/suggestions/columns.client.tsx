@@ -61,7 +61,7 @@ export const columns: ColumnDef<
     id: "actions",
     header: "Actions",
     cell: ({ row }) => {
-      const rating = row.original;
+      const { id, user_email } = row.original;
 
       return (
         <DropdownMenu>
@@ -75,7 +75,7 @@ export const columns: ColumnDef<
             <DropdownMenuLabel>Actions</DropdownMenuLabel>
             <DropdownMenuItem
               className="cursor-pointer"
-              onClick={() => navigator.clipboard.writeText(rating.id)}
+              onClick={() => navigator.clipboard.writeText(id)}
             >
               Copy ID
             </DropdownMenuItem>
@@ -84,10 +84,7 @@ export const columns: ColumnDef<
               Add label
             </DropdownMenuItem>
             <DropdownMenuItem className="cursor-pointer">
-              Reply to
-            </DropdownMenuItem>
-            <DropdownMenuItem className="cursor-pointer">
-              Forward to
+              Email user
             </DropdownMenuItem>
             <DropdownMenuItem className="cursor-pointer">
               View details
