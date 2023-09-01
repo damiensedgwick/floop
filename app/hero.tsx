@@ -5,12 +5,6 @@ import { cookies } from "next/headers";
 import { ThemeToggle } from "@/components/theme-toggle";
 
 export default async function Hero() {
-  const supabase = createServerComponentClient({ cookies });
-
-  const {
-    data: { user },
-  } = await supabase.auth.getUser();
-
   return (
     <div className="relative isolate overflow-hidden">
       <svg
@@ -77,21 +71,12 @@ export default async function Hero() {
             >
               Get started for free
             </Link>
-            {user ? (
-              <Link
-                href="/project/dashboard"
-                className="text-sm font-semibold leading-6"
-              >
-                Floop dashboard <span aria-hidden="true">→</span>
-              </Link>
-            ) : (
-              <Link
-                href="/auth/sign-in"
-                className="text-sm font-semibold leading-6"
-              >
-                Sign in <span aria-hidden="true">→</span>
-              </Link>
-            )}
+            <Link
+              href="/project/dashboard"
+              className="text-sm font-semibold leading-6"
+            >
+              Floop dashboard <span aria-hidden="true">→</span>
+            </Link>
           </div>
         </div>
         <div className="mx-auto mt-16 flex max-w-2xl sm:mt-24 lg:mt-0 lg:mr-0 lg:ml-10 lg:max-w-none lg:flex-none xl:ml-32">
