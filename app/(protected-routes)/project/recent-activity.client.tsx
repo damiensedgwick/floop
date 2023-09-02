@@ -18,10 +18,8 @@ import {
   SheetTitle,
   SheetTrigger,
 } from "@/components/ui/sheet";
-import { Input } from "@/components/ui/input";
-import { Label } from "@/components/ui/label";
-import { rating } from "@feedback-loop/react/src/styles";
 import Link from "next/link";
+import { Card, CardContent } from "@/components/ui/card";
 
 type Props = {
   ratings: Database["public"]["Tables"]["ratings"]["Row"][];
@@ -70,12 +68,40 @@ export function RecentActivityClient({ ratings, issues, suggestions }: Props) {
                   </div>
                 </Button>
               </SheetTrigger>
-              <SheetContent>
+              <SheetContent className="space-y-6">
                 <SheetHeader>
                   <SheetTitle>Rating details</SheetTitle>
-                  <SheetDescription></SheetDescription>
+                  <SheetDescription className="space-y-6">
+                    <Card className="mt-6">
+                      <CardContent className="pt-6">
+                        <div className="space-y-3">
+                          <p>Rating</p>
+                          <p>{entry.score} / 10</p>
+                        </div>
+                      </CardContent>
+                    </Card>
+                    <Card>
+                      <CardContent className="pt-6">
+                        <div className="space-y-3">
+                          <p>Details</p>
+                          <p>{entry.details}</p>
+                        </div>
+                      </CardContent>
+                    </Card>
+                    <Card>
+                      <CardContent className="pt-6">
+                        <div className="space-y-3">
+                          <p>User</p>
+                          <p>
+                            <a href={`mailto:${entry.user_email}`}>
+                              {entry.user_email}
+                            </a>
+                          </p>
+                        </div>
+                      </CardContent>
+                    </Card>
+                  </SheetDescription>
                 </SheetHeader>
-
                 <SheetFooter>
                   <SheetClose asChild>
                     <Link
@@ -110,10 +136,39 @@ export function RecentActivityClient({ ratings, issues, suggestions }: Props) {
                   </div>
                 </Button>
               </SheetTrigger>
-              <SheetContent>
+              <SheetContent className="space-y-6">
                 <SheetHeader>
                   <SheetTitle>Issue details</SheetTitle>
-                  <SheetDescription></SheetDescription>
+                  <SheetDescription className="space-y-6">
+                    <Card className="mt-6">
+                      <CardContent className="pt-6">
+                        <div className="space-y-3">
+                          <p>Title</p>
+                          <p>{entry.title}</p>
+                        </div>
+                      </CardContent>
+                    </Card>
+                    <Card>
+                      <CardContent className="pt-6">
+                        <div className="space-y-3">
+                          <p>Details</p>
+                          <p>{entry.details}</p>
+                        </div>
+                      </CardContent>
+                    </Card>
+                    <Card>
+                      <CardContent className="pt-6">
+                        <div className="space-y-3">
+                          <p>User</p>
+                          <p>
+                            <a href={`mailto:${entry.user_email}`}>
+                              {entry.user_email}
+                            </a>
+                          </p>
+                        </div>
+                      </CardContent>
+                    </Card>
+                  </SheetDescription>
                 </SheetHeader>
 
                 <SheetFooter>
@@ -150,10 +205,39 @@ export function RecentActivityClient({ ratings, issues, suggestions }: Props) {
                   </div>
                 </Button>
               </SheetTrigger>
-              <SheetContent>
+              <SheetContent className="space-y-6">
                 <SheetHeader>
                   <SheetTitle>Suggestion details</SheetTitle>
-                  <SheetDescription></SheetDescription>
+                  <SheetDescription className="space-y-6">
+                    <Card className="mt-6">
+                      <CardContent className="pt-6">
+                        <div className="space-y-3">
+                          <p>Title</p>
+                          <p>{entry.title}</p>
+                        </div>
+                      </CardContent>
+                    </Card>
+                    <Card>
+                      <CardContent className="pt-6">
+                        <div className="space-y-3">
+                          <p>Details</p>
+                          <p>{entry.details}</p>
+                        </div>
+                      </CardContent>
+                    </Card>
+                    <Card>
+                      <CardContent className="pt-6">
+                        <div className="space-y-3">
+                          <p>User</p>
+                          <p>
+                            <a href={`mailto:${entry.user_email}`}>
+                              {entry.user_email}
+                            </a>
+                          </p>
+                        </div>
+                      </CardContent>
+                    </Card>
+                  </SheetDescription>
                 </SheetHeader>
 
                 <SheetFooter>
