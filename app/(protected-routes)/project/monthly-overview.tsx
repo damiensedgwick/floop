@@ -6,8 +6,8 @@ import {
   CardTitle,
 } from "@/components/ui/card";
 import { Suspense } from "react";
-import RatingsGraph from "@/app/(protected-routes)/project/dashboard/ratings-graph";
-import RecentActivity from "@/app/(protected-routes)/project/dashboard/recent-activity";
+import RatingsGraph from "@/app/(protected-routes)/project/ratings-graph";
+import RecentActivity from "@/app/(protected-routes)/project/recent-activity";
 
 export default function MonthlyOverview() {
   return (

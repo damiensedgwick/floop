@@ -40,7 +40,10 @@ export default async function ManageUsersForm({
       {users
         ?.filter((user) => user.id !== project?.owner_id)
         .map((user) => (
-          <div key={user.id} className="flex items-center justify-between">
+          <div
+            key={user.id}
+            className="flex w-full flex-col items-start md:items-center justify-between space-y-4 md:space-y-0 md:space-x-4 md:flex-row"
+          >
             <div>
               <p className="text-sm font-medium leading-none">
                 {user.preferred_name || user.first_name || "N/A"}

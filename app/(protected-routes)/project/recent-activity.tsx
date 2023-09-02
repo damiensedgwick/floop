@@ -2,7 +2,7 @@ import { format, parseISO } from "date-fns";
 import {
   createActivityTimeline,
   createChartData,
-} from "@/app/(protected-routes)/project/dashboard/utils";
+} from "@/app/(protected-routes)/project/utils";
 import { Database } from "@/types/supabase";
 import {
   ExclamationTriangleIcon,

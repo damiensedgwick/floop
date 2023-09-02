@@ -20,9 +20,10 @@ export default function DeleteAndRemoveUserButton({
       type="button"
       onClick={() => onDeleteHandler(userId)}
       disabled={disabled}
+      className="w-full md:max-w-[125px] space-x-1.5"
     >
-      <TrashIcon width={16} height={16} className="md:hidden" />
-      <span className="hidden md:block">Remove User</span>
+      <TrashIcon width={16} height={16} />
+      <span>Remove</span>
     </Button>
   );
 }

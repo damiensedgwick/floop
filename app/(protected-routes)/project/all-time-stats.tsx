@@ -1,6 +1,6 @@
 import { Card, CardContent, CardHeader, CardTitle } from "@/components/ui/card";
 import { cn } from "@/lib/utils";
-import { getScoreTextColor } from "@/app/(protected-routes)/project/dashboard/utils";
+import { getScoreTextColor } from "@/app/(protected-routes)/project/utils";
 import {
   getProject,
   getPublicUser,
