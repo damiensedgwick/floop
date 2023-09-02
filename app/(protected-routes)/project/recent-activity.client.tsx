@@ -60,12 +60,12 @@ export function RecentActivityClient({ ratings, issues, suggestions }: Props) {
               <SheetTrigger asChild>
                 <Button variant="ghost" className="w-full">
                   <StarIcon width={28} height={28} className="text-teal-500" />
-                  <p className="ml-3 text-sm font-medium leading-none">
+                  <p className="ml-3 text-sm font-medium leading-none mr-auto sm:mr-0">
                     {entry.score}
                   </p>
-                  <div className="ml-auto hidden font-medium sm:block">
-                    {format(parseISO(entry.created_at), "d MMMM")}
-                  </div>
+                  <p className="ml-auto hidden font-medium sm:block">
+                    {format(parseISO(entry.created_at), "dd MMM")}
+                  </p>
                 </Button>
               </SheetTrigger>
               <SheetContent className="space-y-6">
@@ -128,12 +128,12 @@ export function RecentActivityClient({ ratings, issues, suggestions }: Props) {
                     height={28}
                     className="text-red-500"
                   />
-                  <p className="ml-3 text-sm font-medium leading-none">
+                  <p className="ml-3 text-sm font-medium leading-none mr-auto sm:mr-0">
                     {entry.title}
                   </p>
-                  <div className="ml-auto hidden font-medium sm:block">
-                    {format(parseISO(entry.created_at), "d MMMM")}
-                  </div>
+                  <p className="ml-auto hidden font-medium sm:block">
+                    {format(parseISO(entry.created_at), "dd MMM")}
+                  </p>
                 </Button>
               </SheetTrigger>
               <SheetContent className="space-y-6">
@@ -197,12 +197,12 @@ export function RecentActivityClient({ ratings, issues, suggestions }: Props) {
                     height={28}
                     className="text-amber-500"
                   />
-                  <p className="ml-3 text-sm font-medium leading-none">
+                  <p className="ml-3 text-sm font-medium leading-none mr-auto sm:mr-0">
                     {entry.title}
                   </p>
-                  <div className="ml-auto hidden font-medium sm:block">
-                    {format(parseISO(entry.created_at), "d MMMM")}
-                  </div>
+                  <p className="ml-auto hidden font-medium sm:block">
+                    {format(parseISO(entry.created_at), "dd MMM")}
+                  </p>
                 </Button>
               </SheetTrigger>
               <SheetContent className="space-y-6">
