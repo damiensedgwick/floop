@@ -3,8 +3,8 @@ import { getPublicUser } from "@/app/(protected-routes)/project/utils";
 import { Separator } from "@/components/ui/separator";
 import FloopWidgetButton from "@/components/floop-widget.client";
 
-import MonthlyOverview from "@/app/(protected-routes)/project/dashboard/monthly-overview";
-import AllTimeStats from "@/app/(protected-routes)/project/dashboard/all-time-stats";
+import MonthlyOverview from "@/app/(protected-routes)/project/monthly-overview";
+import AllTimeStats from "@/app/(protected-routes)/project/all-time-stats";
 
 export default async function Page() {
   const user = await getPublicUser();

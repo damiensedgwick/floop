@@ -14,6 +14,7 @@ import { Input } from "@/components/ui/input";
 import { useToast } from "@/components/ui/use-toast";
 import { Button } from "@/components/ui/button";
 import { useForm } from "react-hook-form";
+import { PlusIcon } from "@heroicons/react/24/outline";
 
 type Props = {
   projectId: string;
@@ -81,9 +82,10 @@ export default function CreateUserForm({ projectId, isProjectOwner }: Props) {
         <Button
           type="submit"
           disabled={isPending || !isProjectOwner}
-          className="w-full md:max-w-[125px]"
+          className="w-full md:max-w-[125px] space-x-1.5"
         >
-          {isPending ? "Creating..." : "Create"}
+          <PlusIcon width={16} height={16} />
+          <span>{isPending ? "Creating..." : "Create"}</span>
         </Button>
       </form>
     </Form>

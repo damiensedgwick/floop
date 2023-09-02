@@ -1,9 +1,9 @@
-import { RatingsGraphClient } from "@/app/(protected-routes)/project/dashboard/ratings-graph.client";
+import { RatingsGraphClient } from "@/app/(protected-routes)/project/ratings-graph.client";
 import {
   getProject,
   getPublicUser,
 } from "@/app/(protected-routes)/project/utils";
-import { createChartData } from "@/app/(protected-routes)/project/dashboard/utils";
+import { createChartData } from "@/app/(protected-routes)/project/utils";
 
 export default async function RatingsGraph() {
   const user = await getPublicUser();
