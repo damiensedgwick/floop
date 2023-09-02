@@ -17,7 +17,7 @@ import { getPublicUser } from "./utils";
 const navigation = [
   {
     name: "Dashboard",
-    href: "/dashboard",
+    href: "/",
     icon: <HomeIcon width={24} height={24} />,
   },
   {

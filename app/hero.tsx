@@ -69,10 +69,7 @@ export default async function Hero() {
             >
               Get started for free
             </Link>
-            <Link
-              href="/project/dashboard"
-              className="text-sm font-semibold leading-6"
-            >
+            <Link href="/project" className="text-sm font-semibold leading-6">
               Floop dashboard <span aria-hidden="true">→</span>
             </Link>
           </div>
