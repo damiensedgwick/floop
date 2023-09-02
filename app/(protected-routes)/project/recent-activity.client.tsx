@@ -1,11 +1,27 @@
+"use client";
+
 import { format, parseISO } from "date-fns";
-import { createActivityTimeline } from "@/app/(protected-routes)/project/utils";
 import { Database } from "@/types/supabase";
 import {
   ExclamationTriangleIcon,
   LightBulbIcon,
   StarIcon,
 } from "@heroicons/react/24/outline";
+import { Button, buttonVariants } from "@/components/ui/button";
+import {
+  Sheet,
+  SheetClose,
+  SheetContent,
+  SheetDescription,
+  SheetFooter,
+  SheetHeader,
+  SheetTitle,
+  SheetTrigger,
+} from "@/components/ui/sheet";
+import { Input } from "@/components/ui/input";
+import { Label } from "@/components/ui/label";
+import { rating } from "@feedback-loop/react/src/styles";
+import Link from "next/link";
 
 type Props = {
   ratings: Database["public"]["Tables"]["ratings"]["Row"][];
@@ -13,59 +29,148 @@ type Props = {
   suggestions: Database["public"]["Tables"]["suggestions"]["Row"][];
 };
 
-export function RecentActivity({ ratings, issues, suggestions }: Props) {
-  const timeline = createActivityTimeline(
-    ratings || [],
-    issues || [],
-    suggestions || [],
-  );
+export function RecentActivityClient({ ratings, issues, suggestions }: Props) {
+  function createActivityTimeline(
+    ratings: Database["public"]["Tables"]["ratings"]["Row"][],
+    issues: Database["public"]["Tables"]["issues"]["Row"][],
+    suggestions: Database["public"]["Tables"]["suggestions"]["Row"][],
+  ) {
+    type Items = typeof ratings | typeof issues | typeof suggestions;
+    type Type = "rating" | "issue" | "suggestion";
+
+    const withType = (items: Items, type: Type) =>
+      items.map((item) => ({ ...item, type }));
+
+    const mappedRatings = withType(ratings, "rating");
+    const mappedIssues = withType(issues, "issue");
+    const mappedSuggestions = withType(suggestions, "suggestion");
+
+    return [...mappedRatings, ...mappedIssues, ...mappedSuggestions].sort(
+      (a, b) =>
+        new Date(b.created_at!).getTime() - new Date(a.created_at!).getTime(),
+    );
+  }
+
+  const timeline = createActivityTimeline(ratings, issues, suggestions);
 
   return (
     <div className="space-y-6">
       {timeline.slice(0, 6).map((entry: any, index: number) => (
         <div className="flex items-center" key={index}>
           {entry.type === "rating" && (
-            <>
-              <StarIcon width={28} height={28} className="text-teal-500" />
-              <p className="ml-3 text-sm font-medium leading-none">
-                {entry.score}
-              </p>
-              <div className="ml-auto hidden font-medium sm:block">
-                {format(parseISO(entry.created_at), "d MMMM")}
-              </div>
-            </>
+            <Sheet>
+              <SheetTrigger asChild>
+                <Button variant="ghost" className="w-full">
+                  <StarIcon width={28} height={28} className="text-teal-500" />
+                  <p className="ml-3 text-sm font-medium leading-none">
+                    {entry.score}
+                  </p>
+                  <div className="ml-auto hidden font-medium sm:block">
+                    {format(parseISO(entry.created_at), "d MMMM")}
+                  </div>
+                </Button>
+              </SheetTrigger>
+              <SheetContent>
+                <SheetHeader>
+                  <SheetTitle>Rating details</SheetTitle>
+                  <SheetDescription></SheetDescription>
+                </SheetHeader>
+
+                <SheetFooter>
+                  <SheetClose asChild>
+                    <Link
+                      href="/project/ratings"
+                      className={buttonVariants({
+                        variant: "default",
+                        size: "sm",
+                      })}
+                    >
+                      View all ratings
+                    </Link>
+                  </SheetClose>
+                </SheetFooter>
+              </SheetContent>
+            </Sheet>
           )}
 
           {entry.type === "issue" && (
-            <>
-              <ExclamationTriangleIcon
-                width={28}
-                height={28}
-                className="text-red-500"
-              />
-              <p className="ml-3 text-sm font-medium leading-none">
-                {entry.title}
-              </p>
-              <div className="ml-auto hidden font-medium sm:block">
-                {format(parseISO(entry.created_at), "d MMMM")}
-              </div>
-            </>
+            <Sheet>
+              <SheetTrigger asChild>
+                <Button variant="ghost" className="w-full">
+                  <ExclamationTriangleIcon
+                    width={28}
+                    height={28}
+                    className="text-red-500"
+                  />
+                  <p className="ml-3 text-sm font-medium leading-none">
+                    {entry.title}
+                  </p>
+                  <div className="ml-auto hidden font-medium sm:block">
+                    {format(parseISO(entry.created_at), "d MMMM")}
+                  </div>
+                </Button>
+              </SheetTrigger>
+              <SheetContent>
+                <SheetHeader>
+                  <SheetTitle>Issue details</SheetTitle>
+                  <SheetDescription></SheetDescription>
+                </SheetHeader>
+
+                <SheetFooter>
+                  <SheetClose asChild>
+                    <Link
+                      href="/project/issues"
+                      className={buttonVariants({
+                        variant: "default",
+                        size: "sm",
+                      })}
+                    >
+                      View all issues
+                    </Link>
+                  </SheetClose>
+                </SheetFooter>
+              </SheetContent>
+            </Sheet>
           )}
 
           {entry.type === "suggestion" && (
-            <>
-              <LightBulbIcon
-                width={28}
-                height={28}
-                className="text-amber-500"
-              />
-              <p className="ml-3 text-sm font-medium leading-none">
-                {entry.title}
-              </p>
-              <div className="ml-auto hidden font-medium sm:block">
-                {format(parseISO(entry.created_at), "d MMMM")}
-              </div>
-            </>
+            <Sheet>
+              <SheetTrigger asChild>
+                <Button variant="ghost" className="w-full">
+                  <LightBulbIcon
+                    width={28}
+                    height={28}
+                    className="text-amber-500"
+                  />
+                  <p className="ml-3 text-sm font-medium leading-none">
+                    {entry.title}
+                  </p>
+                  <div className="ml-auto hidden font-medium sm:block">
+                    {format(parseISO(entry.created_at), "d MMMM")}
+                  </div>
+                </Button>
+              </SheetTrigger>
+              <SheetContent>
+                <SheetHeader>
+                  <SheetTitle>Suggestion details</SheetTitle>
+                  <SheetDescription></SheetDescription>
+                </SheetHeader>
+
+                <SheetFooter>
+                  <SheetClose asChild>
+                    <Link
+                      href="/project/suggestions"
+                      className={buttonVariants({
+                        variant: "default",
+                        size: "sm",
+                      })}
+                    >
+                      View all suggestions
+                    </Link>
+                  </SheetClose>
+                </SheetFooter>
+              </SheetContent>
+            </Sheet>
           )}
         </div>
       ))}
