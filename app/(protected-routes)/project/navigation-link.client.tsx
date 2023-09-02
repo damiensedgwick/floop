@@ -19,7 +19,7 @@ export default function NavigationLink({ name, href, icon }: Props) {
       href={`/project` + href}
       className={cn(
         "w-full",
-        pathname.includes(href)
+        pathname.endsWith(href) || (pathname === "/project" && href === "/")
           ? buttonVariants({ variant: "secondary", size: "sm" })
           : buttonVariants({ variant: "ghost", size: "sm" }),
         "justify-start",
