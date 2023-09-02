@@ -20,7 +20,7 @@ export default function DeleteAndRemoveUserButton({
       type="button"
       onClick={() => onDeleteHandler(userId)}
       disabled={disabled}
-      className="w-full md:max-w-[125px] space-x-1.5"
+      className="w-full space-x-1.5 md:max-w-[125px]"
     >
       <TrashIcon width={16} height={16} />
       <span>Remove</span>

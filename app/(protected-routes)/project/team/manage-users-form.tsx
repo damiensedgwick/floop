@@ -42,7 +42,7 @@ export default async function ManageUsersForm({
         .map((user) => (
           <div
             key={user.id}
-            className="flex w-full flex-col items-start md:items-center justify-between space-y-4 md:space-y-0 md:space-x-4 md:flex-row"
+            className="flex w-full flex-col items-start justify-between space-y-4 md:space-y-0 md:space-x-4 md:flex-row md:items-center"
           >
             <div>
               <p className="text-sm font-medium leading-none">

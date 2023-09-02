@@ -82,7 +82,7 @@ export default function CreateUserForm({ projectId, isProjectOwner }: Props) {
         <Button
           type="submit"
           disabled={isPending || !isProjectOwner}
-          className="w-full md:max-w-[125px] space-x-1.5"
+          className="w-full space-x-1.5 md:max-w-[125px]"
         >
           <PlusIcon width={16} height={16} />
           <span>{isPending ? "Creating..." : "Create"}</span>

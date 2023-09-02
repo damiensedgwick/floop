@@ -114,7 +114,7 @@ export default async function ProjectLayout({
       </div>
 
       <div className="h-full lg:pl-72">
-        <div className="min-h-full p-4 sm:px-6 lg:px-8 bg-muted">
+        <div className="min-h-full p-4 bg-muted sm:px-6 lg:px-8">
           {children}
         </div>
       </div>
