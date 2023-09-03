@@ -53,7 +53,7 @@ export default function Page() {
 
         <div className="mt-12 flex items-center justify-between rounded-md border p-3">
           <div>
-            <p className="font-bold leading-8">Create account</p>
+            <p className="font-bold leading-6">Create account</p>
             <p className="text-sm">For first time users signing up to Floop</p>
           </div>
           <Switch

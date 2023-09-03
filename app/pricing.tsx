@@ -50,7 +50,7 @@ export default function Pricing() {
           </p>
         </div>
         <div className="relative mt-6">
-          <p className="mx-auto max-w-2xl text-lg leading-8 text-white/60">
+          <p className="mx-auto max-w-2xl text-lg leading-6 text-white/60">
             Unlock valuable insights, take action and champion success. Whether
             you&apos;re looking to trial Floop or get serious about user
             feedback. We&apos;ve got you covered.

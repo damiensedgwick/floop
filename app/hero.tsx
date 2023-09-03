@@ -57,7 +57,7 @@ export default async function Hero() {
           <h1 className="mt-10 text-4xl font-bold tracking-tight sm:text-6xl">
             Floop is the feedback loop for your platform
           </h1>
-          <p className="mt-6 text-lg leading-8">
+          <p className="mt-6 text-lg leading-6">
             Floop helps software and platform providers capture customer
             feedback and make data-driven decisions, avoiding reliance on
             intuition or guesswork.
