@@ -107,12 +107,6 @@ export default function GettingStarted() {
             </AccordionContent>
           </AccordionItem>
           <AccordionItem value="item-2">
-            <AccordionTrigger>Using Vue</AccordionTrigger>
-            <AccordionContent>
-              <i>Coming soon...</i>
-            </AccordionContent>
-          </AccordionItem>
-          <AccordionItem value="item-3">
             <AccordionTrigger>Going Bespoke</AccordionTrigger>
             <AccordionContent>
               <p className="mb-4 text-lg leading-4">

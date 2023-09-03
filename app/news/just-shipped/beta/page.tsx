@@ -101,7 +101,8 @@ export default function Page() {
             We have made it as easy as possible for you to get going by
             providing you with a plug-n-play widget that can be installed into
             your project within minutes. All you have to do is choose your
-            flavour, which currently comes in React and Vue.
+            flavour, which currently comes in React but we are hoping to add
+            more soon.
           </p>
           <div className="mt-6 flex items-center justify-center">
             <Image
