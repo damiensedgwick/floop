@@ -36,7 +36,7 @@ export default function Page() {
       password,
     });
 
-    router.push("/project/dashboard");
+    router.push("/project");
     router.refresh();
   };
 

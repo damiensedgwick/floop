@@ -57,7 +57,7 @@ export default async function Page() {
     await sb.auth.signOut();
     await sb.auth.admin.deleteUser(userId);
 
-    revalidatePath("/project/dashboard");
+    revalidatePath("/project");
     revalidatePath("/project/issues");
     revalidatePath("/project/profile");
     revalidatePath("/project/ratings");

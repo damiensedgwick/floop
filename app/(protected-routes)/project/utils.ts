@@ -91,7 +91,7 @@ export async function createNewProject(
       user_id: user.id,
     });
 
-    revalidatePath("/project/dashboard");
+    revalidatePath("/project");
     revalidatePath("/project/issues");
     revalidatePath("/project/profile");
     revalidatePath("/project/ratings");
