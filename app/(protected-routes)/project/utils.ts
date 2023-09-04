@@ -157,6 +157,7 @@ export async function createChartData(
 
     return Object.entries(ratingsByDate).map(([date, scores]) => ({
       score: scores.reduce((total, score) => total + score, 0) / scores.length,
+      submissions: scores.length,
       date: getOrdinalSuffix(parseInt(date)),
     }));
   }

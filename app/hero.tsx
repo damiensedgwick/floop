@@ -43,7 +43,7 @@ export default async function Hero() {
           </div>
           <div className="mt-24 sm:mt-32 lg:mt-16">
             <Link
-              href="/news/just-shipped/beta"
+              href="/posts/just-shipped/beta"
               className="inline-flex space-x-6"
             >
               <span className="rounded-full bg-teal-600/10 py-1 text-sm font-semibold leading-6 text-teal-600 ring-1 ring-inset ring-teal-600/10 px-1.5 sm:px-3">

@@ -6,7 +6,13 @@ import {
 import { Separator } from "@/components/ui/separator";
 import { ExclamationTriangleIcon } from "@heroicons/react/24/outline";
 import getSubscription from "@/app/submissions/utils";
-import { Card, CardContent, CardHeader, CardTitle } from "@/components/ui/card";
+import {
+  Card,
+  CardContent,
+  CardDescription,
+  CardHeader,
+  CardTitle,
+} from "@/components/ui/card";
 import ManageUsersForm from "./manage-users-form";
 import CreateUserForm from "./create-user-form";
 import TeamPreview from "@/app/(protected-routes)/project/team/team-preview";
@@ -53,6 +59,11 @@ export default async function Page() {
               <Card className="col-span-1 shadow lg:col-span-4">
                 <CardHeader>
                   <CardTitle>Create team members</CardTitle>
+                  <CardDescription className="max-w-prose">
+                    Once you have created a user, they will need to sign up,
+                    once they have, they will be able to sign in and they will
+                    automatically be assigned to your project.
+                  </CardDescription>
                 </CardHeader>
                 <CardContent className="space-y-6">
                   <CreateUserForm

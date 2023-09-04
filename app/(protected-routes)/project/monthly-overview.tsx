@@ -13,8 +13,8 @@ export default function MonthlyOverview() {
   return (
     <div className="space-y-4">
       <h2 className="text-lg font-medium leading-6">Monthly Overview</h2>
-      <div className="grid grid-cols-1 gap-4 lg:grid-cols-7">
-        <Card className="col-span-1 shadow lg:col-span-4">
+      <div className="grid grid-cols-1 gap-4 xl:grid-cols-7">
+        <Card className="col-span-1 shadow xl:col-span-4">
           <CardHeader>
             <CardTitle>Ratings</CardTitle>
             <CardDescription>
@@ -30,7 +30,7 @@ export default function MonthlyOverview() {
             </Suspense>
           </CardContent>
         </Card>
-        <Card className="col-span-1 shadow lg:col-span-3">
+        <Card className="col-span-1 shadow xl:col-span-3">
           <CardHeader>
             <CardTitle>Recent Activity</CardTitle>
             <CardDescription>What your users have been saying</CardDescription>
