@@ -5,7 +5,7 @@ import { buttonVariants } from "@/components/ui/button";
 
 export default function Page() {
   return (
-    <div className="px-6 py-32 lg:px-8">
+    <div className="px-6 py-16 lg:px-8">
       <div className="mx-auto max-w-3xl text-base leading-7">
         <Link
           href="/"
