@@ -21,5 +21,5 @@ export async function GET(request: Request) {
     await createNewProject(user);
   }
 
-  return NextResponse.redirect("/project");
+  return NextResponse.redirect(requestUrl.origin);
 }

@@ -51,20 +51,24 @@ export default function Page() {
           alt="Floop logo"
         />
 
-        <div className="mt-12 flex items-center justify-between rounded-md border p-3">
-          <div>
-            <p className="font-bold leading-7">Create account</p>
-            <p className="text-sm">For first time users signing up to Floop</p>
+        {view !== "check-email" ? (
+          <div className="mt-12 flex items-center justify-between rounded-md border p-3">
+            <div>
+              <p className="font-bold leading-7">Create account</p>
+              <p className="text-sm">
+                For first time users signing up to Floop
+              </p>
+            </div>
+            <Switch
+              checked={view === "sign-up"}
+              onCheckedChange={() =>
+                setView((prevState) =>
+                  prevState === "sign-up" ? "sign-in" : "sign-up",
+                )
+              }
+            />
           </div>
-          <Switch
-            checked={view === "sign-up"}
-            onCheckedChange={() =>
-              setView((prevState) =>
-                prevState === "sign-up" ? "sign-in" : "sign-up",
-              )
-            }
-          />
-        </div>
+        ) : null}
       </div>
 
       <div className="mt-10 sm:mx-auto sm:w-full sm:max-w-sm">
