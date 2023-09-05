@@ -10,7 +10,7 @@ type Props = { params: { slug: string } };
 
 export default function Page(props: Props) {
   return (
-    <div className="mx-auto max-w-3xl py-6 prose">
+    <div className="mx-auto max-w-3xl py-6 prose px-6 lg:px-0">
       <div className="flex items-center justify-between">
         <GoBackButton />
         <Link
