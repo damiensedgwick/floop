@@ -20,7 +20,7 @@ export default function GettingStarted() {
           <h2 className="mt-2 text-4xl font-bold tracking-tight sm:text-6xl">
             It could not be easier to get started
           </h2>
-          <p className="mt-6 text-lg leading-6">
+          <p className="mt-6 text-lg leading-7">
             Floop offers a convenient plug and play widget that allows you to
             effortlessly collect data, while also providing the flexibility to
             use our API and a send feedback using your own bespoke forms.
@@ -36,13 +36,13 @@ export default function GettingStarted() {
                 theme="github-dark"
                 code={["pnpm add @feedback-loop/react"].join("\n")}
               />
-              <p className="my-6 text-lg leading-6">
+              <p className="my-6 text-lg leading-7">
                 You can use the widget straight from installation, however, if
                 you want to apply your own styles to the trigger, which is left
                 intentionally bare, we suggest you create a wrapper so you can
                 style it to your needs.
               </p>
-              <p className="my-6 text-lg leading-6">
+              <p className="my-6 text-lg leading-7">
                 The React Floop Widget is used on our own dashboard, below is
                 the exact code we are using to import and use the widget.
               </p>
@@ -70,7 +70,7 @@ export default function GettingStarted() {
                 ].join("\n")}
               />
 
-              <p className="my-6 text-lg leading-6">
+              <p className="my-6 text-lg leading-7">
                 We have also included the following data attributes so that you
                 are able to easily locate either the trigger, or the widget.
                 This is to help aid you, should you want to either add or change
@@ -91,7 +91,7 @@ export default function GettingStarted() {
                 code={['data-floop-widget="widget-popup"'].join("\n")}
               />
 
-              <p className="mt-6 text-lg leading-6">
+              <p className="mt-6 text-lg leading-7">
                 The same code can be viewed on our GitHub repository, which is
                 linked below.
               </p>
@@ -109,11 +109,11 @@ export default function GettingStarted() {
           <AccordionItem value="item-2">
             <AccordionTrigger>Using your own forms or widget</AccordionTrigger>
             <AccordionContent>
-              <p className="mb-4 text-lg leading-6">
+              <p className="mb-4 text-lg leading-7">
                 After you have built your forms or widget, simply send your data
                 to one of the three following endpoints like the examples below:
               </p>
-              <p className="mb-4 text-lg leading-6">
+              <p className="mb-4 text-lg leading-7">
                 The benefit to this approach is that you will have more control
                 over how the forms or widget will look. However, it will take
                 slightly longer to get up and running.

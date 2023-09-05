@@ -28,7 +28,7 @@ export default async function Page() {
     <div className="px-4 pt-2 pb-16 sm:px-6 lg:px-8">
       <div className="sm:flex sm:items-center">
         <div className="space-y-6 sm:flex-auto">
-          <h1 className="text-xl font-semibold leading-6">Team</h1>
+          <h1 className="text-xl font-semibold leading-7">Team</h1>
           <Separator />
           {!subscription ? (
             <div className="border-l-4 border-yellow-400 bg-yellow-50 p-4">

@@ -46,7 +46,7 @@ export default async function AllTimeStats() {
 
   return (
     <div className="space-y-4">
-      <h2 className="text-lg font-medium leading-6">All Time Stats</h2>
+      <h2 className="text-lg font-medium leading-7">All Time Stats</h2>
       <div className="grid grid-cols-2 gap-4 lg:grid-cols-4">
         <Card className="shadow">
           <CardHeader className="flex flex-row items-center justify-between pb-2 space-y-0">

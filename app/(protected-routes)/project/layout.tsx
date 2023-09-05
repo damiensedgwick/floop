@@ -89,7 +89,7 @@ export default async function ProjectLayout({
           <nav className="flex flex-1 flex-col">
             <ul role="list" className="flex flex-1 flex-col gap-y-7">
               <li>
-                <div className="mb-2 text-xs font-semibold leading-6 text-gray-400">
+                <div className="mb-2 text-xs font-semibold leading-7 text-gray-400">
                   Navigation
                 </div>
 
@@ -105,7 +105,7 @@ export default async function ProjectLayout({
                   ))}
                 </ul>
               </li>
-              <li className="-mx-6 mt-auto flex items-center justify-between gap-x-4 px-6 py-3 text-sm font-semibold leading-6">
+              <li className="-mx-6 mt-auto flex items-center justify-between gap-x-4 px-6 py-3 text-sm font-semibold leading-7">
                 <LogoutButton />
               </li>
             </ul>
@@ -114,7 +114,7 @@ export default async function ProjectLayout({
       </div>
 
       <div className="h-full lg:pl-72">
-        <div className="min-h-full bg-muted pt-6 sm:px-6 lg:px-8">
+        <div className="min-h-full pt-6 bg-muted sm:px-6 lg:px-8">
           {children}
         </div>
       </div>
