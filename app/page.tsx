@@ -4,6 +4,7 @@ import Pricing from "@/app/pricing";
 import Footer from "@/app/footer";
 import GettingStarted from "@/app/getting-started";
 import FAQ from "@/app/faq";
+import RecentPosts from "@/app/recent-posts";
 
 export default async function Page() {
   return (
@@ -12,6 +13,7 @@ export default async function Page() {
       <Features />
       <Pricing />
       <GettingStarted />
+      <RecentPosts />
       <FAQ />
       <Footer />
     </div>

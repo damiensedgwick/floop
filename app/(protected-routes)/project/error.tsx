@@ -18,7 +18,7 @@ export default function Error({
     <div className="mx-auto h-full max-w-7xl px-4 sm:px-6 lg:px-8">
       <div className="mx-auto h-full max-w-3xl">
         <div className="flex h-full flex-col items-center justify-center space-y-4">
-          <h1 className="text-base font-semibold leading-6">
+          <h1 className="text-base font-semibold leading-7">
             Oops, something went wrong!
           </h1>
 

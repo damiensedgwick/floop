@@ -53,7 +53,7 @@ export default function Page() {
 
         <div className="mt-12 flex items-center justify-between rounded-md border p-3">
           <div>
-            <p className="font-bold leading-6">Create account</p>
+            <p className="font-bold leading-7">Create account</p>
             <p className="text-sm">For first time users signing up to Floop</p>
           </div>
           <Switch
@@ -101,7 +101,7 @@ export default function Page() {
             <div>
               <label
                 htmlFor="email"
-                className="block text-sm font-medium leading-6"
+                className="block text-sm font-medium leading-7"
               >
                 Email address
               </label>
@@ -123,7 +123,7 @@ export default function Page() {
               <div className="flex items-center justify-between">
                 <label
                   htmlFor="password"
-                  className="block text-sm font-medium leading-6"
+                  className="block text-sm font-medium leading-7"
                 >
                   Password
                 </label>

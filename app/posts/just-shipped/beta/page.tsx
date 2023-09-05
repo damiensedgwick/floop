@@ -33,7 +33,7 @@ export default function Page() {
         <h1 className="mt-2 text-3xl font-bold tracking-tight sm:text-4xl">
           Floop - The feedback loop for your platform
         </h1>
-        <p className="mt-6 text-xl leading-6">
+        <p className="mt-6 text-xl leading-7">
           Floop is a simple, easy-to-use platform that allows you to collect
           feedback from your customers.
         </p>

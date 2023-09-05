@@ -46,10 +46,10 @@ export default async function Hero() {
               href="/posts/just-shipped/beta"
               className="inline-flex space-x-6"
             >
-              <span className="rounded-full bg-teal-600/10 py-1 text-sm font-semibold leading-6 text-teal-600 ring-1 ring-inset ring-teal-600/10 px-1.5 sm:px-3">
+              <span className="rounded-full bg-teal-600/10 py-1 text-sm font-semibold leading-7 text-teal-600 ring-1 ring-inset ring-teal-600/10 px-1.5 sm:px-3">
                 What&apos;s new
               </span>
-              <span className="inline-flex items-center text-sm font-medium leading-6">
+              <span className="inline-flex items-center text-sm font-medium leading-7">
                 <span>Just shipped Beta&nbsp;🚀</span>
               </span>
             </Link>
@@ -57,7 +57,7 @@ export default async function Hero() {
           <h1 className="mt-10 text-4xl font-bold tracking-tight sm:text-6xl">
             Floop is the feedback loop for your platform
           </h1>
-          <p className="mt-6 text-lg leading-6">
+          <p className="mt-6 text-lg leading-7">
             Floop helps software and platform providers capture customer
             feedback and make data-driven decisions, avoiding reliance on
             intuition or guesswork.
@@ -69,7 +69,7 @@ export default async function Hero() {
             >
               Get started for free
             </Link>
-            <Link href="/project" className="text-sm font-semibold leading-6">
+            <Link href="/project" className="text-sm font-semibold leading-7">
               Floop dashboard <span aria-hidden="true">→</span>
             </Link>
           </div>

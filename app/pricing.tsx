@@ -50,7 +50,7 @@ export default function Pricing() {
           </p>
         </div>
         <div className="relative mt-6">
-          <p className="mx-auto max-w-2xl text-lg leading-6 text-white/60">
+          <p className="mx-auto max-w-2xl text-lg leading-7 text-white/60">
             Unlock valuable insights, take action and champion success. Whether
             you&apos;re looking to trial Floop or get serious about user
             feedback. We&apos;ve got you covered.
@@ -104,7 +104,7 @@ export default function Pricing() {
                     <p className="mt-6 leading-7">{tier.description}</p>
                     <ul
                       role="list"
-                      className="mt-10 text-sm leading-6 space-y-4"
+                      className="mt-10 text-sm leading-7 space-y-4"
                     >
                       {tier.features.map((feature) => (
                         <li key={feature} className="flex gap-x-3">
@@ -120,7 +120,7 @@ export default function Pricing() {
                   <Link
                     href={tier.href}
                     aria-describedby={tier.id}
-                    className="mt-8 block rounded-md bg-teal-600 py-2 text-center text-sm font-semibold leading-6 text-white shadow px-3.5 hover:bg-teal-500 focus-visible:outline focus-visible:outline-2 focus-visible:outline-offset-2 focus-visible:outline-teal-600"
+                    className="mt-8 block rounded-md bg-teal-600 py-2 text-center text-sm font-semibold leading-7 text-white shadow px-3.5 hover:bg-teal-500 focus-visible:outline focus-visible:outline-2 focus-visible:outline-offset-2 focus-visible:outline-teal-600"
                   >
                     Get started for free
                   </Link>

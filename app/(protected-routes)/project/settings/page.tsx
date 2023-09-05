@@ -72,7 +72,7 @@ export default async function Page() {
       <div className="sm:flex sm:items-center">
         <div className="space-y-6 sm:flex-auto">
           <div className="flex items-center justify-between">
-            <h1 className="text-xl font-semibold leading-6">Settings</h1>
+            <h1 className="text-xl font-semibold leading-7">Settings</h1>
             <ThemeToggle />
           </div>
           <Separator />
