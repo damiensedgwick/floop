@@ -12,7 +12,7 @@ type Props = {
 
 export default function BlogPostCardPreview({ title, created, url }: Props) {
   return (
-    <Card className="shadow-md" key={title}>
+    <Card className="shadow-md">
       <CardHeader>
         <CardTitle className="leading-7">{title}</CardTitle>
       </CardHeader>
