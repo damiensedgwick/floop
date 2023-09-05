@@ -27,9 +27,15 @@ export default async function PostsPage() {
 
   return (
     <div className="p-8">
-      <div>
+      <div className="flex items-center justify-between">
         <GoBackButton />
-        <Link href="/" className={buttonVariants({ variant: "secondary" })}>
+        <Link
+          href="/"
+          className={buttonVariants({
+            variant: "themed",
+            className: "mb-6 no-underline",
+          })}
+        >
           Home
         </Link>
       </div>

@@ -1,6 +1,7 @@
 import { BlogFactoryNextJS } from "@blogfactory/nextjs";
 import Link from "next/link";
 import GoBackButton from "@/components/go-back-button";
+import { buttonVariants } from "@/components/ui/button";
 
 const { PostPage } = new BlogFactoryNextJS(process.env.BLOG_FACTORY_API_KEY!)
   .app;
@@ -10,7 +11,18 @@ type Props = { params: { slug: string } };
 export default function Page(props: Props) {
   return (
     <div className="mx-auto max-w-3xl py-6 prose">
-      <GoBackButton />
+      <div className="flex items-center justify-between">
+        <GoBackButton />
+        <Link
+          href="/"
+          className={buttonVariants({
+            variant: "themed",
+            className: "mb-6 no-underline",
+          })}
+        >
+          Home
+        </Link>
+      </div>
 
       <PostPage {...props} />
 
