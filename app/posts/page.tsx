@@ -1,6 +1,7 @@
 import { BlogFactoryNextJS } from "@blogfactory/nextjs";
 import Link from "next/link";
 import BlogPostCardPreview from "@/components/blog-post-card-preview";
+import GoBackButton from "@/components/go-back-button";
 
 export default async function PostsPage() {
   const apiKey = String(process.env.BLOG_FACTORY_API_KEY);
@@ -24,10 +25,12 @@ export default async function PostsPage() {
   }));
 
   return (
-    <div className="p-6">
+    <div className="p-8">
+      <GoBackButton />
       <ul className="grid grid-cols-1 md:grid-cols-2 xl:grid-cols-3">
         {posts.map((post) => (
           <BlogPostCardPreview
+            key={post.title}
             title={post.title}
             created={post.created}
             url={post.urlSlug}
