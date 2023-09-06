@@ -20,8 +20,8 @@ const buttonVariants = cva(
         link: "text-primary underline-offset-4 hover:underline",
 
         // custom colours that will be worked into the theme eventually
-        mint: "bg-mint text-white hover:bg-mint/80",
-        purple: "bg-purple text-white hover:bg-purple/80",
+        mint: "bg-mint text-white hover:bg-mint/80 no-underline",
+        purple: "bg-purple text-white hover:bg-purple/80 no-underline",
       },
       size: {
         default: "h-10 px-4 py-2",
