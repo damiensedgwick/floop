@@ -55,7 +55,7 @@ export const getProject = cache(async () => {
 
   const { data, error } = await supabase
     .from("users")
-    .select(`id, projects!project_users (*)`)
+    .select(`id, email, projects!project_users (*)`)
     .match({ id: user.id })
     .maybeSingle();
 

@@ -1,29 +1,11 @@
-import { ReactNode } from "react";
-import {
-  Card,
-  CardContent,
-  CardDescription,
-  CardHeader,
-  CardTitle,
-} from "@/components/ui/card";
+import { RatingsGraphClient } from "@/app/(protected-routes)/project/ratings-graph.client";
+import { getProject } from "@/app/(protected-routes)/project/utils";
+import { createChartData } from "@/app/(protected-routes)/project/utils";
 
-type Props = {
-  children: ReactNode;
-};
+export default async function RatingsGraph() {
+  const project = await getProject();
 
-export default async function RatingsGraph({ children }: Props) {
-  return (
-    <Card className="col-span-1 shadow xl:col-span-4">
-      <CardHeader>
-        <CardTitle>This Months Ratings</CardTitle>
-        <CardDescription>
-          How your ratings look for{" "}
-          {new Date().toLocaleString("default", {
-            month: "long",
-          })}
-        </CardDescription>
-      </CardHeader>
-      <CardContent>{children}</CardContent>
-    </Card>
-  );
+  const thisMonthsRatings = await createChartData(project);
+
+  return <RatingsGraphClient ratings={thisMonthsRatings} />;
 }

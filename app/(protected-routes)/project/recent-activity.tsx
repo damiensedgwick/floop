@@ -1,24 +1,23 @@
-import { ReactNode } from "react";
-import {
-  Card,
-  CardContent,
-  CardDescription,
-  CardHeader,
-  CardTitle,
-} from "@/components/ui/card";
+import { getRatings } from "@/app/(protected-routes)/project/ratings/ratings";
+import { getIssues } from "@/app/(protected-routes)/project/issues/issues";
+import { getSuggestions } from "@/app/(protected-routes)/project/suggestions/suggestions";
+import { RecentActivityClient } from "@/app/(protected-routes)/project/recent-activity.client";
+import { getProject } from "@/app/(protected-routes)/project/utils";
 
-type Props = {
-  children: ReactNode;
-};
+export default async function RecentActivity() {
+  const project = await getProject();
 
-export default async function RecentActivity({ children }: Props) {
+  const [ratings, issues, suggestions] = await Promise.all([
+    getRatings(project.id),
+    getIssues(project.id),
+    getSuggestions(project.id),
+  ]);
+
   return (
-    <Card className="col-span-1 shadow xl:col-span-3">
-      <CardHeader>
-        <CardTitle>Recent Activity</CardTitle>
-        <CardDescription>What your users have been saying</CardDescription>
-      </CardHeader>
-      <CardContent>{children}</CardContent>
-    </Card>
+    <RecentActivityClient
+      ratings={ratings || []}
+      issues={issues || []}
+      suggestions={suggestions || []}
+    />
   );
 }
