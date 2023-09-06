@@ -1,27 +1,24 @@
+import { ReactNode } from "react";
 import {
-  getProject,
-  getPublicUser,
-} from "@/app/(protected-routes)/project/utils";
-import { getRatings } from "@/app/(protected-routes)/project/ratings/ratings";
-import { getIssues } from "@/app/(protected-routes)/project/issues/issues";
-import { getSuggestions } from "@/app/(protected-routes)/project/suggestions/suggestions";
-import { RecentActivityClient } from "@/app/(protected-routes)/project/recent-activity.client";
+  Card,
+  CardContent,
+  CardDescription,
+  CardHeader,
+  CardTitle,
+} from "@/components/ui/card";
 
-export default async function RecentActivity() {
-  const user = await getPublicUser();
-  const project = await getProject(user);
+type Props = {
+  children: ReactNode;
+};
 
-  const [ratings, issues, suggestions] = await Promise.all([
-    getRatings(project.id),
-    getIssues(project.id),
-    getSuggestions(project.id),
-  ]);
-
+export default async function RecentActivity({ children }: Props) {
   return (
-    <RecentActivityClient
-      ratings={ratings || []}
-      issues={issues || []}
-      suggestions={suggestions || []}
-    />
+    <Card className="col-span-1 shadow xl:col-span-3">
+      <CardHeader>
+        <CardTitle>Recent Activity</CardTitle>
+        <CardDescription>What your users have been saying</CardDescription>
+      </CardHeader>
+      <CardContent>{children}</CardContent>
+    </Card>
   );
 }
