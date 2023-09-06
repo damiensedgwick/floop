@@ -49,7 +49,7 @@ export default function Features() {
       <div className="mx-auto max-w-7xl px-6 lg:px-8">
         <div className="mx-auto grid max-w-2xl grid-cols-1 gap-x-8 gap-y-16 sm:gap-y-20 lg:mx-0 lg:max-w-none lg:grid-cols-3">
           <div>
-            <h2 className="text-base font-semibold leading-7 text-teal-600">
+            <h2 className="text-base font-semibold leading-7 text-mint">
               Feedback made simple
             </h2>
             <p className="mt-2 text-3xl font-bold tracking-tight sm:text-4xl">
@@ -67,7 +67,7 @@ export default function Features() {
               <div key={feature.name} className="relative pl-9">
                 <dt className="font-semibold">
                   <CheckIcon
-                    className="absolute top-1 left-0 h-5 w-5 text-teal-500"
+                    className="absolute top-1 left-0 h-5 w-5 text-mint"
                     aria-hidden="true"
                   />
                   {feature.name}

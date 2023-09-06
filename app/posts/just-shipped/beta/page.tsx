@@ -27,7 +27,7 @@ export default function Page() {
           </svg>{" "}
           Back
         </Link>
-        <p className="mt-12 text-base font-semibold leading-7 text-teal-600">
+        <p className="mt-12 text-base font-semibold leading-7 text-mint">
           Introducing
         </p>
         <h1 className="mt-2 text-3xl font-bold tracking-tight sm:text-4xl">
@@ -48,7 +48,7 @@ export default function Page() {
           <ul role="list" className="mt-8 max-w-xl space-y-8">
             <li className="flex gap-x-3">
               <CheckCircleIcon
-                className="mt-1 h-5 w-5 flex-none text-teal-600"
+                className="mt-1 h-5 w-5 flex-none text-mint"
                 aria-hidden="true"
               />
               <span>
@@ -58,7 +58,7 @@ export default function Page() {
             </li>
             <li className="flex gap-x-3">
               <CheckCircleIcon
-                className="mt-1 h-5 w-5 flex-none text-teal-600"
+                className="mt-1 h-5 w-5 flex-none text-mint"
                 aria-hidden="true"
               />
               <span>
@@ -68,7 +68,7 @@ export default function Page() {
             </li>
             <li className="flex gap-x-3">
               <CheckCircleIcon
-                className="mt-1 h-5 w-5 flex-none text-teal-600"
+                className="mt-1 h-5 w-5 flex-none text-mint"
                 aria-hidden="true"
               />
               <span>
@@ -156,7 +156,7 @@ export default function Page() {
           <Link
             href="/auth/sign-in"
             className={buttonVariants({
-              variant: "themed",
+              variant: "default",
               size: "lg",
               className: "mt-6",
             })}

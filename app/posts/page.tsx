@@ -32,7 +32,7 @@ export default async function PostsPage() {
         <Link
           href="/"
           className={buttonVariants({
-            variant: "themed",
+            variant: "default",
             className: "mb-6 no-underline",
           })}
         >

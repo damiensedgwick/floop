@@ -59,7 +59,7 @@ export function RecentActivityClient({ ratings, issues, suggestions }: Props) {
             <Sheet>
               <SheetTrigger asChild>
                 <Button variant="ghost" className="w-full">
-                  <StarIcon width={28} height={28} className="text-teal-500" />
+                  <StarIcon width={28} height={28} className="text-mint" />
                   <p className="mr-auto ml-3 text-sm font-medium leading-none sm:mr-0">
                     {entry.score}
                   </p>

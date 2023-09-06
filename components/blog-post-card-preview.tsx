@@ -26,7 +26,7 @@ export default function BlogPostCardPreview({ title, created, url }: Props) {
         </div>
         <Link
           href={"/posts/" + url}
-          className={buttonVariants({ variant: "themed" })}
+          className={buttonVariants({ variant: "purple" })}
         >
           <BookOpenIcon className="mr-3" width={20} height={20} />
           Read

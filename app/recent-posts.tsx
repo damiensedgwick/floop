@@ -27,7 +27,7 @@ export default async function RecentPosts() {
     <div className="py-24 sm:py-32">
       <div className="mx-auto max-w-7xl px-6 lg:px-8">
         <div className="mx-auto max-w-2xl lg:mx-0">
-          <h2 className="text-base font-semibold leading-7 text-teal-600">
+          <h2 className="text-base font-semibold leading-7 text-mint">
             From the blog
           </h2>
           <p className="mt-2 text-4xl font-bold tracking-tight sm:text-5xl">

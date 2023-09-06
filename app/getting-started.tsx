@@ -14,7 +14,7 @@ export default function GettingStarted() {
     <div className="py-24 sm:py-32">
       <div className="mx-auto max-w-7xl px-6 lg:px-8">
         <div className="mx-auto max-w-2xl lg:mx-0">
-          <p className="text-base font-semibold leading-7 text-teal-600">
+          <p className="text-base font-semibold leading-7 text-mint">
             Getting you started
           </p>
           <h2 className="mt-2 text-4xl font-bold tracking-tight sm:text-6xl">
@@ -99,7 +99,7 @@ export default function GettingStarted() {
               <Link
                 href="https://github.com/damiensedgwick/floop-react"
                 title="View Floop Widget, React source code"
-                className={cn(buttonVariants({ variant: "themed" }), "mt-4")}
+                className={cn(buttonVariants({ variant: "default" }), "mt-4")}
                 target="_blank"
               >
                 View on GitHub

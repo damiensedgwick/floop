@@ -1,5 +1,6 @@
 import { CheckIcon } from "@heroicons/react/20/solid";
 import Link from "next/link";
+import { buttonVariants } from "@/components/ui/button";
 
 const tiers = [
   {
@@ -42,7 +43,7 @@ export default function Pricing() {
     <div className="isolate overflow-hidden bg-zinc-950">
       <div className="mx-auto max-w-7xl px-6 pt-24 pb-96 text-center sm:pt-32 lg:px-8">
         <div className="mx-auto max-w-4xl">
-          <h2 className="text-base font-semibold leading-7 text-teal-400">
+          <h2 className="text-base font-semibold leading-7 text-mint">
             Budget friendly pricing
           </h2>
           <p className="mt-2 text-4xl font-bold tracking-tight text-white sm:text-5xl">
@@ -87,7 +88,7 @@ export default function Pricing() {
                   <div>
                     <h3
                       id={tier.id}
-                      className="text-base font-semibold leading-7 text-teal-600"
+                      className="text-base font-semibold leading-7 text-mint"
                     >
                       {tier.name}
                     </h3>
@@ -109,7 +110,7 @@ export default function Pricing() {
                       {tier.features.map((feature) => (
                         <li key={feature} className="flex gap-x-3">
                           <CheckIcon
-                            className="h-6 w-5 flex-none text-teal-600"
+                            className="h-6 w-5 flex-none text-mint"
                             aria-hidden="true"
                           />
                           {feature}
@@ -120,7 +121,11 @@ export default function Pricing() {
                   <Link
                     href={tier.href}
                     aria-describedby={tier.id}
-                    className="mt-8 block rounded-md bg-teal-600 py-2 text-center text-sm font-semibold leading-7 text-white shadow px-3.5 hover:bg-teal-500 focus-visible:outline focus-visible:outline-2 focus-visible:outline-offset-2 focus-visible:outline-teal-600"
+                    className={buttonVariants({
+                      variant: tier.name === "Growth" ? "purple" : "mint",
+                      size: "lg",
+                      className: "mt-4",
+                    })}
                   >
                     Get started for free
                   </Link>

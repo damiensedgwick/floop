@@ -50,7 +50,7 @@ export default async function Page() {
                   <p className="text-sm text-yellow-700">
                     <Link
                       href={process.env.NEXT_PUBLIC_STRIPE_CHECKOUT_LINK_URL!}
-                      className="font-medium text-yellow-700 underline hover:text-yellow-600"
+                      className="font-medium text-yellow-700 underline"
                     >
                       Sign up for a subscription
                     </Link>
