@@ -53,12 +53,10 @@ export const getProject = cache(async () => {
   const supabase = createServerComponentClient();
   const user = await getAuthUser();
 
-  const { data: project, error } = await supabase
-    .from("projects")
-    .select(
-      `*, users!project_users ( id, email, preferred_name, first_name, last_name )`,
-    )
-    .eq("users.id", user.id)
+  const { data, error } = await supabase
+    .from("users")
+    .select(`id, projects!project_users (*)`)
+    .match({ id: user.id })
     .maybeSingle();
 
   if (error) {
@@ -66,11 +64,11 @@ export const getProject = cache(async () => {
     throw error;
   }
 
-  if (!project) {
+  if (!data) {
     throw new Error("This error should not happen *Tom Sherman");
   }
 
-  return project;
+  return data.projects[0];
 });
 
 export async function createNewProject(
