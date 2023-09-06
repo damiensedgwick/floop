@@ -1,13 +1,31 @@
-import { getPublicUser } from "@/app/(protected-routes)/project/utils";
-
+import {
+  createChartData,
+  getProject,
+  getPublicUser,
+} from "@/app/(protected-routes)/project/utils";
 import { Separator } from "@/components/ui/separator";
-import FloopWidgetButton from "@/components/floop-widget.client";
-
 import MonthlyOverview from "@/app/(protected-routes)/project/monthly-overview";
 import AllTimeStats from "@/app/(protected-routes)/project/all-time-stats";
+import FloopWidgetButton from "@/components/floop-widget.client";
+import RecentActivity from "@/app/(protected-routes)/project/recent-activity";
+import { RecentActivityClient } from "@/app/(protected-routes)/project/recent-activity.client";
+import RatingsGraph from "@/app/(protected-routes)/project/ratings-graph";
+import { RatingsGraphClient } from "@/app/(protected-routes)/project/ratings-graph.client";
+import { getRatings } from "@/app/(protected-routes)/project/ratings/ratings";
+import { getIssues } from "@/app/(protected-routes)/project/issues/issues";
+import { getSuggestions } from "@/app/(protected-routes)/project/suggestions/suggestions";
 
 export default async function Page() {
   const user = await getPublicUser();
+  const project = await getProject(user);
+
+  const [ratings, issues, suggestions] = await Promise.all([
+    getRatings(project.id),
+    getIssues(project.id),
+    getSuggestions(project.id),
+  ]);
+
+  const thisMonthsRatings = await createChartData(project);
 
   return (
     <div className="px-4 pt-2 pb-16 sm:px-6 lg:px-8">
@@ -21,8 +39,22 @@ export default async function Page() {
             />
           </div>
           <Separator />
-          <AllTimeStats />
-          <MonthlyOverview />
+
+          <AllTimeStats user={user} />
+
+          <MonthlyOverview>
+            <RatingsGraph>
+              <RatingsGraphClient ratings={thisMonthsRatings} />
+            </RatingsGraph>
+
+            <RecentActivity>
+              <RecentActivityClient
+                ratings={ratings || []}
+                issues={issues || []}
+                suggestions={suggestions || []}
+              />
+            </RecentActivity>
+          </MonthlyOverview>
         </div>
       </div>
     </div>

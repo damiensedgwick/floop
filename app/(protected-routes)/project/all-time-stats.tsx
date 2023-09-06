@@ -7,9 +7,13 @@ import {
 import { getRatings } from "@/app/(protected-routes)/project/ratings/ratings";
 import { getIssues } from "@/app/(protected-routes)/project/issues/issues";
 import { getSuggestions } from "@/app/(protected-routes)/project/suggestions/suggestions";
+import { Database } from "@/types/supabase";
 
-export default async function AllTimeStats() {
-  const user = await getPublicUser();
+type Props = {
+  user: Database["public"]["Tables"]["users"]["Row"];
+};
+
+export default async function AllTimeStats({ user }: Props) {
   const project = await getProject(user);
 
   const [ratings, issues, suggestions] = await Promise.all([
