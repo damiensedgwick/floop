@@ -13,7 +13,6 @@ import {
   CardHeader,
   CardTitle,
 } from "@/components/ui/card";
-import ManageUsersForm from "./manage-users-form";
 import CreateUserForm from "./create-user-form.client";
 import TeamPreview from "@/app/(protected-routes)/project/team/team-preview";
 
@@ -67,11 +66,6 @@ export default async function Page() {
                 </CardHeader>
                 <CardContent className="space-y-6">
                   <CreateUserForm
-                    projectId={project.id}
-                    isProjectOwner={isProjectOwner}
-                  />
-                  <Separator />
-                  <ManageUsersForm
                     projectId={project.id}
                     isProjectOwner={isProjectOwner}
                   />

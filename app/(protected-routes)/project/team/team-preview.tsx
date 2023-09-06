@@ -1,11 +1,8 @@
 import { EnvelopeIcon, PhoneIcon } from "@heroicons/react/20/solid";
 import {
+  createServerComponentClient,
   getProject,
-  getPublicUser,
 } from "@/app/(protected-routes)/project/utils";
-import { createServerComponentClient } from "@supabase/auth-helpers-nextjs";
-import { cookies } from "next/headers";
-import { Database } from "@/types/supabase";
 
 const people = [
   {
@@ -20,10 +17,9 @@ const people = [
 ];
 
 export default async function TeamPreview() {
-  const user = await getPublicUser();
   const project = await getProject();
 
-  const supabase = createServerComponentClient<Database>({ cookies });
+  const supabase = createServerComponentClient();
 
   const { data: members } = await supabase
     .from("users")
