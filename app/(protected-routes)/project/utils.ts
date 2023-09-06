@@ -1,14 +1,14 @@
 import { cache } from "react";
 import { cookies } from "next/headers";
 import { redirect } from "next/navigation";
-import { createServerComponentClient } from "@supabase/auth-helpers-nextjs";
+import { createServerComponentClient as supabaseCreateServerComponentClient } from "@supabase/auth-helpers-nextjs";
 import { Database } from "@/types/supabase";
 import { adverbs } from "@/lib/adverbs";
 import { nouns } from "@/lib/nouns";
 import { revalidatePath } from "next/cache";
 
 export const getPublicUser = cache(async () => {
-  const supabase = createServerComponentClient<Database>({ cookies });
+  const supabase = createServerComponentClient();
 
   const {
     data: { user },
@@ -31,39 +31,53 @@ export const getPublicUser = cache(async () => {
   return publicUser;
 });
 
-export const getProject = cache(
-  async (user: Database["public"]["Tables"]["users"]["Row"]) => {
-    const supabase = createServerComponentClient<Database>({ cookies });
+const getAuthUser = cache(async () => {
+  const supabase = createServerComponentClient();
 
-    const { data: row } = await supabase
-      .from("project_users")
-      .select()
-      .eq("user_id", user.id)
-      .single();
+  const {
+    data: { user },
+  } = await supabase.auth.getUser();
 
-    if (!row) {
-      throw new Error("No row found for this user");
-    }
+  if (!user) {
+    redirect("/auth/sign-in");
+  }
 
-    const { data: project } = await supabase
-      .from("projects")
-      .select()
-      .eq("id", row.project_id)
-      .single();
+  return user;
+});
 
-    if (!project) {
-      throw new Error("No project found for this user");
-    }
+export const createServerComponentClient = cache(() => {
+  return supabaseCreateServerComponentClient<Database>({ cookies });
+});
 
-    return project;
-  },
-);
+export const getProject = cache(async () => {
+  const supabase = createServerComponentClient();
+  const user = await getAuthUser();
+
+  const { data: project, error } = await supabase
+    .from("projects")
+    .select(
+      `*, users!project_users ( id, email, preferred_name, first_name, last_name )`,
+    )
+    .eq("users.id", user.id)
+    .maybeSingle();
+
+  if (error) {
+    console.log(error);
+    throw error;
+  }
+
+  if (!project) {
+    throw new Error("This error should not happen *Tom Sherman");
+  }
+
+  return project;
+});
 
 export async function createNewProject(
   user: Database["public"]["Tables"]["users"]["Row"],
 ) {
   try {
-    const supabase = createServerComponentClient<Database>({ cookies });
+    const supabase = createServerComponentClient();
 
     const randomAdverb = adverbs[Math.floor(Math.random() * adverbs.length)];
     const randomNoun = nouns[Math.floor(Math.random() * nouns.length)];
@@ -109,7 +123,7 @@ export async function createNewProject(
 
 export const getThisMonthsRatings = cache(
   async (project: Database["public"]["Tables"]["projects"]["Row"]) => {
-    const supabase = createServerComponentClient<Database>({ cookies });
+    const supabase = createServerComponentClient();
 
     const currentDate = new Date();
     const currentMonth = currentDate.getMonth() + 1;

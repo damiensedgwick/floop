@@ -1,9 +1,10 @@
-import { cookies } from "next/headers";
 import { revalidatePath } from "next/cache";
-import { createServerComponentClient } from "@supabase/auth-helpers-nextjs";
 import { supabase as sb } from "@/lib/supabase";
-import { Database } from "@/types/supabase";
 import DeleteAndRemoveUserButton from "./delete-and-remove-user-button.client";
+import {
+  createServerComponentClient,
+  getProject,
+} from "@/app/(protected-routes)/project/utils";
 
 type Props = {
   projectId: string;
@@ -14,18 +15,7 @@ export default async function ManageUsersForm({
   projectId,
   isProjectOwner,
 }: Props) {
-  const supabase = createServerComponentClient<Database>({ cookies });
-
-  const { data: project } = await supabase
-    .from("projects")
-    .select()
-    .eq("id", projectId)
-    .single();
-
-  const { data: users } = await supabase
-    .from("users")
-    .select("*")
-    .eq("project_id", projectId);
+  const project = await getProject();
 
   async function deleteAndRemoveUser(userId: string) {
     "use server";
@@ -37,7 +27,7 @@ export default async function ManageUsersForm({
 
   return (
     <div className="space-y-6">
-      {users
+      {project.users
         ?.filter((user) => user.id !== project?.owner_id)
         .map((user) => (
           <div

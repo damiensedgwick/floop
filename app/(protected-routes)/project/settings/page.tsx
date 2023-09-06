@@ -1,13 +1,11 @@
 import { cookies } from "next/headers";
 import {
+  createServerComponentClient,
   getProject,
   getPublicUser,
 } from "@/app/(protected-routes)/project/utils";
 import { Separator } from "@/components/ui/separator";
-import {
-  createServerActionClient,
-  createServerComponentClient,
-} from "@supabase/auth-helpers-nextjs";
+import { createServerActionClient } from "@supabase/auth-helpers-nextjs";
 import { Database } from "@/types/supabase";
 import getSubscription from "@/app/submissions/utils";
 import UpdateProjectForm from "@/app/(protected-routes)/project/settings/update-project-form.client";
@@ -26,9 +24,9 @@ import { supabase as sb } from "@/lib/supabase";
 
 export default async function Page() {
   const user = await getPublicUser();
-  const project = await getProject(user);
+  const project = await getProject();
+  const supabase = createServerComponentClient();
   const subscription = await getSubscription(project.stripe_subscription_id);
-  const supabase = createServerComponentClient<Database>({ cookies });
 
   const { data: result } = await supabase
     .from("users")

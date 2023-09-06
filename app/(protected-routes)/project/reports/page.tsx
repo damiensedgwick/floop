@@ -8,8 +8,7 @@ import Link from "next/link";
 import getSubscription from "@/app/submissions/utils";
 
 export default async function Page() {
-  const user = await getPublicUser();
-  const project = await getProject(user);
+  const project = await getProject();
   const subscription = await getSubscription(project.stripe_subscription_id);
 
   return (

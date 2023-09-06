@@ -16,16 +16,16 @@ import { getIssues } from "@/app/(protected-routes)/project/issues/issues";
 import { getSuggestions } from "@/app/(protected-routes)/project/suggestions/suggestions";
 
 export default async function Page() {
-  const user = await getPublicUser();
-  const project = await getProject(user);
+  const project = await getProject();
 
-  const [ratings, issues, suggestions] = await Promise.all([
-    getRatings(project.id),
-    getIssues(project.id),
-    getSuggestions(project.id),
-  ]);
-
-  const thisMonthsRatings = await createChartData(project);
+  const [ratings, issues, suggestions, user, thisMonthsRatings] =
+    await Promise.all([
+      getRatings(project.id),
+      getIssues(project.id),
+      getSuggestions(project.id),
+      getPublicUser(),
+      createChartData(project),
+    ]);
 
   return (
     <div className="px-4 pt-2 pb-16 sm:px-6 lg:px-8">
@@ -40,7 +40,7 @@ export default async function Page() {
           </div>
           <Separator />
 
-          <AllTimeStats user={user} />
+          <AllTimeStats />
 
           <MonthlyOverview>
             <RatingsGraph>

@@ -1,20 +1,12 @@
 import { Card, CardContent, CardHeader, CardTitle } from "@/components/ui/card";
 import { cn } from "@/lib/utils";
-import {
-  getProject,
-  getPublicUser,
-} from "@/app/(protected-routes)/project/utils";
+import { getProject } from "@/app/(protected-routes)/project/utils";
 import { getRatings } from "@/app/(protected-routes)/project/ratings/ratings";
 import { getIssues } from "@/app/(protected-routes)/project/issues/issues";
 import { getSuggestions } from "@/app/(protected-routes)/project/suggestions/suggestions";
-import { Database } from "@/types/supabase";
 
-type Props = {
-  user: Database["public"]["Tables"]["users"]["Row"];
-};
-
-export default async function AllTimeStats({ user }: Props) {
-  const project = await getProject(user);
+export default async function AllTimeStats() {
+  const project = await getProject();
 
   const [ratings, issues, suggestions] = await Promise.all([
     getRatings(project.id),
