@@ -14,12 +14,12 @@ import {
   CardTitle,
 } from "@/components/ui/card";
 import ManageUsersForm from "./manage-users-form";
-import CreateUserForm from "./create-user-form";
+import CreateUserForm from "./create-user-form.client";
 import TeamPreview from "@/app/(protected-routes)/project/team/team-preview";
 
 export default async function Page() {
-  const user = await getPublicUser();
-  const project = await getProject(user);
+  const [user, project] = await Promise.all([getPublicUser(), getProject()]);
+
   const subscription = await getSubscription(project.stripe_subscription_id);
 
   const isProjectOwner = user.id === project.owner_id;

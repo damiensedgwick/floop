@@ -13,7 +13,7 @@ export async function GET(
   context: { params: { checkoutSessionId: string } },
 ) {
   const user = await getPublicUser();
-  const project = await getProject(user);
+  const project = await getProject();
 
   const stripe = new createStripe(process.env.STRIPE_SECRET_KEY!, {
     apiVersion: "2022-11-15",

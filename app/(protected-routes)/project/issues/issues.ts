@@ -1,10 +1,8 @@
 import { cache } from "react";
-import { createServerComponentClient } from "@supabase/auth-helpers-nextjs";
-import { Database } from "@/types/supabase";
-import { cookies } from "next/headers";
+import { createServerComponentClient } from "@/app/(protected-routes)/project/utils";
 
 export const getIssues = cache(async (projectId: string) => {
-  const supabase = createServerComponentClient<Database>({ cookies });
+  const supabase = createServerComponentClient();
 
   const { data } = await supabase
     .from("issues")

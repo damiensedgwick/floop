@@ -9,8 +9,7 @@ import { Separator } from "@/components/ui/separator";
 import { getIssues } from "@/app/(protected-routes)/project/issues/issues";
 
 export default async function Page() {
-  const user = await getPublicUser();
-  const project = await getProject(user);
+  const project = await getProject();
   const issues = await getIssues(project.id);
 
   if (!issues?.length) {

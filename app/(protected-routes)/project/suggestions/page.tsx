@@ -9,8 +9,7 @@ import React from "react";
 import { getSuggestions } from "@/app/(protected-routes)/project/suggestions/suggestions";
 
 export default async function Page() {
-  const user = await getPublicUser();
-  const project = await getProject(user);
+  const project = await getProject();
   const suggestions = await getSuggestions(project.id);
 
   if (!suggestions?.length) {

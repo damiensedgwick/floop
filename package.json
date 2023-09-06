@@ -29,6 +29,7 @@
     "@supabase/supabase-js": "latest",
     "@tanstack/react-table": "^8.9.3",
     "@vercel/analytics": "^1.0.2",
+    "@vercel/otel": "^0.3.0",
     "autoprefixer": "10.4.14",
     "class-variance-authority": "^0.6.1",
     "clsx": "^1.2.1",

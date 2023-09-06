@@ -21,7 +21,7 @@ const people = [
 
 export default async function TeamPreview() {
   const user = await getPublicUser();
-  const project = await getProject(user);
+  const project = await getProject();
 
   const supabase = createServerComponentClient<Database>({ cookies });
 
