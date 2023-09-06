@@ -16,7 +16,7 @@ export default function Page(props: Props) {
         <Link
           href="/"
           className={buttonVariants({
-            variant: "themed",
+            variant: "default",
             className: "mb-6 no-underline",
           })}
         >

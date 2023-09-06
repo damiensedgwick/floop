@@ -30,7 +30,7 @@ export default function FAQ() {
               our{" "}
               <a
                 href="mailto:support@feedback-loop.io"
-                className="font-semibold text-teal-600 hover:text-teal-500"
+                className="font-semibold text-mint hover:text-mint/80"
               >
                 customer support
               </a>{" "}

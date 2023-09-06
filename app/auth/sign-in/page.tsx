@@ -134,7 +134,7 @@ export default function Page() {
                 <div className="text-sm">
                   <a
                     href="#"
-                    className="font-semibold text-teal-600 hover:text-teal-500"
+                    className="font-semibold text-mint hover:text-mint/80"
                   >
                     Forgot password?
                   </a>
@@ -155,13 +155,13 @@ export default function Page() {
             </div>
 
             {view === "sign-in" && (
-              <Button variant="themed" type="submit">
+              <Button variant="mint" type="submit">
                 Sign In
               </Button>
             )}
 
             {view === "sign-up" && (
-              <Button variant="themed" type="submit">
+              <Button variant="mint" type="submit">
                 Create account
               </Button>
             )}

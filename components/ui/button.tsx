@@ -18,8 +18,10 @@ const buttonVariants = cva(
           "bg-secondary text-secondary-foreground hover:bg-secondary/80",
         ghost: "hover:bg-accent hover:text-accent-foreground",
         link: "text-primary underline-offset-4 hover:underline",
-        themed:
-          "rounded-md bg-teal-600 text-sm font-semibold text-white shadow px-3.5 py-2.5 hover:bg-teal-500 focus-visible:outline focus-visible:outline-2 focus-visible:outline-offset-2 focus-visible:outline-teal-600",
+
+        // custom colours that will be worked into the theme eventually
+        mint: "bg-mint text-white hover:bg-mint/80",
+        purple: "bg-purple text-white hover:bg-purple/80",
       },
       size: {
         default: "h-10 px-4 py-2",

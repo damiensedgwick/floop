@@ -1,6 +1,7 @@
 import Image from "next/image";
 import Link from "next/link";
 import { ThemeToggle } from "@/components/theme-toggle";
+import { Button, buttonVariants } from "@/components/ui/button";
 
 export default async function Hero() {
   return (
@@ -44,13 +45,14 @@ export default async function Hero() {
           <div className="mt-24 sm:mt-32 lg:mt-16">
             <Link
               href="/posts/just-shipped/beta"
-              className="inline-flex space-x-6"
+              className="inline-flex space-x-4"
             >
-              <span className="rounded-full bg-teal-600/10 py-1 text-sm font-semibold leading-7 text-teal-600 ring-1 ring-inset ring-teal-600/10 px-1.5 sm:px-3">
+              <span className="rounded-full bg-mint/10 py-1 text-sm font-semibold leading-7 text-mint ring-1 ring-inset ring-mint/90 px-1.5 sm:px-3">
                 What&apos;s new
               </span>
               <span className="inline-flex items-center text-sm font-medium leading-7">
-                <span>Just shipped Beta&nbsp;🚀</span>
+                <span className="mr-2">Just shipped Beta</span>
+                🚀
               </span>
             </Link>
           </div>
@@ -65,12 +67,18 @@ export default async function Hero() {
           <div className="mt-10 flex items-center gap-x-6">
             <Link
               href="/auth/sign-in"
-              className="rounded-md bg-teal-600 text-sm font-semibold text-white shadow px-3.5 py-2.5 hover:bg-teal-500 focus-visible:outline focus-visible:outline-2 focus-visible:outline-offset-2 focus-visible:outline-teal-600"
+              className={buttonVariants({ variant: "purple", size: "lg" })}
             >
               Get started for free
             </Link>
-            <Link href="/project" className="text-sm font-semibold leading-7">
-              Floop dashboard <span aria-hidden="true">→</span>
+            <Link
+              href="/project"
+              className={buttonVariants({ variant: "ghost", size: "lg" })}
+            >
+              Floop dashboard{" "}
+              <span aria-hidden="true" className="ml-2">
+                →
+              </span>
             </Link>
           </div>
         </div>
