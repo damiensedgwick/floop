@@ -28,13 +28,8 @@ export default function MonthlyOverview() {
           <CardContent className="pl-2">
             <Suspense
               fallback={
-                <div className="p-6 pt-0 space-y-5">
-                  <Skeleton className="h-10 w-full" />
-                  <Skeleton className="h-10 w-full" />
-                  <Skeleton className="h-10 w-full" />
-                  <Skeleton className="h-10 w-full" />
-                  <Skeleton className="h-10 w-full" />
-                  <Skeleton className="h-10 w-full" />
+                <div className="p-6 pt-0">
+                  <Skeleton className="h-[338px] w-full" />
                 </div>
               }
             >
