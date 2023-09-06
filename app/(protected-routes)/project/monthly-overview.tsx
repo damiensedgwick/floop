@@ -1,9 +1,5 @@
 import { ReactNode, Suspense } from "react";
 
-// 110kb without any imports
-// 134kb with RecentActivity (+24kb)
-// 243 with RatingsGraph (+109kb)
-
 type Props = {
   children: ReactNode[];
 };
