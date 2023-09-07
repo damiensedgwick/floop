@@ -5,9 +5,10 @@ export const getIssues = cache(async (projectId: string) => {
   const supabase = createServerComponentClient();
 
   const { data } = await supabase
-    .from("issues")
-    .select()
-    .eq("project_id", projectId);
+    .from("projects")
+    .select(`id, issues ( * )`)
+    .eq("id", projectId)
+    .maybeSingle();
 
-  return data;
+  return data?.issues;
 });
