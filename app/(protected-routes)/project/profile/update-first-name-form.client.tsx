@@ -29,7 +29,7 @@ type Props = {
   handleUpdateProfile: (name: string, userId: string) => void;
 };
 
-export default function UpdateFirstNameForm({
+export default function UpdateFirstNameFormClient({
   firstName,
   userId,
   handleUpdateProfile,
