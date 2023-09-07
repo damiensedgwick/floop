@@ -3,9 +3,9 @@ import { createServerActionClient } from "@supabase/auth-helpers-nextjs";
 import { Database } from "@/types/supabase";
 import { cookies } from "next/headers";
 import { revalidatePath } from "next/cache";
-import UpdateFirstNameForm from "@/app/(protected-routes)/project/profile/update-first-name-form.client";
+import UpdateFirstNameFormClient from "@/app/(protected-routes)/project/profile/update-first-name-form.client";
 
-export default async function () {
+export default async function UpdateFirstNameForm() {
   const user = await getPublicUser();
 
   async function handleUpdateFirstName(name: string, userId: string) {
@@ -26,7 +26,7 @@ export default async function () {
   }
 
   return (
-    <UpdateFirstNameForm
+    <UpdateFirstNameFormClient
       firstName={user.first_name || "John"}
       userId={user.id}
       handleUpdateProfile={handleUpdateFirstName}
