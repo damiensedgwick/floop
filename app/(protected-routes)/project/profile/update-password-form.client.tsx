@@ -27,7 +27,9 @@ type Props = {
   handleUpdatePassword: (password: string) => void;
 };
 
-export default function UpdatePasswordForm({ handleUpdatePassword }: Props) {
+export default function UpdatePasswordFormClient({
+  handleUpdatePassword,
+}: Props) {
   const [isPending, startTransition] = useTransition();
   const { toast } = useToast();
 
