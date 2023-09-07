@@ -1,39 +1,32 @@
-import {
-  getProject,
-  getPublicUser,
-} from "@/app/(protected-routes)/project/utils";
-import { DataTable } from "@/app/(protected-routes)/project/data-table.client";
-import { columns } from "@/app/(protected-routes)/project/suggestions/columns.client";
 import { Separator } from "@/components/ui/separator";
-import React from "react";
-import { getSuggestions } from "@/app/(protected-routes)/project/suggestions/suggestions";
+import React, { Suspense } from "react";
+import SuggestionsDataTable from "@/app/(protected-routes)/project/suggestions/suggestions-data-table";
+import { Skeleton } from "@/components/ui/skeleton";
 
-export default async function Page() {
-  const project = await getProject();
-  const suggestions = await getSuggestions(project.id);
-
-  if (!suggestions?.length) {
-    return (
-      <div className="flex h-full flex-col items-center justify-center px-4 pt-2 sm:px-6 lg:px-8">
-        <h1 className="text-base font-semibold leading-7">
-          <i>&ldquo;Live, laugh, copy & paste&ldquo;</i>
-        </h1>
-      </div>
-    );
-  }
-
+export default function Page() {
   return (
     <div className="px-4 pt-2 pb-16 sm:px-6 lg:px-8">
       <div className="sm:flex sm:items-center">
         <div className="space-y-6 sm:flex-auto">
           <h1 className="text-xl font-semibold leading-7">Suggestions</h1>
           <Separator />
-          <DataTable
-            columns={columns}
-            data={suggestions}
-            pageTitle="Suggestions"
-            filterColumn="title"
-          />
+          <Suspense
+            fallback={
+              <div className="space-y-6">
+                <div className="flex justify-between items center">
+                  <Skeleton className="w-[380px] h-10" />
+                  <Skeleton className="w-[130px] h-10" />
+                </div>
+                <Skeleton className="h-[500px]" />
+                <div className="flex justify-end space-x-4">
+                  <Skeleton className="w-[100px] h-8" />
+                  <Skeleton className="w-[100px] h-8" />
+                </div>
+              </div>
+            }
+          >
+            <SuggestionsDataTable />
+          </Suspense>
         </div>
       </div>
     </div>
