@@ -5,9 +5,10 @@ export const getRatings = cache(async (projectId: string) => {
   const supabase = createServerComponentClient();
 
   const { data } = await supabase
-    .from("ratings")
-    .select()
-    .eq("project_id", projectId);
+    .from("projects")
+    .select(`id, ratings ( * )`)
+    .eq("id", projectId)
+    .maybeSingle();
 
-  return data;
+  return data?.ratings;
 });
