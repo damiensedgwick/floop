@@ -69,13 +69,13 @@ export default async function Hero() {
               href="/auth/sign-in"
               className={buttonVariants({ variant: "purple", size: "lg" })}
             >
-              Get started for free
+              Get started
             </Link>
             <Link
               href="/project"
               className={buttonVariants({ variant: "ghost", size: "lg" })}
             >
-              Floop dashboard{" "}
+              Dashboard{" "}
               <span aria-hidden="true" className="ml-2">
                 →
               </span>
