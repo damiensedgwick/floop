@@ -33,9 +33,9 @@ export default async function Hero() {
         <div className="mx-auto max-w-2xl lg:mx-0 lg:max-w-xl lg:flex-shrink-0 lg:pt-8">
           <div className="flex items-center justify-between">
             <Image
-              src="/floop-logo.png"
-              width={88}
-              height={88}
+              src="/mint-floop.svg"
+              width={150}
+              height={100}
               alt="Floop logo"
             />
             <div>
@@ -86,7 +86,7 @@ export default async function Hero() {
           <div className="max-w-3xl flex-none sm:max-w-5xl lg:max-w-none">
             <div className="-m-2 rounded-xl bg-gray-900/5 p-2 ring-1 ring-inset ring-gray-900/10 lg:-m-4 lg:rounded-2xl lg:p-4">
               <Image
-                src="/app-screenshot.png"
+                src="/app-dashboard.png"
                 alt="App screenshot"
                 width={2432}
                 height={1442}
