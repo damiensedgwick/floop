@@ -6,13 +6,14 @@ import { Dialog, Transition } from "@headlessui/react";
 import { Bars3Icon, XMarkIcon } from "@heroicons/react/24/outline";
 import NavigationLink from "@/app/(protected-routes)/project/navigation-link.client";
 import LogoutButton from "@/components/logout-button.client";
+import { Button } from "@/components/ui/button";
 
 type Props = {
   navigation: { name: string; href: string; icon: React.JSX.Element }[];
   userEmail: string;
 };
 
-export default function MobileMenu({ navigation, userEmail }: Props) {
+export default function MobileMenu({ navigation }: Props) {
   const [sidebarOpen, setSidebarOpen] = useState(false);
 
   return (
@@ -70,16 +71,7 @@ export default function MobileMenu({ navigation, userEmail }: Props) {
                   </div>
                 </Transition.Child>
                 {/* Sidebar component, swap this element with another sidebar if you like */}
-                <div className="flex grow flex-col gap-y-5 overflow-y-auto px-6 pb-2">
-                  <div className="flex h-16 shrink-0 items-center">
-                    <Image
-                      className="mt-6"
-                      src="/floop-logo.png"
-                      alt="Floop"
-                      width={48}
-                      height={48}
-                    />
-                  </div>
+                <div className="flex grow flex-col gap-y-5 overflow-y-auto px-6 pb-2 pt-8">
                   <nav className="flex flex-1 flex-col">
                     <ul role="list" className="flex flex-1 flex-col gap-y-7">
                       <li>
@@ -108,14 +100,22 @@ export default function MobileMenu({ navigation, userEmail }: Props) {
       </Transition.Root>
 
       <div className="sticky top-0 z-40 flex items-center justify-between gap-x-6 px-4 py-4 shadow bg-background sm:px-6 lg:hidden">
-        <button
-          type="button"
-          className="-m-2.5 p-2.5 lg:hidden"
-          onClick={() => setSidebarOpen(true)}
-        >
-          <span className="sr-only">Open sidebar</span>
-          <Bars3Icon width={32} height={32} aria-hidden="true" />
-        </button>
+        <div className="flex items-center">
+          <Image
+            src="/mint-floop-icon.svg"
+            width={56}
+            height={56}
+            alt="Floop icon"
+          />
+          <Button
+            onClick={() => setSidebarOpen(true)}
+            variant="ghost"
+            size="icon"
+          >
+            <span className="sr-only">Open sidebar</span>
+            <Bars3Icon width={32} height={32} aria-hidden="true" />
+          </Button>
+        </div>
         <span className="sr-only">Logout</span>
         <LogoutButton />
       </div>
