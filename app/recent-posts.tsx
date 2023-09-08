@@ -16,12 +16,18 @@ export default async function RecentPosts() {
     );
   }
 
-  const posts = data.data.slice(0, 3).map((post) => ({
-    title: post.title,
-    urlSlug: post.urlSlug,
-    content: post.content,
-    created: post.publishedAt,
-  }));
+  const posts = data.data
+    .sort(
+      (a, b) =>
+        new Date(b.publishedAt).getTime() - new Date(a.publishedAt).getTime(),
+    )
+    .slice(0, 3)
+    .map((post) => ({
+      title: post.title,
+      urlSlug: post.urlSlug,
+      content: post.content,
+      created: post.publishedAt,
+    }));
 
   return (
     <div className="py-24 sm:py-32">

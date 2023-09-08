@@ -39,15 +39,21 @@ export default async function PostsPage() {
           Home
         </Link>
       </div>
-      <ul className="grid grid-cols-1 md:grid-cols-2 xl:grid-cols-3">
-        {posts.map((post) => (
-          <BlogPostCardPreview
-            key={post.title}
-            title={post.title}
-            created={post.created}
-            url={post.urlSlug}
-          />
-        ))}
+      <ul className="grid grid-cols-1 md:grid-cols-2 xl:grid-cols-3 gap-4">
+        {posts
+          .sort(
+            (a, b) =>
+              new Date(b.created).getTime() - new Date(a.created).getTime(),
+          )
+          .slice()
+          .map((post) => (
+            <BlogPostCardPreview
+              key={post.title}
+              title={post.title}
+              created={post.created}
+              url={post.urlSlug}
+            />
+          ))}
       </ul>
     </div>
   );
