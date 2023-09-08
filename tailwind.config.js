@@ -13,8 +13,8 @@ module.exports = {
     extend: {
       colors: {
         white: "#f6f6f6",
-        mint: "#58cebc",
-        purple: "#620fe7",
+        mint: "#5fc8b2",
+        purple: "#5b45a5",
 
         border: "hsl(var(--border))",
         input: "hsl(var(--input))",
