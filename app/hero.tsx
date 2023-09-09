@@ -101,8 +101,8 @@ export default async function Hero() {
               <Image
                 src="/floop-dashboard.png"
                 alt="App screenshot"
-                width={1800}
-                height={1170}
+                width={2432}
+                height={1442}
                 className="rounded-md shadow ring-1 ring-gray-900/10 w-[76rem]"
               />
             </div>
