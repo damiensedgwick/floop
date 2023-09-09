@@ -12,7 +12,7 @@ type Props = {
 
 export default function BlogPostCardPreview({ title, created, url }: Props) {
   return (
-    <Card className="shadow-md">
+    <Card className="shadow-md flex flex-col items-stretch justify-between">
       <CardHeader>
         <CardTitle className="leading-7">{title}</CardTitle>
       </CardHeader>

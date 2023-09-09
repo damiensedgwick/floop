@@ -1,33 +1,18 @@
 import { BlogFactoryNextJS } from "@blogfactory/nextjs";
 import BlogPostCardPreview from "@/components/blog-post-card-preview";
 import Link from "next/link";
+import { getBlogFactoryPosts } from "@/lib/blog-factory";
 
 export default async function RecentPosts() {
-  const apiKey = String(process.env.BLOG_FACTORY_API_KEY);
-  const blogFactory = new BlogFactoryNextJS(apiKey).app;
+  const posts = await getBlogFactoryPosts();
 
-  const { data } = await blogFactory.listPosts();
-
-  if (!data) {
+  if (!posts.length) {
     return (
       <div>
-        <p>No posts found!</p>
+        <h1>No Posts Found</h1>
       </div>
     );
   }
-
-  const posts = data.data
-    .sort(
-      (a, b) =>
-        new Date(b.publishedAt).getTime() - new Date(a.publishedAt).getTime(),
-    )
-    .slice(0, 3)
-    .map((post) => ({
-      title: post.title,
-      urlSlug: post.urlSlug,
-      content: post.content,
-      created: post.publishedAt,
-    }));
 
   return (
     <div className="py-24 sm:py-32">
@@ -41,14 +26,20 @@ export default async function RecentPosts() {
           </p>
         </div>
         <div className="mx-auto mt-10 grid max-w-2xl grid-cols-1 gap-x-8 gap-y-16 border-t border-gray-200 pt-10 sm:mt-16 sm:pt-16 lg:mx-0 lg:max-w-none lg:grid-cols-3">
-          {posts.map((post) => (
-            <BlogPostCardPreview
-              key={post.title}
-              title={post.title}
-              created={post.created}
-              url={post.urlSlug}
-            />
-          ))}
+          {posts
+            .slice()
+            .sort(
+              (a, b) =>
+                new Date(b.created).getTime() - new Date(a.created).getTime(),
+            )
+            .map((post) => (
+              <BlogPostCardPreview
+                key={post.title}
+                title={post.title}
+                created={post.created}
+                url={post.urlSlug}
+              />
+            ))}
         </div>
         <Link
           href="/posts"
