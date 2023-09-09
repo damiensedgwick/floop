@@ -81,7 +81,7 @@ export default async function ProjectLayout({
               className="mt-4"
               src="/mint-floop.svg"
               alt="Your Company"
-              width={150}
+              width={125}
               height={100}
               priority
             />
