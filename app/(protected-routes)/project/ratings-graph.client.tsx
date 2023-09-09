@@ -41,13 +41,13 @@ export function RatingsGraphClient({ ratings }: Props) {
         <Line
           type="monotone"
           dataKey="score"
-          stroke="#14b8a6"
+          stroke="#5b45a5"
           strokeWidth={2}
         />
         <Line
           type="monotone"
           dataKey="submissions"
-          stroke="#f59e0b"
+          stroke="#5fc8b2"
           strokeWidth={2}
         />
       </LineChart>

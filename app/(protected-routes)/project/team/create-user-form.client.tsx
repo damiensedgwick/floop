@@ -14,7 +14,8 @@ import { Input } from "@/components/ui/input";
 import { useToast } from "@/components/ui/use-toast";
 import { Button } from "@/components/ui/button";
 import { useForm } from "react-hook-form";
-import { PlusIcon } from "@heroicons/react/24/outline";
+import Plus from "@/components/icons/plus";
+import { useTheme } from "next-themes";
 
 type Props = {
   projectId: string;
@@ -22,6 +23,7 @@ type Props = {
 };
 
 export default function CreateUserForm({ projectId, isProjectOwner }: Props) {
+  const { theme, systemTheme } = useTheme();
   const [isPending, startTransition] = useTransition();
   const { toast } = useToast();
 
@@ -35,6 +37,8 @@ export default function CreateUserForm({ projectId, isProjectOwner }: Props) {
       email: "",
     },
   });
+
+  console.log(systemTheme);
 
   async function onSubmit(values: z.infer<typeof formSchema>) {
     startTransition(async () => {
@@ -82,9 +86,9 @@ export default function CreateUserForm({ projectId, isProjectOwner }: Props) {
         <Button
           type="submit"
           disabled={isPending || !isProjectOwner}
-          className="w-full space-x-1.5 md:max-w-[125px]"
+          className="w-full space-x-1 md:max-w-[125px]"
         >
-          <PlusIcon width={16} height={16} />
+          <Plus className="stroke-accent stroke-2" />
           <span>{isPending ? "Creating..." : "Create"}</span>
         </Button>
       </form>

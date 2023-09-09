@@ -1,6 +1,6 @@
-import { CheckIcon } from "@heroicons/react/20/solid";
 import Link from "next/link";
 import { buttonVariants } from "@/components/ui/button";
+import Check from "@/components/icons/check";
 
 const tiers = [
   {
@@ -108,9 +108,9 @@ export default function Pricing() {
                       className="mt-10 text-sm leading-7 space-y-4"
                     >
                       {tier.features.map((feature) => (
-                        <li key={feature} className="flex gap-x-3">
-                          <CheckIcon
-                            className="h-6 w-5 flex-none text-mint"
+                        <li key={feature} className="flex gap-x-3 items-center">
+                          <Check
+                            className="h-5 w-5 stroke-2 stroke-mint fill-none"
                             aria-hidden="true"
                           />
                           {feature}

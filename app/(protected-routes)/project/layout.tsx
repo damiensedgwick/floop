@@ -1,14 +1,12 @@
 import { ReactNode } from "react";
 import Image from "next/image";
-import {
-  ChatBubbleLeftIcon,
-  Cog8ToothIcon,
-  ExclamationTriangleIcon,
-  HomeIcon,
-  StarIcon,
-  UserCircleIcon,
-  UsersIcon,
-} from "@heroicons/react/24/outline";
+import Home from "@/components/icons/home-smile";
+import TrendUp from "@/components/icons/trend-up";
+import AnnotationAlert from "@/components/icons/annotation-alert";
+import LightBulb from "@/components/icons/lightbulb";
+import User from "@/components/icons/user";
+import Users from "@/components/icons/users";
+import Settings from "@/components/icons/settings";
 import NavigationLink from "@/app/(protected-routes)/project/navigation-link.client";
 import MobileMenu from "@/app/(protected-routes)/project/mobile-menu.client";
 import LogoutButton from "@/components/logout-button.client";
@@ -18,22 +16,24 @@ const navigation = [
   {
     name: "Dashboard",
     href: "/",
-    icon: <HomeIcon width={24} height={24} />,
+    icon: <Home className="stroke-2 stroke-accent-foreground fill-none" />,
   },
   {
     name: "Ratings",
     href: "/ratings",
-    icon: <StarIcon width={24} height={24} />,
+    icon: <TrendUp className="stroke-2 stroke-accent-foreground fill-none" />,
   },
   {
     name: "Issues",
     href: "/issues",
-    icon: <ExclamationTriangleIcon width={24} height={24} />,
+    icon: (
+      <AnnotationAlert className="stroke-2 stroke-accent-foreground fill-none" />
+    ),
   },
   {
     name: "Suggestions",
     href: "/suggestions",
-    icon: <ChatBubbleLeftIcon width={24} height={24} />,
+    icon: <LightBulb className="stroke-2 stroke-accent-foreground fill-none" />,
   },
   // TODO: Add these pages during BETA launch
   // {
@@ -44,17 +44,17 @@ const navigation = [
   {
     name: "Team",
     href: "/team",
-    icon: <UsersIcon width={24} height={24} />,
+    icon: <Users className="stroke-2 stroke-accent-foreground fill-none" />,
   },
   {
     name: "Profile",
     href: "/profile",
-    icon: <UserCircleIcon width={24} height={24} />,
+    icon: <User className="stroke-2 stroke-accent-foreground fill-none" />,
   },
   {
     name: "Settings",
     href: "/settings",
-    icon: <Cog8ToothIcon width={24} height={24} />,
+    icon: <Settings className="stroke-2 stroke-accent-foreground fill-none" />,
   },
 ];
 

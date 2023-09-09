@@ -1,4 +1,4 @@
-import { CheckIcon } from "@heroicons/react/20/solid";
+import Check from "@/components/icons/check";
 
 const features = [
   {
@@ -66,8 +66,8 @@ export default function Features() {
             {features.map((feature) => (
               <div key={feature.name} className="relative pl-9">
                 <dt className="font-semibold">
-                  <CheckIcon
-                    className="absolute top-1 left-0 h-5 w-5 text-mint"
+                  <Check
+                    className="absolute top-1 left-0 h-5 w-5 stroke-2 stroke-mint fill-none"
                     aria-hidden="true"
                   />
                   {feature.name}

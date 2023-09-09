@@ -1,4 +1,3 @@
-import { BlogFactoryNextJS } from "@blogfactory/nextjs";
 import BlogPostCardPreview from "@/components/blog-post-card-preview";
 import Link from "next/link";
 import { getBlogFactoryPosts } from "@/lib/blog-factory";

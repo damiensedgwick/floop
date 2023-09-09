@@ -4,7 +4,6 @@ import {
   getPublicUser,
 } from "@/app/(protected-routes)/project/utils";
 import { Separator } from "@/components/ui/separator";
-import { ExclamationTriangleIcon } from "@heroicons/react/24/outline";
 import getSubscription from "@/app/submissions/utils";
 import {
   Card,
@@ -32,12 +31,6 @@ export default async function Page() {
           {!subscription ? (
             <div className="border-l-4 border-yellow-400 bg-yellow-50 p-4">
               <div className="flex">
-                <div className="flex-shrink-0">
-                  <ExclamationTriangleIcon
-                    className="h-5 w-5 text-yellow-400"
-                    aria-hidden="true"
-                  />
-                </div>
                 <div className="ml-3 flex-1 md:flex md:items-center md:justify-between">
                   <p className="text-sm text-yellow-700">
                     Subscription needed to access teams.
