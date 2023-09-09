@@ -1,8 +1,9 @@
-import { EnvelopeIcon, PhoneIcon } from "@heroicons/react/20/solid";
 import {
   createServerComponentClient,
   getProject,
 } from "@/app/(protected-routes)/project/utils";
+import Mail from "@/components/icons/mail";
+import Phone from "@/components/icons/phone";
 
 const people = [
   {
@@ -61,7 +62,7 @@ export default async function TeamPreview() {
                       href={`mailto:${member.email}`}
                       className="relative -mr-px inline-flex w-0 flex-1 items-center justify-center gap-x-3 rounded-bl-lg border border-transparent py-4 text-sm font-semibold"
                     >
-                      <EnvelopeIcon width={20} height={20} aria-hidden="true" />
+                      <Mail className="stroke-accent-foreground stroke-2 fill-none" />
                       Email
                     </a>
                   </div>
@@ -70,7 +71,7 @@ export default async function TeamPreview() {
                       className="relative inline-flex w-0 flex-1 items-center justify-center gap-x-3 rounded-br-lg border border-transparent py-4 text-sm font-semibold opacity-60"
                       disabled
                     >
-                      <PhoneIcon height={20} width={20} aria-hidden="true" />
+                      <Phone className="stroke-accent-foreground stroke-2 fill-none" />
                       Call
                     </button>
                   </div>

@@ -2,10 +2,6 @@
 
 import { ColumnDef } from "@tanstack/react-table";
 import { Database } from "@/types/supabase";
-import {
-  ArrowsUpDownIcon,
-  EllipsisHorizontalIcon,
-} from "@heroicons/react/20/solid";
 import { Button } from "@/components/ui/button";
 import {
   DropdownMenu,
@@ -16,6 +12,8 @@ import {
   DropdownMenuTrigger,
 } from "@/components/ui/dropdown-menu";
 import { format, parseISO } from "date-fns";
+import DotsHorizontal from "@/components/icons/dots-horizontal";
+import SwitchVertical from "@/components/icons/switch-vertical";
 
 export const columns: ColumnDef<
   Database["public"]["Tables"]["ratings"]["Row"]
@@ -31,7 +29,7 @@ export const columns: ColumnDef<
           onClick={() => column.toggleSorting(column.getIsSorted() === "asc")}
         >
           Score
-          <ArrowsUpDownIcon width={12} height={12} className="ml-2 h-4 w-4" />
+          <SwitchVertical className="ml-2 h-4 w-4 stroke-2 fill-none stroke-muted-foreground" />
         </Button>
       );
     },
@@ -71,7 +69,7 @@ export const columns: ColumnDef<
           onClick={() => column.toggleSorting(column.getIsSorted() === "asc")}
         >
           Created
-          <ArrowsUpDownIcon width={12} height={12} className="ml-2 h-4 w-4" />
+          <SwitchVertical className="ml-2 h-4 w-4 stroke-2 fill-none stroke-muted-foreground" />
         </Button>
       );
     },
@@ -100,7 +98,7 @@ export const columns: ColumnDef<
           <DropdownMenuTrigger asChild>
             <Button variant="ghost" className="h-8 w-8 p-0">
               <span className="sr-only">Open menu</span>
-              <EllipsisHorizontalIcon width={20} height={20} />
+              <DotsHorizontal className="stroke-2 fill-none stroke-accent-foreground" />
             </Button>
           </DropdownMenuTrigger>
           <DropdownMenuContent align="end">

@@ -1,7 +1,7 @@
 import Image from "next/image";
 import Link from "next/link";
-import { CheckCircleIcon } from "@heroicons/react/20/solid";
 import { buttonVariants } from "@/components/ui/button";
+import Check from "@/components/icons/check";
 
 export default function Page() {
   return (
@@ -47,8 +47,8 @@ export default function Page() {
           </p>
           <ul role="list" className="mt-8 max-w-xl space-y-8">
             <li className="flex gap-x-3">
-              <CheckCircleIcon
-                className="mt-1 h-5 w-5 flex-none text-mint"
+              <Check
+                className="mt-1 h-5 w-5 flex-none stroke-2 stroke-mint fill-none"
                 aria-hidden="true"
               />
               <span>
@@ -57,8 +57,8 @@ export default function Page() {
               </span>
             </li>
             <li className="flex gap-x-3">
-              <CheckCircleIcon
-                className="mt-1 h-5 w-5 flex-none text-mint"
+              <Check
+                className="mt-1 h-5 w-5 flex-none stroke-2 stroke-mint fill-none"
                 aria-hidden="true"
               />
               <span>
@@ -67,8 +67,8 @@ export default function Page() {
               </span>
             </li>
             <li className="flex gap-x-3">
-              <CheckCircleIcon
-                className="mt-1 h-5 w-5 flex-none text-mint"
+              <Check
+                className="mt-1 h-5 w-5 flex-none stroke-2 stroke-mint fill-none"
                 aria-hidden="true"
               />
               <span>
@@ -156,7 +156,7 @@ export default function Page() {
           <Link
             href="/auth/sign-in"
             className={buttonVariants({
-              variant: "default",
+              variant: "purple",
               size: "lg",
               className: "mt-6",
             })}

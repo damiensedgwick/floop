@@ -1,7 +1,7 @@
 "use client";
 
 import { Button } from "@/components/ui/button";
-import { TrashIcon } from "@heroicons/react/24/outline";
+import { Trash } from "lucide-react";
 
 type Props = {
   userId: string;
@@ -22,7 +22,7 @@ export default function DeleteAndRemoveUserButton({
       disabled={disabled}
       className="w-full space-x-1.5 md:max-w-[125px]"
     >
-      <TrashIcon width={16} height={16} />
+      <Trash />
       <span>Remove</span>
     </Button>
   );

@@ -2,11 +2,6 @@
 
 import { format, parseISO } from "date-fns";
 import { Database } from "@/types/supabase";
-import {
-  ExclamationTriangleIcon,
-  LightBulbIcon,
-  StarIcon,
-} from "@heroicons/react/24/outline";
 import { Button, buttonVariants } from "@/components/ui/button";
 import {
   Sheet,
@@ -20,6 +15,9 @@ import {
 } from "@/components/ui/sheet";
 import Link from "next/link";
 import { Card, CardContent } from "@/components/ui/card";
+import TrendUp from "@/components/icons/trend-up";
+import AnnotationAlert from "@/components/icons/annotation-alert";
+import LightBulb from "@/components/icons/lightbulb";
 
 type Props = {
   ratings: Database["public"]["Tables"]["ratings"]["Row"][];
@@ -59,9 +57,9 @@ export function RecentActivityClient({ ratings, issues, suggestions }: Props) {
             <Sheet>
               <SheetTrigger asChild>
                 <Button variant="ghost" className="w-full">
-                  <StarIcon width={28} height={28} className="text-mint" />
-                  <p className="mr-auto ml-3 text-sm font-medium leading-none sm:mr-0">
-                    {entry.score}
+                  <TrendUp className="stroke-2 stroke-mint fill-none" />
+                  <p className="mr-auto ml-3 text-xs font-medium leading-none sm:mr-0">
+                    <span className="text-lg">{entry.score}</span> / 10
                   </p>
                   <p className="ml-auto hidden font-medium sm:block">
                     {format(parseISO(entry.created_at), "dd MMM")}
@@ -123,11 +121,7 @@ export function RecentActivityClient({ ratings, issues, suggestions }: Props) {
             <Sheet>
               <SheetTrigger asChild>
                 <Button variant="ghost" className="w-full">
-                  <ExclamationTriangleIcon
-                    width={28}
-                    height={28}
-                    className="text-red-500"
-                  />
+                  <AnnotationAlert className="stroke-2 stroke-red-400 fill-none" />
                   <p className="mr-auto ml-3 text-sm font-medium leading-none sm:mr-0">
                     {entry.title}
                   </p>
@@ -192,11 +186,7 @@ export function RecentActivityClient({ ratings, issues, suggestions }: Props) {
             <Sheet>
               <SheetTrigger asChild>
                 <Button variant="ghost" className="w-full">
-                  <LightBulbIcon
-                    width={28}
-                    height={28}
-                    className="text-amber-500"
-                  />
+                  <LightBulb className="stroke-2 stroke-amber-400 fill-none" />
                   <p className="mr-auto ml-3 text-sm font-medium leading-none sm:mr-0">
                     {entry.title}
                   </p>

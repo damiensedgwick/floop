@@ -28,13 +28,13 @@ export default async function AllTimeStatsCards() {
       case 4:
       case 5:
       case 6:
-        return "text-red-500";
+        return "text-red-400";
       case 7:
       case 8:
-        return "text-amber-500";
+        return "text-amber-400";
       case 9:
       case 10:
-        return "text-green-500";
+        return "text-mint";
       default:
         return "text-primary";
     }

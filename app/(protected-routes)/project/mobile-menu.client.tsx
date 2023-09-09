@@ -3,10 +3,11 @@
 import { Fragment, useState } from "react";
 import Image from "next/image";
 import { Dialog, Transition } from "@headlessui/react";
-import { Bars3Icon, XMarkIcon } from "@heroicons/react/24/outline";
 import NavigationLink from "@/app/(protected-routes)/project/navigation-link.client";
 import LogoutButton from "@/components/logout-button.client";
 import { Button } from "@/components/ui/button";
+import Close from "@/components/icons/x-close";
+import Menu from "@/components/icons/menu";
 
 type Props = {
   navigation: { name: string; href: string; icon: React.JSX.Element }[];
@@ -63,8 +64,8 @@ export default function MobileMenu({ navigation }: Props) {
                       onClick={() => setSidebarOpen(false)}
                     >
                       <span className="sr-only">Close sidebar</span>
-                      <XMarkIcon
-                        className="h-6 w-6 text-white"
+                      <Close
+                        className="h-8 w-8 stroke-white stroke-2 fill-white"
                         aria-hidden="true"
                       />
                     </button>
@@ -100,20 +101,18 @@ export default function MobileMenu({ navigation }: Props) {
       </Transition.Root>
 
       <div className="sticky top-0 z-40 flex items-center justify-between gap-x-6 px-4 py-4 shadow bg-background sm:px-6 lg:hidden">
-        <div className="flex items-center space-x-3">
-          <Image
-            src="/mint-icon.svg"
-            width={36}
-            height={36}
-            alt="Floop icon"
-          />
+        <div className="flex items-center space-x-4">
+          <Image src="/mint-icon.svg" width={36} height={36} alt="Floop icon" />
           <Button
             onClick={() => setSidebarOpen(true)}
             variant="ghost"
             size="icon"
           >
             <span className="sr-only">Open sidebar</span>
-            <Bars3Icon width={32} height={32} aria-hidden="true" />
+            <Menu
+              className="w-24 h-24 fill-none stroke-2 stroke-accent-foreground"
+              aria-hidden="true"
+            />
           </Button>
         </div>
         <span className="sr-only">Logout</span>
