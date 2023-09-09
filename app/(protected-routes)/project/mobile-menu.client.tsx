@@ -100,11 +100,11 @@ export default function MobileMenu({ navigation }: Props) {
       </Transition.Root>
 
       <div className="sticky top-0 z-40 flex items-center justify-between gap-x-6 px-4 py-4 shadow bg-background sm:px-6 lg:hidden">
-        <div className="flex items-center">
+        <div className="flex items-center space-x-3">
           <Image
-            src="/mint-floop-icon.svg"
-            width={56}
-            height={56}
+            src="/mint-icon.svg"
+            width={36}
+            height={36}
             alt="Floop icon"
           />
           <Button

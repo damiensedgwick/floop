@@ -1,7 +1,7 @@
 import Image from "next/image";
 import Link from "next/link";
 import { ThemeToggle } from "@/components/theme-toggle";
-import { Button, buttonVariants } from "@/components/ui/button";
+import { buttonVariants } from "@/components/ui/button";
 
 export default async function Hero() {
   return (
@@ -34,13 +34,11 @@ export default async function Hero() {
           <div className="flex items-center justify-between">
             <Image
               src="/mint-floop.svg"
-              width={150}
+              width={125}
               height={100}
               alt="Floop logo"
             />
-            <div>
-              <ThemeToggle />
-            </div>
+            <ThemeToggle />
           </div>
           <div className="mt-24 sm:mt-32 lg:mt-16">
             <Link
@@ -67,15 +65,30 @@ export default async function Hero() {
           <div className="mt-10 flex items-center gap-x-6">
             <Link
               href="/auth/sign-in"
-              className={buttonVariants({ variant: "purple", size: "lg" })}
+              className={buttonVariants({ variant: "purple", size: "lg", className: "md:hidden" })}
             >
               Get started
             </Link>
             <Link
+              href="/auth/sign-in"
+              className={buttonVariants({ variant: "purple", size: "lg", className: "hidden md:flex" })}
+            >
+              Get started for free
+            </Link>
+            <Link
               href="/project"
-              className={buttonVariants({ variant: "ghost", size: "lg" })}
+              className={buttonVariants({ variant: "ghost", size: "lg", className: "md:hidden" })}
             >
               Dashboard{" "}
+              <span aria-hidden="true" className="ml-2">
+                →
+              </span>
+            </Link>
+            <Link
+              href="/project"
+              className={buttonVariants({ variant: "ghost", size: "lg", className: "hidden md:flex" })}
+            >
+              Floop Dashboard{" "}
               <span aria-hidden="true" className="ml-2">
                 →
               </span>
