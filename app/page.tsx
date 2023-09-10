@@ -13,7 +13,7 @@ export default async function Page() {
       <Features />
       <Pricing />
       <GettingStarted />
-      <RecentPosts />
+      {/*<RecentPosts />*/}
       <FAQ />
       <Footer />
     </div>
