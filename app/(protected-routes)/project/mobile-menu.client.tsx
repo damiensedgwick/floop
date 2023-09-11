@@ -8,6 +8,7 @@ import LogoutButton from "@/components/logout-button.client";
 import { Button } from "@/components/ui/button";
 import Close from "@/components/icons/x-close";
 import Menu from "@/components/icons/menu";
+import Link from "next/link";
 
 type Props = {
   navigation: { name: string; href: string; icon: React.JSX.Element }[];
@@ -102,7 +103,14 @@ export default function MobileMenu({ navigation }: Props) {
 
       <div className="sticky top-0 z-40 flex items-center justify-between gap-x-6 px-4 py-4 shadow bg-background sm:px-6 lg:hidden">
         <div className="flex items-center space-x-4">
-          <Image src="/mint-icon.svg" width={36} height={36} alt="Floop icon" />
+          <Link href="/project">
+            <Image
+              src="/mint-icon.svg"
+              width={36}
+              height={36}
+              alt="Floop icon"
+            />
+          </Link>
           <Button
             onClick={() => setSidebarOpen(true)}
             variant="ghost"

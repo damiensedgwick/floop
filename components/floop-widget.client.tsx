@@ -11,8 +11,10 @@ type Props = {
 export default function FloopWidgetButton({ projectId, userEmail }: Props) {
   return (
     <FloopWidget projectId={projectId} userEmail={userEmail}>
-      <span className={buttonVariants({ variant: "outline" })}>
-        Give Feedback
+      <span
+        className={buttonVariants({ variant: "outline", className: "mr-3" })}
+      >
+        Feedback
       </span>
     </FloopWidget>
   );

@@ -3,6 +3,8 @@ import MonthlyOverview from "@/app/(protected-routes)/project/monthly-overview";
 import AllTimeStats from "@/app/(protected-routes)/project/all-time-stats";
 import FloopWidgetButton from "@/components/floop-widget.client";
 import { getPublicUser } from "@/app/(protected-routes)/project/utils";
+import { buttonVariants } from "@/components/ui/button";
+import Link from "next/link";
 
 export default async function Page() {
   const user = await getPublicUser();
@@ -13,10 +15,18 @@ export default async function Page() {
         <div className="space-y-6 sm:flex-auto">
           <div className="flex items-center justify-between">
             <h1 className="text-xl font-semibold leading-7">Dashboard</h1>
-            <FloopWidgetButton
-              projectId={process.env.FLOOP_PROJECT_ID!}
-              userEmail={user.email}
-            />
+            <div>
+              <FloopWidgetButton
+                projectId={process.env.FLOOP_PROJECT_ID!}
+                userEmail={user.email}
+              />
+              <Link
+                href="/#getting-started"
+                className={buttonVariants({ variant: "outline" })}
+              >
+                Docs
+              </Link>
+            </div>
           </div>
           <Separator />
 

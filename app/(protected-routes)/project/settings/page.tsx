@@ -21,6 +21,8 @@ import ProjectCreatedOnDate from "@/app/(protected-routes)/project/settings/proj
 import { ThemeToggle } from "@/components/theme-toggle";
 import DeleteProjectAndProfileCard from "@/app/(protected-routes)/project/settings/delete-project-and-profile-card";
 import { supabase as sb } from "@/lib/supabase";
+import Link from "next/link";
+import { buttonVariants } from "@/components/ui/button";
 
 export default async function Page() {
   const user = await getPublicUser();

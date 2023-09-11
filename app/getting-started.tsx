@@ -11,7 +11,7 @@ import { cn } from "@/lib/utils";
 
 export default function GettingStarted() {
   return (
-    <div className="py-24 sm:py-32">
+    <div className="py-24 sm:py-32" id="getting-started">
       <div className="mx-auto max-w-7xl px-6 lg:px-8">
         <div className="mx-auto max-w-2xl lg:mx-0">
           <p className="text-base font-semibold leading-7 text-mint">

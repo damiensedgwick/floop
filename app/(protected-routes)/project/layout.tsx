@@ -35,12 +35,6 @@ const navigation = [
     href: "/suggestions",
     icon: <LightBulb className="stroke-2 stroke-accent-foreground fill-none" />,
   },
-  // TODO: Add these pages during BETA launch
-  // {
-  //   name: "Reports",
-  //   href: "/reports",
-  //   icon: <ExclamationTriangleIcon width={24} height={24} />,
-  // },
   {
     name: "Team",
     href: "/team",
