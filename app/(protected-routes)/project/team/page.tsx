@@ -65,7 +65,7 @@ export default async function Page() {
                 </CardContent>
               </Card>
               <Separator />
-              <TeamPreview />
+              <TeamPreview isProjectOwner={isProjectOwner} />
             </div>
           )}
         </div>

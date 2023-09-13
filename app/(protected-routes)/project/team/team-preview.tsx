@@ -1,23 +1,24 @@
+import { revalidatePath } from "next/cache";
+import { supabase as sb } from "@/lib/supabase";
 import {
   createServerComponentClient,
   getProject,
 } from "@/app/(protected-routes)/project/utils";
 import Mail from "@/components/icons/mail";
 import Phone from "@/components/icons/phone";
+import DeleteAndRemoveUserButton from "@/app/(protected-routes)/project/team/delete-and-remove-user-button.client";
+import {
+  Tooltip,
+  TooltipContent,
+  TooltipProvider,
+  TooltipTrigger,
+} from "@/components/ui/tooltip";
 
-const people = [
-  {
-    name: "Jane Cooper",
-    title: "Regional Paradigm Technician",
-    role: "Admin",
-    email: "janecooper@example.com",
-    telephone: "+1-202-555-0170",
-    imageUrl:
-      "https://images.unsplash.com/photo-1494790108377-be9c29b29330?ixlib=rb-1.2.1&ixid=eyJhcHBfaWQiOjEyMDd9&auto=format&fit=facearea&facepad=4&w=256&h=256&q=60",
-  },
-];
+type Props = {
+  isProjectOwner: boolean;
+};
 
-export default async function TeamPreview() {
+export default async function TeamPreview({ isProjectOwner }: Props) {
   const project = await getProject();
 
   const supabase = createServerComponentClient();
@@ -26,6 +27,14 @@ export default async function TeamPreview() {
     .from("users")
     .select()
     .match({ project_id: project.id });
+
+  async function deleteAndRemoveUser(userId: string) {
+    "use server";
+
+    await sb.auth.admin.deleteUser(userId);
+
+    revalidatePath("/project/team");
+  }
 
   return (
     <ul
@@ -41,12 +50,30 @@ export default async function TeamPreview() {
               <div className="flex w-full items-center justify-between p-6 space-x-6">
                 <div className="flex-1 truncate space-y-3">
                   <div className="flex items-center space-x-3">
-                    <h3 className="truncate text-sm font-medium">
-                      {member.preferred_name || member.first_name || ""}
-                    </h3>
-                    <span className="inline-flex flex-shrink-0 items-center rounded-full bg-green-50 text-xs font-medium text-green-700 ring-1 ring-inset ring-green-600/20 px-1.5 py-0.5">
-                      {member.id === project.owner_id ? "Admin" : "Member"}
-                    </span>
+                    <div className="flex items-center justify-between w-full">
+                      <div className="flex items-center space-x-2">
+                        <h3 className="truncate text-sm font-medium">
+                          {member.preferred_name || member.first_name || ""}
+                        </h3>
+                        <span className="inline-flex flex-shrink-0 items-center rounded-full bg-green-50 text-xs font-medium text-green-700 ring-1 ring-inset ring-green-600/20 px-1.5 py-0.5">
+                          {member.id === project.owner_id ? "Admin" : "Member"}
+                        </span>
+                      </div>
+                      <TooltipProvider>
+                        <Tooltip>
+                          <TooltipTrigger>
+                            <DeleteAndRemoveUserButton
+                              userId={member.id}
+                              onDeleteHandler={deleteAndRemoveUser}
+                              disabled={!isProjectOwner}
+                            />
+                          </TooltipTrigger>
+                          <TooltipContent>
+                            <p>Delete and remove user</p>
+                          </TooltipContent>
+                        </Tooltip>
+                      </TooltipProvider>
+                    </div>
                   </div>
                   <p className="mt-1 truncate text-sm">
                     {member.id === project.owner_id

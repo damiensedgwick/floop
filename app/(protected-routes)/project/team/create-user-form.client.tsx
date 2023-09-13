@@ -38,8 +38,6 @@ export default function CreateUserForm({ projectId, isProjectOwner }: Props) {
     },
   });
 
-  console.log(systemTheme);
-
   async function onSubmit(values: z.infer<typeof formSchema>) {
     startTransition(async () => {
       await fetch("/project/team/user", {

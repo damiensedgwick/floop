@@ -2,6 +2,7 @@
 
 import { Button } from "@/components/ui/button";
 import { Trash } from "lucide-react";
+import MinusCircle from "@/components/icons/minus-circle";
 
 type Props = {
   userId: string;
@@ -16,14 +17,13 @@ export default function DeleteAndRemoveUserButton({
 }: Props) {
   return (
     <Button
-      variant="destructive"
+      variant="ghost"
       type="button"
+      size="icon"
       onClick={() => onDeleteHandler(userId)}
       disabled={disabled}
-      className="w-full space-x-1.5 md:max-w-[125px]"
     >
-      <Trash />
-      <span>Remove</span>
+      <MinusCircle className="w-5 h-5 stroke-destructive fill-none stroke-2" />
     </Button>
   );
 }

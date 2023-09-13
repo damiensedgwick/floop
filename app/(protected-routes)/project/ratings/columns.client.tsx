@@ -111,13 +111,7 @@ export const columns: ColumnDef<
             </DropdownMenuItem>
             <DropdownMenuSeparator />
             <DropdownMenuItem className="cursor-pointer">
-              Add label
-            </DropdownMenuItem>
-            <DropdownMenuItem className="cursor-pointer">
               Email user
-            </DropdownMenuItem>
-            <DropdownMenuItem className="cursor-pointer">
-              View details
             </DropdownMenuItem>
           </DropdownMenuContent>
         </DropdownMenu>
