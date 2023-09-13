@@ -3,11 +3,22 @@ import "./globals.css";
 import { ThemeProvider } from "@/components/theme-provider";
 import { Toaster } from "@/components/ui/toaster";
 import { Analytics } from "@vercel/analytics/react";
+import { Metadata } from "next";
 
-export const metadata = {
+export const metadata: Metadata = {
   title: "Floop | A feedback loop for your product",
   description:
     "Floop enables your users to submit ratings, issues and suggestions for your product and then presents them to you in a way that is easy to understand!",
+  openGraph: {
+    title: "",
+    description: "",
+    images: {
+      url: "/floop-dashboard.png",
+      alt: "Floop Dashboard",
+      width: "2948",
+      height: "1762",
+    },
+  },
 };
 
 export default function RootLayout({ children }: { children: ReactNode }) {
