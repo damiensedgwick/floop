@@ -23,7 +23,6 @@ type Props = {
 };
 
 export default function CreateUserForm({ projectId, isProjectOwner }: Props) {
-  const { theme, systemTheme } = useTheme();
   const [isPending, startTransition] = useTransition();
   const { toast } = useToast();
 
