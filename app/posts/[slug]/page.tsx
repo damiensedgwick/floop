@@ -1,11 +1,9 @@
-import { BlogFactoryNextJS } from "@blogfactory/nextjs";
 import Link from "next/link";
 import GoBackButton from "@/components/go-back-button";
-import { Button, buttonVariants } from "@/components/ui/button";
-import React from "react";
-
-const { PostPage } = new BlogFactoryNextJS(process.env.BLOG_FACTORY_API_KEY!)
-  .app;
+import { buttonVariants } from "@/components/ui/button";
+import React, { Suspense } from "react";
+import Posts from "@/app/posts/[slug]/posts";
+import { Skeleton } from "@/components/ui/skeleton";
 
 type Props = { params: { slug: string } };
 
@@ -25,7 +23,24 @@ export default function Page(props: Props) {
         </Link>
       </div>
 
-      <PostPage {...props} />
+      <Suspense
+        fallback={
+          <div className="space-y-4">
+            <Skeleton className="h-6 w-2/5" />
+            <Skeleton className="h-24 w-full" />
+            <Skeleton className="h-24 w-full" />
+            <Skeleton className="h-24 w-full" />
+            <Skeleton className="h-24 w-full" />
+            <Skeleton className="h-24 w-full" />
+            <Skeleton className="h-24 w-full" />
+            <Skeleton className="h-24 w-full" />
+            <Skeleton className="h-24 w-full" />
+            <Skeleton className="h-24 w-full" />
+          </div>
+        }
+      >
+        <Posts params={props.params} />
+      </Suspense>
 
       <div className="flex items-center justify-between">
         <Link
