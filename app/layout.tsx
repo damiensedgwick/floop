@@ -1,9 +1,11 @@
 import { ReactNode } from "react";
+import { Metadata } from "next";
+import { Nunito } from "next/font/google";
 import "./globals.css";
 import { ThemeProvider } from "@/components/theme-provider";
 import { Toaster } from "@/components/ui/toaster";
 import { Analytics } from "@vercel/analytics/react";
-import { Metadata } from "next";
+import classNames from "@/lib/classnames";
 
 export const metadata: Metadata = {
   metadataBase: new URL("https://www.feedback-loop.io"),
@@ -22,9 +24,20 @@ export const metadata: Metadata = {
   },
 };
 
+const nunito = Nunito({
+  display: "swap",
+  style: "normal",
+  subsets: ["latin"],
+  weight: "600",
+});
+
 export default function RootLayout({ children }: { children: ReactNode }) {
   return (
-    <html lang="en" className="h-full" suppressHydrationWarning>
+    <html
+      lang="en"
+      className={classNames("h-full", nunito.className)}
+      suppressHydrationWarning
+    >
       <body className="h-full">
         <ThemeProvider attribute="class" defaultTheme="system" enableSystem>
           <main className="h-full">{children}</main>
