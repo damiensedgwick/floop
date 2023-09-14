@@ -1,9 +1,9 @@
 import Link from "next/link";
-import GoBackButton from "@/components/go-back-button";
 import { buttonVariants } from "@/components/ui/button";
 import React, { Suspense } from "react";
 import Posts from "@/app/posts/[slug]/posts";
 import { Skeleton } from "@/components/ui/skeleton";
+import Image from "next/image";
 
 type Props = { params: { slug: string } };
 
@@ -11,15 +11,13 @@ export default function Page(props: Props) {
   return (
     <div className="mx-auto max-w-3xl py-6 prose px-6 lg:px-0 dark:prose-invert">
       <div className="flex items-center justify-between">
-        <GoBackButton />
-        <Link
-          href="/"
-          className={buttonVariants({
-            variant: "default",
-            className: "mb-6 no-underline",
-          })}
-        >
-          Home
+        <Link href="/">
+          <Image
+            src="/mint-floop.svg"
+            alt="Floop Logo"
+            width={100}
+            height={100}
+          />
         </Link>
       </div>
 
