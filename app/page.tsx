@@ -7,8 +7,6 @@ import FAQ from "@/app/faq";
 import RecentPosts from "@/app/recent-posts";
 import { Suspense } from "react";
 import { Skeleton } from "@/components/ui/skeleton";
-import BlogPostCardPreview from "@/components/blog-post-card-preview";
-import Link from "next/link";
 
 export default function Page() {
   return (
