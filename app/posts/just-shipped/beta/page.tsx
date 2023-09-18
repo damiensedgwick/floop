@@ -126,7 +126,7 @@ export default function Page() {
           <div className="mt-6 flex items-center justify-center">
             <Image
               className="rounded shadow"
-              src="/dashboard.png"
+              src="/floop-dashboard.png"
               width={800}
               height={600}
               alt="Floo Widget"
