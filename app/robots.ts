@@ -4,7 +4,13 @@ export default function robots(): MetadataRoute.Robots {
   return {
     rules: {
       userAgent: "*",
-      allow: ["/", "/posts"],
+      allow: [
+        "/",
+        "/posts",
+        "/posts/why-user-feedback-is-important",
+        "/posts/boosting-customer-satisfaction-and-retention",
+        "/posts/getting-to-know-floop",
+      ],
       disallow: [
         "/auth/sign-in",
         "/auth/callback",
