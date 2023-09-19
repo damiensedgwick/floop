@@ -42,14 +42,14 @@ export default async function Hero() {
           </div>
           <div className="mt-24 sm:mt-32 lg:mt-16">
             <Link
-              href="/posts/just-shipped/beta"
+              href="/posts/just-shipped/release/v1"
               className="inline-flex space-x-4"
             >
               <span className="rounded-full bg-mint/10 py-1 text-sm font-semibold leading-7 text-mint ring-1 ring-inset ring-mint/90 px-1.5 sm:px-3">
                 What&apos;s new
               </span>
               <span className="inline-flex items-center text-sm font-medium leading-7">
-                <span className="mr-2">Just shipped Beta</span>
+                <span className="mr-2">Floop Launch</span>
                 🚀
               </span>
             </Link>
@@ -65,19 +65,31 @@ export default async function Hero() {
           <div className="mt-10 flex items-center gap-x-6">
             <Link
               href="/auth/sign-in"
-              className={buttonVariants({ variant: "purple", size: "lg", className: "md:hidden" })}
+              className={buttonVariants({
+                variant: "purple",
+                size: "lg",
+                className: "md:hidden",
+              })}
             >
               Get started
             </Link>
             <Link
               href="/auth/sign-in"
-              className={buttonVariants({ variant: "purple", size: "lg", className: "hidden md:flex" })}
+              className={buttonVariants({
+                variant: "purple",
+                size: "lg",
+                className: "hidden md:flex",
+              })}
             >
               Get started for free
             </Link>
             <Link
               href="/project"
-              className={buttonVariants({ variant: "ghost", size: "lg", className: "md:hidden" })}
+              className={buttonVariants({
+                variant: "ghost",
+                size: "lg",
+                className: "md:hidden",
+              })}
             >
               Dashboard{" "}
               <span aria-hidden="true" className="ml-2">
@@ -86,7 +98,11 @@ export default async function Hero() {
             </Link>
             <Link
               href="/project"
-              className={buttonVariants({ variant: "ghost", size: "lg", className: "hidden md:flex" })}
+              className={buttonVariants({
+                variant: "ghost",
+                size: "lg",
+                className: "hidden md:flex",
+              })}
             >
               Floop Dashboard{" "}
               <span aria-hidden="true" className="ml-2">

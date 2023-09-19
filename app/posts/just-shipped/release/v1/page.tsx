@@ -9,7 +9,7 @@ export default function Page() {
       <div className="mx-auto max-w-3xl text-base leading-7">
         <Link
           href="/"
-          className="flex items-center rounded-md py-2 text-sm no-underline text-foreground bg-btn-background group hover:bg-btn-background-hover"
+          className="flex items-center rounded-md py-2 text-sm no-underline text-foreground bg-btn-background group hover:bg-btn-background-hover w-[75px]"
         >
           <svg
             xmlns="http://www.w3.org/2000/svg"
@@ -31,19 +31,20 @@ export default function Page() {
           Introducing
         </p>
         <h1 className="mt-2 text-3xl font-bold tracking-tight sm:text-4xl">
-          Floop - The feedback loop for your platform
+          Floop: The feedback loop for your product
         </h1>
         <p className="mt-6 text-xl leading-7">
           Floop is a simple, easy-to-use platform that allows you to collect
-          feedback from your customers.
+          user feedback for your product, from your customers.
         </p>
         <div className="mt-14 max-w-2xl">
           <h2 className="mb-2 text-2xl font-bold tracking-tight">
-            Focusing on the fundamentals
+            Getting the basics right
           </h2>
           <p className="mt-6">
-            Our goal here at Floop to help you understand what your customers
-            think and feel about your product, and how you can improve it.
+            Our goal here at Floop is to help you understand what your customers
+            think and feel about your product, how you can improve it and how
+            you can benefit from listening to your customers.
           </p>
           <ul role="list" className="mt-8 max-w-xl space-y-8">
             <li className="flex gap-x-3">
@@ -52,8 +53,8 @@ export default function Page() {
                 aria-hidden="true"
               />
               <span>
-                <strong className="font-semibold">Ratings.</strong> How are your
-                customers feeling about your service?
+                <strong className="font-semibold">Ratings:</strong> How do your
+                customers currently feel about your product?
               </span>
             </li>
             <li className="flex gap-x-3">
@@ -62,8 +63,8 @@ export default function Page() {
                 aria-hidden="true"
               />
               <span>
-                <strong className="font-semibold">Issues.</strong> What issues
-                are your customers facing with your product?
+                <strong className="font-semibold">Issues:</strong> What problems
+                do your customers experience with your product?
               </span>
             </li>
             <li className="flex gap-x-3">
@@ -72,8 +73,8 @@ export default function Page() {
                 aria-hidden="true"
               />
               <span>
-                <strong className="font-semibold">Suggestions.</strong> Is there
-                anything your customers would like to see?
+                <strong className="font-semibold">Suggestions:</strong> What
+                would make your product better for your customers?
               </span>
             </li>
           </ul>
@@ -89,8 +90,8 @@ export default function Page() {
           <p className="mt-6">
             We know that collecting customer feedback can be a pain. That&apos;s
             why we&apos;ve made it as easy as possible for you to get started.
-            Whether you want to use our widget or just our API, the choice is
-            yours.
+            Whether you want to use our React widget or just our submission
+            endpoints, the choice is yours.
           </p>
         </div>
         <div className="mt-14 max-w-2xl">
@@ -99,10 +100,8 @@ export default function Page() {
           </h2>
           <p className="mt-6">
             We have made it as easy as possible for you to get going by
-            providing you with a plug-n-play widget that can be installed into
-            your project within minutes. All you have to do is choose your
-            flavour, which currently comes in React but we are hoping to add
-            more soon.
+            providing you with a plug-n-play React widget that can be installed
+            into your project within minutes.
           </p>
           <div className="mt-6 flex items-center justify-center">
             <Image
@@ -134,34 +133,72 @@ export default function Page() {
           </div>
           <p className="mt-6">
             You can you use this dashboard to get an overview of your customer
-            feedback for month in a single glance or you can drill down into the
-            ratings, issues and suggestions that your customers have left for
-            you.
+            feedback for the month in a single glance or you can drill down into
+            the ratings, issues and suggestions that your customers have left
+            for you.
           </p>
         </div>
         <div className="mt-14 max-w-2xl">
-          <h2 className="text-2xl font-bold tracking-tight">What Next?</h2>
+          <h2 className="text-2xl font-bold tracking-tight">
+            Current Features
+          </h2>
           <p className="mt-6">
-            We are currently in beta and are looking to build out our platform
-            with more features and integrations. Specifically, we are looking to
-            add in support for teams and user management, as well as providing a
-            reporting mechanism so that you can get a better understanding of
-            your customer feedback.
+            Floop currently enables you capture up to 50 total submissions as
+            part of the free tier or an unlimited number of submissions if you
+            choose to subscribe.
           </p>
-
           <p className="mt-6">
-            If you&apos;d like to get involved, please sign up below.
+            Both tiers include the use of the Floop platform with some areas,
+            such as team management, being for subscribed users only.
           </p>
-
+          <p className="mt-6">
+            Installable React widget, which is also available on GitHub to be
+            forked and customised should you want to give it your own look and
+            feel.
+          </p>
+          <p className="mt-6">
+            Getting an overview of your all time stats as well as a health check
+            for the current month from your users.
+          </p>
+        </div>
+        <div className="mt-14 max-w-2xl">
+          <h2 className="text-2xl font-bold tracking-tight">
+            Upcoming Features
+          </h2>
+          <p className="mt-6">
+            More options for installing and using the Floop widget. We are
+            currently looking at Vue, Svelte, WordPress and plain old script
+            tags.
+          </p>
+          <p className="mt-6">
+            Dedicated reporting so that we are able to provide an even better
+            overview of how your customers are feeling about your product.
+          </p>
+          <p className="mt-6">
+            Categorising and organising ratings, issues and suggestions through
+            the use of labels.
+          </p>
+          <p className="mt-6">
+            Integrating with project management tools such as Github and Jira
+            for automatic issue tracking and creation.
+          </p>
+          <p className="mt-6">
+            The above list is not comprehensive but it is where our priorities
+            lie within Floop at the moment. The plan is to continue building out
+            the platform until it is the Swiss Army Knife of the feedback
+            collection world.
+          </p>
+        </div>
+        <div className="max-w-2xl">
           <Link
             href="/auth/sign-in"
             className={buttonVariants({
               variant: "purple",
               size: "lg",
-              className: "mt-6",
+              className: "mt-10 w-full",
             })}
           >
-            Sign up for free
+            Get Started With Floop
           </Link>
         </div>
       </div>
