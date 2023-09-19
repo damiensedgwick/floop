@@ -42,7 +42,7 @@ export async function POST(request: Request) {
 
   const subscription = await getSubscription(project.stripe_subscription_id);
 
-  if (!subscription && project.total_submissions >= 20) {
+  if (!subscription && project.total_submissions >= 50) {
     return NextResponse.json(
       { message: "Project has reached the maximum number of submissions" },
       { status: 400 },
@@ -54,7 +54,7 @@ export async function POST(request: Request) {
   if (
     subscription &&
     subscription?.current_period_end < currentTime &&
-    project.total_submissions >= 20
+    project.total_submissions >= 50
   ) {
     return NextResponse.json(
       { message: "Project has reached the maximum number of submissions" },

@@ -12,7 +12,7 @@ const tiers = [
       "The essentials for getting started, collecting feedback and enhancing your platform.",
     features: [
       "1 User",
-      "20 total submissions",
+      "50 total submissions",
       "Ratings",
       "Issues",
       "Suggestions",
@@ -32,7 +32,6 @@ const tiers = [
       "Ratings",
       "Issues",
       "Suggestions",
-      "Reports",
       "Team management",
     ],
   },

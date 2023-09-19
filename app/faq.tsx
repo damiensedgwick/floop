@@ -7,7 +7,7 @@ const faqs = [
   {
     question: "Is the hobby plan free forever?",
     answer:
-      "Yes, the hobby plan will remain forever. This is so that it is easy to get started and start collecting feedback. However, there is a limit of 20 total submissions before you will need to subscribe.",
+      "Yes, the hobby plan will remain forever. This is so that it is easy to get started and start collecting feedback. However, there is a limit of 50 total submissions before you will need to subscribe.",
   },
   {
     question: "Why use Floop when I can just build my own forms and dashboard?",
