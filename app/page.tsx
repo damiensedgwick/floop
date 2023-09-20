@@ -1,19 +1,23 @@
-import Hero from "@/app/hero";
-import Features from "@/app/features";
-import Pricing from "@/app/pricing";
+import Hero from "@/components/marketing/hero";
+import Features from "@/components/marketing/features";
+import Pricing from "@/components/marketing/pricing";
 import Footer from "@/app/footer";
-import GettingStarted from "@/app/getting-started";
-import FAQ from "@/app/faq";
+import GettingStarted from "@/components/marketing/getting-started";
+import FAQ from "@/components/marketing/faq";
+import Header from "@/components/marketing/header";
 
 export default function Page() {
   return (
-    <div>
-      <Hero />
-      <Features />
-      <Pricing />
-      <GettingStarted />
-      <FAQ />
-      <Footer />
-    </div>
+    <>
+      <Header />
+      <div>
+        <Hero />
+        <Features />
+        <Pricing />
+        <GettingStarted />
+        <FAQ />
+        <Footer />
+      </div>
+    </>
   );
 }

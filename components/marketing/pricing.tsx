@@ -39,7 +39,7 @@ const tiers = [
 
 export default function Pricing() {
   return (
-    <div className="isolate overflow-hidden bg-zinc-950">
+    <div className="isolate overflow-hidden bg-zinc-950" id="pricing">
       <div className="mx-auto max-w-7xl px-6 pt-24 pb-96 text-center sm:pt-32 lg:px-8">
         <div className="mx-auto max-w-4xl">
           <h2 className="text-base font-semibold leading-7 text-mint">

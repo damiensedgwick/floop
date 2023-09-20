@@ -18,7 +18,7 @@ import { format } from "date-fns";
 import TotalSubmissionsCard from "@/app/(protected-routes)/project/settings/total-submissions-card";
 import NumberOfUsersCard from "@/app/(protected-routes)/project/settings/number-of-users-card";
 import ProjectCreatedOnDate from "@/app/(protected-routes)/project/settings/project-created-on-date";
-import { ThemeToggle } from "@/components/theme-toggle";
+import { ThemeToggle } from "@/components/shared/theme-toggle";
 import DeleteProjectAndProfileCard from "@/app/(protected-routes)/project/settings/delete-project-and-profile-card";
 import { supabase as sb } from "@/lib/supabase";
 import Link from "next/link";
