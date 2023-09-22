@@ -26,8 +26,8 @@
     "@radix-ui/react-toast": "^1.1.4",
     "@radix-ui/react-tooltip": "^1.0.6",
     "@supabase/auth-helpers-nextjs": "^0.8.1",
-    "@supabase/supabase-js": "^2.34.0",
-    "@tanstack/react-table": "^8.10.0",
+    "@supabase/supabase-js": "^2.36.0",
+    "@tanstack/react-table": "^8.10.1",
     "@vercel/analytics": "^1.0.2",
     "@vercel/otel": "^0.3.0",
     "autoprefixer": "10.4.14",
@@ -36,13 +36,13 @@
     "date-fns": "^2.30.0",
     "encoding": "^0.1.13",
     "lucide-react": "^0.260.0",
-    "next": "^13.5.1",
+    "next": "^13.5.2",
     "next-themes": "^0.2.1",
     "postcss": "8.4.24",
     "prettier": "^3.0.3",
     "react": "18.2.0",
     "react-dom": "18.2.0",
-    "react-hook-form": "^7.46.1",
+    "react-hook-form": "^7.46.2",
     "react-perfect-syntax-highlighter": "^1.1.2",
     "recharts": "^2.8.0",
     "sharp": "^0.32.6",
@@ -60,6 +60,6 @@
     "@types/react": "18.2.12",
     "@types/react-dom": "18.2.5",
     "eslint": "^8.49.0",
-    "eslint-config-next": "^13.5.1"
+    "eslint-config-next": "^13.5.2"
   }
 }
