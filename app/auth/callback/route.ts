@@ -21,8 +21,5 @@ export async function GET(request: Request) {
     await createNewProject(user);
   }
 
-  // TODO: POST to go function to send welcome email to the user with
-  //  instructions and links so that they can get up and running quickly?
-
   return NextResponse.redirect(requestUrl.origin + "/project");
 }
