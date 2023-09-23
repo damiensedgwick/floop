@@ -1,18 +1,20 @@
+import Image from "next/image";
+
 export default function EmailTemplate() {
   return (
-    <div className="space-y-4">
-      <h1 className="text-lg leading-8">Hi and welcome to Floop!</h1>
+    <div>
+      <h2>Hey there 👋</h2>
 
-      <p className="text-base leading-6">
+      <p>
         First of all, thank you so much for taking the time to sign up and try
         Floop out for your product! We hope that this is the beginning of a
         joyus relationship for us both!
       </p>
 
-      <p className="text-base leading-6">
+      <p>
         Please check out the below links for getting started, we are hoping it
         is quick and easy and we do not expect you to have any difficulties.
-        However, if you do, please reach out for support by emailing
+        However, if you do, please reach out for support by emailing&nbsp;
         <a href="mailto:support@feedback-loop.io">support@feedback-loop.io</a>
       </p>
 
@@ -32,10 +34,19 @@ export default function EmailTemplate() {
         </li>
       </ul>
 
-      <p className="text-base leading-6">
+      <p>
         Finally, we just want to thank you again and we look forward to helping
         you improve your customer experience journey!
       </p>
+
+      <p>All the best!</p>
+
+      <Image
+        src="https://www.feedback-loop.io/mint-floop.png"
+        alt="Floop logo"
+        width={80}
+        height={80}
+      />
     </div>
   );
 }
