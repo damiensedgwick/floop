@@ -16,17 +16,18 @@ import {
 
 type Props = {
   isProjectOwner: boolean;
+  ownerId: string;
 };
 
-export default async function TeamPreview({ isProjectOwner }: Props) {
+export default async function TeamPreview({ isProjectOwner, ownerId }: Props) {
   const project = await getProject();
-
   const supabase = createServerComponentClient();
 
   const { data: members } = await supabase
     .from("users")
     .select()
-    .match({ project_id: project.id });
+    .match({ project_id: project.id })
+    .order("created_at");
 
   async function deleteAndRemoveUser(userId: string) {
     "use server";
@@ -45,60 +46,62 @@ export default async function TeamPreview({ isProjectOwner }: Props) {
         ? members.map((member) => (
             <li
               key={member.email}
-              className="col-span-1 rounded-lg border shadow divide-y bg-background"
+              className="flex flex-col justify-between col-span-1 border divide-y rounded-lg shadow bg-background"
             >
-              <div className="flex w-full items-center justify-between p-6 space-x-6">
-                <div className="flex-1 truncate space-y-3">
+              <div className="flex items-center justify-between w-full p-6 space-x-6">
+                <div className="flex-1 truncate">
                   <div className="flex items-center space-x-3">
                     <div className="flex items-center justify-between w-full">
                       <div className="flex items-center space-x-2">
-                        <h3 className="truncate text-sm font-medium">
+                        <h3 className="font-medium truncate text-md">
                           {member.preferred_name || member.first_name || ""}
                         </h3>
-                        <span className="inline-flex flex-shrink-0 items-center rounded-full bg-green-50 text-xs font-medium text-green-700 ring-1 ring-inset ring-green-600/20 px-1.5 py-0.5">
+                        <span className="hidden md:block inline-flex flex-shrink-0 items-center rounded-full bg-green-50 text-xs font-medium text-green-700 ring-1 ring-inset ring-green-600/20 px-1.5 py-0.5">
                           {member.id === project.owner_id ? "Admin" : "Member"}
                         </span>
                       </div>
-                      <TooltipProvider>
-                        <Tooltip>
-                          <TooltipTrigger>
-                            <DeleteAndRemoveUserButton
-                              userId={member.id}
-                              onDeleteHandler={deleteAndRemoveUser}
-                              disabled={!isProjectOwner}
-                            />
-                          </TooltipTrigger>
-                          <TooltipContent>
-                            <p>Delete and remove user</p>
-                          </TooltipContent>
-                        </Tooltip>
-                      </TooltipProvider>
+                      {ownerId !== member.id || !isProjectOwner ? (
+                        <TooltipProvider>
+                          <Tooltip>
+                            <TooltipTrigger>
+                              <DeleteAndRemoveUserButton
+                                userId={member.id}
+                                onDeleteHandler={deleteAndRemoveUser}
+                                disabled={!isProjectOwner}
+                              />
+                            </TooltipTrigger>
+                            <TooltipContent>
+                              <p>Delete and remove user</p>
+                            </TooltipContent>
+                          </Tooltip>
+                        </TooltipProvider>
+                      ) : null}
                     </div>
                   </div>
-                  <p className="mt-1 truncate text-sm">
+                  <p className="mt-1 text-lg">
                     {member.id === project.owner_id
-                      ? "Founder at Floop"
+                      ? "Project Owner"
                       : "Magnificent Member"}
                   </p>
                 </div>
               </div>
               <div>
-                <div className="-mt-px flex divide-x">
-                  <div className="flex w-0 flex-1">
+                <div className="flex -mt-px divide-x">
+                  <div className="flex flex-1 w-0">
                     <a
                       href={`mailto:${member.email}`}
-                      className="relative -mr-px inline-flex w-0 flex-1 items-center justify-center gap-x-3 rounded-bl-lg border border-transparent py-4 text-sm font-semibold"
+                      className="relative inline-flex items-center justify-center flex-1 w-0 py-4 -mr-px text-sm font-semibold border border-transparent rounded-bl-lg gap-x-3"
                     >
-                      <Mail className="stroke-accent-foreground stroke-2 fill-none" />
+                      <Mail className="stroke-2 stroke-accent-foreground fill-none" />
                       Email
                     </a>
                   </div>
-                  <div className="-ml-px flex w-0 flex-1">
+                  <div className="flex flex-1 w-0 -ml-px">
                     <button
-                      className="relative inline-flex w-0 flex-1 items-center justify-center gap-x-3 rounded-br-lg border border-transparent py-4 text-sm font-semibold opacity-60"
+                      className="relative inline-flex items-center justify-center flex-1 w-0 py-4 text-sm font-semibold border border-transparent rounded-br-lg gap-x-3 opacity-60"
                       disabled
                     >
-                      <Phone className="stroke-accent-foreground stroke-2 fill-none" />
+                      <Phone className="stroke-2 stroke-accent-foreground fill-none" />
                       Call
                     </button>
                   </div>

@@ -19,11 +19,11 @@ export default function DeleteAndRemoveUserButton({
     <Button
       variant="ghost"
       type="button"
-      size="icon"
+      size="tiny"
       onClick={() => onDeleteHandler(userId)}
       disabled={disabled}
     >
-      <MinusCircle className="w-5 h-5 stroke-destructive fill-none stroke-2" />
+      <MinusCircle className="w-5 h-5 stroke-2 stroke-destructive fill-none" />
     </Button>
   );
 }

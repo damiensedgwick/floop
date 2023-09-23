@@ -5,7 +5,12 @@ import { cookies } from "next/headers";
 import { revalidatePath } from "next/cache";
 import UpdatePreferredNameFormClient from "@/app/(protected-routes)/project/profile/update-preferred-name-form.client";
 
-export default async function UpdatedPreferredNameForm() {
+type Props = {
+  name: string;
+  id: string;
+};
+
+export default async function UpdatedPreferredNameForm({ name, id }: Props) {
   const user = await getPublicUser();
 
   async function handleUpdatePreferredName(name: string, userId: string) {
@@ -27,8 +32,8 @@ export default async function UpdatedPreferredNameForm() {
 
   return (
     <UpdatePreferredNameFormClient
-      preferredName={user.preferred_name || "John Doe"}
-      userId={user.id}
+      preferredName={name}
+      userId={id}
       handleUpdateProfile={handleUpdatePreferredName}
     />
   );

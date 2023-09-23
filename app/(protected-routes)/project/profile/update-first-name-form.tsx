@@ -5,7 +5,12 @@ import { cookies } from "next/headers";
 import { revalidatePath } from "next/cache";
 import UpdateFirstNameFormClient from "@/app/(protected-routes)/project/profile/update-first-name-form.client";
 
-export default async function UpdateFirstNameForm() {
+type Props = {
+  name: string;
+  id: string;
+};
+
+export default async function UpdateFirstNameForm({ name, id }: Props) {
   const user = await getPublicUser();
 
   async function handleUpdateFirstName(name: string, userId: string) {
@@ -27,8 +32,8 @@ export default async function UpdateFirstNameForm() {
 
   return (
     <UpdateFirstNameFormClient
-      firstName={user.first_name || "John"}
-      userId={user.id}
+      firstName={name}
+      userId={id}
       handleUpdateProfile={handleUpdateFirstName}
     />
   );
