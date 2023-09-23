@@ -1,5 +1,3 @@
-import Image from "next/image";
-
 export default function EmailTemplate() {
   return (
     <div>
@@ -41,11 +39,11 @@ export default function EmailTemplate() {
 
       <p>All the best!</p>
 
-      <Image
+      <img
         src="https://www.feedback-loop.io/mint-floop.png"
-        alt="Floop logo"
-        width={80}
-        height={80}
+        alt="Floop Logo"
+        width="100px"
+        height="auto"
       />
     </div>
   );
