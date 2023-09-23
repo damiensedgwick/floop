@@ -5,6 +5,7 @@ import {
   createNewProject,
   getPublicUser,
 } from "@/app/(protected-routes)/project/utils";
+import SendWelcomeEmail from "@/app/auth/utils"
 
 export async function GET(request: Request) {
   const requestUrl = new URL(request.url);
@@ -20,6 +21,8 @@ export async function GET(request: Request) {
   if (!user.project_id) {
     await createNewProject(user);
   }
+
+  await SendWelcomeEmail(user.email)
 
   return NextResponse.redirect(requestUrl.origin + "/project");
 }
