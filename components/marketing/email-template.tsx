@@ -1,6 +1,13 @@
 export default function EmailTemplate() {
   return (
     <div>
+      <img
+        src="https://www.feedback-loop.io/mint-floop.png"
+        alt="Floop Logo"
+        width="100px"
+        height="auto"
+      />
+
       <h2>Hey there 👋</h2>
 
       <p>
@@ -39,12 +46,9 @@ export default function EmailTemplate() {
 
       <p>All the best!</p>
 
-      <img
-        src="https://www.feedback-loop.io/mint-floop.png"
-        alt="Floop Logo"
-        width="100px"
-        height="auto"
-      />
+      <p>Damien Sedgwick</p>
+
+      <p>Founder of Floop</p>
     </div>
   );
 }
