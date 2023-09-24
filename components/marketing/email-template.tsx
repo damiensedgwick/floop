@@ -1,6 +1,8 @@
 export default function EmailTemplate() {
   return (
     <div>
+      {/* Disabled because next/image does not work in email templates. */}
+      {/* eslint-disable-next-line @next/next/no-img-element */}
       <img
         src="https://www.feedback-loop.io/mint-floop.png"
         alt="Floop Logo"
