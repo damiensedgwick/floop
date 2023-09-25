@@ -56,6 +56,7 @@ export function DataTable<TData, TValue>({
       details: true,
       created_at: true,
       user_email: false,
+      browser_metadata: false,
     });
 
   const table = useReactTable({
@@ -143,9 +144,9 @@ export function DataTable<TData, TValue>({
                       {header.isPlaceholder
                         ? null
                         : flexRender(
-                            header.column.columnDef.header,
-                            header.getContext(),
-                          )}
+                          header.column.columnDef.header,
+                          header.getContext(),
+                        )}
                     </TableHead>
                   );
                 })}

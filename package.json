@@ -8,7 +8,8 @@
     "prettier": "pnpm dlx prettier --write \"./app/**/*.{js,jsx,ts,tsx,json}\"",
     "supabase:start": "pnpm dlx supabase start",
     "supabase:stop": "pnpm dlx supabase stop",
-    "update-types": "npx supabase gen types typescript --project-id \"$PROJECT_REF\" > types/supabase.ts"
+    "supabase:pull": "pnpm dlx supabase db pull",
+    "update-types": "pnpm dlx supabase gen types typescript --project-id \"$PROJECT_REF\" > types/supabase.ts"
   },
   "dependencies": {
     "@blogfactory/nextjs": "^0.1.1",
