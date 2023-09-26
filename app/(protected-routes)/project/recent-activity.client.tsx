@@ -162,14 +162,6 @@ export function RecentActivityClient({ ratings, issues, suggestions }: Props) {
                         </div>
                       </CardContent>
                     </Card>
-                    <Card>
-                      <CardContent className="pt-6">
-                        <div className="space-y-3">
-                          <p>Metadata</p>
-                          <p>{entry.browser_metadata.length ? entry.browser_metadata : "No metadata found"}</p>
-                        </div>
-                      </CardContent>
-                    </Card>
                   </SheetDescription>
                 </SheetHeader>
 

@@ -5,7 +5,7 @@ import { Database } from "@/types/supabase";
 import getSubscription from "@/app/submissions/utils";
 
 export async function POST(request: Request) {
-  const { project_id, title, details, user_email, browser_metadata } = await request.json();
+  const { project_id, title, details, user_email } = await request.json();
 
   if (!project_id || !title || !user_email) {
     return NextResponse.json({ message: "Bad request" }, { status: 400 });
@@ -66,8 +66,7 @@ export async function POST(request: Request) {
     project_id,
     title,
     details,
-    user_email,
-    browser_metadata
+    user_email
   });
 
   if (error) {
