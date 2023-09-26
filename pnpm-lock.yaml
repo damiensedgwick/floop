@@ -9,8 +9,8 @@ dependencies:
     specifier: ^0.1.1
     version: 0.1.1(next@13.5.3)
   '@feedback-loop/react':
-    specifier: ^1.1.0
-    version: 1.1.0(react-dom@18.2.0)(react@18.2.0)
+    specifier: ^1.2.0
+    version: 1.2.0(react-dom@18.2.0)(react@18.2.0)
   '@headlessui/react':
     specifier: ^1.7.17
     version: 1.7.17(react-dom@18.2.0)(react@18.2.0)
@@ -244,8 +244,8 @@ packages:
     engines: {node: ^12.22.0 || ^14.17.0 || >=16.0.0}
     dev: true
 
-  /@feedback-loop/react@1.1.0(react-dom@18.2.0)(react@18.2.0):
-    resolution: {integrity: sha512-QjQGUzTPJz56I/TtgjTIZ7sPARjmqX49doMPGxM06o3KuCri0FMoYnyGbU+2EI5EDExCj94BNCCAZ4E6c2w2Aw==}
+  /@feedback-loop/react@1.2.0(react-dom@18.2.0)(react@18.2.0):
+    resolution: {integrity: sha512-Xo8Rxee+o/Hblm7Kpew3yhyAS6T70DgHKu0fPHMJO/LXl2pjwslDrLwViiRdV1Q7/FyRzrzya+D5No3lfgiyFg==}
     peerDependencies:
       react: ^18.2.0
       react-dom: ^18.2.0
@@ -255,20 +255,10 @@ packages:
       react-dom: 18.2.0(react@18.2.0)
     dev: false
 
-  /@floating-ui/core@1.3.1:
-    resolution: {integrity: sha512-Bu+AMaXNjrpjh41znzHqaz3r2Nr8hHuHZT6V2LBKMhyMl0FgKA62PNYbqnfgmzOhoWZj70Zecisbo4H1rotP5g==}
-    dev: false
-
   /@floating-ui/core@1.5.0:
     resolution: {integrity: sha512-kK1h4m36DQ0UHGj5Ah4db7R0rHemTqqO0QLvUqi1/mUUp3LuAWbWxdxSIf/XsnH9VS6rRVPLJCncjRzUvyCLXg==}
     dependencies:
       '@floating-ui/utils': 0.1.4
-    dev: false
-
-  /@floating-ui/dom@1.4.5:
-    resolution: {integrity: sha512-96KnRWkRnuBSSFbj0sFGwwOUd8EkiecINVl0O9wiZlZ64EkpyAOG3Xc2vKKNJmru0Z7RqWNymA+6b8OZqjgyyw==}
-    dependencies:
-      '@floating-ui/core': 1.3.1
     dev: false
 
   /@floating-ui/dom@1.5.3:
@@ -276,17 +266,6 @@ packages:
     dependencies:
       '@floating-ui/core': 1.5.0
       '@floating-ui/utils': 0.1.4
-    dev: false
-
-  /@floating-ui/react-dom@2.0.1(react-dom@18.2.0)(react@18.2.0):
-    resolution: {integrity: sha512-rZtAmSht4Lry6gdhAJDrCp/6rKN7++JnL1/Anbr/DdeyYXQPxvg/ivrbYvJulbRf4vL8b212suwMM2lxbv+RQA==}
-    peerDependencies:
-      react: '>=16.8.0'
-      react-dom: '>=16.8.0'
-    dependencies:
-      '@floating-ui/dom': 1.4.5
-      react: 18.2.0
-      react-dom: 18.2.0(react@18.2.0)
     dev: false
 
   /@floating-ui/react-dom@2.0.2(react-dom@18.2.0)(react@18.2.0):
@@ -306,15 +285,11 @@ packages:
       react: '>=16.8.0'
       react-dom: '>=16.8.0'
     dependencies:
-      '@floating-ui/react-dom': 2.0.1(react-dom@18.2.0)(react@18.2.0)
-      '@floating-ui/utils': 0.1.1
+      '@floating-ui/react-dom': 2.0.2(react-dom@18.2.0)(react@18.2.0)
+      '@floating-ui/utils': 0.1.4
       react: 18.2.0
       react-dom: 18.2.0(react@18.2.0)
       tabbable: 6.2.0
-    dev: false
-
-  /@floating-ui/utils@0.1.1:
-    resolution: {integrity: sha512-m0G6wlnhm/AX0H12IOWtK8gASEMffnX08RtKkCgTdHb9JpHKGloI7icFfLg9ZmQeavcvR0PKmzxClyuFPSjKWw==}
     dev: false
 
   /@floating-ui/utils@0.1.4:
