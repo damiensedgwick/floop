@@ -27,10 +27,6 @@ export const columns: ColumnDef<
       header: "Details",
     },
     {
-      accessorKey: "browser_metadata",
-      header: "Browser Metadata"
-    },
-    {
       accessorKey: "created_at",
       header: ({ column }) => {
         return (
