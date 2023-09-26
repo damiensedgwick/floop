@@ -11,7 +11,6 @@ export interface Database {
     Tables: {
       issues: {
         Row: {
-          browser_metadata: string
           created_at: string | null
           details: string | null
           id: string
@@ -21,7 +20,6 @@ export interface Database {
           user_email: string
         }
         Insert: {
-          browser_metadata?: string
           created_at?: string | null
           details?: string | null
           id?: string
@@ -31,7 +29,6 @@ export interface Database {
           user_email: string
         }
         Update: {
-          browser_metadata?: string
           created_at?: string | null
           details?: string | null
           id?: string
