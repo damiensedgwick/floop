@@ -5,6 +5,7 @@ import Footer from "@/app/footer";
 import GettingStarted from "@/components/marketing/getting-started";
 import FAQ from "@/components/marketing/faq";
 import Header from "@/components/marketing/header";
+import WidgetPreview from "@/components/marketing/widget-preview";
 
 export default function Page() {
   return (
@@ -15,6 +16,7 @@ export default function Page() {
         <Features />
         <Pricing />
         <GettingStarted />
+        <WidgetPreview />
         <FAQ />
         <Footer />
       </div>
