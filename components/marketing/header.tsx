@@ -54,7 +54,7 @@ function MobileNavigation() {
   return (
     <Popover>
       <Popover.Button
-        className="relative z-10 flex h-8 w-8 items-center justify-center ui-not-focus-visible:outline-none"
+        className="relative z-10 flex items-center justify-center w-8 h-8 ui-not-focus-visible:outline-none"
         aria-label="Toggle Navigation"
       >
         {({ open }) => <MobileNavIcon open={open} />}
@@ -82,13 +82,14 @@ function MobileNavigation() {
         >
           <Popover.Panel
             as="div"
-            className="absolute inset-x-0 top-full mt-4 flex origin-top flex-col rounded-2xl bg-white p-4 text-lg tracking-tight text-slate-900 shadow-xl ring-1 ring-slate-900/5"
+            className="absolute inset-x-0 flex flex-col p-4 mt-4 text-lg tracking-tight origin-top bg-white shadow-xl top-full rounded-2xl text-slate-900 ring-1 ring-slate-900/5"
           >
             <MobileNavLink href="#features">Features</MobileNavLink>
             <MobileNavLink href="#pricing">Pricing</MobileNavLink>
             <MobileNavLink href="#getting-started">
               Getting Started
             </MobileNavLink>
+            <MobileNavLink href="#widget-preview">Floop Widget</MobileNavLink>
             <MobileNavLink href="#faqs">FAQs</MobileNavLink>
             <hr className="m-2 border-slate-300/40" />
             <MobileNavLink href="/project">Flood Dashboard</MobileNavLink>
@@ -117,6 +118,7 @@ export default function Header() {
               <Link href="#features">Features</Link>
               <Link href="#pricing">Pricing</Link>
               <Link href="#getting-started">Getting Started</Link>
+              <Link href="#widget-preview">Floop Widget</Link>
               <Link href="#faqs">FAQs</Link>
               <Link href="/posts">Articles</Link>
             </div>
