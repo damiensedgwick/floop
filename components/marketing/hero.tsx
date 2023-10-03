@@ -1,12 +1,11 @@
 import Image from "next/image";
 import Link from "next/link";
-import { ThemeToggle } from "@/components/shared/theme-toggle";
 import { buttonVariants } from "@/components/ui/button";
 import Container from "@/components/shared/container";
 
 export default async function Hero() {
   return (
-    <div className="relative isolate overflow-hidden">
+    <div className="relative overflow-hidden isolate">
       <svg
         className="absolute inset-0 -z-10 h-full w-full stroke-gray-200 [mask-image:radial-gradient(100%_100%_at_top_right,white,transparent)] 2xl:[mask-image:radial-gradient(60%_50%_at_center,white,transparent)]"
         aria-hidden="true"
@@ -30,13 +29,13 @@ export default async function Hero() {
           fill="url(#0787a7c5-978c-4f66-83c7-11c213f99cb7)"
         />
       </svg>
-      <Container className="pb-16 lg:pt-36 2xl:pt-16 lg:flex 2xl:flex-col 2xl:text-center">
-        <div className="mx-auto max-w-2xl lg:mx-0 lg:max-w-xl lg:flex-shrink-0 lg:pt-8 2xl:mx-auto">
+      <Container className="py-6 md:py-7 lg:py-10 xl:py-16 lg:flex 2xl:flex-col 2xl:text-center">
+        <div className="max-w-2xl mx-auto lg:mx-0 lg:max-w-xl lg:flex-shrink-0 lg:pt-8 2xl:mx-auto">
           <Link
             href="/posts/just-shipped/release/v1"
-            className="inline-flex space-x-4 mt-24 sm:mt-32 lg:mt-16 mb-4"
+            className="inline-flex mt-10 mb-4 space-x-4 sm:mt-20"
           >
-            <span className="rounded-full bg-mint/10 py-1 text-sm font-semibold leading-7 text-mint ring-1 ring-inset ring-mint/90 px-6">
+            <span className="px-6 py-1 text-sm font-semibold leading-7 rounded-full bg-mint/10 text-mint ring-1 ring-inset ring-mint/90">
               What&apos;s new
             </span>
             <span className="inline-flex items-center text-sm font-medium leading-7">
@@ -44,15 +43,15 @@ export default async function Hero() {
               🚀
             </span>
           </Link>
-          <h1 className="mx-auto max-w-7xl font-display text-5xl font-medium tracking-tight sm:text-6xl">
-            Floop is the feedback loop for your platform
+          <h1 className="mx-auto text-5xl font-medium tracking-tight max-w-7xl font-display sm:text-6xl">
+            Floop is the feedback loop for your product
           </h1>
-          <p className="mx-auto mt-6 max-w-2xl text-lg tracking-tight">
-            Floop helps software and platform providers capture customer
-            feedback and make data-driven decisions, avoiding reliance on
-            intuition or guesswork.
+          <p className="max-w-2xl mx-auto mt-6 text-lg tracking-tight">
+            Floop empowers product teams with a powerful tool to effortlessly
+            collect and analyse customer feedback. Make informed decisions based
+            on real data, eliminating the need for guesswork or intuition.
           </p>
-          <div className="mt-10 flex items-center gap-x-6">
+          <div className="flex items-center mt-6 gap-x-6">
             <Link
               href="/auth/sign-in"
               className={buttonVariants({
@@ -65,9 +64,9 @@ export default async function Hero() {
             </Link>
           </div>
         </div>
-        <div className="mx-auto mt-16 flex max-w-2xl sm:mt-24 lg:mt-0 lg:mr-0 lg:ml-10 lg:max-w-none lg:flex-none 2xl:mt-20">
-          <div className="max-w-3xl flex-none sm:max-w-5xl lg:max-w-none">
-            <div className="-m-2 rounded-xl bg-gray-900/5 p-2 ring-1 ring-inset ring-gray-900/10 lg:-m-4 lg:rounded-2xl lg:p-4">
+        <div className="flex max-w-2xl mx-auto mt-16 sm:mt-24 lg:mt-0 lg:mr-0 lg:ml-10 lg:max-w-none lg:flex-none 2xl:mt-20">
+          <div className="flex-none max-w-3xl sm:max-w-5xl lg:max-w-none">
+            <div className="p-2 -m-2 rounded-xl bg-gray-900/5 ring-1 ring-inset ring-gray-900/10 lg:-m-4 lg:rounded-2xl lg:p-4">
               <Image
                 src="/floop-dashboard.png"
                 alt="App screenshot"
