@@ -28,6 +28,113 @@ export default function GettingStarted() {
         </div>
         <Accordion type="single" collapsible className="w-full my-8">
           <AccordionItem value="item-1">
+            <AccordionTrigger>Using our API</AccordionTrigger>
+            <AccordionContent>
+              <p className="mb-4 text-lg leading-7">
+                Floop provides you with 3 endpoints to help you start collecting
+                your user feedback as fast as possible.
+              </p>
+              <p className="mb-4 text-lg leading-7">
+                Below is an example for each endpoint and how you can make a
+                submission using JavaScript.
+              </p>
+              <div className="min-w-full prose">
+                <CodeBlock
+                  className="p-4 mb-4 rounded-md"
+                  lang="tsx"
+                  theme="github-dark"
+                  code={[
+                    "// Ratings - https://feedback-loop.io/submissions/ratings",
+                    "",
+                    "const handleSubmitRating = async (formData: FormData) => {",
+                    "  // ... your form code and validation",
+                    "",
+                    "  const body = {",
+                    "    score: Number(rating),",
+                    "    details: message,",
+                    "    project_id: projectId,",
+                    "    user_email: userEmail,",
+                    "  };",
+                    "",
+                    "  await fetch('https://feedback-loop.io/submissions/ratings', {",
+                    "    method: 'POST',",
+                    "    mode: 'no-cors',",
+                    "    headers: {",
+                    "      'Content-Type': 'application/json',",
+                    "    },",
+                    "    body: JSON.stringify(body),",
+                    "",
+                    "  // ... return",
+                    "});",
+                  ].join("\n")}
+                />
+              </div>
+              <div className="min-w-full prose">
+                {" "}
+                <CodeBlock
+                  className="p-4 mb-4 rounded-md"
+                  lang="tsx"
+                  theme="github-dark"
+                  code={[
+                    "// Issues - https://feedback-loop.io/submissions/issues",
+                    "",
+                    "const handleSubmitIssue = async (formData: FormData) => {",
+                    "  // ... your form code and validation",
+                    "",
+                    "  const body = {",
+                    "    title: title,",
+                    "    details: message,",
+                    "    project_id: projectId,",
+                    "    user_email: userEmail,",
+                    "  };",
+                    "",
+                    "  await fetch('https://feedback-loop.io/submissions/issues', {",
+                    "    method: 'POST',",
+                    "    mode: 'no-cors',",
+                    "    headers: {",
+                    "      'Content-Type': 'application/json',",
+                    "    },",
+                    "    body: JSON.stringify(body),",
+                    "",
+                    "  // ... return",
+                    "});",
+                  ].join("\n")}
+                />
+              </div>
+              <div className="min-w-full prose">
+                <CodeBlock
+                  className="p-4 mb-4 rounded-md"
+                  lang="tsx"
+                  theme="github-dark"
+                  code={[
+                    "// Suggestions - https://feedback-loop.io/submissions/suggestions",
+                    "",
+                    "const handleSubmitRating = async (formData: FormData) => {",
+                    "  // ... your form code and validation",
+                    "",
+                    "  const body = {",
+                    "    title: title,",
+                    "    details: message,",
+                    "    project_id: projectId,",
+                    "    user_email: userEmail,",
+                    "  };",
+                    "",
+                    "  await fetch('https://feedback-loop.io/submissions/suggestions', {",
+                    "    method: 'POST',",
+                    "    mode: 'no-cors',",
+                    "    headers: {",
+                    "      'Content-Type': 'application/json',",
+                    "    },",
+                    "    body: JSON.stringify(body),",
+                    "",
+                    "  // ... return",
+                    "});",
+                  ].join("\n")}
+                />
+              </div>
+            </AccordionContent>
+          </AccordionItem>
+          <AccordionItem value="item-2">
             <AccordionTrigger>Using our React Widget</AccordionTrigger>
             <AccordionContent className="py-3">
               <CodeBlock
@@ -106,114 +213,6 @@ export default function GettingStarted() {
               >
                 View on GitHub
               </Link>
-            </AccordionContent>
-          </AccordionItem>
-          <AccordionItem value="item-2">
-            <AccordionTrigger>Using your own forms or widget</AccordionTrigger>
-            <AccordionContent>
-              <p className="mb-4 text-lg leading-7">
-                After you have built your forms or widget, simply send your data
-                to one of the three following endpoints like the examples below:
-              </p>
-              <p className="mb-4 text-lg leading-7">
-                The benefit to this approach is that you will have more control
-                over how the forms or widget will look. However, it will take
-                slightly longer to get up and running.
-              </p>
-              <div className="min-w-full prose">
-                <CodeBlock
-                  className="p-4 mb-4 rounded-md"
-                  lang="tsx"
-                  theme="github-dark"
-                  code={[
-                    "// Ratings",
-                    "",
-                    "const handleSubmitRating = async (formData: FormData) => {",
-                    "  // ... your form code and validation",
-                    "",
-                    "  const body = {",
-                    "    score: Number(rating),",
-                    "    details: message,",
-                    "    project_id: projectId,",
-                    "    user_email: userEmail,",
-                    "  };",
-                    "",
-                    "  await fetch('https://feedback-loop.io/submissions/ratings', {",
-                    "    method: 'POST',",
-                    "    mode: 'no-cors',",
-                    "    headers: {",
-                    "      'Content-Type': 'application/json',",
-                    "    },",
-                    "    body: JSON.stringify(body),",
-                    "",
-                    "  // ... return",
-                    "});",
-                  ].join("\n")}
-                />
-              </div>
-              <div className="min-w-full prose">
-                {" "}
-                <CodeBlock
-                  className="p-4 mb-4 rounded-md"
-                  lang="tsx"
-                  theme="github-dark"
-                  code={[
-                    "// Issues",
-                    "",
-                    "const handleSubmitIssue = async (formData: FormData) => {",
-                    "  // ... your form code and validation",
-                    "",
-                    "  const body = {",
-                    "    title: title,",
-                    "    details: message,",
-                    "    project_id: projectId,",
-                    "    user_email: userEmail,",
-                    "  };",
-                    "",
-                    "  await fetch('https://feedback-loop.io/submissions/issues', {",
-                    "    method: 'POST',",
-                    "    mode: 'no-cors',",
-                    "    headers: {",
-                    "      'Content-Type': 'application/json',",
-                    "    },",
-                    "    body: JSON.stringify(body),",
-                    "",
-                    "  // ... return",
-                    "});",
-                  ].join("\n")}
-                />
-              </div>
-              <div className="min-w-full prose">
-                <CodeBlock
-                  className="p-4 mb-4 rounded-md"
-                  lang="tsx"
-                  theme="github-dark"
-                  code={[
-                    "// Suggestions",
-                    "",
-                    "const handleSubmitRating = async (formData: FormData) => {",
-                    "  // ... your form code and validation",
-                    "",
-                    "  const body = {",
-                    "    title: title,",
-                    "    details: message,",
-                    "    project_id: projectId,",
-                    "    user_email: userEmail,",
-                    "  };",
-                    "",
-                    "  await fetch('https://feedback-loop.io/submissions/suggestions', {",
-                    "    method: 'POST',",
-                    "    mode: 'no-cors',",
-                    "    headers: {",
-                    "      'Content-Type': 'application/json',",
-                    "    },",
-                    "    body: JSON.stringify(body),",
-                    "",
-                    "  // ... return",
-                    "});",
-                  ].join("\n")}
-                />
-              </div>
             </AccordionContent>
           </AccordionItem>
         </Accordion>
