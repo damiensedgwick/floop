@@ -60,7 +60,7 @@ export default async function Hero() {
                 className: "2xl:mx-auto",
               })}
             >
-              Get started for free
+              Start Collecting Feedback
             </Link>
           </div>
         </div>

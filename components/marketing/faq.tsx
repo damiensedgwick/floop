@@ -5,9 +5,9 @@ const faqs = [
       "Getting started is simple, just sign up for an account and we will automatically create a project on the hobby plan for you. No credit card or payment details required. Then you can either install one of our widgets or use our API to start collecting feedback.",
   },
   {
-    question: "Is the hobby plan free forever?",
+    question: "Will Floop be free forever?",
     answer:
-      "Yes, the hobby plan will remain forever. This is so that it is easy to get started and start collecting feedback. However, there is a limit of 50 total submissions before you will need to subscribe.",
+      "The plan is to have Floop open source and free for as long as financially possible. If it ever grows to a point where financing becomes a problem, that challenge will be tackled at that point.",
   },
   {
     question: "Why use Floop when I can just build my own forms and dashboard?",

@@ -5,7 +5,7 @@ import Link from "next/link";
 import Image from "next/image";
 import { Popover, Transition } from "@headlessui/react";
 import { clsx } from "clsx";
-import { Button, buttonVariants } from "@/components/ui/button";
+import { buttonVariants } from "@/components/ui/button";
 import { ThemeToggle } from "@/components/shared/theme-toggle";
 import Container from "@/components/shared/container";
 
@@ -85,7 +85,6 @@ function MobileNavigation() {
             className="absolute inset-x-0 flex flex-col p-4 mt-4 text-lg tracking-tight origin-top bg-white shadow-xl top-full rounded-2xl text-slate-900 ring-1 ring-slate-900/5"
           >
             <MobileNavLink href="#features">Features</MobileNavLink>
-            <MobileNavLink href="#pricing">Pricing</MobileNavLink>
             <MobileNavLink href="#getting-started">
               Getting Started
             </MobileNavLink>
@@ -116,7 +115,6 @@ export default function Header() {
             </Link>
             <div className="hidden lg:flex lg:gap-x-4">
               <Link href="#features">Features</Link>
-              <Link href="#pricing">Pricing</Link>
               <Link href="#getting-started">Getting Started</Link>
               <Link href="#widget-preview">Floop Widget</Link>
               <Link href="#faqs">FAQs</Link>

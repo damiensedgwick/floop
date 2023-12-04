@@ -1,6 +1,5 @@
 import Hero from "@/components/marketing/hero";
 import Features from "@/components/marketing/features";
-import Pricing from "@/components/marketing/pricing";
 import Footer from "@/app/footer";
 import GettingStarted from "@/components/marketing/getting-started";
 import FAQ from "@/components/marketing/faq";
@@ -14,7 +13,6 @@ export default function Page() {
       <div>
         <Hero />
         <Features />
-        <Pricing />
         <GettingStarted />
         <WidgetPreview />
         <FAQ />
