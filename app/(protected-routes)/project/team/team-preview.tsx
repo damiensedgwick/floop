@@ -56,8 +56,8 @@ export default async function TeamPreview({ isProjectOwner, ownerId }: Props) {
                         <h3 className="font-medium truncate text-md">
                           {member.preferred_name || member.first_name || ""}
                         </h3>
-                        <span className="hidden md:block inline-flex flex-shrink-0 items-center rounded-full bg-green-50 text-xs font-medium text-green-700 ring-1 ring-inset ring-green-600/20 px-1.5 py-0.5">
-                          {member.id === project.owner_id ? "Admin" : "Member"}
+                        <span className="hidden md:block rounded-full bg-green-50 text-xs font-medium text-green-700 ring-1 ring-inset ring-green-600/20 px-1.5 py-0.5">
+                          {member.id === project.owner_id ? "Admin" : "User"}
                         </span>
                       </div>
                       {ownerId !== member.id || !isProjectOwner ? (
@@ -81,7 +81,7 @@ export default async function TeamPreview({ isProjectOwner, ownerId }: Props) {
                   <p className="mt-1 text-lg">
                     {member.id === project.owner_id
                       ? "Project Owner"
-                      : "Magnificent Member"}
+                      : "Team Member"}
                   </p>
                 </div>
               </div>
@@ -96,15 +96,17 @@ export default async function TeamPreview({ isProjectOwner, ownerId }: Props) {
                       Email
                     </a>
                   </div>
-                  <div className="flex flex-1 w-0 -ml-px">
-                    <button
-                      className="relative inline-flex items-center justify-center flex-1 w-0 py-4 text-sm font-semibold border border-transparent rounded-br-lg gap-x-3 opacity-60"
-                      disabled
-                    >
-                      <Phone className="stroke-2 stroke-accent-foreground fill-none" />
-                      Call
-                    </button>
-                  </div>
+                  {member.phone ? (
+                    <div className="flex flex-1 w-0 -ml-px">
+                      <a
+                        href={`tel:${member.phone}`}
+                        className="relative inline-flex items-center justify-center flex-1 w-0 py-4 text-sm font-semibold border border-transparent rounded-br-lg gap-x-3"
+                      >
+                        <Phone className="stroke-2 stroke-accent-foreground fill-none" />
+                        Call
+                      </a>
+                    </div>
+                  ) : null}
                 </div>
               </div>
             </li>
