@@ -298,5 +298,3 @@ CREATE TRIGGER increment_submission_count_trigger AFTER INSERT ON public.issues 
 CREATE TRIGGER increment_submission_count_trigger AFTER INSERT ON public.ratings FOR EACH ROW EXECUTE FUNCTION increment_submission_count();
 
 CREATE TRIGGER increment_submission_count_trigger AFTER INSERT ON public.suggestions FOR EACH ROW EXECUTE FUNCTION increment_submission_count();
-
-

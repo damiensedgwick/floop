@@ -49,6 +49,3 @@ using ((EXISTS ( SELECT 1
    FROM (users u
      JOIN projects p ON ((u.project_id = p.id)))
   WHERE (p.id = u.project_id))));
-
-
-

@@ -2,7 +2,6 @@ import { createRouteHandlerClient } from "@supabase/auth-helpers-nextjs";
 import { cookies } from "next/headers";
 import { NextResponse } from "next/server";
 import { Database } from "@/types/supabase";
-import getSubscription from "@/app/submissions/utils";
 
 export async function POST(request: Request) {
   const { project_id, title, details, user_email } = await request.json();
@@ -36,7 +35,7 @@ export async function POST(request: Request) {
 
   const { data: project } = await supabase
     .from("projects")
-    .select("id, total_submissions, stripe_subscription_id")
+    .select("id")
     .eq("id", project_id)
     .single();
 

@@ -30,8 +30,8 @@ export default function NumberOfUsersCard({ count }: Props) {
       <CardFooter className="flex flex-col items-start justify-between p-4 bg-secondary space-y-3 sm:space-y-0 sm:flex-row sm:items-center">
         <p className="sm:max-w-prose">
           <small>
-            You will only be able to add more users if you upgrade your
-            subscription to the growth plan
+            You will be able to see and manage your project users from the Teams
+            page
           </small>
         </p>
         <Link
