@@ -6,6 +6,3 @@ as permissive
 for update
 to public
 using ((auth.uid() = owner_id));
-
-
-

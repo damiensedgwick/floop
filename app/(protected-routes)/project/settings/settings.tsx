@@ -11,7 +11,6 @@ import { revalidatePath } from "next/cache";
 import ProjectIdCard from "@/app/(protected-routes)/project/settings/project-id-card.client";
 import OwnersNameCard from "@/app/(protected-routes)/project/settings/owners-name-card.client";
 import OwnersEmailCard from "@/app/(protected-routes)/project/settings/owners-email.client";
-import SubscriptionTypeCard from "@/app/(protected-routes)/project/settings/subscription-type-card";
 import { format } from "date-fns";
 import TotalSubmissionsCard from "@/app/(protected-routes)/project/settings/total-submissions-card";
 import NumberOfUsersCard from "@/app/(protected-routes)/project/settings/number-of-users-card";
@@ -78,11 +77,12 @@ export default async function Settings() {
       <OwnersEmailCard
         ownersEmail={owner?.email || "Cannot find owners email"}
       />
-      <TotalSubmissionsCard count={project.total_submissions} />
+
       <NumberOfUsersCard count={users?.length || 1} />
       <ProjectCreatedOnDate
         createdOn={format(new Date(project.created_at!), "dd MMM yyyy")}
       />
+      <TotalSubmissionsCard count={project.total_submissions} />
       {project.owner_id === user.id ? (
         <DeleteProjectAndProfileCard
           userId={user.id}
