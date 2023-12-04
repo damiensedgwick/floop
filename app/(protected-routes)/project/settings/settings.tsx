@@ -6,7 +6,6 @@ import {
 } from "@/app/(protected-routes)/project/utils";
 import { createServerActionClient } from "@supabase/auth-helpers-nextjs";
 import { Database } from "@/types/supabase";
-import getSubscription from "@/app/submissions/utils";
 import UpdateProjectForm from "@/app/(protected-routes)/project/settings/update-project-form.client";
 import { revalidatePath } from "next/cache";
 import ProjectIdCard from "@/app/(protected-routes)/project/settings/project-id-card.client";
@@ -24,7 +23,6 @@ export default async function Settings() {
   const user = await getPublicUser();
   const project = await getProject();
   const supabase = createServerComponentClient();
-  const subscription = await getSubscription(project.stripe_subscription_id);
 
   const { data: result } = await supabase
     .from("users")
@@ -79,17 +77,6 @@ export default async function Settings() {
       />
       <OwnersEmailCard
         ownersEmail={owner?.email || "Cannot find owners email"}
-      />
-      <SubscriptionTypeCard
-        subscriptionType={subscription ? "Growth" : "Hobby"}
-        expiry={
-          subscription
-            ? format(
-                new Date(subscription.current_period_end * 1000),
-                "dd MMM yyyy",
-              )
-            : "N/A"
-        }
       />
       <TotalSubmissionsCard count={project.total_submissions} />
       <NumberOfUsersCard count={users?.length || 1} />
