@@ -8,6 +8,7 @@ import { clsx } from "clsx";
 import { buttonVariants } from "@/components/ui/button";
 import { ThemeToggle } from "@/components/shared/theme-toggle";
 import Container from "@/components/shared/container";
+import { Github } from "lucide-react";
 
 function MobileNavLink({
   href,
@@ -131,6 +132,13 @@ export default function Header() {
               </Link>
             </div>
             <ThemeToggle />
+            <a
+              href="https://github.com/damiensedgwick/floop"
+              target="_blank"
+              rel="noopener norefer"
+            >
+              <Github className="h-6 w-6" />
+            </a>
             <div className="-mr-1 lg:hidden">
               <MobileNavigation />
             </div>
