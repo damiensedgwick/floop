@@ -11,6 +11,7 @@ import NavigationLink from "@/app/(protected-routes)/project/navigation-link.cli
 import MobileMenu from "@/app/(protected-routes)/project/mobile-menu.client";
 import LogoutButton from "@/components/logout-button.client";
 import { getPublicUser } from "./utils";
+import Link from "next/link";
 
 const navigation = [
   {
@@ -71,14 +72,16 @@ export default async function ProjectLayout({
         {/* Sidebar component, swap this element with another sidebar if you like */}
         <div className="flex grow flex-col gap-y-5 overflow-y-auto border-r border-gray-200 px-6">
           <div className="mt-6 flex h-16 shrink-0 items-center justify-center">
-            <Image
-              className="mt-4"
-              src="/mint-floop.svg"
-              alt="Your Company"
-              width={125}
-              height={100}
-              priority
-            />
+            <Link href="/">
+              <Image
+                className="mt-4"
+                src="/mint-floop.svg"
+                alt="Your Company"
+                width={125}
+                height={100}
+                priority
+              />
+            </Link>
           </div>
           <nav className="flex flex-1 flex-col">
             <ul role="list" className="flex flex-1 flex-col gap-y-7">
