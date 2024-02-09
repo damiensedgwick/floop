@@ -1,7 +1,7 @@
 package main
 
 import (
-	"database/sql"
+	"context"
 	"embed"
 	"fmt"
 	"html/template"
@@ -9,6 +9,7 @@ import (
 	"net/http"
 	"os"
 
+	"github.com/jackc/pgx/v5"
 	"github.com/joho/godotenv"
 	_ "github.com/lib/pq"
 )
@@ -24,37 +25,12 @@ func main() {
 		log.Fatal("Error loading .env file")
 	}
 
-	username := os.Getenv("DB_USERNAME")
-	if username == "" {
-		panic("no username specified")
-	}
-
-	password := os.Getenv("DB_PASSWORD")
-	if password == "" {
-		panic("no password specified")
-	}
-
-	host := os.Getenv("DB_HOST")
-	if host == "" {
-		panic("no host specified")
-	}
-
-	name := os.Getenv("DB_NAME")
-	if name == "" {
-		panic("no name specified")
-	}
-
-	ssl := os.Getenv("DB_SSL")
-	if ssl == "" {
-		ssl = ""
-	}
-
-	connStr := fmt.Sprintf("postgresql://%s:%s@%s/%s?sslmode=%s", username, password, host, name, ssl)
-	db, err := sql.Open("postgres", connStr)
+	conn, err := pgx.Connect(context.Background(), os.Getenv("DB_URL"))
 	if err != nil {
-		panic(err)
+		fmt.Fprintf(os.Stderr, "Unable to connect to database: %v\n", err)
+		os.Exit(1)
 	}
-	defer db.Close()
+	defer conn.Close(context.Background())
 
 	port := os.Getenv("PORT")
 	if port == "" {
@@ -62,8 +38,7 @@ func main() {
 	}
 
 	var version string
-
-	if err := db.QueryRow("select version()").Scan(&version); err != nil {
+	if err := conn.QueryRow(context.Background(), "select version()").Scan(&version); err != nil {
 		panic(err)
 	}
 
